@@ -3,10 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DA5B2C1241A55BE0075B2B4 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5B2C0241A55BE0075B2B4 /* UserData.swift */; };
+		2DA5B2C3241A55EE0075B2B4 /* UserDefaultPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5B2C2241A55EE0075B2B4 /* UserDefaultPropertyWrapper.swift */; };
+		2DB09A34241959880049CD2A /* ContactEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A33241959880049CD2A /* ContactEventRow.swift */; };
+		2DB09A362419639B0049CD2A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A352419639B0049CD2A /* UserProfileView.swift */; };
+		2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A38241975B20049CD2A /* BluetoothService.swift */; };
+		2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */; };
+		2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */; };
+		2DB09A40241A098F0049CD2A /* BerkananFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 2DB09A3F241A098F0049CD2A /* BerkananFoundation */; };
+		2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */; };
+		2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */; };
+		2DDEBF63241A3ED0005BE9A8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF62241A3ED0005BE9A8 /* MapView.swift */; };
 		2DFDC5A324190AB800B108F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A224190AB800B108F8 /* AppDelegate.swift */; };
 		2DFDC5A524190AB800B108F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A424190AB800B108F8 /* SceneDelegate.swift */; };
 		2DFDC5A824190AB800B108F8 /* COVID_19_Risk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVID_19_Risk.xcdatamodeld */; };
@@ -16,6 +27,7 @@
 		2DFDC5B224190AB900B108F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */; };
 		2DFDC5BD24190ABA00B108F8 /* COVID_19_RiskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5BC24190ABA00B108F8 /* COVID_19_RiskTests.swift */; };
 		2DFDC5C824190ABA00B108F8 /* COVID_19_RiskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* COVID_19_RiskUITests.swift */; };
+		2DFDC5E02419200E00B108F8 /* ContactEventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5DF2419200E00B108F8 /* ContactEventList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +48,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DA5B2C0241A55BE0075B2B4 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		2DA5B2C2241A55EE0075B2B4 /* UserDefaultPropertyWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultPropertyWrapper.swift; sourceTree = "<group>"; };
+		2DB09A33241959880049CD2A /* ContactEventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventRow.swift; sourceTree = "<group>"; };
+		2DB09A352419639B0049CD2A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		2DB09A38241975B20049CD2A /* BluetoothService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
+		2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
+		2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BluetoothService+CoreBluetooth.swift"; sourceTree = "<group>"; };
+		2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
+		2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+ViewControllerUtility.swift"; sourceTree = "<group>"; };
+		2DDEBF62241A3ED0005BE9A8 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2DFDC59F24190AB700B108F8 /* COVID-19 Risk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID-19 Risk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFDC5A224190AB800B108F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DFDC5A424190AB800B108F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +73,7 @@
 		2DFDC5C324190ABA00B108F8 /* COVID-19 RiskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COVID-19 RiskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFDC5C724190ABA00B108F8 /* COVID_19_RiskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVID_19_RiskUITests.swift; sourceTree = "<group>"; };
 		2DFDC5C924190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DFDC5DF2419200E00B108F8 /* ContactEventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DB09A40241A098F0049CD2A /* BerkananFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +102,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D044469241A229E006B61E4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2DA5B2C0241A55BE0075B2B4 /* UserData.swift */,
+				2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2DB09A37241965FF0049CD2A /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				2DB09A38241975B20049CD2A /* BluetoothService.swift */,
+				2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */,
+				2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		2DDEBF61241A39EE005BE9A8 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */,
+				2DA5B2C2241A55EE0075B2B4 /* UserDefaultPropertyWrapper.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		2DFDC59624190AB700B108F8 = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +155,10 @@
 			children = (
 				2DFDC5A224190AB800B108F8 /* AppDelegate.swift */,
 				2DFDC5A424190AB800B108F8 /* SceneDelegate.swift */,
-				2DFDC5A924190AB800B108F8 /* ContentView.swift */,
+				2DB09A37241965FF0049CD2A /* Bluetooth */,
+				2DDEBF61241A39EE005BE9A8 /* Utility */,
+				2DFDC5E12419218500B108F8 /* Views */,
+				2D044469241A229E006B61E4 /* Data */,
 				2DFDC5AB24190AB900B108F8 /* Assets.xcassets */,
 				2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */,
 				2DFDC5B324190AB900B108F8 /* Info.plist */,
@@ -139,6 +194,18 @@
 			path = "COVID-19 RiskUITests";
 			sourceTree = "<group>";
 		};
+		2DFDC5E12419218500B108F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2DDEBF62241A3ED0005BE9A8 /* MapView.swift */,
+				2DFDC5A924190AB800B108F8 /* ContentView.swift */,
+				2DFDC5DF2419200E00B108F8 /* ContactEventList.swift */,
+				2DB09A33241959880049CD2A /* ContactEventRow.swift */,
+				2DB09A352419639B0049CD2A /* UserProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,6 +222,9 @@
 			dependencies = (
 			);
 			name = "COVID-19 Risk";
+			packageProductDependencies = (
+				2DB09A3F241A098F0049CD2A /* BerkananFoundation */,
+			);
 			productName = "COVID-19 Risk";
 			productReference = 2DFDC59F24190AB700B108F8 /* COVID-19 Risk.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +297,9 @@
 				Base,
 			);
 			mainGroup = 2DFDC59624190AB700B108F8;
+			packageReferences = (
+				2DB09A3E241A098F0049CD2A /* XCRemoteSwiftPackageReference "BerkananFoundation" */,
+			);
 			productRefGroup = 2DFDC5A024190AB700B108F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -270,10 +343,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */,
+				2DA5B2C3241A55EE0075B2B4 /* UserDefaultPropertyWrapper.swift in Sources */,
 				2DFDC5A824190AB800B108F8 /* COVID_19_Risk.xcdatamodeld in Sources */,
+				2DA5B2C1241A55BE0075B2B4 /* UserData.swift in Sources */,
 				2DFDC5A324190AB800B108F8 /* AppDelegate.swift in Sources */,
+				2DB09A362419639B0049CD2A /* UserProfileView.swift in Sources */,
+				2DDEBF63241A3ED0005BE9A8 /* MapView.swift in Sources */,
+				2DB09A34241959880049CD2A /* ContactEventRow.swift in Sources */,
 				2DFDC5AA24190AB800B108F8 /* ContentView.swift in Sources */,
 				2DFDC5A524190AB800B108F8 /* SceneDelegate.swift in Sources */,
+				2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */,
+				2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */,
+				2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */,
+				2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */,
+				2DFDC5E02419200E00B108F8 /* ContactEventList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +527,7 @@
 				DEVELOPMENT_TEAM = S647QX78WZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "COVID-19 Risk/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -463,6 +548,7 @@
 				DEVELOPMENT_TEAM = S647QX78WZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "COVID-19 Risk/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -598,6 +684,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2DB09A3E241A098F0049CD2A /* XCRemoteSwiftPackageReference "BerkananFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zssz/BerkananFoundation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2DB09A3F241A098F0049CD2A /* BerkananFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2DB09A3E241A098F0049CD2A /* XCRemoteSwiftPackageReference "BerkananFoundation" */;
+			productName = BerkananFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2DFDC5A624190AB800B108F8 /* COVID_19_Risk.xcdatamodeld */ = {
