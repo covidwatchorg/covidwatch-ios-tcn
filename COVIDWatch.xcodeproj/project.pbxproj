@@ -723,7 +723,8 @@
 			baseConfigurationReference = A236DDAE6CBC8116CEEE63D5 /* Pods-COVIDWatch iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"COVIDWatch iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = S647QX78WZ;
 				ENABLE_PREVIEWS = YES;
@@ -735,6 +736,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = company.ize.covidwatch;
 				PRODUCT_NAME = COVIDWatch;
+				PROVISIONING_PROFILE_SPECIFIER = "COVIDWatch App Store";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -745,7 +747,8 @@
 			baseConfigurationReference = 64576CBB2D573736A801A228 /* Pods-COVIDWatch iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"COVIDWatch iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = S647QX78WZ;
 				ENABLE_PREVIEWS = YES;
@@ -757,6 +760,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = company.ize.covidwatch;
 				PRODUCT_NAME = COVIDWatch;
+				PROVISIONING_PROFILE_SPECIFIER = "COVIDWatch App Store";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
