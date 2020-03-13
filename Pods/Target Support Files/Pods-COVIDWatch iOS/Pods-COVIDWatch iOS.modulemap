@@ -1,0 +1,6 @@
+framework module Pods_COVIDWatch_iOS {
+  umbrella header "Pods-COVIDWatch iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

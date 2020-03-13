@@ -81,21 +81,21 @@
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
-		<key>Pods-COVID-19 Risk-COVID-19 RiskUITests.xcscheme</key>
+		<key>Pods-COVIDWatch iOS-COVIDWatch iOSUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>18</integer>
 		</dict>
-		<key>Pods-COVID-19 Risk.xcscheme</key>
+		<key>Pods-COVIDWatch iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>17</integer>
 		</dict>
-		<key>Pods-COVID-19 RiskTests.xcscheme</key>
+		<key>Pods-COVIDWatch iOSTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
