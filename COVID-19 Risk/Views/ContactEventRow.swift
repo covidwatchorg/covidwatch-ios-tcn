@@ -7,7 +7,7 @@ import SwiftUI
 
 struct ContactEventRow: View {
     
-    var contactEvent: ContactEvent
+    @ObservedObject var contactEvent: ContactEvent
     
     static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()

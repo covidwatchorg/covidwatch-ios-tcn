@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */; };
+		2D1F0FE7241B7B4700356B3A /* PublicContactEventsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */; };
 		2DA5B2C1241A55BE0075B2B4 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5B2C0241A55BE0075B2B4 /* UserData.swift */; };
 		2DA5B2C3241A55EE0075B2B4 /* UserDefaultPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5B2C2241A55EE0075B2B4 /* UserDefaultPropertyWrapper.swift */; };
+		2DA5B2C5241A97FD0075B2B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DA5B2C4241A97FC0075B2B4 /* GoogleService-Info.plist */; };
 		2DB09A34241959880049CD2A /* ContactEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A33241959880049CD2A /* ContactEventRow.swift */; };
 		2DB09A362419639B0049CD2A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A352419639B0049CD2A /* UserProfileView.swift */; };
 		2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A38241975B20049CD2A /* BluetoothService.swift */; };
 		2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */; };
 		2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */; };
 		2DB09A40241A098F0049CD2A /* BerkananFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 2DB09A3F241A098F0049CD2A /* BerkananFoundation */; };
+		2DC231E6241B886C00216404 /* Firestore+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E5241B886C00216404 /* Firestore+Additions.swift */; };
+		2DC231E8241B914200216404 /* CoreData+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E7241B914200216404 /* CoreData+Additions.swift */; };
+		2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */; };
+		2DC231EC241BA17B00216404 /* UIViewController+ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */; };
+		2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */; };
 		2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */; };
 		2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */; };
 		2DDEBF63241A3ED0005BE9A8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF62241A3ED0005BE9A8 /* MapView.swift */; };
@@ -28,6 +36,9 @@
 		2DFDC5BD24190ABA00B108F8 /* COVID_19_RiskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5BC24190ABA00B108F8 /* COVID_19_RiskTests.swift */; };
 		2DFDC5C824190ABA00B108F8 /* COVID_19_RiskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* COVID_19_RiskUITests.swift */; };
 		2DFDC5E02419200E00B108F8 /* ContactEventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5DF2419200E00B108F8 /* ContactEventList.swift */; };
+		8BC74E7041C9CDD27EA99D82 /* Pods_COVID_19_Risk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF6219273CFE76331B6E62F /* Pods_COVID_19_Risk.framework */; };
+		C0BE39E804F5580BDBF377DA /* Pods_COVID_19_RiskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE72CA162D27D848770F33F /* Pods_COVID_19_RiskTests.framework */; };
+		ED0262C57BFA6907291D458C /* Pods_COVID_19_Risk_COVID_19_RiskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E99D6BEFFFAF566B488B47A /* Pods_COVID_19_Risk_COVID_19_RiskUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,13 +59,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E99D6BEFFFAF566B488B47A /* Pods_COVID_19_Risk_COVID_19_RiskUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_19_Risk_COVID_19_RiskUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalContactEventsUploader.swift; sourceTree = "<group>"; };
+		2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicContactEventsObserver.swift; sourceTree = "<group>"; };
 		2DA5B2C0241A55BE0075B2B4 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		2DA5B2C2241A55EE0075B2B4 /* UserDefaultPropertyWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultPropertyWrapper.swift; sourceTree = "<group>"; };
+		2DA5B2C4241A97FC0075B2B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2DB09A33241959880049CD2A /* ContactEventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventRow.swift; sourceTree = "<group>"; };
 		2DB09A352419639B0049CD2A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		2DB09A38241975B20049CD2A /* BluetoothService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
 		2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
 		2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BluetoothService+CoreBluetooth.swift"; sourceTree = "<group>"; };
+		2DC231E5241B886C00216404 /* Firestore+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Additions.swift"; sourceTree = "<group>"; };
+		2DC231E7241B914200216404 /* CoreData+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Additions.swift"; sourceTree = "<group>"; };
+		2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserExposureNotifier.swift; sourceTree = "<group>"; };
+		2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresenting.swift"; sourceTree = "<group>"; };
+		2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UserNotificationCenter.swift"; sourceTree = "<group>"; };
 		2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+ViewControllerUtility.swift"; sourceTree = "<group>"; };
 		2DDEBF62241A3ED0005BE9A8 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -74,6 +94,14 @@
 		2DFDC5C724190ABA00B108F8 /* COVID_19_RiskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVID_19_RiskUITests.swift; sourceTree = "<group>"; };
 		2DFDC5C924190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DFDC5DF2419200E00B108F8 /* ContactEventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventList.swift; sourceTree = "<group>"; };
+		328891014B90A28E0C90E061 /* Pods-COVID-19 RiskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 RiskTests.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 RiskTests/Pods-COVID-19 RiskTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; sourceTree = "<group>"; };
+		68229525C3FC0E16F5BEA5CD /* Pods-COVID-19 Risk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk.release.xcconfig"; sourceTree = "<group>"; };
+		9AE0C66067225E42AE3D3DA1 /* Pods-COVID-19 RiskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 RiskTests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 RiskTests/Pods-COVID-19 RiskTests.release.xcconfig"; sourceTree = "<group>"; };
+		9B2EC3BF1237512C18D931F1 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A5B373FB19305537F2E1D4A1 /* Pods-COVID-19 Risk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk.debug.xcconfig"; sourceTree = "<group>"; };
+		ACE72CA162D27D848770F33F /* Pods_COVID_19_RiskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_19_RiskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF6219273CFE76331B6E62F /* Pods_COVID_19_Risk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_19_Risk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DB09A40241A098F0049CD2A /* BerkananFoundation in Frameworks */,
+				8BC74E7041C9CDD27EA99D82 /* Pods_COVID_19_Risk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0BE39E804F5580BDBF377DA /* Pods_COVID_19_RiskTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED0262C57BFA6907291D458C /* Pods_COVID_19_Risk_COVID_19_RiskUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				2DA5B2C0241A55BE0075B2B4 /* UserData.swift */,
+				2DC231E7241B914200216404 /* CoreData+Additions.swift */,
 				2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */,
 			);
 			path = Data;
@@ -121,10 +153,19 @@
 			path = Bluetooth;
 			sourceTree = "<group>";
 		};
+		2DC231E4241B885500216404 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				2DC231E5241B886C00216404 /* Firestore+Additions.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
 		2DDEBF61241A39EE005BE9A8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */,
+				2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */,
 				2DA5B2C2241A55EE0075B2B4 /* UserDefaultPropertyWrapper.swift */,
 			);
 			path = Utility;
@@ -137,6 +178,8 @@
 				2DFDC5BB24190ABA00B108F8 /* COVID-19 RiskTests */,
 				2DFDC5C624190ABA00B108F8 /* COVID-19 RiskUITests */,
 				2DFDC5A024190AB700B108F8 /* Products */,
+				5AECD6E91A3FC6D786A4C832 /* Pods */,
+				DADF6E488DD3842604EFF7C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,7 +197,12 @@
 			isa = PBXGroup;
 			children = (
 				2DFDC5A224190AB800B108F8 /* AppDelegate.swift */,
+				2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */,
 				2DFDC5A424190AB800B108F8 /* SceneDelegate.swift */,
+				2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */,
+				2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */,
+				2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */,
+				2DC231E4241B885500216404 /* Firestore */,
 				2DB09A37241965FF0049CD2A /* Bluetooth */,
 				2DDEBF61241A39EE005BE9A8 /* Utility */,
 				2DFDC5E12419218500B108F8 /* Views */,
@@ -162,6 +210,7 @@
 				2DFDC5AB24190AB900B108F8 /* Assets.xcassets */,
 				2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */,
 				2DFDC5B324190AB900B108F8 /* Info.plist */,
+				2DA5B2C4241A97FC0075B2B4 /* GoogleService-Info.plist */,
 				2DFDC5A624190AB800B108F8 /* COVID_19_Risk.xcdatamodeld */,
 				2DFDC5AD24190AB900B108F8 /* Preview Content */,
 			);
@@ -206,6 +255,29 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		5AECD6E91A3FC6D786A4C832 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5B373FB19305537F2E1D4A1 /* Pods-COVID-19 Risk.debug.xcconfig */,
+				68229525C3FC0E16F5BEA5CD /* Pods-COVID-19 Risk.release.xcconfig */,
+				9B2EC3BF1237512C18D931F1 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig */,
+				3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */,
+				328891014B90A28E0C90E061 /* Pods-COVID-19 RiskTests.debug.xcconfig */,
+				9AE0C66067225E42AE3D3DA1 /* Pods-COVID-19 RiskTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DADF6E488DD3842604EFF7C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAF6219273CFE76331B6E62F /* Pods_COVID_19_Risk.framework */,
+				1E99D6BEFFFAF566B488B47A /* Pods_COVID_19_Risk_COVID_19_RiskUITests.framework */,
+				ACE72CA162D27D848770F33F /* Pods_COVID_19_RiskTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,9 +285,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DFDC5CC24190ABA00B108F8 /* Build configuration list for PBXNativeTarget "COVID-19 Risk" */;
 			buildPhases = (
+				FF47CA4630BD6DE9380890D3 /* [CP] Check Pods Manifest.lock */,
 				2DFDC59B24190AB700B108F8 /* Sources */,
 				2DFDC59C24190AB700B108F8 /* Frameworks */,
 				2DFDC59D24190AB700B108F8 /* Resources */,
+				7F1803136CC3C3E485586BD6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,6 +307,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DFDC5CF24190ABA00B108F8 /* Build configuration list for PBXNativeTarget "COVID-19 RiskTests" */;
 			buildPhases = (
+				FC6303ED284885D616B54BE3 /* [CP] Check Pods Manifest.lock */,
 				2DFDC5B424190ABA00B108F8 /* Sources */,
 				2DFDC5B524190ABA00B108F8 /* Frameworks */,
 				2DFDC5B624190ABA00B108F8 /* Resources */,
@@ -251,9 +326,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DFDC5D224190ABA00B108F8 /* Build configuration list for PBXNativeTarget "COVID-19 RiskUITests" */;
 			buildPhases = (
+				25309401B212C1929A08560C /* [CP] Check Pods Manifest.lock */,
 				2DFDC5BF24190ABA00B108F8 /* Sources */,
 				2DFDC5C024190ABA00B108F8 /* Frameworks */,
 				2DFDC5C124190ABA00B108F8 /* Resources */,
+				2BA397E932D420A7FF011A44 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DFDC5B224190AB900B108F8 /* LaunchScreen.storyboard in Resources */,
+				2DA5B2C5241A97FD0075B2B4 /* GoogleService-Info.plist in Resources */,
 				2DFDC5AF24190AB900B108F8 /* Preview Assets.xcassets in Resources */,
 				2DFDC5AC24190AB900B108F8 /* Assets.xcassets in Resources */,
 			);
@@ -338,6 +416,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		25309401B212C1929A08560C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-COVID-19 Risk-COVID-19 RiskUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2BA397E932D420A7FF011A44 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F1803136CC3C3E485586BD6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC6303ED284885D616B54BE3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-COVID-19 RiskTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF47CA4630BD6DE9380890D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-COVID-19 Risk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2DFDC59B24190AB700B108F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -348,16 +529,23 @@
 				2DFDC5A824190AB800B108F8 /* COVID_19_Risk.xcdatamodeld in Sources */,
 				2DA5B2C1241A55BE0075B2B4 /* UserData.swift in Sources */,
 				2DFDC5A324190AB800B108F8 /* AppDelegate.swift in Sources */,
+				2DC231E6241B886C00216404 /* Firestore+Additions.swift in Sources */,
 				2DB09A362419639B0049CD2A /* UserProfileView.swift in Sources */,
 				2DDEBF63241A3ED0005BE9A8 /* MapView.swift in Sources */,
 				2DB09A34241959880049CD2A /* ContactEventRow.swift in Sources */,
 				2DFDC5AA24190AB800B108F8 /* ContentView.swift in Sources */,
 				2DFDC5A524190AB800B108F8 /* SceneDelegate.swift in Sources */,
+				2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */,
 				2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */,
+				2DC231E8241B914200216404 /* CoreData+Additions.swift in Sources */,
 				2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */,
 				2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */,
 				2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */,
+				2D1F0FE7241B7B4700356B3A /* PublicContactEventsObserver.swift in Sources */,
 				2DFDC5E02419200E00B108F8 /* ContactEventList.swift in Sources */,
+				2DC231EC241BA17B00216404 /* UIViewController+ErrorPresenting.swift in Sources */,
+				2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */,
+				2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +708,7 @@
 		};
 		2DFDC5CD24190ABA00B108F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5B373FB19305537F2E1D4A1 /* Pods-COVID-19 Risk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -541,6 +730,7 @@
 		};
 		2DFDC5CE24190ABA00B108F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68229525C3FC0E16F5BEA5CD /* Pods-COVID-19 Risk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -562,6 +752,7 @@
 		};
 		2DFDC5D024190ABA00B108F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 328891014B90A28E0C90E061 /* Pods-COVID-19 RiskTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -584,6 +775,7 @@
 		};
 		2DFDC5D124190ABA00B108F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AE0C66067225E42AE3D3DA1 /* Pods-COVID-19 RiskTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -606,8 +798,9 @@
 		};
 		2DFDC5D324190ABA00B108F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B2EC3BF1237512C18D931F1 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S647QX78WZ;
 				INFOPLIST_FILE = "COVID-19 RiskUITests/Info.plist";
@@ -626,8 +819,9 @@
 		};
 		2DFDC5D424190ABA00B108F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S647QX78WZ;
 				INFOPLIST_FILE = "COVID-19 RiskUITests/Info.plist";

@@ -5,6 +5,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 import os.log
 
 public class PersistentContainer: NSPersistentContainer {
@@ -19,11 +20,11 @@ public class PersistentContainer: NSPersistentContainer {
     
     public var isLoading = false
     
-    public var loadError: NSError? //= (CocoaError(.coderInvalidValue) as NSError)
+    public var loadError: Error? //= (CocoaError(.coderInvalidValue) as NSError)
     
-    var loadCompletionHandlers = [((NSError?) -> Void)]()
+    var loadCompletionHandlers = [((Error?) -> Void)]()
     
-    public func load(_ completionHandler: @escaping (NSError?) -> Void) {
+    public func load(_ completionHandler: @escaping (Error?) -> Void) {
         let container = self
         if let error = container.loadError {
             DispatchQueue.main.async { completionHandler(error) }
@@ -44,19 +45,20 @@ public class PersistentContainer: NSPersistentContainer {
         
         os_log("Loading persistent stores...", log: PersistentContainer.log)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            container.isLoading = false
-            if let error = error as NSError? {
+            defer {
+                container.isLoading = false
+                container.loadCompletionHandlers.forEach { $0(error) }
+            }
+            if let error = error {
                 os_log("Loading persistent stores failed: %@", log: PersistentContainer.log, type: .error, error as CVarArg)
                 container.loadError = error
-                container.loadCompletionHandlers.forEach { $0(error) }
                 return
             }
             container.isLoaded = true
             os_log("Loading persistent stores completed.", log: PersistentContainer.log)
             
-            container.viewContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+            container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             container.viewContext.automaticallyMergesChangesFromParent = true
-            container.loadCompletionHandlers.forEach { $0(nil) }
         })
     }
     
@@ -88,10 +90,7 @@ public class PersistentContainer: NSPersistentContainer {
             do {
                 try context.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                UIApplication.shared.topViewController?.present(error as NSError, animated: true)
             }
         }
     }

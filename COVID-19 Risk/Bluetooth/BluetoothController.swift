@@ -374,7 +374,8 @@ extension BluetoothController: CBCentralManagerDelegate {
         #endif
         central.scanForPeripherals(
             withServices: services,
-            options: nil
+            options: [CBCentralManagerScanOptionAllowDuplicatesKey :
+              NSNumber(booleanLiteral: true)]
         )
         #if targetEnvironment(macCatalyst)
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
@@ -929,13 +930,12 @@ extension BluetoothController: CBPeripheralManagerDelegate {
     
     private func addNewContactEvent(with identifier: UUID) {
         DispatchQueue.main.async {
-            let context = PersistentContainer.shared.newBackgroundContext()
-            context.perform {
-                let contactEvent = ContactEvent(context: context)
-                contactEvent.identifier = identifier
-                contactEvent.timestamp = Date()
-                try? context.save()
-            }
+            let context = PersistentContainer.shared.viewContext
+            let contactEvent = ContactEvent(context: context)
+            contactEvent.identifier = identifier
+            contactEvent.timestamp = Date()
+            contactEvent.wasPotentiallyInfectious = UserData.shared.isCurrentUserSick
+            try? context.save()
         }
     }
 }

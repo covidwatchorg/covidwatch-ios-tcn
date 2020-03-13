@@ -9,7 +9,11 @@ struct ContactEventList: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
-    @FetchRequest(entity: ContactEvent.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \ContactEvent.timestamp, ascending: false)], animation: .default) var contactEvents: FetchedResults<ContactEvent>
+    @FetchRequest(
+        entity: ContactEvent.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \ContactEvent.timestamp, ascending: false)],
+        animation: .default
+    ) var contactEvents: FetchedResults<ContactEvent>
     
     var body: some View {
         List(self.contactEvents, id: \.self) { contactEvent in

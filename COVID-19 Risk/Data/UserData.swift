@@ -11,4 +11,7 @@ final class UserData: ObservableObject  {
     
     @Published(key: "isCurrentUserSick")
     var isCurrentUserSick: Bool = false
+    
+    @Published(key: "wasCurrentUserNotifiedOfExposure")
+    var wasCurrentUserNotifiedOfExposure: Bool = false
 }

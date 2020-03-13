@@ -11,7 +11,7 @@ public struct BluetoothService {
     public static var UUIDPeripheralServiceString =
     "C019FB3E-B1FC-45E9-9274-1EA259249C80"
     
-    /// The string representation of the UUID for the message characteristic.
+    /// The string representation of the UUID for the contact event identifier characteristic.
     public static var UUIDContactEventIdentifierCharacteristicString: String =
     "D61F4F27-3D6B-4B04-9E46-C9D2EA617F62"
 }

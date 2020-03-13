@@ -1,0 +1,6 @@
+framework module Pods_COVID_19_Risk_COVID_19_RiskUITests {
+  umbrella header "Pods-COVID-19 Risk-COVID-19 RiskUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -5,15 +5,31 @@
 
 import UIKit
 import CoreData
+import Firebase
+import Combine
+import os.log
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    private var bluetoothController: BluetoothController?
+    var bluetoothController: BluetoothController?
+    
+    var isCurrentUserCanceller: AnyCancellable? = nil
+    
+    var localContactEventsUploader: LocalContactEventsUploader?
+    var publicContactEventsObserver: PublicContactEventsObserver?
+    var currentUserExposureNotifier: CurrentUserExposureNotifier?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         let actionsAfterLoading = {
+            self.configureCurrentUserNotificationCenter()
+            self.requestUserNotificationAuthorization(provisional: false)
+            self.configureIsCurrentUserSickObserver()
+            self.localContactEventsUploader = LocalContactEventsUploader()
+            self.publicContactEventsObserver = PublicContactEventsObserver()
+            self.currentUserExposureNotifier = CurrentUserExposureNotifier()
             self.bluetoothController = BluetoothController()
             self.bluetoothController?.start()
         }
@@ -41,6 +57,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+    
+    private func configureIsCurrentUserSickObserver() {
+        self.isCurrentUserCanceller = UserData.shared.$isCurrentUserSick
+            .dropFirst()
+            .removeDuplicates()
+            .sink { [weak self] (value) in
+                guard let self = self else { return }
+                guard value == true else { return }
+                DispatchQueue.main.async {
+                    self.localContactEventsUploader?.markAllLocalContactEventsAsPotentiallyInfectious()
+                }                
+        }
+    }    
     
     // MARK: UISceneSession Lifecycle
     

@@ -7,6 +7,7 @@ import Foundation
 import Combine
 
 extension Published {
+    
     init(wrappedValue defaultValue: Value, key: String) {
         let value = UserDefaults.standard.object(forKey: key) as? Value ?? defaultValue
         self.init(initialValue: value)
