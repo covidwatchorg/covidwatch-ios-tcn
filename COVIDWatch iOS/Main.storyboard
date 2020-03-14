@@ -29,7 +29,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Heat Map" image="map" catalog="system" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Heat Map" image="UITabBarMap" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,7 +78,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Profile" image="person.circle" catalog="system" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="My Profile" image="UITabBarMyProfile" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,7 +142,7 @@
                             <outlet property="delegate" destination="Vxd-Mb-2bC" id="Tdp-X9-Gau"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Contact Events" image="person.3" catalog="system" id="wBe-ib-3f8"/>
+                    <tabBarItem key="tabBarItem" title="Contact Events" image="UITabBarContacts" id="wBe-ib-3f8"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKI-e2-X3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -151,8 +151,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="map" catalog="system" width="64" height="56"/>
-        <image name="person.3" catalog="system" width="72" height="35"/>
-        <image name="person.circle" catalog="system" width="64" height="60"/>
+        <image name="UITabBarContacts" width="34" height="28"/>
+        <image name="UITabBarMap" width="29" height="29"/>
+        <image name="UITabBarMyProfile" width="25" height="25"/>
     </resources>
 </document>
