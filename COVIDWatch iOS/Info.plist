@@ -24,11 +24,16 @@
 	<string>Allow access to Bluetooth.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Allow access to Bluetooth.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow access to your rough location.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow access to your rough location.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
 		<string>bluetooth-peripheral</string>
-		<string>processing</string>
+		<string>fetch</string>
+		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

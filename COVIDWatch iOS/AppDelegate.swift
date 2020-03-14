@@ -7,12 +7,14 @@ import UIKit
 import CoreData
 import Firebase
 import os.log
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    var locationManager: CLLocationManager?
     var bluetoothController: BluetoothController?
     
     var isCurrentUserSickObservation: NSKeyValueObservation?
@@ -26,12 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         let actionsAfterLoading = {
             UserDefaults.standard.register(defaults: UserDefaults.Key.registration)
+            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
             self.configureCurrentUserNotificationCenter()
             self.requestUserNotificationAuthorization(provisional: false)
             self.configureIsCurrentUserSickObserver()
             self.localContactEventsUploader = LocalContactEventsUploader()
             self.publicContactEventsObserver = PublicContactEventsObserver()
             self.currentUserExposureNotifier = CurrentUserExposureNotifier()
+            self.locationManager = CLLocationManager()
+            self.locationManager?.delegate = self
+            self.startMySignificantLocationChanges()
             self.bluetoothController = BluetoothController()
             self.bluetoothController?.start()
         }
@@ -58,6 +64,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             actionsAfterLoading()
         }
         return true
+    }
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        os_log("Performing background fetch...", type: .info)
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 3) {
+            os_log("Performed background fetch", type: .info)
+            completionHandler(.newData)
+        }
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
