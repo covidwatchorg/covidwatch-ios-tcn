@@ -28,6 +28,8 @@
 	<string>Allow access to Bluetooth.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Allow access to your rough location.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Allow access to your rough location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow access to your rough location.</string>
 	<key>UIBackgroundModes</key>
