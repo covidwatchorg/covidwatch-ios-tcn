@@ -934,7 +934,7 @@ extension BluetoothController: CBPeripheralManagerDelegate {
             let contactEvent = ContactEvent(context: context)
             contactEvent.identifier = identifier
             contactEvent.timestamp = Date()
-            contactEvent.wasPotentiallyInfectious = UserData.shared.isCurrentUserSick
+            contactEvent.wasPotentiallyInfectious = UserDefaults.standard.isCurrentUserSick
             try? context.save()
         }
     }

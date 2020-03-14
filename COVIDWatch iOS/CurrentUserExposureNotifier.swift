@@ -33,7 +33,7 @@ open class CurrentUserExposureNotifier: NSObject, NSFetchedResultsControllerDele
     
     public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         // No need to notify current user of exposure if they reported themselves sick
-        guard !UserData.shared.isCurrentUserSick else {
+        guard !UserDefaults.standard.isCurrentUserSick else {
             return
         }
         guard type == .insert else {
@@ -46,7 +46,7 @@ open class CurrentUserExposureNotifier: NSObject, NSFetchedResultsControllerDele
         //        guard !UserData.shared.wasCurrentUserNotifiedOfExposure else {
         //            return
         //        }
-        UserData.shared.wasCurrentUserNotifiedOfExposure = true
+        UserDefaults.standard.wasCurrentUserNotifiedOfExposure = true
         if UIApplication.shared.applicationState == .background {
             (UIApplication.shared.delegate as? AppDelegate)?.showCurrentUserExposedUserNotification()
         }
