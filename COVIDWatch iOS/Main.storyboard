@@ -18,7 +18,6 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="0Uv-C6-dcy" kind="relationship" relationship="viewControllers" id="uqt-fz-kAS"/>
                         <segue destination="Vxd-Mb-2bC" kind="relationship" relationship="viewControllers" id="NMH-wg-mhO"/>
                         <segue destination="2dV-uJ-laY" kind="relationship" relationship="viewControllers" id="Iab-BH-1J0"/>
                     </connections>
@@ -26,33 +25,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-62" y="-7"/>
-        </scene>
-        <!--Heat Map-->
-        <scene sceneID="s9n-FX-X4U">
-            <objects>
-                <viewController id="0Uv-C6-dcy" customClass="MapViewController" customModule="COVIDWatch" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xhv-bw-3Q0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CQL-L9-yR0">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="CQL-L9-yR0" firstAttribute="leading" secondItem="Xhv-bw-3Q0" secondAttribute="leading" id="0Uw-Fy-DfM"/>
-                            <constraint firstAttribute="bottom" secondItem="CQL-L9-yR0" secondAttribute="bottom" id="Wr6-wv-WeE"/>
-                            <constraint firstItem="CQL-L9-yR0" firstAttribute="top" secondItem="Xhv-bw-3Q0" secondAttribute="top" id="dSk-Y9-rOj"/>
-                            <constraint firstAttribute="trailing" secondItem="CQL-L9-yR0" secondAttribute="trailing" id="q0P-2X-W3R"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="NDx-ao-Ikw"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Heat Map" image="UITabBarMap" id="Aln-s4-i2L"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="InO-8e-mJk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="777" y="-688"/>
         </scene>
         <!--Contact Events-->
         <scene sceneID="4Yb-kV-CrU">
@@ -98,7 +70,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKI-e2-X3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="770" y="-7"/>
+            <point key="canvasLocation" x="770" y="-358"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="c7e-Qk-AFT">
@@ -148,13 +120,12 @@
                 <tabBarItem title="My Profile" image="tabBarItem:dIV-G0-ORJ:image" id="dIV-G0-ORJ"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7c2-qP-PCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="770" y="721"/>
+            <point key="canvasLocation" x="770" y="395"/>
         </scene>
     </scenes>
     <resources>
         <image name="Contact" width="35" height="35"/>
         <image name="UITabBarContacts" width="34" height="28"/>
-        <image name="UITabBarMap" width="29" height="29"/>
         <image name="tabBarItem:dIV-G0-ORJ:image" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
