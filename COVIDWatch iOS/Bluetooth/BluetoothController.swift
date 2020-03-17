@@ -405,14 +405,21 @@ extension BluetoothController: CBCentralManagerDelegate {
         if !self.discoveredPeripherals.contains(peripheral) {
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
                 os_log(
-                    "Central manager did discover new peripheral (uuid=%@ name='%@') RSSI=%d",
+                    "Central manager did discover new peripheral (uuid=%@ name='%@') RSSI=%d advertisementData=%@",
                     log: self.log,
                     peripheral.identifier.description,
                     peripheral.name ?? "",
-                    RSSI.intValue
+                    RSSI.intValue,
+                    advertisementData.description
                 )
             }
-            self.peripheralsToReadConfigurationsFrom.insert(peripheral)
+            if let advertisementDataServiceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [CBUUID : Data], let uuidData = advertisementDataServiceData[CBUUID(string: BluetoothService.UUIDPeripheralServiceString)],
+                let uuid = try? UUID(dataRepresentation: uuidData) {
+                self.addNewContactEvent(with: uuid)
+            }
+            else {
+                self.peripheralsToReadConfigurationsFrom.insert(peripheral)
+            }
         }
         self.discoveredPeripherals.insert(peripheral)
         self.connectPeripheralsIfNeeded()

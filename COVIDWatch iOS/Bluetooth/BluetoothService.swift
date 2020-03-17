@@ -8,8 +8,9 @@ import Foundation
 public struct BluetoothService {
     
     /// The string representation of the UUID for the primary peripheral service.
-    public static var UUIDPeripheralServiceString =
-    "C019FB3E-B1FC-45E9-9274-1EA259249C80"
+//    public static var UUIDPeripheralServiceString = "C019"
+    public static var UUIDPeripheralServiceString = "0000C019-0000-1000-8000-00805F9B34FB"
+    
     
     /// The string representation of the UUID for the contact event identifier characteristic.
     public static var UUIDContactEventIdentifierCharacteristicString: String =
