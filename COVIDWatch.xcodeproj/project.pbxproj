@@ -10,6 +10,7 @@
 		00999A0AECE2E1E4E9ACA1C6 /* Pods_COVIDWatch_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA04245E319FAE324E129CE /* Pods_COVIDWatch_iOSTests.framework */; };
 		2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */; };
 		2D1F0FE7241B7B4700356B3A /* PublicContactEventsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */; };
+		2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30EFC2242268010063C211 /* Array+Chunked.swift */; };
 		2D5C540F241CB51D00DB2520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5C540E241CB51C00DB2520 /* Main.storyboard */; };
 		2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
 		2D5C5414241CBC5C00DB2520 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5412241CBC5C00DB2520 /* UserProfileViewController.swift */; };
@@ -61,6 +62,7 @@
 		0BA04245E319FAE324E129CE /* Pods_COVIDWatch_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalContactEventsUploader.swift; sourceTree = "<group>"; };
 		2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicContactEventsObserver.swift; sourceTree = "<group>"; };
+		2D30EFC2242268010063C211 /* Array+Chunked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunked.swift"; sourceTree = "<group>"; };
 		2D5C540E241CB51C00DB2520 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Shared.swift"; sourceTree = "<group>"; };
 		2D5C5412241CBC5C00DB2520 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */,
 				2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */,
+				2D30EFC2242268010063C211 /* Array+Chunked.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 			files = (
 				2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */,
 				2D5C5414241CBC5C00DB2520 /* UserProfileViewController.swift in Sources */,
+				2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */,
 				2DFDC5A824190AB800B108F8 /* COVIDWatch.xcdatamodeld in Sources */,
 				2DFDC5A324190AB800B108F8 /* AppDelegate.swift in Sources */,
 				2D5C5417241CC18900DB2520 /* ContactEventsTableViewController.swift in Sources */,
