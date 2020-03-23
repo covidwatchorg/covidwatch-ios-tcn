@@ -18,8 +18,8 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Vxd-Mb-2bC" kind="relationship" relationship="viewControllers" id="NMH-wg-mhO"/>
-                        <segue destination="2dV-uJ-laY" kind="relationship" relationship="viewControllers" id="Iab-BH-1J0"/>
+                        <segue destination="xIW-yl-ZHW" kind="relationship" relationship="viewControllers" id="NMH-wg-mhO"/>
+                        <segue destination="r8d-OF-MOR" kind="relationship" relationship="viewControllers" id="Iab-BH-1J0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -65,12 +65,32 @@
                             <outlet property="delegate" destination="Vxd-Mb-2bC" id="Tdp-X9-Gau"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Contact Events" image="UITabBarContacts" id="wBe-ib-3f8"/>
+                    <navigationItem key="navigationItem" title="Contact Events" id="uu8-DF-5Zq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="clearBarButtonItem" destination="VDf-9o-ho1" id="jNe-dm-92i"/>
+                        <outlet property="startBarButtonItem" destination="gjD-zw-Baw" id="W0n-4Q-lfd"/>
+                        <outlet property="stopBarButtonItem" destination="jj5-ay-Zd4" id="Uaz-T8-9aU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKI-e2-X3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Clear" id="VDf-9o-ho1">
+                    <connections>
+                        <action selector="handleTapClearButton:" destination="Vxd-Mb-2bC" id="0Wc-Fw-d7C"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Stop" id="jj5-ay-Zd4">
+                    <connections>
+                        <action selector="handleTapStopButton:" destination="Vxd-Mb-2bC" id="913-7p-KCs"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Start" id="gjD-zw-Baw">
+                    <connections>
+                        <action selector="handleTapStartButton:" destination="Vxd-Mb-2bC" id="t4b-Yh-xcr"/>
+                    </connections>
+                </barButtonItem>
             </objects>
-            <point key="canvasLocation" x="770" y="-358"/>
+            <point key="canvasLocation" x="1679.7101449275362" y="-358.25892857142856"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="c7e-Qk-AFT">
@@ -81,7 +101,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="n5g-Ze-gaK">
-                                <rect key="frame" x="88" y="335" width="238" height="187"/>
+                                <rect key="frame" x="88" y="357" width="238" height="187"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Are you sick? 🤒" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2q-tW-C06">
                                         <rect key="frame" x="0.0" y="0.0" width="238" height="41"/>
@@ -115,12 +135,50 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kIM-wI-kvW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Profile" image="Contact" id="8Yk-EL-Mec"/>
+                    <navigationItem key="navigationItem" title="My Profile" id="Khc-G7-iyc"/>
                 </viewController>
                 <tabBarItem title="My Profile" image="tabBarItem:dIV-G0-ORJ:image" id="dIV-G0-ORJ"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7c2-qP-PCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="770" y="395"/>
+            <point key="canvasLocation" x="1679.7101449275362" y="394.41964285714283"/>
+        </scene>
+        <!--My Profile-->
+        <scene sceneID="yRI-DU-lpz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r8d-OF-MOR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Profile" image="Contact" id="8Yk-EL-Mec"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kQc-1O-bAW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2dV-uJ-laY" kind="relationship" relationship="rootViewController" id="W3p-v2-irU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YQS-SI-LIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769.56521739130437" y="394.41964285714283"/>
+        </scene>
+        <!--Contact Events-->
+        <scene sceneID="hsy-yR-063">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xIW-yl-ZHW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Contact Events" image="UITabBarContacts" id="wBe-ib-3f8"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tbi-dS-Zy9">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vxd-Mb-2bC" kind="relationship" relationship="rootViewController" id="FMo-KD-VIJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBM-tE-Drr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769.56521739130437" y="-358.25892857142856"/>
         </scene>
     </scenes>
     <resources>

@@ -12,6 +12,7 @@ extension UserDefaults {
     public struct Key {
         public static let isCurrentUserSick = "isCurrentUserSick"
         public static let wasCurrentUserNotifiedOfExposure = "wasCurrentUserNotifiedOfExposure"
+        public static let isContactEventLoggingEnabled = "isContactEventLoggingEnabled"
         
         public static let registration: [String : Any] = [
             isCurrentUserSick: false,
@@ -34,6 +35,15 @@ extension UserDefaults {
         }
         set {
             setValue(newValue, forKey: Key.wasCurrentUserNotifiedOfExposure)
+        }
+    }
+    
+    @objc dynamic public var isContactEventLoggingEnabled: Bool {
+        get {
+            return bool(forKey: Key.isContactEventLoggingEnabled)
+        }
+        set {
+            setValue(newValue, forKey: Key.isContactEventLoggingEnabled)
         }
     }
     

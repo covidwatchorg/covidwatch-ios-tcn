@@ -11,9 +11,17 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
     
     private var fetchedResultsController: NSFetchedResultsController<ContactEvent>?
     
+    var isContactEventLoggingEnabledObservation: NSKeyValueObservation?
+    var isContactEventLoggingEnabled: Bool = false {
+        didSet {
+            configureBarButtonItems(animated: isViewLoaded)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initFetchedResultsController()
+        self.configureIsContactEventLoggingObservationEnabled()
     }
     
     func initFetchedResultsController() {
@@ -36,6 +44,59 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
                 os_log("Fetched results controller perform fetch failed: %@", type: .error, error as CVarArg)
             }
         }
+    }
+    
+    @IBOutlet weak var clearBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var startBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var stopBarButtonItem: UIBarButtonItem!
+    
+    @IBAction func handleTapClearButton(_ sender: UIBarButtonItem) {
+        let context = PersistentContainer.shared.newBackgroundContext()
+        context.perform {
+            do {
+                os_log("Deleting contact events...", type: .info)
+                guard let entityName = ContactEvent.entity().name else { return }
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+                let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+                batchDeleteRequest.resultType = .resultTypeObjectIDs
+                let batchDeleteResult = try context.execute(batchDeleteRequest) as! NSBatchDeleteResult
+                let deletedObjectIDs = batchDeleteResult.result as! [NSManagedObjectID]
+                if !deletedObjectIDs.isEmpty {
+                    NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSDeletedObjectsKey: deletedObjectIDs], into: [PersistentContainer.shared.viewContext])
+                }
+                os_log("Deleted %d contact event(s)", type: .info, deletedObjectIDs.count)
+            }
+            catch {
+                os_log("Deleting contact events failed: %@", type: .error, error as CVarArg)
+            }
+        }
+    }
+    
+    @IBAction func handleTapStartButton(_ sender: UIBarButtonItem) {
+        UserDefaults.standard.isContactEventLoggingEnabled = true
+    }
+    
+    @IBAction func handleTapStopButton(_ sender: UIBarButtonItem) {
+        UserDefaults.standard.isContactEventLoggingEnabled = false
+    }
+    
+    private func configureBarButtonItems(animated: Bool = false) {
+        var items = [UIBarButtonItem]()
+        if self.isContactEventLoggingEnabled {
+            items.append(stopBarButtonItem)
+        }
+        else {
+            items.append(startBarButtonItem)
+        }
+        items.append(clearBarButtonItem)
+        self.navigationItem.setRightBarButtonItems(items, animated: animated)
+    }
+            
+    private func configureIsContactEventLoggingObservationEnabled() {
+        self.isContactEventLoggingEnabledObservation = UserDefaults.standard.observe(\.isContactEventLoggingEnabled, options: [.initial, .new], changeHandler: { [weak self] (_, change) in
+            guard let self = self else { return }
+            self.isContactEventLoggingEnabled = (change.newValue ?? false)
+        })
     }
     
     lazy var dateFormatter: DateFormatter = {

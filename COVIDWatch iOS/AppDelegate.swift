@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var locationManager: CLLocationManager?
     var bluetoothController: BluetoothController?
     
+    var isContactEventLoggingEnabledObservation: NSKeyValueObservation?
     var isCurrentUserSickObservation: NSKeyValueObservation?
     
     var localContactEventsUploader: LocalContactEventsUploader?
@@ -39,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.locationManager?.delegate = self
             self.startMySignificantLocationChanges()
             self.bluetoothController = BluetoothController()
-            self.bluetoothController?.start()
+            self.configureIsContactEventLoggingEnabledObserver()
         }
         PersistentContainer.shared.load { error in
             if let error = error {
@@ -79,6 +80,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if PersistentContainer.shared.isLoaded {
             PersistentContainer.shared.saveContext()
         }
+    }
+    
+    private func configureIsContactEventLoggingEnabledObserver() {
+        self.isContactEventLoggingEnabledObservation = UserDefaults.standard.observe(\.isContactEventLoggingEnabled, options: [.initial, .new], changeHandler: { [weak self] (_, change) in
+            guard let self = self else { return }
+            if change.newValue ?? false {
+                self.bluetoothController?.start()
+            }
+            else {
+                self.bluetoothController?.stop()
+            }
+        })
     }
     
     private func configureIsCurrentUserSickObserver() {
