@@ -82,7 +82,7 @@
 		2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+ViewControllerUtility.swift"; sourceTree = "<group>"; };
 		2DE56E22241CE5E400764A6F /* AppDelegate+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
-		2DFDC59F24190AB700B108F8 /* Tags.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tags.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DFDC59F24190AB700B108F8 /* Tags!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tags!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFDC5A224190AB800B108F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DFDC5A724190AB800B108F8 /* COVID_19_Risk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = COVID_19_Risk.xcdatamodel; sourceTree = "<group>"; };
 		2DFDC5AB24190AB900B108F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		2DFDC5A024190AB700B108F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DFDC59F24190AB700B108F8 /* Tags.app */,
+				2DFDC59F24190AB700B108F8 /* Tags!.app */,
 				2DFDC5B824190ABA00B108F8 /* COVIDWatch iOSTests.xctest */,
 				2DFDC5C324190ABA00B108F8 /* COVIDWatch iOSUITests.xctest */,
 			);
@@ -313,7 +313,7 @@
 				2DB09A3F241A098F0049CD2A /* BerkananFoundation */,
 			);
 			productName = "COVID-19 Risk";
-			productReference = 2DFDC59F24190AB700B108F8 /* Tags.app */;
+			productReference = 2DFDC59F24190AB700B108F8 /* Tags!.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2DFDC5B724190ABA00B108F8 /* COVIDWatch iOSTests */ = {
@@ -754,7 +754,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios;
-				PRODUCT_NAME = Tags;
+				PRODUCT_NAME = "Tags!";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -778,7 +778,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios;
-				PRODUCT_NAME = Tags;
+				PRODUCT_NAME = "Tags!";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
