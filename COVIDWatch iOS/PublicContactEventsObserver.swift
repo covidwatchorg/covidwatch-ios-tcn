@@ -19,6 +19,7 @@ open class PublicContactEventsObserver: NSObject {
             guard let self = self else { return }
             if let error = error {
                 os_log("Listening for realtime updates of contact events failed: %@", type: .error, error as CVarArg)
+                UIApplication.shared.topViewController?.present(error as NSError, animated: true)
                 return
             }
             guard let querySnapshot = querySnapshot else { return }

@@ -23,9 +23,9 @@ extension BluetoothService {
             type: CBUUID(
                 string: BluetoothService.UUIDContactEventIdentifierCharacteristicString
             ),
-            properties: [.read],
+            properties: [.read, .write],
             value: nil,
-            permissions: [.readable]
+            permissions: [.readable, .writeable]
         )
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-62" y="-7"/>
         </scene>
-        <!--Contact Events-->
+        <!--Seen Tags-->
         <scene sceneID="4Yb-kV-CrU">
             <objects>
-                <tableViewController id="Vxd-Mb-2bC" customClass="ContactEventsTableViewController" customModule="COVIDWatch" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Vxd-Mb-2bC" customClass="ContactEventsTableViewController" customModule="Red_Paint" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VmW-Cj-iyY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,7 @@
                             <outlet property="delegate" destination="Vxd-Mb-2bC" id="Tdp-X9-Gau"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Contact Events" id="uu8-DF-5Zq"/>
+                    <navigationItem key="navigationItem" title="Seen Tags" id="uu8-DF-5Zq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="clearBarButtonItem" destination="VDf-9o-ho1" id="jNe-dm-92i"/>
@@ -92,25 +92,25 @@
             </objects>
             <point key="canvasLocation" x="1679.7101449275362" y="-358.25892857142856"/>
         </scene>
-        <!--My Profile-->
+        <!--Settings-->
         <scene sceneID="c7e-Qk-AFT">
             <objects>
-                <viewController id="2dV-uJ-laY" customClass="UserProfileViewController" customModule="COVIDWatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2dV-uJ-laY" customClass="UserProfileViewController" customModule="Red_Paint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uqe-vy-EfA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="n5g-Ze-gaK">
-                                <rect key="frame" x="88" y="357" width="238" height="187"/>
+                                <rect key="frame" x="80.5" y="357" width="253" height="187"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Are you sick? 🤒" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2q-tW-C06">
-                                        <rect key="frame" x="0.0" y="0.0" width="238" height="41"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Notify seen tags?" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2q-tW-C06">
+                                        <rect key="frame" x="0.0" y="0.0" width="253" height="41"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cjd-En-Ydu">
-                                        <rect key="frame" x="0.0" y="61" width="238" height="53"/>
+                                        <rect key="frame" x="0.0" y="61" width="253" height="53"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <state key="normal" title="No"/>
                                         <connections>
@@ -118,7 +118,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOj-oS-GXE">
-                                        <rect key="frame" x="0.0" y="134" width="238" height="53"/>
+                                        <rect key="frame" x="0.0" y="134" width="253" height="53"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <state key="normal" title="Yes"/>
                                         <connections>
@@ -135,18 +135,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kIM-wI-kvW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Profile" id="Khc-G7-iyc"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Khc-G7-iyc"/>
                 </viewController>
                 <tabBarItem title="My Profile" image="tabBarItem:dIV-G0-ORJ:image" id="dIV-G0-ORJ"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7c2-qP-PCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1679.7101449275362" y="394.41964285714283"/>
         </scene>
-        <!--My Profile-->
+        <!--Settings-->
         <scene sceneID="yRI-DU-lpz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r8d-OF-MOR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Profile" image="Contact" id="8Yk-EL-Mec"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="UITabBarTagSettings" id="8Yk-EL-Mec"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kQc-1O-bAW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -161,11 +161,11 @@
             </objects>
             <point key="canvasLocation" x="769.56521739130437" y="394.41964285714283"/>
         </scene>
-        <!--Contact Events-->
+        <!--Seen Tags-->
         <scene sceneID="hsy-yR-063">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xIW-yl-ZHW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contact Events" image="UITabBarContacts" id="wBe-ib-3f8"/>
+                    <tabBarItem key="tabBarItem" title="Seen Tags" image="UITabBarTag" id="wBe-ib-3f8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tbi-dS-Zy9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -182,8 +182,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Contact" width="35" height="35"/>
-        <image name="UITabBarContacts" width="34" height="28"/>
+        <image name="UITabBarTag" width="19" height="19"/>
+        <image name="UITabBarTagSettings" width="19" height="19"/>
         <image name="tabBarItem:dIV-G0-ORJ:image" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T

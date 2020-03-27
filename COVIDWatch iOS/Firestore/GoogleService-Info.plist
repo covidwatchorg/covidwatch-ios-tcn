@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>948989908880-e7heqefqe7i7r5i0qgl8l7acodak98e6.apps.googleusercontent.com</string>
+	<string>1004440600410-lhdes8lh9ln4kc4obb8jlu81po7m755o.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.948989908880-e7heqefqe7i7r5i0qgl8l7acodak98e6</string>
+	<string>com.googleusercontent.apps.1004440600410-lhdes8lh9ln4kc4obb8jlu81po7m755o</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAE8f4oQkideNOMMYQu-QEHeaLIVVvNtxQ</string>
+	<string>AIzaSyD7o1_BAGBErGd7ol2otkRmZgSa0ERTk2c</string>
 	<key>GCM_SENDER_ID</key>
-	<string>948989908880</string>
+	<string>1004440600410</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>company.ize.covidwatch</string>
+	<string>org.covidwatch.tags.ios</string>
 	<key>PROJECT_ID</key>
-	<string>covid-19-risk</string>
+	<string>tags-eea45</string>
 	<key>STORAGE_BUCKET</key>
-	<string>covid-19-risk.appspot.com</string>
+	<string>tags-eea45.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:948989908880:ios:bdf163bd3e432424950515</string>
+	<string>1:1004440600410:ios:944b62e0fea9231c16bd63</string>
 	<key>DATABASE_URL</key>
-	<string>https://covid-19-risk.firebaseio.com</string>
+	<string>https://tags-eea45.firebaseio.com</string>
 </dict>
 </plist>
