@@ -14,6 +14,8 @@ import BerkananFoundation
 extension TimeInterval {
     
     public static let peripheralConnectingTimeout: TimeInterval = 8
+    // Using values higher than 30 seconds will kill the app
+    public static let stayAwakeTimeout: TimeInterval = 28
 }
 
 /// The controller responsible for the Bluetooth communication.
@@ -38,13 +40,13 @@ class BluetoothController: NSObject {
     
     private var connectingPeripheralIdentifiers = Set<UUID>() {
         didSet {
-            self.handleConnectingConnectedPeripheralIdentifiersChange()
+            self.configureBackgroundTaskIfNeeded()
         }
     }
     
     private var connectedPeripheralIdentifiers = Set<UUID>() {
         didSet {
-            self.handleConnectingConnectedPeripheralIdentifiersChange()
+            self.configureBackgroundTaskIfNeeded()
         }
     }
     
@@ -72,15 +74,44 @@ class BluetoothController: NSObject {
     
     private var peripheralsToWriteContactEventIdentifierTo = Set<CBPeripheral>()
     
+    private var stayAwake = false {
+        didSet {
+            self.configureBackgroundTaskIfNeeded()
+        }
+    }
+            
+    private func _stayAwake() {
+        self.stayAwake = true
+        DispatchQueue.main.async {
+            NSObject.cancelPreviousPerformRequests(
+                withTarget: self,
+                selector: #selector(self.setStayAwakeEnabled(enabled:)),
+                object: nil
+            )
+            self.perform(
+                #selector(self.setStayAwakeEnabled(enabled:)),
+                with: false,
+                afterDelay: .stayAwakeTimeout
+            )
+        }
+    }
+    
+    @objc private func setStayAwakeEnabled(enabled: Bool) {
+        self.dispatchQueue.async {
+            self.stayAwake = enabled
+        }
+    }
+    
     private var peripheralsToConnect: Set<CBPeripheral> {
         return Set(peripheralsToReadContactEventIdentifierFrom)
             .union(Set(peripheralsToWriteContactEventIdentifierTo))
     }
     
-    private func handleConnectingConnectedPeripheralIdentifiersChange() {
+    private func configureBackgroundTaskIfNeeded() {
         #if canImport(UIKit) && !targetEnvironment(macCatalyst) && !os(watchOS)
         if self.connectingPeripheralIdentifiers.isEmpty &&
-            self.connectedPeripheralIdentifiers.isEmpty {
+            self.connectedPeripheralIdentifiers.isEmpty &&
+            !self.stayAwake {
             self.endBackgroundTaskIfNeeded()
         }
         else {
@@ -98,16 +129,43 @@ class BluetoothController: NSObject {
         guard self.backgroundTaskIdentifier == nil else { return }
         self.backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask {
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
-                os_log("Did expire background task", log: self.log)
+                os_log(
+                    "Did expire background task=%d",
+                    log: self.log,
+                    type: .info,
+                    self.backgroundTaskIdentifier?.rawValue ?? 0
+                )
             }
             self.endBackgroundTaskIfNeeded()
+        }
+        if let task = self.backgroundTaskIdentifier {
+            if task == .invalid {
+                os_log(
+                    "Begin background task failed",
+                    log: self.log,
+                    type: .error
+                )
+            }
+            else {
+                os_log(
+                    "Begin background task=%d",
+                    log: self.log,
+                    task.rawValue
+                )
+            }
         }
     }
     
     private func endBackgroundTaskIfNeeded() {
         if let identifier = self.backgroundTaskIdentifier {
-            self.backgroundTaskIdentifier = nil
             UIApplication.shared.endBackgroundTask(identifier)
+            os_log(
+                "End background task=%d",
+                log: self.log,
+                self.backgroundTaskIdentifier?.rawValue ??
+                    UIBackgroundTaskIdentifier.invalid.rawValue
+            )
+            self.backgroundTaskIdentifier = nil
         }
     }
     #endif
@@ -448,7 +506,8 @@ extension BluetoothController: CBCentralManagerDelegate {
                     advertisementData.description
                 )
             }
-            if let advertisementDataServiceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [CBUUID : Data], let uuidData = advertisementDataServiceData[CBUUID(string: BluetoothService.UUIDPeripheralServiceString)],
+            if let advertisementDataServiceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [CBUUID : Data],
+                let uuidData = advertisementDataServiceData[CBUUID(string: BluetoothService.UUIDPeripheralServiceString)],
                 let uuid = try? UUID(dataRepresentation: uuidData) {
                 self.logNewContactEvent(with: uuid)
                 // Remote device is an Android device. Write CEN, because it can not see the iOS device.
@@ -459,6 +518,8 @@ extension BluetoothController: CBCentralManagerDelegate {
                 // OR use reading. Both cases are handled.
                 // self.peripheralsToReadContactEventIdentifierFrom.insert(peripheral)
             }
+            
+            self._stayAwake()
         }
         self.discoveredPeripherals.insert(peripheral)
         self.connectPeripheralsIfNeeded()
@@ -728,7 +789,7 @@ extension BluetoothController: CBPeripheralDelegate {
             return
         }
         
-        if let configurationCharacteristic = service.characteristics?.first(where: {
+        if let contactEventIdentifierCharacteristic = service.characteristics?.first(where: {
             $0.uuid == CBUUID(
                 string: BluetoothService.UUIDContactEventIdentifierCharacteristicString
             )
@@ -736,17 +797,17 @@ extension BluetoothController: CBPeripheralDelegate {
             // Read identifier, if needed
             if self.shouldReadContactEventIdentifier(from: peripheral) {
                 if !self.readingConfigurationCharacteristics.contains(
-                    configurationCharacteristic) {
+                    contactEventIdentifierCharacteristic) {
                     self.readingConfigurationCharacteristics.insert(
-                        configurationCharacteristic)
-                    peripheral.readValue(for: configurationCharacteristic)
+                        contactEventIdentifierCharacteristic)
+                    peripheral.readValue(for: contactEventIdentifierCharacteristic)
                     if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
                         os_log(
                             "Peripheral (uuid=%@ name='%@') reading value for characteristic=%@ for service=%@",
                             log: self.log,
                             peripheral.identifier.description,
                             peripheral.name ?? "",
-                            configurationCharacteristic.description,
+                            contactEventIdentifierCharacteristic.description,
                             service.description
                         )
                     }
@@ -755,15 +816,15 @@ extension BluetoothController: CBPeripheralDelegate {
                 // Write identifier, if needed
             else if self.shouldWriteContactEventIdentifier(to: peripheral) {
                 if !self.writingConfigurationCharacteristics.contains(
-                    configurationCharacteristic) {
+                    contactEventIdentifierCharacteristic) {
                     self.writingConfigurationCharacteristics.insert(
-                        configurationCharacteristic)
+                        contactEventIdentifierCharacteristic)
                     let identifier = UUID()
                     self.logNewContactEvent(with: identifier)
                     let value = identifier.dataRepresentation
                     peripheral.writeValue(
                         value,
-                        for: configurationCharacteristic,
+                        for: contactEventIdentifierCharacteristic,
                         type: .withResponse
                     )
                     if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
@@ -772,7 +833,7 @@ extension BluetoothController: CBPeripheralDelegate {
                             log: self.log,
                             peripheral.identifier.description,
                             peripheral.name ?? "",
-                            configurationCharacteristic.description,
+                            contactEventIdentifierCharacteristic.description,
                             service.description
                         )
                     }
@@ -1054,6 +1115,8 @@ extension BluetoothController: CBPeripheralManagerDelegate {
             log: self.log,
             CBATTError.success.rawValue
         )
+        
+        self._stayAwake()
     }
     
     func peripheralManager(
@@ -1110,5 +1173,7 @@ extension BluetoothController: CBPeripheralManagerDelegate {
                 )
             }
         }
+        
+        self._stayAwake()
     }
 }

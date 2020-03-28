@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         let actionsAfterLoading = {
             UserDefaults.standard.register(defaults: UserDefaults.Key.registration)
-            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+//            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
             self.configureCurrentUserNotificationCenter()
             self.requestUserNotificationAuthorization(provisional: false)
             self.configureIsCurrentUserSickObserver()
@@ -67,13 +67,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        os_log("Performing background fetch...", type: .info)
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 3) {
-            os_log("Performed background fetch", type: .info)
-            completionHandler(.newData)
-        }
-    }
+//    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//        os_log("Performing background fetch...", type: .info)
+//        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 3) {
+//            os_log("Performed background fetch", type: .info)
+//            completionHandler(.newData)
+//        }
+//    }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Save changes in the application's managed object context when the application transitions to the background.
