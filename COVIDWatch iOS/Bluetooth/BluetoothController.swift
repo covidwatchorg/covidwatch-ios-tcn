@@ -29,6 +29,8 @@ class BluetoothController: NSObject {
     
     private var centralManager: CBCentralManager?
     
+    private var restoredPeripherals: [CBPeripheral]?
+    
     private var discoveredPeripherals = Set<CBPeripheral>()
     
     private var connectingTimeoutTimersForPeripheralIdentifiers =
@@ -169,7 +171,10 @@ class BluetoothController: NSObject {
             self.centralManager = CBCentralManager(
                 delegate: self,
                 queue: self.dispatchQueue,
-                options: nil
+                options: [
+                    CBCentralManagerOptionRestoreIdentifierKey:
+                    "covidwatch.central."
+                ]
             )
             self.peripheralManager = CBPeripheralManager(
                 delegate: self,
@@ -353,6 +358,23 @@ class BluetoothController: NSObject {
 
 extension BluetoothController: CBCentralManagerDelegate {
     
+    func centralManager(
+        _ central: CBCentralManager,
+        willRestoreState dict: [String : Any]
+    ) {
+        if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
+            os_log(
+                "Central manager will restore state=%@",
+                log: self.log,
+                dict.description
+            )
+        }
+        // Store the peripherals so we can cancel the connections to them when
+        // the central manager's state changes to `.poweredOn`.
+        self.restoredPeripherals =
+            dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral]
+    }
+    
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             os_log(
@@ -364,6 +386,10 @@ extension BluetoothController: CBCentralManagerDelegate {
         self.stopCentralManager()
         switch central.state {
             case .poweredOn:
+                self.restoredPeripherals?.forEach({
+                    central.cancelPeripheralConnection($0)
+                })
+                self.restoredPeripherals = nil
                 self._startScan()
             default:
                 ()
@@ -885,8 +911,9 @@ extension BluetoothController: CBPeripheralManagerDelegate {
     ) {
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             os_log(
-                "Peripheral manager will restore state",
-                log: self.log
+                "Peripheral manager will restore state=%@",
+                log: self.log,
+                dict.description
             )
         }
     }
@@ -1034,11 +1061,11 @@ extension BluetoothController: CBPeripheralManagerDelegate {
         didReceiveWrite requests: [CBATTRequest]
     ) {
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
-          os_log(
-            "Peripheral manager did receive write requests=%@",
-            log: self.log,
-            requests.description
-          )
+            os_log(
+                "Peripheral manager did receive write requests=%@",
+                log: self.log,
+                requests.description
+            )
         }
         
         for request in requests {
