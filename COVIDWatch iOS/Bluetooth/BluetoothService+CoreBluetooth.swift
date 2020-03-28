@@ -17,7 +17,7 @@ extension BluetoothService {
         return service
     }
     
-    /// The characteristic used for reading contact event identifiers.
+    /// The characteristic used for exchanging contact event identifiers.
     public static var contactEventIdentifierCharacteristic: CBMutableCharacteristic {
         return CBMutableCharacteristic(
             type: CBUUID(
