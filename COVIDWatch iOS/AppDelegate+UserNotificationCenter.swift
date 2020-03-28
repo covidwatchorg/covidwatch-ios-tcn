@@ -1,6 +1,5 @@
 //
 //  Created by Zsombor SZABO on 20/09/2017.
-//  Copyright © 2017 IZE. All rights reserved.
 //
 
 import UserNotifications
@@ -29,8 +28,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         notificationContent.categoryIdentifier = UNNotificationCategory.currentUserExposed
         notificationContent.sound = .defaultCritical
         // When exporting for localizations Xcode doesn't look for NSString.localizedUserNotificationString(forKey:, arguments:))
-        _ = NSLocalizedString("You have been notitied", comment: "")
-        notificationContent.body = NSString.localizedUserNotificationString(forKey: "You have been notitied", arguments: nil)
+        _ = NSLocalizedString("You have been notified", comment: "")
+        notificationContent.body = NSString.localizedUserNotificationString(forKey: "You have been notified", arguments: nil)
         let notificationRequest = UNNotificationRequest(identifier: UNNotificationCategory.currentUserExposed, content: notificationContent, trigger:
             UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false))
         addToCurrentUserNotificationCenterNotificationRequest(notificationRequest)

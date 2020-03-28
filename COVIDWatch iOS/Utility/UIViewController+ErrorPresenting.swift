@@ -1,6 +1,5 @@
 //
 //  Created by Zsombor SZABO on 13/10/2016.
-//  Copyright © 2016 IZE. All rights reserved.
 //
 
 import UIKit
