@@ -30,6 +30,8 @@
 		2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */; };
 		2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */; };
 		2DE56E23241CE5E400764A6F /* AppDelegate+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE56E22241CE5E400764A6F /* AppDelegate+CLLocationManagerDelegate.swift */; };
+		2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */; };
+		2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundRefresh.swift */; };
 		2DFDC5A324190AB800B108F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A224190AB800B108F8 /* AppDelegate.swift */; };
 		2DFDC5A824190AB800B108F8 /* COVIDWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */; };
 		2DFDC5AC24190AB900B108F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5AB24190AB900B108F8 /* Assets.xcassets */; };
@@ -82,6 +84,8 @@
 		2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+ViewControllerUtility.swift"; sourceTree = "<group>"; };
 		2DE56E22241CE5E400764A6F /* AppDelegate+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
+		2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+BackgroundTasks.swift"; sourceTree = "<group>"; };
+		2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+BackgroundRefresh.swift"; sourceTree = "<group>"; };
 		2DFDC59F24190AB700B108F8 /* Tags!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tags!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFDC5A224190AB800B108F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DFDC5A724190AB800B108F8 /* COVID_19_Risk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = COVID_19_Risk.xcdatamodel; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				2DFDC5A224190AB800B108F8 /* AppDelegate.swift */,
+				2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundRefresh.swift */,
+				2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */,
 				2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */,
 				2DE56E22241CE5E400764A6F /* AppDelegate+CLLocationManagerDelegate.swift */,
 				2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */,
@@ -577,6 +583,8 @@
 				2DC231EC241BA17B00216404 /* UIViewController+ErrorPresenting.swift in Sources */,
 				2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */,
 				2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */,
+				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundRefresh.swift in Sources */,
+				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

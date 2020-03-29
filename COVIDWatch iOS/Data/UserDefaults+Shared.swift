@@ -16,6 +16,7 @@ extension UserDefaults {
         public static let registration: [String : Any] = [
             isCurrentUserSick: false,
             wasCurrentUserNotifiedOfExposure: false,
+            isContactEventLoggingEnabled: false,
         ]
     }
     

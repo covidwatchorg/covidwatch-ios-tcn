@@ -10,12 +10,12 @@ import os.log
 extension AppDelegate: CLLocationManagerDelegate {
     
     func startMySignificantLocationChanges() {
-//        if !CLLocationManager.significantLocationChangeMonitoringAvailable() {
-//            // The device does not support this service.
-//            return
-//        }
-//        self.locationManager?.requestAlwaysAuthorization()
-//        self.locationManager?.startMonitoringSignificantLocationChanges()
+        if !CLLocationManager.significantLocationChangeMonitoringAvailable() {
+            // The device does not support this service.
+            return
+        }
+        self.locationManager?.requestAlwaysAuthorization()
+        self.locationManager?.startMonitoringSignificantLocationChanges()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

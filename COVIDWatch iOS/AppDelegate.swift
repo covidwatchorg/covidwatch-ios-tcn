@@ -8,6 +8,7 @@ import CoreData
 import Firebase
 import os.log
 import CoreLocation
+import BackgroundTasks
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,9 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        if #available(iOS 13.0, *) {
+            self.registerBackgroundTasks()
+        }
+        else {
+            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum) // iOS 12 or earlier
+        }
         let actionsAfterLoading = {
             UserDefaults.standard.register(defaults: UserDefaults.Key.registration)
-//            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
             self.configureCurrentUserNotificationCenter()
             self.requestUserNotificationAuthorization(provisional: false)
             self.configureIsCurrentUserSickObserver()
@@ -67,25 +73,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-//    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-//        os_log("Performing background fetch...", type: .info)
-//        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 3) {
-//            os_log("Performed background fetch", type: .info)
-//            completionHandler(.newData)
-//        }
-//    }
-    
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Save changes in the application's managed object context when the application transitions to the background.
         if PersistentContainer.shared.isLoaded {
             PersistentContainer.shared.saveContext()
+        }
+        if #available(iOS 13.0, *) {
+            self.scheduleBackgroundTasks()
         }
     }
     
     private func configureIsContactEventLoggingEnabledObserver() {
         self.isContactEventLoggingEnabledObservation = UserDefaults.standard.observe(\.isContactEventLoggingEnabled, options: [.initial, .new], changeHandler: { [weak self] (_, change) in
             guard let self = self else { return }
-            if change.newValue ?? false {
+            if change.newValue ?? true {
                 self.bluetoothController?.start()
             }
             else {

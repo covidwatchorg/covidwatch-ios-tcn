@@ -24,6 +24,8 @@ public class PersistentContainer: NSPersistentContainer {
     
     var loadCompletionHandlers = [((Error?) -> Void)]()
     
+    private var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
+    
     public func load(_ completionHandler: @escaping (Error?) -> Void) {
         let container = self
         if let error = container.loadError {
@@ -42,10 +44,23 @@ public class PersistentContainer: NSPersistentContainer {
         
         let storeDescription = container.persistentStoreDescriptions.first
         storeDescription?.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
-        
-        os_log("Loading persistent stores...", log: PersistentContainer.log)
+                
+        self.backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask { [weak self] in
+            guard let self = self else { return }
+            os_log(
+                "Did expire background task=%d",
+                log: PersistentContainer.log,
+                type: .info,
+                self.backgroundTaskIdentifier?.rawValue ?? 0
+            )
+        }
+        os_log("Loading persistent stores background task=%d...", log: PersistentContainer.log, self.backgroundTaskIdentifier?.rawValue ?? 0)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             defer {
+                if let identifier = self.backgroundTaskIdentifier {
+                    UIApplication.shared.endBackgroundTask(identifier)
+                    self.backgroundTaskIdentifier = nil
+                }
                 container.isLoading = false
                 container.loadCompletionHandlers.forEach { $0(error) }
             }

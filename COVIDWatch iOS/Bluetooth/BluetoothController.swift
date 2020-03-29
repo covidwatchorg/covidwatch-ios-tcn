@@ -15,7 +15,8 @@ extension TimeInterval {
     
     public static let peripheralConnectingTimeout: TimeInterval = 8
     // Using values higher than 30 seconds will kill the app
-    public static let stayAwakeTimeout: TimeInterval = 28
+//    public static let stayAwakeTimeout: TimeInterval = 28
+    public static let stayAwakeTimeout: TimeInterval = 3
 }
 
 /// The controller responsible for the Bluetooth communication.
@@ -26,8 +27,8 @@ class BluetoothController: NSObject {
     @available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
     lazy private var log = OSLog(subsystem: label, category: "Bluetooth")
     
-    lazy private var dispatchQueue: DispatchQueue =
-        DispatchQueue(label: label, qos: .userInteractive)
+//    lazy private var dispatchQueue: DispatchQueue =
+//        DispatchQueue(label: label, qos: .userInteractive)
     
     private var centralManager: CBCentralManager?
     
@@ -74,34 +75,6 @@ class BluetoothController: NSObject {
     
     private var peripheralsToWriteContactEventIdentifierTo = Set<CBPeripheral>()
     
-    private var stayAwake = false {
-        didSet {
-            self.configureBackgroundTaskIfNeeded()
-        }
-    }
-            
-    private func _stayAwake() {
-        self.stayAwake = true
-        DispatchQueue.main.async {
-            NSObject.cancelPreviousPerformRequests(
-                withTarget: self,
-                selector: #selector(self.setStayAwakeEnabled(enabled:)),
-                object: nil
-            )
-            self.perform(
-                #selector(self.setStayAwakeEnabled(enabled:)),
-                with: false,
-                afterDelay: .stayAwakeTimeout
-            )
-        }
-    }
-    
-    @objc private func setStayAwakeEnabled(enabled: Bool) {
-        self.dispatchQueue.async {
-            self.stayAwake = enabled
-        }
-    }
-    
     private var peripheralsToConnect: Set<CBPeripheral> {
         return Set(peripheralsToReadContactEventIdentifierFrom)
             .union(Set(peripheralsToWriteContactEventIdentifierTo))
@@ -110,8 +83,7 @@ class BluetoothController: NSObject {
     private func configureBackgroundTaskIfNeeded() {
         #if canImport(UIKit) && !targetEnvironment(macCatalyst) && !os(watchOS)
         if self.connectingPeripheralIdentifiers.isEmpty &&
-            self.connectedPeripheralIdentifiers.isEmpty &&
-            !self.stayAwake {
+            self.connectedPeripheralIdentifiers.isEmpty {
             self.endBackgroundTaskIfNeeded()
         }
         else {
@@ -201,8 +173,8 @@ class BluetoothController: NSObject {
     @objc func applicationWillEnterForegroundNotification(
         _ notification: Notification
     ) {
-        self.dispatchQueue.async { [weak self] in
-            guard let self = self else { return }
+//        self.dispatchQueue.async { [weak self] in
+//            guard let self = self else { return }
             // Bug workaround: If Bluetooth was toggled while the app was in the
             // background then scanning fails when the app becomes active.
             // Restart scanning now.
@@ -210,7 +182,7 @@ class BluetoothController: NSObject {
                 self.centralManager?.stopScan()
                 self._startScan()
             }
-        }
+//        }
     }
     
     // MARK: -
@@ -222,13 +194,14 @@ class BluetoothController: NSObject {
     
     /// Starts the service.
     func start() {
-        self.dispatchQueue.async {
+//        self.dispatchQueue.async {
             guard self.centralManager == nil else {
                 return
             }
             self.centralManager = CBCentralManager(
                 delegate: self,
-                queue: self.dispatchQueue,
+//                queue: self.dispatchQueue,
+                queue: nil,
                 options: [
                     CBCentralManagerOptionRestoreIdentifierKey:
                     "covidwatch.central."
@@ -236,7 +209,8 @@ class BluetoothController: NSObject {
             )
             self.peripheralManager = CBPeripheralManager(
                 delegate: self,
-                queue: self.dispatchQueue,
+//                queue: self.dispatchQueue,
+                queue: nil,
                 options: [
                     CBPeripheralManagerOptionRestoreIdentifierKey:
                     "covidwatch.peripheral."
@@ -247,12 +221,12 @@ class BluetoothController: NSObject {
                     log: self.log
                 )
             }
-        }
+//        }
     }
     
     /// Stops the service.
     func stop() {
-        self.dispatchQueue.async {
+//        self.dispatchQueue.async {
             self.stopCentralManager()
             self.centralManager?.delegate = nil
             self.centralManager = nil
@@ -265,7 +239,7 @@ class BluetoothController: NSObject {
                     log: self.log
                 )
             }
-        }
+//        }
     }
     
     private func stopCentralManager() {
@@ -357,10 +331,10 @@ class BluetoothController: NSObject {
     
     @objc private func _connectingTimeoutTimerFired(timer: Timer) {
         let userInfo = timer.userInfo
-        self.dispatchQueue.async { [weak self] in
-            guard let self = self else { return }
-            guard let userInfo = userInfo as? [AnyHashable : Any],
-                let peripheral = userInfo["peripheral"] as? CBPeripheral else {
+//        self.dispatchQueue.async { [weak self] in
+//            guard let self = self else { return }
+            guard let dict = userInfo as? [AnyHashable : Any],
+                let peripheral = dict["peripheral"] as? CBPeripheral else {
                     return
             }
             if peripheral.state != .connected {
@@ -374,7 +348,7 @@ class BluetoothController: NSObject {
                 }
                 self.flushPeripheral(peripheral)
             }
-        }
+//        }
     }
     
     private func flushPeripheral(_ peripheral: CBPeripheral) {
@@ -509,7 +483,7 @@ extension BluetoothController: CBCentralManagerDelegate {
             if let advertisementDataServiceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [CBUUID : Data],
                 let uuidData = advertisementDataServiceData[CBUUID(string: BluetoothService.UUIDPeripheralServiceString)],
                 let uuid = try? UUID(dataRepresentation: uuidData) {
-                self.logNewContactEvent(with: uuid)
+                self.logNewContactEvent(with: uuid, isBroadcastType: true)
                 // Remote device is an Android device. Write CEN, because it can not see the iOS device.
                 self.peripheralsToWriteContactEventIdentifierTo.insert(peripheral)
             }
@@ -518,8 +492,6 @@ extension BluetoothController: CBCentralManagerDelegate {
                 // OR use reading. Both cases are handled.
                 // self.peripheralsToReadContactEventIdentifierFrom.insert(peripheral)
             }
-            
-            self._stayAwake()
         }
         self.discoveredPeripherals.insert(peripheral)
         self.connectPeripheralsIfNeeded()
@@ -1115,8 +1087,6 @@ extension BluetoothController: CBPeripheralManagerDelegate {
             log: self.log,
             CBATTError.success.rawValue
         )
-        
-        self._stayAwake()
     }
     
     func peripheralManager(
@@ -1173,7 +1143,5 @@ extension BluetoothController: CBPeripheralManagerDelegate {
                 )
             }
         }
-        
-        self._stayAwake()
     }
 }

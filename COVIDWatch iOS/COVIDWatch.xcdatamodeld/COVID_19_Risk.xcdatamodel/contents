@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ContactEvent" representedClassName="ContactEvent" syncable="YES" codeGenerationType="class">
         <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isBroadcastType" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="uploadState" optional="YES" attributeType="Integer 16" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="wasPotentiallyInfectious" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
@@ -12,6 +13,6 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="ContactEvent" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="ContactEvent" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

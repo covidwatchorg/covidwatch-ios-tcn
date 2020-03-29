@@ -123,6 +123,15 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
             cell.textLabel?.text = self.dateFormatter.string(from: contactEvent.timestamp!)
             cell.detailTextLabel?.text = contactEvent.identifier?.uuidString
             cell.backgroundColor = contactEvent.wasPotentiallyInfectious ? .systemRed : .systemGreen
+            if contactEvent.isBroadcastType {
+                let imageView = UIImageView(image: UIImage(named: "RadiowavesRight"))
+                imageView.tintColor = .systemGray
+                cell.accessoryView = imageView
+            }
+            else {
+                cell.accessoryView = nil
+            }
+            
         }
         return cell
     }
