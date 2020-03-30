@@ -1,6 +1,5 @@
 //
-//  Created by Zsombor Szabo on 13/03/2020.
-//
+//  Created by Zsombor Szabo on 30/03/2020.
 //
 
 import Foundation
@@ -8,40 +7,38 @@ import Firebase
 import CoreData
 import os.log
 
-open class PublicContactEventsObserver: NSObject {
+class QuerySnapshotProcessingOperation: Operation {
+    var querySnapshot: QuerySnapshot?
+    private let context: NSManagedObjectContext
+    private let mergingContexts: [NSManagedObjectContext]?
     
-    override init() {
+    init(context: NSManagedObjectContext, mergingContexts: [NSManagedObjectContext]? = nil) {
+        self.context = context
+        self.mergingContexts = mergingContexts
         super.init()
-        // Only observe the contact events from the past 2 weeks
-        Firestore.firestore().collection(Firestore.Collections.contactEvents)
-            .whereField(Firestore.Fields.timestamp, isGreaterThan: Timestamp(date: Date().addingTimeInterval(-60*60*24*7*2)))
-            .addSnapshotListener { [weak self] (querySnapshot, error) in
-            guard let self = self else { return }
-            if let error = error {
-                os_log("Listening for realtime updates of contact events failed: %@", type: .error, error as CVarArg)
-                UIApplication.shared.topViewController?.present(error as NSError, animated: true)
-                return
-            }
-            guard let querySnapshot = querySnapshot else { return }
-            os_log("Listened for realtime updates of %d contact event(s)", type: .info, querySnapshot.count)
-            DispatchQueue.global(qos: .background).async {
-                let addedDocuments = querySnapshot.documentChanges.filter({ $0.type == .added }).map({ $0.document })
-                self.markLocalContactEvents(from: addedDocuments, asPotentiallyInfectious: true)
-                let removedDocuments = querySnapshot.documentChanges.filter({ $0.type == .removed }).map({ $0.document })
-                self.markLocalContactEvents(from: removedDocuments, asPotentiallyInfectious: false)
-            }
-        }
+    }
+    
+    override func main() {
+        guard let querySnapshot = self.querySnapshot else { return }
+        let addedDocuments = querySnapshot.documentChanges.filter({ $0.type == .added }).map({ $0.document })
+        guard !isCancelled else { return }
+        self.markLocalContactEvents(from: addedDocuments, asPotentiallyInfectious: true)
+        guard !isCancelled else { return }
+        let removedDocuments = querySnapshot.documentChanges.filter({ $0.type == .removed }).map({ $0.document })
+        guard !isCancelled else { return }
+        self.markLocalContactEvents(from: removedDocuments, asPotentiallyInfectious: false)
     }
     
     private func markLocalContactEvents(from queryDocumentSnapshots: [QueryDocumentSnapshot], asPotentiallyInfectious infectious: Bool) {
-        guard !queryDocumentSnapshots.isEmpty else { return }
-        let context = PersistentContainer.shared.newBackgroundContext()
-        context.perform {
+        guard !queryDocumentSnapshots.isEmpty else { return }        
+        self.context.performAndWait { [weak self] in
             do {
+                guard let self = self else { return }
                 let identifiers: [UUID] = queryDocumentSnapshots.compactMap({ UUID(uuidString: $0.documentID) })
                 os_log("Marking %d contact event(s) as potentially infectious=%d ...", type: .info, identifiers.count, infectious)
                 var allUpdatedObjectIDs = [NSManagedObjectID]()
                 try identifiers.chunked(into: 300000).forEach { (identifiers) in
+                    guard !self.isCancelled else { return }
                     let batchUpdateRequest = NSBatchUpdateRequest(entity: ContactEvent.entity())
                     batchUpdateRequest.predicate = NSPredicate(format: "identifier IN %@ AND wasPotentiallyInfectious != %d", identifiers, infectious)
                     batchUpdateRequest.resultType = .updatedObjectIDsResultType
@@ -55,8 +52,8 @@ open class PublicContactEventsObserver: NSObject {
                     let updatedObjectIDs = batchUpdateResult.result as! [NSManagedObjectID]
                     allUpdatedObjectIDs.append(contentsOf: updatedObjectIDs)
                 }
-                if !allUpdatedObjectIDs.isEmpty {
-                    NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSUpdatedObjectsKey: allUpdatedObjectIDs], into: [PersistentContainer.shared.viewContext])
+                if !allUpdatedObjectIDs.isEmpty, let mergingContexts = self.mergingContexts {
+                    NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSUpdatedObjectsKey: allUpdatedObjectIDs], into: mergingContexts)
                 }
                 os_log("Marked %d contact event(s) as potentially infectious=%d", type: .info, queryDocumentSnapshots.count, infectious)
             }

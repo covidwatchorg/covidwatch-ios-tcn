@@ -70,9 +70,9 @@ public class PersistentContainer: NSPersistentContainer {
                 return
             }
             container.isLoaded = true
-            os_log("Loading persistent stores completed.", log: PersistentContainer.log)
+            os_log("Loading persistent stores completed", log: PersistentContainer.log)
             
-            container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+            container.viewContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
             container.viewContext.automaticallyMergesChangesFromParent = true
         })
     }

@@ -14,9 +14,6 @@ import BerkananFoundation
 extension TimeInterval {
     
     public static let peripheralConnectingTimeout: TimeInterval = 8
-    // Using values higher than 30 seconds will kill the app
-//    public static let stayAwakeTimeout: TimeInterval = 28
-    public static let stayAwakeTimeout: TimeInterval = 3
 }
 
 /// The controller responsible for the Bluetooth communication.
@@ -27,8 +24,8 @@ class BluetoothController: NSObject {
     @available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
     lazy private var log = OSLog(subsystem: label, category: "Bluetooth")
     
-//    lazy private var dispatchQueue: DispatchQueue =
-//        DispatchQueue(label: label, qos: .userInteractive)
+    lazy private var dispatchQueue: DispatchQueue =
+        DispatchQueue(label: label, qos: .userInteractive)
     
     private var centralManager: CBCentralManager?
     
@@ -173,8 +170,8 @@ class BluetoothController: NSObject {
     @objc func applicationWillEnterForegroundNotification(
         _ notification: Notification
     ) {
-//        self.dispatchQueue.async { [weak self] in
-//            guard let self = self else { return }
+        self.dispatchQueue.async { [weak self] in
+            guard let self = self else { return }
             // Bug workaround: If Bluetooth was toggled while the app was in the
             // background then scanning fails when the app becomes active.
             // Restart scanning now.
@@ -182,7 +179,7 @@ class BluetoothController: NSObject {
                 self.centralManager?.stopScan()
                 self._startScan()
             }
-//        }
+        }
     }
     
     // MARK: -
@@ -194,14 +191,13 @@ class BluetoothController: NSObject {
     
     /// Starts the service.
     func start() {
-//        self.dispatchQueue.async {
+        self.dispatchQueue.async {
             guard self.centralManager == nil else {
                 return
             }
             self.centralManager = CBCentralManager(
                 delegate: self,
-//                queue: self.dispatchQueue,
-                queue: nil,
+                queue: self.dispatchQueue,
                 options: [
                     CBCentralManagerOptionRestoreIdentifierKey:
                     "covidwatch.central."
@@ -209,24 +205,24 @@ class BluetoothController: NSObject {
             )
             self.peripheralManager = CBPeripheralManager(
                 delegate: self,
-//                queue: self.dispatchQueue,
-                queue: nil,
+                queue: self.dispatchQueue,
                 options: [
                     CBPeripheralManagerOptionRestoreIdentifierKey:
                     "covidwatch.peripheral."
-            ])
+                ]
+            )
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
                 os_log(
                     "Service started",
                     log: self.log
                 )
             }
-//        }
+        }
     }
     
     /// Stops the service.
     func stop() {
-//        self.dispatchQueue.async {
+        self.dispatchQueue.async {
             self.stopCentralManager()
             self.centralManager?.delegate = nil
             self.centralManager = nil
@@ -239,7 +235,7 @@ class BluetoothController: NSObject {
                     log: self.log
                 )
             }
-//        }
+        }
     }
     
     private func stopCentralManager() {
@@ -331,8 +327,8 @@ class BluetoothController: NSObject {
     
     @objc private func _connectingTimeoutTimerFired(timer: Timer) {
         let userInfo = timer.userInfo
-//        self.dispatchQueue.async { [weak self] in
-//            guard let self = self else { return }
+        self.dispatchQueue.async { [weak self] in
+            guard let self = self else { return }
             guard let dict = userInfo as? [AnyHashable : Any],
                 let peripheral = dict["peripheral"] as? CBPeripheral else {
                     return
@@ -348,7 +344,7 @@ class BluetoothController: NSObject {
                 }
                 self.flushPeripheral(peripheral)
             }
-//        }
+        }
     }
     
     private func flushPeripheral(_ peripheral: CBPeripheral) {
@@ -439,25 +435,30 @@ extension BluetoothController: CBCentralManagerDelegate {
             CBUUID(string: BluetoothService.UUIDPeripheralServiceString)
         ]
         #endif
+        let options: [String : Any] = [
+            CBCentralManagerScanOptionAllowDuplicatesKey :
+                NSNumber(booleanLiteral: true)
+        ]
         central.scanForPeripherals(
             withServices: services,
-            options: [CBCentralManagerScanOptionAllowDuplicatesKey :
-                NSNumber(booleanLiteral: true)]
+            options: options
         )
         #if targetEnvironment(macCatalyst)
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             os_log(
-                "Central manager scanning for peripherals with services=%@",
+                "Central manager scanning for peripherals with services=%@ options=%@",
                 log: self.log,
-                services ?? ""
+                services ?? "",
+                options.description
             )
         }
         #else
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             os_log(
-                "Central manager scanning for peripherals with services=%@",
+                "Central manager scanning for peripherals with services=%@ options=%@",
                 log: self.log,
-                services
+                services,
+                options.description
             )
         }
         #endif
@@ -1031,14 +1032,16 @@ extension BluetoothController: CBPeripheralManagerDelegate {
     }
     
     private func startAdvertising() {
-        self.peripheralManager?.startAdvertising(
-            [CBAdvertisementDataServiceUUIDsKey :
-                [CBUUID(string: BluetoothService.UUIDPeripheralServiceString)]]
-        )
+        let advertisementData: [String : Any] = [
+            CBAdvertisementDataServiceUUIDsKey :
+                [CBUUID(string: BluetoothService.UUIDPeripheralServiceString)]
+        ]
+        self.peripheralManager?.startAdvertising(advertisementData)
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             os_log(
-                "Peripheral manager starting advertising",
-                log: self.log
+                "Peripheral manager starting advertising advertisementData=%@",
+                log: self.log,
+                advertisementData.description
             )
         }
     }

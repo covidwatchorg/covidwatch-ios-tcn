@@ -7,7 +7,6 @@ import UIKit
 import CoreData
 import Firebase
 import os.log
-import CoreLocation
 import BackgroundTasks
 
 @UIApplicationMain
@@ -15,14 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var locationManager: CLLocationManager?
     var bluetoothController: BluetoothController?
     
     var isContactEventLoggingEnabledObservation: NSKeyValueObservation?
     var isCurrentUserSickObservation: NSKeyValueObservation?
     
     var localContactEventsUploader: LocalContactEventsUploader?
-    var publicContactEventsObserver: PublicContactEventsObserver?
     var currentUserExposureNotifier: CurrentUserExposureNotifier?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -37,14 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let actionsAfterLoading = {
             UserDefaults.standard.register(defaults: UserDefaults.Key.registration)
             self.configureCurrentUserNotificationCenter()
-            self.requestUserNotificationAuthorization(provisional: false)
+            self.requestUserNotificationAuthorization(provisional: true)
             self.configureIsCurrentUserSickObserver()
             self.localContactEventsUploader = LocalContactEventsUploader()
-            self.publicContactEventsObserver = PublicContactEventsObserver()
             self.currentUserExposureNotifier = CurrentUserExposureNotifier()
-            self.locationManager = CLLocationManager()
-            self.locationManager?.delegate = self
-            self.startMySignificantLocationChanges()
             self.bluetoothController = BluetoothController()
             self.configureIsContactEventLoggingEnabledObserver()
         }
@@ -71,6 +64,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             actionsAfterLoading()
         }
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        PersistentContainer.shared.load { (error) in
+            guard error == nil else { return }
+            if #available(iOS 13.0, *) {
+                self.fetchPublicContactEvents(task: nil)
+            }
+            else {
+                self.fetchPublicContactEvents(completionHandler: nil)
+            }
+        }
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {

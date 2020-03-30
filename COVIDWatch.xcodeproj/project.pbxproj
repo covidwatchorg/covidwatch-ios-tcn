@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		00999A0AECE2E1E4E9ACA1C6 /* Pods_COVIDWatch_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA04245E319FAE324E129CE /* Pods_COVIDWatch_iOSTests.framework */; };
 		2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */; };
-		2D1F0FE7241B7B4700356B3A /* PublicContactEventsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */; };
 		2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30EFC2242268010063C211 /* Array+Chunked.swift */; };
 		2D5C540F241CB51D00DB2520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5C540E241CB51C00DB2520 /* Main.storyboard */; };
 		2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
@@ -18,20 +17,22 @@
 		2D5C5417241CC18900DB2520 /* ContactEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5416241CC18900DB2520 /* ContactEventsTableViewController.swift */; };
 		2D6655AE242BF9A300B462E0 /* BluetoothController+ContactEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6655AD242BF9A300B462E0 /* BluetoothController+ContactEvent.swift */; };
 		2D6655B4242E605000B462E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D6655B3242E605000B462E0 /* GoogleService-Info.plist */; };
+		2D8496F724320F2900C71BD1 /* ContactEventsDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F624320F2900C71BD1 /* ContactEventsDownloadOperation.swift */; };
+		2D8496F924321A7C00C71BD1 /* FirestoreOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */; };
 		2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A38241975B20049CD2A /* BluetoothService.swift */; };
 		2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */; };
 		2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */; };
 		2DB09A40241A098F0049CD2A /* BerkananFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 2DB09A3F241A098F0049CD2A /* BerkananFoundation */; };
-		2DC231E6241B886C00216404 /* Firestore+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E5241B886C00216404 /* Firestore+Additions.swift */; };
+		2DC231E6241B886C00216404 /* Firestore+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E5241B886C00216404 /* Firestore+Constants.swift */; };
 		2DC231E8241B914200216404 /* CoreData+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E7241B914200216404 /* CoreData+Additions.swift */; };
 		2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */; };
 		2DC231EC241BA17B00216404 /* UIViewController+ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */; };
 		2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */; };
+		2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6439B2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift */; };
 		2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */; };
 		2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */; };
-		2DE56E23241CE5E400764A6F /* AppDelegate+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE56E22241CE5E400764A6F /* AppDelegate+CLLocationManagerDelegate.swift */; };
 		2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */; };
-		2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundRefresh.swift */; };
+		2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */; };
 		2DFDC5A324190AB800B108F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A224190AB800B108F8 /* AppDelegate.swift */; };
 		2DFDC5A824190AB800B108F8 /* COVIDWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */; };
 		2DFDC5AC24190AB900B108F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5AB24190AB900B108F8 /* Assets.xcassets */; };
@@ -73,19 +74,21 @@
 		2D5C5416241CC18900DB2520 /* ContactEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventsTableViewController.swift; sourceTree = "<group>"; };
 		2D6655AD242BF9A300B462E0 /* BluetoothController+ContactEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BluetoothController+ContactEvent.swift"; sourceTree = "<group>"; };
 		2D6655B3242E605000B462E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2D8496F624320F2900C71BD1 /* ContactEventsDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventsDownloadOperation.swift; sourceTree = "<group>"; };
+		2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreOperations.swift; sourceTree = "<group>"; };
 		2DB09A38241975B20049CD2A /* BluetoothService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
 		2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
 		2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BluetoothService+CoreBluetooth.swift"; sourceTree = "<group>"; };
-		2DC231E5241B886C00216404 /* Firestore+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Additions.swift"; sourceTree = "<group>"; };
+		2DC231E5241B886C00216404 /* Firestore+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Constants.swift"; sourceTree = "<group>"; };
 		2DC231E7241B914200216404 /* CoreData+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Additions.swift"; sourceTree = "<group>"; };
 		2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserExposureNotifier.swift; sourceTree = "<group>"; };
 		2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresenting.swift"; sourceTree = "<group>"; };
 		2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UserNotificationCenter.swift"; sourceTree = "<group>"; };
+		2DC6439B2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySnapshotProcessingOperation.swift; sourceTree = "<group>"; };
 		2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+ViewControllerUtility.swift"; sourceTree = "<group>"; };
-		2DE56E22241CE5E400764A6F /* AppDelegate+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
 		2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+BackgroundTasks.swift"; sourceTree = "<group>"; };
-		2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+BackgroundRefresh.swift"; sourceTree = "<group>"; };
+		2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+BackgroundFetch.swift"; sourceTree = "<group>"; };
 		2DFDC59F24190AB700B108F8 /* Tags!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tags!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFDC5A224190AB800B108F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DFDC5A724190AB800B108F8 /* COVID_19_Risk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = COVID_19_Risk.xcdatamodel; sourceTree = "<group>"; };
@@ -167,9 +170,9 @@
 			isa = PBXGroup;
 			children = (
 				2DB09A38241975B20049CD2A /* BluetoothService.swift */,
+				2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */,
 				2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */,
 				2D6655AD242BF9A300B462E0 /* BluetoothController+ContactEvent.swift */,
-				2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */,
 			);
 			path = Bluetooth;
 			sourceTree = "<group>";
@@ -177,7 +180,12 @@
 		2DC231E4241B885500216404 /* Firestore */ = {
 			isa = PBXGroup;
 			children = (
-				2DC231E5241B886C00216404 /* Firestore+Additions.swift */,
+				2DC231E5241B886C00216404 /* Firestore+Constants.swift */,
+				2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */,
+				2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */,
+				2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */,
+				2D8496F624320F2900C71BD1 /* ContactEventsDownloadOperation.swift */,
+				2DC6439B2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift */,
 				2D6655B3242E605000B462E0 /* GoogleService-Info.plist */,
 			);
 			path = Firestore;
@@ -219,12 +227,9 @@
 			isa = PBXGroup;
 			children = (
 				2DFDC5A224190AB800B108F8 /* AppDelegate.swift */,
-				2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundRefresh.swift */,
+				2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */,
 				2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */,
 				2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */,
-				2DE56E22241CE5E400764A6F /* AppDelegate+CLLocationManagerDelegate.swift */,
-				2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */,
-				2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */,
 				2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */,
 				2DC231E4241B885500216404 /* Firestore */,
 				2DB09A37241965FF0049CD2A /* Bluetooth */,
@@ -564,26 +569,27 @@
 			files = (
 				2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */,
 				2D5C5414241CBC5C00DB2520 /* UserProfileViewController.swift in Sources */,
+				2D8496F924321A7C00C71BD1 /* FirestoreOperations.swift in Sources */,
 				2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */,
+				2D8496F724320F2900C71BD1 /* ContactEventsDownloadOperation.swift in Sources */,
 				2DFDC5A824190AB800B108F8 /* COVIDWatch.xcdatamodeld in Sources */,
 				2DFDC5A324190AB800B108F8 /* AppDelegate.swift in Sources */,
 				2D6655AE242BF9A300B462E0 /* BluetoothController+ContactEvent.swift in Sources */,
 				2D5C5417241CC18900DB2520 /* ContactEventsTableViewController.swift in Sources */,
-				2DC231E6241B886C00216404 /* Firestore+Additions.swift in Sources */,
+				2DC231E6241B886C00216404 /* Firestore+Constants.swift in Sources */,
 				2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */,
+				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
 				2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */,
 				2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */,
 				2D5C5415241CBC5D00DB2520 /* MapViewController.swift in Sources */,
 				2DC231E8241B914200216404 /* CoreData+Additions.swift in Sources */,
 				2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */,
-				2DE56E23241CE5E400764A6F /* AppDelegate+CLLocationManagerDelegate.swift in Sources */,
 				2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */,
 				2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */,
-				2D1F0FE7241B7B4700356B3A /* PublicContactEventsObserver.swift in Sources */,
 				2DC231EC241BA17B00216404 /* UIViewController+ErrorPresenting.swift in Sources */,
 				2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */,
 				2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */,
-				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundRefresh.swift in Sources */,
+				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */,
 				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

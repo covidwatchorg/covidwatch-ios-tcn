@@ -12,6 +12,7 @@ extension UserDefaults {
         public static let isCurrentUserSick = "isCurrentUserSick"
         public static let wasCurrentUserNotifiedOfExposure = "wasCurrentUserNotifiedOfExposure"
         public static let isContactEventLoggingEnabled = "isContactEventLoggingEnabled"
+        public static let lastContactEventsDownloadDate = "lastContactEventsDownloadDate"
         
         public static let registration: [String : Any] = [
             isCurrentUserSick: false,
@@ -44,6 +45,15 @@ extension UserDefaults {
         }
         set {
             setValue(newValue, forKey: Key.isContactEventLoggingEnabled)
+        }
+    }
+    
+    @objc dynamic public var lastContactEventsDownloadDate: Date? {
+        get {
+            return object(forKey: Key.lastContactEventsDownloadDate) as? Date
+        }
+        set {
+            setValue(newValue, forKey: Key.lastContactEventsDownloadDate)
         }
     }
     
