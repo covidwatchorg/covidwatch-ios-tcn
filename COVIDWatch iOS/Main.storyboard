@@ -57,11 +57,28 @@
                     <connections>
                         <segue destination="xIW-yl-ZHW" kind="relationship" relationship="viewControllers" id="NMH-wg-mhO"/>
                         <segue destination="r8d-OF-MOR" kind="relationship" relationship="viewControllers" id="Iab-BH-1J0"/>
+                        <segue destination="G6v-8m-SZM" kind="relationship" relationship="viewControllers" id="S1L-ls-k6z"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-62" y="-7"/>
+        </scene>
+        <!--Help-->
+        <scene sceneID="OMh-fb-4ID">
+            <objects>
+                <viewController id="G6v-8m-SZM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G76-3A-ChI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="N8C-Bq-ZxE"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Help" image="questionmark.circle.fill" catalog="system" id="rGw-yn-ZYr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kBV-mp-O8E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1693" y="-692"/>
         </scene>
         <!--Seen Tags-->
         <scene sceneID="4Yb-kV-CrU">
@@ -127,7 +144,7 @@
                     </connections>
                 </barButtonItem>
             </objects>
-            <point key="canvasLocation" x="1679.7101449275362" y="-358.25892857142856"/>
+            <point key="canvasLocation" x="1694" y="-27"/>
         </scene>
         <!--Settings-->
         <scene sceneID="c7e-Qk-AFT">
@@ -177,13 +194,13 @@
                 <tabBarItem title="My Profile" image="tabBarItem:dIV-G0-ORJ:image" id="dIV-G0-ORJ"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7c2-qP-PCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1679.7101449275362" y="394.41964285714283"/>
+            <point key="canvasLocation" x="1694" y="725"/>
         </scene>
-        <!--Settings-->
+        <!--Info-->
         <scene sceneID="yRI-DU-lpz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r8d-OF-MOR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="UITabBarTagSettings" id="8Yk-EL-Mec"/>
+                    <tabBarItem key="tabBarItem" title="Info" image="info.circle.fill" catalog="system" id="8Yk-EL-Mec"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kQc-1O-bAW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -196,13 +213,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQS-SI-LIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="769.56521739130437" y="394.41964285714283"/>
+            <point key="canvasLocation" x="851" y="725"/>
         </scene>
-        <!--Seen Tags-->
+        <!--Home-->
         <scene sceneID="hsy-yR-063">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xIW-yl-ZHW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Seen Tags" image="UITabBarTag" id="wBe-ib-3f8"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="wBe-ib-3f8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tbi-dS-Zy9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -215,7 +232,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBM-tE-Drr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="769.56521739130437" y="-358.25892857142856"/>
+            <point key="canvasLocation" x="851" y="-27"/>
         </scene>
         <!--FirstScreen-->
         <scene sceneID="Erd-N5-dgt">
@@ -249,8 +266,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="UITabBarTag" width="19" height="19"/>
-        <image name="UITabBarTagSettings" width="19" height="19"/>
+        <image name="house.fill" catalog="system" width="64" height="52"/>
+        <image name="info.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="questionmark.circle.fill" catalog="system" width="64" height="60"/>
         <image name="tabBarItem:dIV-G0-ORJ:image" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGa2xYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QGAcI
