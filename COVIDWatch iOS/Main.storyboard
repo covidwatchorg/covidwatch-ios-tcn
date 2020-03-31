@@ -55,7 +55,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="xIW-yl-ZHW" kind="relationship" relationship="viewControllers" id="NMH-wg-mhO"/>
+                        <segue destination="bOd-SP-hpq" kind="relationship" relationship="viewControllers" id="fTT-oY-tOj"/>
                         <segue destination="r8d-OF-MOR" kind="relationship" relationship="viewControllers" id="Iab-BH-1J0"/>
                         <segue destination="G6v-8m-SZM" kind="relationship" relationship="viewControllers" id="S1L-ls-k6z"/>
                     </connections>
@@ -67,7 +67,7 @@
         <!--Help-->
         <scene sceneID="OMh-fb-4ID">
             <objects>
-                <viewController id="G6v-8m-SZM" sceneMemberID="viewController">
+                <viewController title="Help" id="G6v-8m-SZM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G76-3A-ChI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,73 +78,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBV-mp-O8E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1693" y="-692"/>
+            <point key="canvasLocation" x="818.84057971014499" y="-7.3660714285714279"/>
         </scene>
-        <!--Seen Tags-->
-        <scene sceneID="4Yb-kV-CrU">
+        <!--Home-->
+        <scene sceneID="TKc-E1-mXx">
             <objects>
-                <tableViewController id="Vxd-Mb-2bC" customClass="ContactEventsTableViewController" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VmW-Cj-iyY">
+                <viewController title="Home" id="bOd-SP-hpq" customClass="HomeViewController" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2aZ-kO-IXt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ContactEventRow" textLabel="Thx-k8-b5i" detailTextLabel="BRP-26-4pc" style="IBUITableViewCellStyleSubtitle" id="X7u-1H-FHD">
-                                <rect key="frame" x="0.0" y="28" width="414" height="58.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X7u-1H-FHD" id="ZZM-aS-zXA">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="58.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Thx-k8-b5i">
-                                            <rect key="frame" x="20" y="8" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="BRP-26-4pc">
-                                            <rect key="frame" x="20" y="31.5" width="47" height="16"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Vxd-Mb-2bC" id="xsT-zu-HuQ"/>
-                            <outlet property="delegate" destination="Vxd-Mb-2bC" id="Tdp-X9-Gau"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Seen Tags" id="uu8-DF-5Zq"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="clearBarButtonItem" destination="VDf-9o-ho1" id="jNe-dm-92i"/>
-                        <outlet property="startBarButtonItem" destination="gjD-zw-Baw" id="W0n-4Q-lfd"/>
-                        <outlet property="stopBarButtonItem" destination="jj5-ay-Zd4" id="Uaz-T8-9aU"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FKI-e2-X3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <barButtonItem title="Clear" id="VDf-9o-ho1">
-                    <connections>
-                        <action selector="handleTapClearButton:" destination="Vxd-Mb-2bC" id="0Wc-Fw-d7C"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem title="Stop" id="jj5-ay-Zd4">
-                    <connections>
-                        <action selector="handleTapStopButton:" destination="Vxd-Mb-2bC" id="913-7p-KCs"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem title="Start" id="gjD-zw-Baw">
-                    <connections>
-                        <action selector="handleTapStartButton:" destination="Vxd-Mb-2bC" id="t4b-Yh-xcr"/>
-                    </connections>
-                </barButtonItem>
+                        <viewLayoutGuide key="safeArea" id="8Qj-Nr-WmJ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="wTM-pT-zo8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qy5-6r-x0V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694" y="-27"/>
+            <point key="canvasLocation" x="819" y="-719"/>
         </scene>
         <!--Settings-->
         <scene sceneID="c7e-Qk-AFT">
@@ -214,25 +164,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQS-SI-LIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="851" y="725"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="hsy-yR-063">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xIW-yl-ZHW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="wBe-ib-3f8"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tbi-dS-Zy9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Vxd-Mb-2bC" kind="relationship" relationship="rootViewController" id="FMo-KD-VIJ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QBM-tE-Drr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="851" y="-27"/>
         </scene>
         <!--FirstScreen-->
         <scene sceneID="Erd-N5-dgt">
