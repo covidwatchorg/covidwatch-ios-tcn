@@ -1,5 +1,5 @@
 //
-//  FirstScreen.swift
+//  OnboardingViewController.swift
 //  COVIDWatch iOS
 //
 //  Created by Isaiah Becker-Mayer on 3/30/20.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-class FirstScreenViewController: UIViewController {
+class OnboardingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func firstScreenToOnboardingButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "FirstScreenToOnboarding", sender: self)
+    
+    @IBAction func onboardingToTabBarButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "OnboardingToTabBar", sender: self)
     }
 }
-

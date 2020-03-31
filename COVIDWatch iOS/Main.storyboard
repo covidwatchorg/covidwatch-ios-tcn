@@ -7,17 +7,22 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Onboarding-->
         <scene sceneID="59Q-SU-xjh">
             <objects>
-                <viewController title="Onboarding" id="vSd-i8-Epy" sceneMemberID="viewController">
+                <viewController title="Onboarding" id="vSd-i8-Epy" customClass="OnboardingViewController" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XzN-Sc-73z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTb-Qt-xCT">
-                                <rect key="frame" x="76" y="644" width="262" height="59"/>
+                                <rect key="frame" x="76" y="367" width="262" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.74901960779999999" green="0.2470588235" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="40"/>
@@ -25,13 +30,15 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="getStartedPressed:" destination="gql-1a-6Aj" eventType="touchUpInside" id="amC-pL-3Ud"/>
+                                    <action selector="onboardingToTabBarButtonPressed:" destination="vSd-i8-Epy" eventType="touchUpInside" id="pMB-2A-5uh"/>
+                                    <segue destination="49e-Tb-3d3" kind="show" identifier="OnboardingToTabBar" id="ZVj-FL-NEA"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="xxJ-k9-FhJ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="WNa-uC-TJl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="173-XA-Bfo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,6 +48,7 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qGD-sQ-6LL"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -60,7 +68,7 @@
             <objects>
                 <tableViewController id="Vxd-Mb-2bC" customClass="ContactEventsTableViewController" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VmW-Cj-iyY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -126,11 +134,11 @@
             <objects>
                 <viewController id="2dV-uJ-laY" customClass="UserProfileViewController" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uqe-vy-EfA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="n5g-Ze-gaK">
-                                <rect key="frame" x="80.5" y="357" width="253" height="187"/>
+                                <rect key="frame" x="80.5" y="314" width="253" height="187"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Notify seen tags?" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2q-tW-C06">
                                         <rect key="frame" x="0.0" y="0.0" width="253" height="41"/>
@@ -178,7 +186,7 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="UITabBarTagSettings" id="8Yk-EL-Mec"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kQc-1O-bAW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -197,7 +205,7 @@
                     <tabBarItem key="tabBarItem" title="Seen Tags" image="UITabBarTag" id="wBe-ib-3f8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tbi-dS-Zy9">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -218,7 +226,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bM-vq-mEa">
-                                <rect key="frame" x="76" y="697" width="262" height="59"/>
+                                <rect key="frame" x="76" y="419" width="262" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.24705882352941178" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="40"/>
@@ -226,8 +234,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="getStartedPressed:" destination="gql-1a-6Aj" eventType="touchUpInside" id="539-ax-ZPm"/>
-                                    <segue destination="vSd-i8-Epy" kind="presentation" identifier="FirstScreenToOnboarding" id="Kd0-ZJ-yE3"/>
+                                    <action selector="firstScreenToOnboardingButtonPressed:" destination="gql-1a-6Aj" eventType="touchUpInside" id="539-ax-ZPm"/>
+                                    <segue destination="vSd-i8-Epy" kind="show" identifier="FirstScreenToOnboarding" id="Kd0-ZJ-yE3"/>
                                 </connections>
                             </button>
                         </subviews>
