@@ -871,8 +871,11 @@ extension BluetoothController: CBPeripheralDelegate {
                 )
             }
         }
-        if self.readingConfigurationCharacteristics.filter({
-            $0.service.peripheral == peripheral }).isEmpty {
+        let allCharacteristics = peripheral.characteristics(with: CBUUID(
+            string: BluetoothService.UUIDContactEventIdentifierCharacteristicString
+        ))
+        if self.readingConfigurationCharacteristics
+            .intersection(allCharacteristics).isEmpty {
             self.cancelConnectionIfNeeded(for: peripheral)
         }
     }
@@ -909,8 +912,11 @@ extension BluetoothController: CBPeripheralDelegate {
             }
         }
         self.writingConfigurationCharacteristics.remove(characteristic)
-        if self.writingConfigurationCharacteristics.filter({
-            $0.service.peripheral == peripheral }).isEmpty {
+        let allCharacteristics = peripheral.characteristics(with: CBUUID(
+            string: BluetoothService.UUIDContactEventIdentifierCharacteristicString
+        ))
+        if self.writingConfigurationCharacteristics
+            .intersection(allCharacteristics).isEmpty {
             self.cancelConnectionIfNeeded(for: peripheral)
         }
     }
