@@ -25,7 +25,8 @@ extension AppDelegate {
     }
     
     func fetchPublicContactEvents(completionHandler: ((UIBackgroundFetchResult) -> Void)?) {
-        let oldestDownloadDate = Date().addingTimeInterval(-.oldestPublicContactEventsToFetch)
+        let now = Date()
+        let oldestDownloadDate = now.addingTimeInterval(-.oldestPublicContactEventsToFetch)
         var downloadDate = UserDefaults.shared.lastContactEventsDownloadDate ?? oldestDownloadDate
         if downloadDate < oldestDownloadDate {
             downloadDate = oldestDownloadDate
@@ -48,7 +49,7 @@ extension AppDelegate {
         lastOperation.completionBlock = {
             let success = !lastOperation.isCancelled
             if success {
-                UserDefaults.shared.lastContactEventsDownloadDate = Date()
+                UserDefaults.shared.lastContactEventsDownloadDate = now
                 if let downloadOperation = operations.first as? ContactEventsDownloadOperation,
                     let querySnapshot = downloadOperation.querySnapshot,
                     querySnapshot.count > 0 {

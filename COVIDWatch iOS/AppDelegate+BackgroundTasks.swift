@@ -61,7 +61,8 @@ extension AppDelegate {
     }
     
     func fetchPublicContactEvents(task: BGAppRefreshTask?) {
-        let oldestDownloadDate = Date().addingTimeInterval(-.oldestPublicContactEventsToFetch)
+        let now = Date()
+        let oldestDownloadDate = now.addingTimeInterval(-.oldestPublicContactEventsToFetch)
         var downloadDate = UserDefaults.shared.lastContactEventsDownloadDate ?? oldestDownloadDate
         if downloadDate < oldestDownloadDate {
             downloadDate = oldestDownloadDate
@@ -89,7 +90,7 @@ extension AppDelegate {
         lastOperation.completionBlock = {
             let success = !lastOperation.isCancelled
             if success {
-                UserDefaults.shared.lastContactEventsDownloadDate = Date()
+                UserDefaults.shared.lastContactEventsDownloadDate = now
             }
             task?.setTaskCompleted(success: success)
         }

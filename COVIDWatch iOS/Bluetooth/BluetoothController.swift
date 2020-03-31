@@ -24,8 +24,7 @@ class BluetoothController: NSObject {
     @available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
     lazy private var log = OSLog(subsystem: label, category: "Bluetooth")
     
-    lazy private var dispatchQueue: DispatchQueue =
-        DispatchQueue(label: label, qos: .userInteractive)
+    lazy private var dispatchQueue: DispatchQueue = DispatchQueue(label: label)
     
     private var centralManager: CBCentralManager?
     
