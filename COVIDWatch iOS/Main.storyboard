@@ -212,6 +212,9 @@
                         <viewLayoutGuide key="safeArea" id="8Qj-Nr-WmJ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="wTM-pT-zo8"/>
+                    <connections>
+                        <outlet property="statusImage" destination="tDt-Eo-zYa" id="zLS-wq-sCQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qy5-6r-x0V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
