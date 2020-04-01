@@ -27,14 +27,15 @@ extension AppDelegate {
             ) { task in
                 os_log(
                     "Start background task=%@",
-                    type: .info,
+                    log: .app,
                     identifier
                 )
                 self.handleBackground(task: task)
             }
             os_log(
                 "Register background task=%@ success=%d",
-                type: success ? .info : .error,
+                log: .app,
+                type: success ? .default : .error,
                 identifier,
                 success
             )
@@ -108,7 +109,7 @@ extension AppDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + .backgroundRunningTimeout) {
             os_log(
                 "End background task=%@",
-                type: .info,
+                log: .app,
                 task.identifier
             )
             task.setTaskCompleted(success: true)
@@ -140,12 +141,13 @@ extension AppDelegate {
             try BGTaskScheduler.shared.submit(request)
             os_log(
                 "Submit task request=%@",
-                type: .info,
+                log: .app,
                 request.description
             )
         } catch {
             os_log(
                 "Submit task request=%@ failed: %@",
+                log: .app,
                 type: .error,
                 request.description,
                 error as CVarArg

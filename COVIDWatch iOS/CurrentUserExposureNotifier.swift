@@ -27,7 +27,7 @@ open class CurrentUserExposureNotifier: NSObject, NSFetchedResultsControllerDele
             try self.fetchedResultsController.performFetch()
         }
         catch {
-            os_log("Fetched results controller perform fetch failed: %@", type: .error, error as CVarArg)
+            os_log("Fetched results controller perform fetch failed: %@", log: .app, type: .error, error as CVarArg)
         }
     }
     

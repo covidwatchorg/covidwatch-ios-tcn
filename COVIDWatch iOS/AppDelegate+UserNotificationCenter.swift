@@ -39,7 +39,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
       UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
         guard settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional else { return }
         UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: nil)
-        os_log("Added notification request (.identifier=%@ .content.categoryIdentifier=%@ .content.threadIdentifier=%@) to user notification center.", notificationRequest.identifier, notificationRequest.content.categoryIdentifier, notificationRequest.content.threadIdentifier)
+        os_log("Added notification request (.identifier=%@ .content.categoryIdentifier=%@ .content.threadIdentifier=%@) to user notification center.", log: .app, notificationRequest.identifier, notificationRequest.content.categoryIdentifier, notificationRequest.content.threadIdentifier)
       })
     }
     

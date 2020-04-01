@@ -21,7 +21,7 @@ class ContactEventsDownloadOperation: Operation {
     
     override func main() {
         let semaphore = DispatchSemaphore(value: 0)
-        os_log("Downloading contact events...", type: .info)
+        os_log("Downloading contact events...", log: .app)
         Firestore.firestore().collection(Firestore.Collections.contactEvents)
             .whereField(Firestore.Fields.timestamp, isGreaterThan: Timestamp(date: self.sinceDate))
             .getDocuments { [weak self] (querySnapshot, error) in
@@ -31,11 +31,11 @@ class ContactEventsDownloadOperation: Operation {
                 guard let self = self else { return }
                 if let error = error {
                     self.error = error
-                    os_log("Downloading contact events failed: %@", type: .error, error as CVarArg)
+                    os_log("Downloading contact events failed: %@", log: .app, type: .error, error as CVarArg)
                     return
                 }
                 guard let querySnapshot = querySnapshot else { return }
-                os_log("Downloaded %d contact event(s)", type: .info, querySnapshot.count)
+                os_log("Downloaded %d contact event(s)", log: .app, querySnapshot.count)
                 self.querySnapshot = querySnapshot
         }
         if semaphore.wait(timeout: .now() + 20) == .timedOut {

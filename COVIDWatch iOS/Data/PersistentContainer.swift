@@ -12,7 +12,7 @@ public class PersistentContainer: NSPersistentContainer {
     
     static let modelName = "COVIDWatch"
     
-    static let log = OSLog(subsystem: modelName, category: String(describing: PersistentContainer.self))
+    static let log = OSLog(subsystem: "org.covidwatch", category: String(describing: PersistentContainer.self))
     
     public static var shared = PersistentContainer(name: modelName)
     

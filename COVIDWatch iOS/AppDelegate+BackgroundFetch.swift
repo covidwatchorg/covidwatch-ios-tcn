@@ -20,7 +20,7 @@ extension AppDelegate {
         performFetchWithCompletionHandler
         completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
-        os_log("Performing background fetch...", type: .info)
+        os_log("Performing background fetch...", log: .app)
         self.fetchPublicContactEvents(completionHandler: completionHandler)
     }
     

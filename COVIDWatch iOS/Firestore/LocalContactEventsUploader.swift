@@ -27,7 +27,7 @@ open class LocalContactEventsUploader: NSObject, NSFetchedResultsControllerDeleg
             self.uploadContactEventsIfNeeded()
         }
         catch {
-            os_log("Fetched results controller perform fetch failed: %@", type: .error, error as CVarArg)
+            os_log("Fetched results controller perform fetch failed: %@", log: .app, type: .error, error as CVarArg)
         }
     }
     
@@ -47,7 +47,7 @@ open class LocalContactEventsUploader: NSObject, NSFetchedResultsControllerDeleg
                 Firestore.Fields.timestamp : Timestamp(date: timestamp)
             ], forDocument: db.collection(Firestore.Collections.contactEvents).document(identifierString))
         }
-        os_log("Uploading %d contact event(s)...", type: .info, contactEvents.count)
+        os_log("Uploading %d contact event(s)...", log: .app, contactEvents.count)
         // Mark local contact events as being uploaded
         contactEvents.forEach({ $0.uploadState = UploadState.uploading.rawValue })
         batch.commit { [weak self] (error) in
@@ -56,11 +56,11 @@ open class LocalContactEventsUploader: NSObject, NSFetchedResultsControllerDeleg
                 try? self.fetchedResultsController.managedObjectContext.save()
             }
             if let error = error {
-                os_log("Uploading %d contact event(s) failed: %@", type: .error, contactEvents.count, error as CVarArg)
+                os_log("Uploading %d contact event(s) failed: %@", log: .app, type: .error, contactEvents.count, error as CVarArg)
                 contactEvents.forEach({ $0.uploadState = UploadState.notUploaded.rawValue })
                 return
             }
-            os_log("Uploaded %d contact event(s)", type: .info, contactEvents.count)
+            os_log("Uploaded %d contact event(s)", log: .app, contactEvents.count)
             // Mark local contact events as uploaded
             contactEvents.forEach({ $0.uploadState = UploadState.uploaded.rawValue })
         }
@@ -74,10 +74,10 @@ open class LocalContactEventsUploader: NSObject, NSFetchedResultsControllerDeleg
         do {
             fetchedObjects.forEach({ $0.wasPotentiallyInfectious = true })
             try self.fetchedResultsController.managedObjectContext.save()
-            os_log("Marked %d contact event(s) as potentially infectious=%d", type: .info, fetchedObjects.count, true)
+            os_log("Marked %d contact event(s) as potentially infectious=%d", log: .app, fetchedObjects.count, true)
         }
         catch {
-            os_log("Marking %d contact event(s) as potentially infectious=%d failed: %@", type: .error, fetchedObjects.count, true, error as CVarArg)
+            os_log("Marking %d contact event(s) as potentially infectious=%d failed: %@", log: .app, type: .error, fetchedObjects.count, true, error as CVarArg)
         }
     }
     
