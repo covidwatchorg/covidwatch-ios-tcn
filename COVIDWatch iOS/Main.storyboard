@@ -20,6 +20,7 @@
                     <connections>
                         <segue destination="xIW-yl-ZHW" kind="relationship" relationship="viewControllers" id="NMH-wg-mhO"/>
                         <segue destination="r8d-OF-MOR" kind="relationship" relationship="viewControllers" id="Iab-BH-1J0"/>
+                        <segue destination="arr-op-Ecw" kind="relationship" relationship="viewControllers" id="Tmt-v2-bHS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -29,7 +30,7 @@
         <!--Seen Tags-->
         <scene sceneID="4Yb-kV-CrU">
             <objects>
-                <tableViewController id="Vxd-Mb-2bC" customClass="ContactEventsTableViewController" customModule="Red_Paint" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Vxd-Mb-2bC" customClass="ContactEventsTableViewController" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VmW-Cj-iyY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,7 +96,7 @@
         <!--Settings-->
         <scene sceneID="c7e-Qk-AFT">
             <objects>
-                <viewController id="2dV-uJ-laY" customClass="UserProfileViewController" customModule="Red_Paint" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2dV-uJ-laY" customClass="UserProfileViewController" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uqe-vy-EfA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,6 +143,22 @@
             </objects>
             <point key="canvasLocation" x="1679.7101449275362" y="394.41964285714283"/>
         </scene>
+        <!--Log-->
+        <scene sceneID="YFh-bz-g66">
+            <objects>
+                <viewController id="dfC-XF-HdP" customClass="LogViewController" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3qA-24-Wun">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="1JU-fg-bHS"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Log" id="qFG-eD-YBD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y9c-1T-Lh0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1680" y="1165"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="yRI-DU-lpz">
             <objects>
@@ -179,6 +196,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBM-tE-Drr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="769.56521739130437" y="-358.25892857142856"/>
+        </scene>
+        <!--Log-->
+        <scene sceneID="r4x-5q-YEc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="arr-op-Ecw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Log" id="JR4-fW-kiY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t8a-QX-p1X">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dfC-XF-HdP" kind="relationship" relationship="rootViewController" id="3zK-Ed-aJB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SUY-yg-Dro" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="770" y="1165"/>
         </scene>
     </scenes>
     <resources>
