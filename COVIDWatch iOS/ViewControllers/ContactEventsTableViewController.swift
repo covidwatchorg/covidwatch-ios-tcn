@@ -41,7 +41,7 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
                 self.tableView.reloadData()
             }
             catch {
-                os_log("Fetched results controller perform fetch failed: %@", type: .error, error as CVarArg)
+                os_log("Fetched results controller perform fetch failed: %@", log: .app, type: .error, error as CVarArg)
             }
         }
     }
@@ -54,7 +54,7 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
         let context = PersistentContainer.shared.newBackgroundContext()
         context.perform {
             do {
-                os_log("Deleting contact events...", type: .info)
+                os_log("Deleting contact events...", log: .app)
                 guard let entityName = ContactEvent.entity().name else { return }
                 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
                 let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
@@ -64,10 +64,10 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
                 if !deletedObjectIDs.isEmpty {
                     NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSDeletedObjectsKey: deletedObjectIDs], into: [PersistentContainer.shared.viewContext])
                 }
-                os_log("Deleted %d contact event(s)", type: .info, deletedObjectIDs.count)
+                os_log("Deleted %d contact event(s)", log: .app, deletedObjectIDs.count)
             }
             catch {
-                os_log("Deleting contact events failed: %@", type: .error, error as CVarArg)
+                os_log("Deleting contact events failed: %@", log: .app, type: .error, error as CVarArg)
             }
         }
     }

@@ -35,7 +35,7 @@ class QuerySnapshotProcessingOperation: Operation {
             do {
                 guard let self = self else { return }
                 let identifiers: [UUID] = queryDocumentSnapshots.compactMap({ UUID(uuidString: $0.documentID) })
-                os_log("Marking %d contact event(s) as potentially infectious=%d ...", type: .info, identifiers.count, infectious)
+                os_log("Marking %d contact event(s) as potentially infectious=%d ...", log: .app, identifiers.count, infectious)
                 var allUpdatedObjectIDs = [NSManagedObjectID]()
                 try identifiers.chunked(into: 300000).forEach { (identifiers) in
                     guard !self.isCancelled else { return }
@@ -55,10 +55,10 @@ class QuerySnapshotProcessingOperation: Operation {
                 if !allUpdatedObjectIDs.isEmpty, let mergingContexts = self.mergingContexts {
                     NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSUpdatedObjectsKey: allUpdatedObjectIDs], into: mergingContexts)
                 }
-                os_log("Marked %d contact event(s) as potentially infectious=%d", type: .info, queryDocumentSnapshots.count, infectious)
+                os_log("Marked %d contact event(s) as potentially infectious=%d", log: .app, queryDocumentSnapshots.count, infectious)
             }
             catch {
-                os_log("Marking contact event(s) as potentially infectious=%d failed: %@", type: .error, infectious, error as CVarArg)
+                os_log("Marking contact event(s) as potentially infectious=%d failed: %@", log: .app, type: .error, infectious, error as CVarArg)
             }
         }
     }
