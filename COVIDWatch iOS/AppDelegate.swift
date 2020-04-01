@@ -25,13 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        // MARK: logging
-        if let sLog = loadLog() {
-            logV = sLog
-        }
-        log("starting")
-        // end of logging startup
-        
         FirebaseApp.configure()
         if #available(iOS 13.0, *) {
             self.registerBackgroundTasks()
@@ -117,53 +110,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.localContactEventsUploader?.markAllLocalContactEventsAsPotentiallyInfectious()
         })
     }
-    
-    
-    // MARK: View Logging:
-    
-    var logV = [LogLine]()
-    var logViewController : LogViewController?
-
-    func log(_ s: String) {
-        let line = LogLine.formatD(Date()) + ":" + s
-        logV.append(LogLine(line:line))
-        logViewController?.log(line)
-        saveLog()
-    }
-    
-    private func saveLog() {
-        //        let archivedData = try! NSKeyedArchiver.archivedData(withRootObject: logV, requiringSecureCoding: false)
-        //        try! archivedData.write(to: LogLine.ArchiveURL)
-        if let archivedData = try? NSKeyedArchiver.archivedData(withRootObject: logV, requiringSecureCoding: false) {
-            do {
-                try archivedData.write(to: LogLine.ArchiveURL)
-            } catch {
-                os_log("saving failed.1", log: OSLog.default, type: .debug)
-            }
-        } else {
-            os_log("saving failed.2", log: OSLog.default, type: .debug)
-        }
-    }
-    
-    private func loadLog() -> [LogLine]? {
-        //return NSKeyedUnarchiver.unarchiveObject(withFile: LogLine.ArchiveURL.path) as? [LogLine]
-        //        let archivedData = try! Data(contentsOf: LogLine.ArchiveURL)
-        //        return (try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(archivedData)) as? [LogLine]
-        if let archivedData = try? Data(contentsOf: LogLine.ArchiveURL) {
-            if let rv = (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(archivedData)) as? [LogLine] {
-                return rv
-            } else {
-                os_log("loading failed.", log: OSLog.default, type: .debug)
-                return nil
-            }
-        } else {
-            os_log("loading failed.", log: OSLog.default, type: .debug)
-            return nil
-        }
-        
-    }
-    
-    
-    
     
 }
