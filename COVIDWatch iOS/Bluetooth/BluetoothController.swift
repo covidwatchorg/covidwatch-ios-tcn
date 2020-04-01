@@ -22,7 +22,7 @@ class BluetoothController: NSObject {
     public let label = UUID().uuidString
     
     @available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
-    lazy private var log = OSLog(subsystem: label, category: "Bluetooth")
+    lazy private var log = OSLog(subsystem: "org.covidwatch", category: "Bluetooth")
     
     lazy private var dispatchQueue: DispatchQueue = DispatchQueue(label: label)
     
@@ -100,7 +100,6 @@ class BluetoothController: NSObject {
                 os_log(
                     "Did expire background task=%d",
                     log: self.log,
-                    type: .info,
                     self.backgroundTaskIdentifier?.rawValue ?? 0
                 )
             }
@@ -169,6 +168,7 @@ class BluetoothController: NSObject {
     @objc func applicationWillEnterForegroundNotification(
         _ notification: Notification
     ) {
+        os_log("Application will enter foreground", log: self.log)
         self.dispatchQueue.async { [weak self] in
             guard let self = self else { return }
             // Bug workaround: If Bluetooth was toggled while the app was in the
@@ -435,8 +435,9 @@ extension BluetoothController: CBCentralManagerDelegate {
         ]
         #endif
         let options: [String : Any] = [
-            CBCentralManagerScanOptionAllowDuplicatesKey :
-                NSNumber(booleanLiteral: true)
+//            CBCentralManagerScanOptionAllowDuplicatesKey :
+//                NSNumber(booleanLiteral: true)
+            :
         ]
         central.scanForPeripherals(
             withServices: services,
@@ -469,32 +470,51 @@ extension BluetoothController: CBCentralManagerDelegate {
         advertisementData: [String : Any],
         rssi RSSI: NSNumber
     ) {
-        if !self.discoveredPeripherals.contains(peripheral) {
-            if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
-                os_log(
-                    "Central manager did discover new peripheral (uuid=%@ name='%@') RSSI=%d advertisementData=%@",
-                    log: self.log,
-                    peripheral.identifier.description,
-                    peripheral.name ?? "",
-                    RSSI.intValue,
-                    advertisementData.description
-                )
-            }
+        let isNewlyDiscovered = !self.discoveredPeripherals.contains(where: ({
+            $0.identifier == peripheral.identifier })
+        )
+        
+        if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
+            os_log(
+                "Central manager did discover peripheral (new=%d uuid=%@ name='%@') RSSI=%d advertisementData=%@",
+                log: self.log,
+                isNewlyDiscovered,
+                peripheral.identifier.description,
+                peripheral.name ?? "",
+                RSSI.intValue,
+                advertisementData.description
+            )
+        }
+        
+        if isNewlyDiscovered {
+            
+            self.discoveredPeripherals.insert(peripheral)
+            
+            let isConnectable = (advertisementData[
+                CBAdvertisementDataIsConnectable] as? NSNumber)?.boolValue ?? false
+
+            // Check if we can extract CEN from the service data field
             if let advertisementDataServiceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [CBUUID : Data],
                 let uuidData = advertisementDataServiceData[CBUUID(string: BluetoothService.UUIDPeripheralServiceString)],
                 let uuid = try? UUID(dataRepresentation: uuidData) {
+                
                 self.logNewContactEvent(with: uuid, isBroadcastType: true)
+                
                 // Remote device is an Android device. Write CEN, because it can not see the iOS device.
-                self.peripheralsToWriteContactEventIdentifierTo.insert(peripheral)
+                if (isConnectable) {
+                    self.peripheralsToWriteContactEventIdentifierTo.insert(peripheral)
+                    self.connectPeripheralsIfNeeded()
+                }
             }
             else {
-                self.peripheralsToWriteContactEventIdentifierTo.insert(peripheral)
-                // OR use reading. Both cases are handled.
-                // self.peripheralsToReadContactEventIdentifierFrom.insert(peripheral)
+                if (isConnectable) {
+                    self.peripheralsToWriteContactEventIdentifierTo.insert(peripheral)
+                    // OR use reading. Both cases are handled.
+                    // self.peripheralsToReadContactEventIdentifierFrom.insert(peripheral)
+                    self.connectPeripheralsIfNeeded()
+                }
             }
         }
-        self.discoveredPeripherals.insert(peripheral)
-        self.connectPeripheralsIfNeeded()
     }
     
     func centralManager(
