@@ -10,9 +10,11 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
 
+    @IBOutlet weak var onboardingToTabBarButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        onboardingToTabBarButton.layer.cornerRadius = 10
     }
     
     

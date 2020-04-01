@@ -10,9 +10,12 @@ import UIKit
 
 class FirstScreenViewController: UIViewController {
 
+    @IBOutlet weak var firstScreenToOnboardingButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        firstScreenToOnboardingButton.layer.cornerRadius = 10
     }
     
     @IBAction func firstScreenToOnboardingButtonPressed(_ sender: UIButton) {
