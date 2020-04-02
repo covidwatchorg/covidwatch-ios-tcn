@@ -11,12 +11,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var statusImage: UIImageView!
+    @IBOutlet weak var contactOrNotLabel: UILabel!
+    
+    @IBOutlet weak var contactOrNotImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.isContactEventLoggingEnabled == false {
             UserDefaults.standard.isContactEventLoggingEnabled = true
         }
-        statusImage.image = #imageLiteral(resourceName: "EverlyAndInstructions")
+//        contactOrNotImage.image = #imageLiteral(resourceName: "Dani")
     }
 }
