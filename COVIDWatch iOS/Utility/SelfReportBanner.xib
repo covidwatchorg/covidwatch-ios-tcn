@@ -15,7 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelfReportBanner" customModule="Tags_" customModuleProvider="target">
             <connections>
-                <outlet property="thisView" destination="iN0-l3-epB" id="w0c-R7-Ehp"/>
+                <outlet property="thisView" destination="iN0-l3-epB" id="7X4-H0-0pI"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

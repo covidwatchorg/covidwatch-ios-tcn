@@ -10,12 +10,7 @@ import UIKit
 
 class SelfReportBanner: UIView {
 
-    
     @IBOutlet var thisView: UIView!
-    //    @IBOutlet weak var selfReportButton: UIButton!
-//    @IBAction func selfReportButtonPressed(_ sender: UIButton) {
-//        print("MODULAR BUTTON PRESSED!")
-//    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

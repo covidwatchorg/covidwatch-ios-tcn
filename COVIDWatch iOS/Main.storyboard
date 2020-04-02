@@ -283,37 +283,11 @@
                                     <constraint firstItem="6ug-qU-3FI" firstAttribute="centerY" secondItem="iGs-fi-Tvk" secondAttribute="centerY" id="zoX-Yh-cHT"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3I-B4-Dsc" userLabel="SelfReportBanner">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3I-B4-Dsc" userLabel="SelfReportBanner" customClass="SelfReportBanner" customModule="Tags_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="753" width="414" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Kh-NP-FYo">
-                                        <rect key="frame" x="265" y="8" width="140" height="44"/>
-                                        <color key="backgroundColor" red="0.74901960779999999" green="0.2470588235" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="v9A-tg-tYS"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
-                                        <state key="normal" title="Self Report">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmed Covid 19?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLa-32-a9y">
-                                        <rect key="frame" x="10" y="0.0" width="208.66666666666666" height="60"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" red="0.46666666666666667" green="0.62352941176470589" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="2Kh-NP-FYo" secondAttribute="bottom" constant="8" id="N8S-Fo-dgF"/>
                                     <constraint firstAttribute="height" constant="60" id="NMK-pd-jIg"/>
-                                    <constraint firstAttribute="trailing" secondItem="2Kh-NP-FYo" secondAttribute="trailing" constant="9" id="PeV-Zz-7fq"/>
-                                    <constraint firstItem="YLa-32-a9y" firstAttribute="top" secondItem="B3I-B4-Dsc" secondAttribute="top" id="egj-kD-iXc"/>
-                                    <constraint firstAttribute="bottom" secondItem="YLa-32-a9y" secondAttribute="bottom" id="poW-JU-TRU"/>
-                                    <constraint firstItem="YLa-32-a9y" firstAttribute="leading" secondItem="B3I-B4-Dsc" secondAttribute="leading" constant="10" id="wPG-cb-K0K"/>
-                                    <constraint firstItem="2Kh-NP-FYo" firstAttribute="leading" secondItem="YLa-32-a9y" secondAttribute="trailing" constant="46.5" id="y3a-tz-rxN"/>
-                                    <constraint firstItem="2Kh-NP-FYo" firstAttribute="top" secondItem="B3I-B4-Dsc" secondAttribute="top" constant="8" id="z6T-rT-ltJ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXa-BN-Okx">
@@ -397,11 +371,6 @@
                                     <constraint firstAttribute="height" constant="40" id="y5d-l4-0qu"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ute-qp-hVV" customClass="SelfReportBanner" customModule="Tags_" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="438" width="414" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
