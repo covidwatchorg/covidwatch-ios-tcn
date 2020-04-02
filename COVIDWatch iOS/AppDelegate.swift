@@ -8,6 +8,7 @@ import CoreData
 import Firebase
 import os.log
 import BackgroundTasks
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var bluetoothController: BluetoothController?
+    var locationManager: CLLocationManager?
     
     var isContactEventLoggingEnabledObservation: NSKeyValueObservation?
     var isCurrentUserSickObservation: NSKeyValueObservation?
@@ -39,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.configureIsCurrentUserSickObserver()
             self.localContactEventsUploader = LocalContactEventsUploader()
             self.currentUserExposureNotifier = CurrentUserExposureNotifier()
+            self.configureBackgroundLocation()
             self.bluetoothController = BluetoothController()
             self.configureIsContactEventLoggingEnabledObserver()
         }

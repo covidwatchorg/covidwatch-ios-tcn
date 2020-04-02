@@ -20,6 +20,7 @@
 		2D8496F724320F2900C71BD1 /* ContactEventsDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F624320F2900C71BD1 /* ContactEventsDownloadOperation.swift */; };
 		2D8496F924321A7C00C71BD1 /* FirestoreOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */; };
 		2D8E7CE92434DB0F0012AFFB /* OSLog+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E7CE82434DB0E0012AFFB /* OSLog+Additions.swift */; };
+		2D9A3B552435B51C00B4ED59 /* AppDelegate+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A3B542435B51C00B4ED59 /* AppDelegate+CLLocationManagerDelegate.swift */; };
 		2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A38241975B20049CD2A /* BluetoothService.swift */; };
 		2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */; };
 		2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */; };
@@ -79,6 +80,7 @@
 		2D8496F624320F2900C71BD1 /* ContactEventsDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventsDownloadOperation.swift; sourceTree = "<group>"; };
 		2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreOperations.swift; sourceTree = "<group>"; };
 		2D8E7CE82434DB0E0012AFFB /* OSLog+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OSLog+Additions.swift"; sourceTree = "<group>"; };
+		2D9A3B542435B51C00B4ED59 /* AppDelegate+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
 		2DB09A38241975B20049CD2A /* BluetoothService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
 		2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
 		2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BluetoothService+CoreBluetooth.swift"; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				2DFDC5A224190AB800B108F8 /* AppDelegate.swift */,
 				2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */,
 				2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */,
+				2D9A3B542435B51C00B4ED59 /* AppDelegate+CLLocationManagerDelegate.swift */,
 				2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */,
 				2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */,
 				2D8E7CE82434DB0E0012AFFB /* OSLog+Additions.swift */,
@@ -598,6 +601,7 @@
 				2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */,
 				2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */,
 				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */,
+				2D9A3B552435B51C00B4ED59 /* AppDelegate+CLLocationManagerDelegate.swift in Sources */,
 				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -77,15 +77,15 @@ class BluetoothController: NSObject {
     }
     
     private func configureBackgroundTaskIfNeeded() {
-        #if canImport(UIKit) && !targetEnvironment(macCatalyst) && !os(watchOS)
-        if self.connectingPeripheralIdentifiers.isEmpty &&
-            self.connectedPeripheralIdentifiers.isEmpty {
-            self.endBackgroundTaskIfNeeded()
-        }
-        else {
-            self.beginBackgroundTaskIfNeeded()
-        }
-        #endif
+//        #if canImport(UIKit) && !targetEnvironment(macCatalyst) && !os(watchOS)
+//        if self.connectingPeripheralIdentifiers.isEmpty &&
+//            self.connectedPeripheralIdentifiers.isEmpty {
+//            self.endBackgroundTaskIfNeeded()
+//        }
+//        else {
+//            self.beginBackgroundTaskIfNeeded()
+//        }
+//        #endif
     }
     
     // macCatalyst apps do not need background tasks.
@@ -149,6 +149,12 @@ class BluetoothController: NSObject {
             name: UIApplication.willEnterForegroundNotification,
             object: nil
         )
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(applicationDidEnterBackgroundNotification(_:)),
+            name: UIApplication.didEnterBackgroundNotification,
+            object: nil
+        )
         #endif
     }
     
@@ -158,6 +164,11 @@ class BluetoothController: NSObject {
         notificationCenter.removeObserver(
             self,
             name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
+        notificationCenter.removeObserver(
+            self,
+            name: UIApplication.didEnterBackgroundNotification,
             object: nil
         )
         #endif
@@ -180,6 +191,12 @@ class BluetoothController: NSObject {
             }
         }
     }
+    
+    @objc func applicationDidEnterBackgroundNotification(
+            _ notification: Notification
+        ) {
+            os_log("Application did enter background", log: self.log)
+        }
     
     // MARK: -
     
@@ -204,10 +221,12 @@ class BluetoothController: NSObject {
             )
             self.peripheralManager = CBPeripheralManager(
                 delegate: self,
-                queue: self.dispatchQueue,
+                queue: nil,
                 options: [
-                    CBPeripheralManagerOptionRestoreIdentifierKey:
-                    "covidwatch.peripheral."
+                    CBPeripheralManagerOptionRestoreIdentifierKey :
+                    "covidwatch.peripheral.",
+                    CBPeripheralManagerOptionShowPowerAlertKey :
+                        NSNumber(booleanLiteral: true),
                 ]
             )
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
@@ -425,43 +444,61 @@ extension BluetoothController: CBCentralManagerDelegate {
     
     private func _startScan() {
         guard let central = self.centralManager else { return }
-        #if targetEnvironment(macCatalyst)
-        // CoreBluetooth on macCatalyst doesn't discover services of iOS apps
-        // running in the background. Therefore we scan for everything.
-        let services: [CBUUID]? = nil
-        #else
-        let services = [
-            CBUUID(string: BluetoothService.UUIDPeripheralServiceString)
-        ]
-        #endif
-        let options: [String : Any] = [
-//            CBCentralManagerScanOptionAllowDuplicatesKey :
-//                NSNumber(booleanLiteral: true)
-            :
-        ]
+//        #if targetEnvironment(macCatalyst)
+//        // CoreBluetooth on macCatalyst doesn't discover services of iOS apps
+//        // running in the background. Therefore we scan for everything.
+//        let services: [CBUUID]? = nil
+//        #else
+//        let services = [
+//            CBUUID(string: BluetoothService.UUIDPeripheralServiceString)
+//        ]
+//        #endif
+//        let options: [String : Any] = [
+////            CBCentralManagerScanOptionAllowDuplicatesKey :
+////                NSNumber(booleanLiteral: true)
+//            :
+//        ]
+//        central.scanForPeripherals(
+//            withServices: services,
+//            options: options
+//        )
+//        #if targetEnvironment(macCatalyst)
+//        if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
+//            os_log(
+//                "Central manager scanning for peripherals with services=%@ options=%@",
+//                log: self.log,
+//                services ?? "",
+//                options.description
+//            )
+//        }
+//        #else
+//        if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
+//            os_log(
+//                "Central manager scanning for peripherals with services=%@ options=%@",
+//                log: self.log,
+//                services,
+//                options.description
+//            )
+//        }
+//        #endif
+        
+        var services: [CBUUID]? = nil
+//        if UIApplication.shared.applicationState == .active {
+//            services?.append(CBUUID(string: BluetoothService.UUIDPeripheralServiceString))
+//        }
         central.scanForPeripherals(
             withServices: services,
-            options: options
+            options: nil
         )
-        #if targetEnvironment(macCatalyst)
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             os_log(
                 "Central manager scanning for peripherals with services=%@ options=%@",
                 log: self.log,
                 services ?? "",
-                options.description
+                ""
             )
         }
-        #else
-        if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
-            os_log(
-                "Central manager scanning for peripherals with services=%@ options=%@",
-                log: self.log,
-                services,
-                options.description
-            )
-        }
-        #endif
+
     }
     
     func centralManager(
