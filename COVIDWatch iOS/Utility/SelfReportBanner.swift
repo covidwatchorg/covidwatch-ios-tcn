@@ -11,6 +11,16 @@ import UIKit
 class SelfReportBanner: UIView {
 
     @IBOutlet var thisView: UIView!
+    var parentViewController: UIViewController? {
+        var parentResponder: UIResponder? = self
+        while parentResponder != nil {
+            parentResponder = parentResponder?.next
+            if let viewController = parentResponder as? UIViewController {
+                return viewController
+            }
+        }
+        return nil
+    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -18,27 +28,9 @@ class SelfReportBanner: UIView {
         self.addSubview(self.thisView)
     }
     
-//    let nibName = "SelfReportBanner"
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        commonInit()
-//    }
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        commonInit()
-//    }
-//
-//    func commonInit() {
-//        guard let view = loadViewFromNib() else { return }
-//        view.frame = self.bounds
-//        self.addSubview(view)
-//    }
-//
-//    func loadViewFromNib() -> UIView? {
-//        let nib = UINib(nibName: nibName, bundle: nil)
-//        return nib.instantiate(withOwner: self, options: nil).first as? UIView
-//    }
-    
+    @IBAction func selfReportButtonPressed(_ sender: UIButton) {
+        print("selfReportButtonPressed")
+        
+        self.parentViewController!.performSegue(withIdentifier: "NoContactToContact", sender: self)
+    }
 }

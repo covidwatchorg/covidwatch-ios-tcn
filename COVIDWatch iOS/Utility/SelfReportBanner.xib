@@ -36,6 +36,9 @@
                             <state key="normal" title="Self Report">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="selfReportButtonPressed:" destination="-1" eventType="touchUpInside" id="hWk-Qh-fmI"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmed Covid 19?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjY-M2-d3c">
                             <rect key="frame" x="10" y="0.0" width="208.5" height="60"/>
