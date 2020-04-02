@@ -15,6 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelfReportBanner" customModule="Tags_" customModuleProvider="target">
             <connections>
+                <outlet property="selfReportButton" destination="BeE-J4-B3K" id="c4j-jl-4dy"/>
                 <outlet property="thisView" destination="iN0-l3-epB" id="7X4-H0-0pI"/>
             </connections>
         </placeholder>

@@ -21,16 +21,17 @@ class SelfReportBanner: UIView {
         }
         return nil
     }
+    @IBOutlet weak var selfReportButton: UIButton!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         Bundle.main.loadNibNamed("SelfReportBanner", owner: self, options: nil)
         self.addSubview(self.thisView)
+        self.selfReportButton.layer.cornerRadius = 10
     }
     
     @IBAction func selfReportButtonPressed(_ sender: UIButton) {
         print("selfReportButtonPressed")
-        
-        self.parentViewController!.performSegue(withIdentifier: "NoContactToContact", sender: self)
+        parentViewController?.performSegue(withIdentifier: "NoContactToContact", sender: self)
     }
 }

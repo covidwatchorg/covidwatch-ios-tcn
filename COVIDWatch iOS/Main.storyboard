@@ -220,14 +220,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLw-kx-Gy9" userLabel="BannerGutter">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.63529411759999999" green="0.7725490196" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4w-YM-seK" userLabel="Banner">
-                                <rect key="frame" x="0.0" y="88" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="49"/>
                                 <color key="backgroundColor" red="0.63529411759999999" green="0.7725490196" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="ZBP-BP-GKF"/>
@@ -291,7 +291,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXa-BN-Okx">
-                                <rect key="frame" x="0.0" y="137" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="93" width="414" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wh-oQ-VJc">
                                         <rect key="frame" x="47" y="10" width="320" height="74"/>
@@ -329,7 +329,7 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="249" image="Dani" translatesAutoresizingMaskIntoConstraints="NO" id="32z-pj-rva">
-                                <rect key="frame" x="10" y="257" width="394" height="338"/>
+                                <rect key="frame" x="10" y="213" width="394" height="382"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="wXR-A2-dWL">
                                 <rect key="frame" x="107" y="615" width="200" height="40"/>
@@ -480,37 +480,11 @@
                                     <constraint firstItem="iiD-6q-yxf" firstAttribute="centerY" secondItem="9Hd-aG-CgB" secondAttribute="centerY" id="yfl-T9-zTg"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7B9-X2-Rh2" userLabel="SelfReportBanner">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7B9-X2-Rh2" userLabel="SelfReportBanner" customClass="SelfReportBanner" customModule="Tags_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="753" width="414" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCa-nG-mvX">
-                                        <rect key="frame" x="265" y="8" width="140" height="44"/>
-                                        <color key="backgroundColor" red="0.74901960779999999" green="0.2470588235" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="BE0-Sz-BME"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
-                                        <state key="normal" title="Self Report">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmed Covid 19?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TON-Ti-StF">
-                                        <rect key="frame" x="10" y="0.0" width="208.66666666666666" height="60"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" red="0.46666666670000001" green="0.62352941179999999" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="TON-Ti-StF" firstAttribute="leading" secondItem="7B9-X2-Rh2" secondAttribute="leading" constant="10" id="LDU-z9-NNV"/>
-                                    <constraint firstItem="LCa-nG-mvX" firstAttribute="top" secondItem="7B9-X2-Rh2" secondAttribute="top" constant="8" id="ZPl-XM-l4W"/>
-                                    <constraint firstAttribute="bottom" secondItem="LCa-nG-mvX" secondAttribute="bottom" constant="8" id="cdb-za-VAj"/>
                                     <constraint firstAttribute="height" constant="60" id="g7U-BG-zd0"/>
-                                    <constraint firstAttribute="bottom" secondItem="TON-Ti-StF" secondAttribute="bottom" id="mIp-S7-XnI"/>
-                                    <constraint firstItem="LCa-nG-mvX" firstAttribute="leading" secondItem="TON-Ti-StF" secondAttribute="trailing" constant="46.5" id="nsI-7r-t0U"/>
-                                    <constraint firstItem="TON-Ti-StF" firstAttribute="top" secondItem="7B9-X2-Rh2" secondAttribute="top" id="rlK-bN-INd"/>
-                                    <constraint firstAttribute="trailing" secondItem="LCa-nG-mvX" secondAttribute="trailing" constant="9" id="ynG-iF-xrI"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1b4-Kb-4GE">
@@ -689,11 +663,10 @@
         <!--Info-->
         <scene sceneID="jNe-db-WqX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dO7-nL-NS5" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="dO7-nL-NS5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Info" image="house.fill" catalog="system" id="OHU-cb-Ex3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OT0-kb-mFL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.63529411759999999" green="0.7725490196" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.63529411759999999" green="0.7725490196" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

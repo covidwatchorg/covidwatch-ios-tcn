@@ -246,8 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */,
-				2EF61C31243651F1003046A4 /* SelfReportBanner.xib */,
-				2EF61C3324365584003046A4 /* SelfReportBanner.swift */,
 				2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */,
 				2D30EFC2242268010063C211 /* Array+Chunked.swift */,
 			);
@@ -288,6 +286,7 @@
 				2DB09A37241965FF0049CD2A /* Bluetooth */,
 				2DDEBF61241A39EE005BE9A8 /* Utility */,
 				2D9D70AD241CCB4B007ABD89 /* ViewControllers */,
+				2EF61C352436733A003046A4 /* UIComponents */,
 				2D044469241A229E006B61E4 /* Data */,
 				2DFDC5AB24190AB900B108F8 /* Assets.xcassets */,
 				2D5C540E241CB51C00DB2520 /* Main.storyboard */,
@@ -350,6 +349,15 @@
 				2E72B1D3243467D900560BCC /* Roboto-Black.ttf */,
 			);
 			path = roboto;
+			sourceTree = "<group>";
+		};
+		2EF61C352436733A003046A4 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				2EF61C31243651F1003046A4 /* SelfReportBanner.xib */,
+				2EF61C3324365584003046A4 /* SelfReportBanner.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		5AECD6E91A3FC6D786A4C832 /* Pods */ = {
