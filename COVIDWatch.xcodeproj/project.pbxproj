@@ -62,6 +62,8 @@
 		2E72B1E4243467D900560BCC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1D1243467D900560BCC /* Roboto-Bold.ttf */; };
 		2E72B1E5243467D900560BCC /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1D2243467D900560BCC /* Roboto-Thin.ttf */; };
 		2E72B1E6243467D900560BCC /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1D3243467D900560BCC /* Roboto-Black.ttf */; };
+		2EF61C32243651F1003046A4 /* SelfReportBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EF61C31243651F1003046A4 /* SelfReportBanner.xib */; };
+		2EF61C3424365584003046A4 /* SelfReportBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF61C3324365584003046A4 /* SelfReportBanner.swift */; };
 		B1D85F9E809BCC12318E2223 /* Pods_COVIDWatch_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */; };
 		F59A36E1AD0F8E40375BE630 /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */; };
 /* End PBXBuildFile section */
@@ -146,6 +148,8 @@
 		2E72B1D1243467D900560BCC /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		2E72B1D2243467D900560BCC /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		2E72B1D3243467D900560BCC /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		2EF61C31243651F1003046A4 /* SelfReportBanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelfReportBanner.xib; sourceTree = "<group>"; };
+		2EF61C3324365584003046A4 /* SelfReportBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfReportBanner.swift; sourceTree = "<group>"; };
 		328891014B90A28E0C90E061 /* Pods-COVID-19 RiskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 RiskTests.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 RiskTests/Pods-COVID-19 RiskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; sourceTree = "<group>"; };
 		64576CBB2D573736A801A228 /* Pods-COVIDWatch iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS/Pods-COVIDWatch iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */,
+				2EF61C31243651F1003046A4 /* SelfReportBanner.xib */,
+				2EF61C3324365584003046A4 /* SelfReportBanner.swift */,
 				2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */,
 				2D30EFC2242268010063C211 /* Array+Chunked.swift */,
 			);
@@ -504,6 +510,7 @@
 				2E72B1D9243467D900560BCC /* Roboto-MediumItalic.ttf in Resources */,
 				2E72B1DC243467D900560BCC /* Apache License.txt in Resources */,
 				2E72B1D6243467D900560BCC /* RobotoCondensed-Bold.ttf in Resources */,
+				2EF61C32243651F1003046A4 /* SelfReportBanner.xib in Resources */,
 				2E72B1D7243467D900560BCC /* RobotoCondensed-Light.ttf in Resources */,
 				2E72B1DE243467D900560BCC /* Roboto-ThinItalic.ttf in Resources */,
 				2E72B1E0243467D900560BCC /* Roboto-BoldItalic.ttf in Resources */,
@@ -673,6 +680,7 @@
 				2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */,
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
 				2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */,
+				2EF61C3424365584003046A4 /* SelfReportBanner.swift in Sources */,
 				2E72B19A2432EE6800560BCC /* OnboardingViewController.swift in Sources */,
 				2E72B1BE2433CD8900560BCC /* HomeViewController.swift in Sources */,
 				2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */,

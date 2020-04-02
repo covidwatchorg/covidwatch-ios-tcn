@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        performSegue(withIdentifier: "NoContactToContact", sender: self)
+//        performSegue(withIdentifier: "NoContactToContact", sender: self)
         if UserDefaults.standard.isContactEventLoggingEnabled == false {
             UserDefaults.standard.isContactEventLoggingEnabled = true
             
