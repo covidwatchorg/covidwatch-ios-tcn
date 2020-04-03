@@ -486,35 +486,35 @@ extension BluetoothController: CBCentralManagerDelegate {
             )
         }
         
-        if isNewlyDiscovered {
-            
-            self.discoveredPeripherals.insert(peripheral)
-            
-            let isConnectable = (advertisementData[
-                CBAdvertisementDataIsConnectable] as? NSNumber)?.boolValue ?? false
-
-            // Check if we can extract CEN from the service data field
-            if let advertisementDataServiceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [CBUUID : Data],
-                let uuidData = advertisementDataServiceData[CBUUID(string: BluetoothService.UUIDPeripheralServiceString)],
-                let uuid = try? UUID(dataRepresentation: uuidData) {
-                
-                self.logNewContactEvent(with: uuid, isBroadcastType: true)
-                
-                // Remote device is an Android device. Write CEN, because it can not see the iOS device.
-                if (isConnectable) {
-                    self.peripheralsToWriteContactEventIdentifierTo.insert(peripheral)
-                    self.connectPeripheralsIfNeeded()
-                }
-            }
-            else {
-                if (isConnectable) {
-                    self.peripheralsToWriteContactEventIdentifierTo.insert(peripheral)
-                    // OR use reading. Both cases are handled.
-                    // self.peripheralsToReadContactEventIdentifierFrom.insert(peripheral)
-                    self.connectPeripheralsIfNeeded()
-                }
-            }
-        }
+//        if isNewlyDiscovered {
+//
+//            self.discoveredPeripherals.insert(peripheral)
+//
+//            let isConnectable = (advertisementData[
+//                CBAdvertisementDataIsConnectable] as? NSNumber)?.boolValue ?? false
+//
+//            // Check if we can extract CEN from the service data field
+//            if let advertisementDataServiceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [CBUUID : Data],
+//                let uuidData = advertisementDataServiceData[CBUUID(string: BluetoothService.UUIDPeripheralServiceString)],
+//                let uuid = try? UUID(dataRepresentation: uuidData) {
+//
+//                self.logNewContactEvent(with: uuid, isBroadcastType: true)
+//
+//                // Remote device is an Android device. Write CEN, because it can not see the iOS device.
+//                if (isConnectable) {
+//                    self.peripheralsToWriteContactEventIdentifierTo.insert(peripheral)
+//                    self.connectPeripheralsIfNeeded()
+//                }
+//            }
+//            else {
+//                if (isConnectable) {
+//                    self.peripheralsToWriteContactEventIdentifierTo.insert(peripheral)
+//                    // OR use reading. Both cases are handled.
+//                    // self.peripheralsToReadContactEventIdentifierFrom.insert(peripheral)
+//                    self.connectPeripheralsIfNeeded()
+//                }
+//            }
+//        }
     }
     
     func centralManager(

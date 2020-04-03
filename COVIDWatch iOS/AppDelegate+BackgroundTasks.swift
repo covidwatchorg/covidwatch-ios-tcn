@@ -58,7 +58,15 @@ extension AppDelegate {
     func handleBackgroundAppRefresh(task: BGAppRefreshTask) {
         // Schedule a new task
         self.scheduleBackgroundAppRefreshTask()
-        self.fetchPublicContactEvents(task: task)
+//        self.fetchPublicContactEvents(task: task)
+        
+        os_log("Performing background task...", log: .app)
+        self.startScan()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 9) {
+            self.stopScan()
+            os_log("Performed background task", log: .app)
+            task.setTaskCompleted(success: true)
+        }
     }
     
     func fetchPublicContactEvents(task: BGAppRefreshTask?) {

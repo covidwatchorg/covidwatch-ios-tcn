@@ -21,7 +21,14 @@ extension AppDelegate {
         completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
         os_log("Performing background fetch...", log: .app)
-        self.fetchPublicContactEvents(completionHandler: completionHandler)
+//        self.fetchPublicContactEvents(completionHandler: completionHandler)
+//        self.bluetoothController?.start()
+        self.startScan()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 20) {            
+            self.stopScan()
+            os_log("Performed background fetch", log: .app)
+            completionHandler(.newData)            
+        }
     }
     
     func fetchPublicContactEvents(completionHandler: ((UIBackgroundFetchResult) -> Void)?) {

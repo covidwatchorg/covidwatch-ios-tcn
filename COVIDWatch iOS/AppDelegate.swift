@@ -77,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.fetchPublicContactEvents(completionHandler: nil)
             }
         }
+        self.startScan()
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -87,6 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 13.0, *) {
             self.scheduleBackgroundTasks()
         }
+        self.stopScan()
     }
     
     private func configureIsContactEventLoggingEnabledObserver() {
