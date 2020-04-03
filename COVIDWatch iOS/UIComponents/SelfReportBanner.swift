@@ -32,6 +32,6 @@ class SelfReportBanner: UIView {
     
     @IBAction func selfReportButtonPressed(_ sender: UIButton) {
         print("selfReportButtonPressed")
-        parentViewController?.performSegue(withIdentifier: "NoContactToContact", sender: self)
+        parentViewController?.performSegue(withIdentifier: "toSelfReport", sender: self)
     }
 }
