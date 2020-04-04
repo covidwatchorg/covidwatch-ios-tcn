@@ -9,12 +9,12 @@
 
 import UIKit
 
-class Notifications: UIViewController {
+class Finish: UIViewController {
     let screenSize: CGRect = UIScreen.main.bounds
     var appTitle = UILabel()
     var icon: UIImageView?
     var parkImage: UIImageView?
-    var description1 = UITextView()
+    var allSet = UITextView()
     var allowNotificationsButton = UIView()
     var allowNotificationsLabel = UILabel()
     var description2 = UITextView()
@@ -24,9 +24,12 @@ class Notifications: UIViewController {
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
         var scalingFactor = CGFloat(screenHeight) / CGFloat(896)
+        var fontScalingFactor = CGFloat(1.0)
         if screenHeight <= 736.0 {
+            fontScalingFactor = scalingFactor
             scalingFactor /= 1.5
         }
+        print("ScreenHeight = \(screenHeight)")
         
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
@@ -41,7 +44,7 @@ class Notifications: UIViewController {
         appTitle.font = UIFont(name: "Montserrat-SemiBold", size: 14)
         appTitle.sizeToFit()
         appTitle.center.x = view.center.x
-        appTitle.center.y = icon!.center.y + icon!.frame.size.height/2 + (15)
+        appTitle.center.y = icon!.center.y + icon!.frame.size.height/2 + 15
         self.view.addSubview(appTitle)
         
         parkImage = UIImageView(image: UIImage(named: "sp-people-in-park-colorized-0"))
@@ -50,41 +53,44 @@ class Notifications: UIViewController {
         parkImage!.center.y = appTitle.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40)
         view.addSubview(parkImage!)
         
-        description1.text =  "Covid Watch uses notifications to warn you of potential contact to COVID-19."
-        description1.textColor = UIColor(hexString: "585858")
-        description1.font = UIFont(name: "Montserrat-Regular", size: 18)
-        description1.frame.size.width = 330
-        description1.frame.size.height = 75
-        description1.isEditable = false
-        description1.backgroundColor = .clear
-        description1.center.x = view.center.x
-        description1.center.y = parkImage!.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40)
-        view.addSubview(description1)
+        allSet.text =  "You are all set!"
+        allSet.textColor = UIColor(hexString: "585858")
+        allSet.font = UIFont(name: "Optima-Bold", size: fontScalingFactor * 36)
+        allSet.frame.size.width = 330
+        allSet.frame.size.height = allSet.contentSize.height
+        allSet.isEditable = false
+        allSet.backgroundColor = .clear
+        allSet.center.x = view.center.x
+        allSet.center.y = parkImage!.center.y + parkImage!.image!.size.height/2
+        view.addSubview(allSet)
         
-        allowNotificationsButton.frame.size.width = description1.frame.size.width
+        description2.text =  "Covid Watch is now using bluetooth to anonymously watch who you come in contact with. You will be notified of potential contact to COVID-19.\n\nThank you for helping your community stay safe, anonymously."
+        description2.textColor = UIColor(hexString: "585858")
+        description2.font = UIFont(name: "Montserrat-Regular", size: fontScalingFactor * 18)
+        description2.frame.size.width = 330
+        description2.frame.size.height = description2.contentSize.height
+        description2.isEditable = false
+        description2.backgroundColor = .clear
+        description2.center.x = view.center.x
+        description2.center.y = allSet.center.y + description2.frame.size.height / 2 + scalingFactor * 20
+        view.addSubview(description2)
+        
+        allowNotificationsButton.frame.size.width = description2.frame.size.width
         allowNotificationsButton.frame.size.height = 60
         allowNotificationsButton.center.x = view.center.x
-        allowNotificationsButton.center.y = description1.center.y + description1.frame.size.height/2 + (scalingFactor * 60)
+        allowNotificationsButton.center.y = description2.center.y + description2.frame.size.height/2 + allowNotificationsButton.frame.size.height/2 + (scalingFactor * 10)
         allowNotificationsButton.backgroundColor = UIColor(hexString: "496FB6")
         allowNotificationsButton.layer.cornerRadius = 10
         view.addSubview(allowNotificationsButton)
 
-        allowNotificationsLabel.text =  "Allow Notifications"
+        allowNotificationsLabel.text =  "Finish"
         allowNotificationsLabel.textColor = .white
         allowNotificationsLabel.font = UIFont(name: "Montserrat-SemiBold", size: 24)
         allowNotificationsLabel.sizeToFit()
         allowNotificationsLabel.center = allowNotificationsButton.center
         view.addSubview(allowNotificationsLabel)
         
-        description2.text =  "This will help you find out when you are at risk."
-        description2.textColor = UIColor(hexString: "585858")
-        description2.font = UIFont(name: "Montserrat-Regular", size: 14)
-        description2.sizeToFit()
-        description2.isEditable = false
-        description2.backgroundColor = .clear
-        description2.center.x = view.center.x
-        description2.center.y = allowNotificationsButton.center.y + allowNotificationsButton.frame.size.height/2 + (scalingFactor * 20)
-        view.addSubview(description2)
+        
         
         
 

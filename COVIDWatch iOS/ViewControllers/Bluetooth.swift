@@ -23,8 +23,12 @@ class Bluetooth: UIViewController {
         
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
-        let scalingFactor = CGFloat(screenHeight) / CGFloat(896)
+        var scalingFactor = CGFloat(screenHeight) / CGFloat(896)
         print("ScreenHeight = \(screenHeight)")
+        if screenHeight <= 736.0 {
+
+            scalingFactor /= 2
+        }
         
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
