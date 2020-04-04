@@ -40,28 +40,29 @@
 		2DFDC5B224190AB900B108F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */; };
 		2DFDC5BD24190ABA00B108F8 /* COVIDWatch_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */; };
 		2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */; };
+		2E1FDBF32439275E000D8D67 /* Splash-4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash-4.swift */; };
+		2E1FDBF5243929F4000D8D67 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */; };
+		2E1FDC0824393C5A000D8D67 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF624393C53000D8D67 /* Montserrat-ThinItalic.ttf */; };
+		2E1FDC0924393C5A000D8D67 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF724393C53000D8D67 /* Montserrat-ExtraBoldItalic.ttf */; };
+		2E1FDC0A24393C5A000D8D67 /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF824393C54000D8D67 /* Montserrat-Italic.ttf */; };
+		2E1FDC0B24393C5A000D8D67 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF924393C54000D8D67 /* Montserrat-ExtraLight.ttf */; };
+		2E1FDC0C24393C5A000D8D67 /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBFA24393C54000D8D67 /* Montserrat-MediumItalic.ttf */; };
+		2E1FDC0D24393C5A000D8D67 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBFB24393C55000D8D67 /* Montserrat-Regular.ttf */; };
+		2E1FDC0E24393C5A000D8D67 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBFC24393C55000D8D67 /* Montserrat-Thin.ttf */; };
+		2E1FDC0F24393C5A000D8D67 /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBFD24393C55000D8D67 /* Montserrat-ExtraLightItalic.ttf */; };
+		2E1FDC1024393C5A000D8D67 /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBFE24393C56000D8D67 /* Montserrat-BoldItalic.ttf */; };
+		2E1FDC1124393C5A000D8D67 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBFF24393C56000D8D67 /* Montserrat-Bold.ttf */; };
+		2E1FDC1224393C5A000D8D67 /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0024393C56000D8D67 /* Montserrat-BlackItalic.ttf */; };
+		2E1FDC1324393C5A000D8D67 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0124393C57000D8D67 /* Montserrat-LightItalic.ttf */; };
+		2E1FDC1424393C5A000D8D67 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0224393C57000D8D67 /* Montserrat-Black.ttf */; };
+		2E1FDC1524393C5A000D8D67 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0324393C58000D8D67 /* Montserrat-Medium.ttf */; };
+		2E1FDC1624393C5A000D8D67 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0424393C58000D8D67 /* Montserrat-SemiBold.ttf */; };
+		2E1FDC1724393C5A000D8D67 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0524393C58000D8D67 /* Montserrat-Light.ttf */; };
+		2E1FDC1824393C5A000D8D67 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0624393C59000D8D67 /* Montserrat-SemiBoldItalic.ttf */; };
+		2E1FDC1924393C5A000D8D67 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */; };
 		2E72B1952432D06000560BCC /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E72B1942432D06000560BCC /* FirstScreenViewController.swift */; };
 		2E72B19A2432EE6800560BCC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E72B1992432EE6800560BCC /* OnboardingViewController.swift */; };
 		2E72B1BE2433CD8900560BCC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E72B1BD2433CD8900560BCC /* HomeViewController.swift */; };
-		2E72B1D4243467D900560BCC /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1C1243467D900560BCC /* Roboto-Medium.ttf */; };
-		2E72B1D5243467D900560BCC /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1C2243467D900560BCC /* Roboto-Light.ttf */; };
-		2E72B1D6243467D900560BCC /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1C3243467D900560BCC /* RobotoCondensed-Bold.ttf */; };
-		2E72B1D7243467D900560BCC /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1C4243467D900560BCC /* RobotoCondensed-Light.ttf */; };
-		2E72B1D8243467D900560BCC /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1C5243467D900560BCC /* Roboto-Regular.ttf */; };
-		2E72B1D9243467D900560BCC /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1C6243467D900560BCC /* Roboto-MediumItalic.ttf */; };
-		2E72B1DA243467D900560BCC /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1C7243467D900560BCC /* RobotoCondensed-Italic.ttf */; };
-		2E72B1DB243467D900560BCC /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1C8243467D900560BCC /* RobotoCondensed-BoldItalic.ttf */; };
-		2E72B1DC243467D900560BCC /* Apache License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1C9243467D900560BCC /* Apache License.txt */; };
-		2E72B1DD243467D900560BCC /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1CA243467D900560BCC /* RobotoCondensed-LightItalic.ttf */; };
-		2E72B1DE243467D900560BCC /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1CB243467D900560BCC /* Roboto-ThinItalic.ttf */; };
-		2E72B1DF243467D900560BCC /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1CC243467D900560BCC /* RobotoCondensed-Regular.ttf */; };
-		2E72B1E0243467D900560BCC /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1CD243467D900560BCC /* Roboto-BoldItalic.ttf */; };
-		2E72B1E1243467D900560BCC /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1CE243467D900560BCC /* Roboto-LightItalic.ttf */; };
-		2E72B1E2243467D900560BCC /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1CF243467D900560BCC /* Roboto-Italic.ttf */; };
-		2E72B1E3243467D900560BCC /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1D0243467D900560BCC /* Roboto-BlackItalic.ttf */; };
-		2E72B1E4243467D900560BCC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1D1243467D900560BCC /* Roboto-Bold.ttf */; };
-		2E72B1E5243467D900560BCC /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1D2243467D900560BCC /* Roboto-Thin.ttf */; };
-		2E72B1E6243467D900560BCC /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E72B1D3243467D900560BCC /* Roboto-Black.ttf */; };
 		2EF61C32243651F1003046A4 /* SelfReportBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EF61C31243651F1003046A4 /* SelfReportBanner.xib */; };
 		2EF61C3424365584003046A4 /* SelfReportBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF61C3324365584003046A4 /* SelfReportBanner.swift */; };
 		2EF61C372436EDAD003046A4 /* SelfReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF61C362436EDAD003046A4 /* SelfReportViewController.swift */; };
@@ -128,28 +129,29 @@
 		2DFDC5C324190ABA00B108F8 /* COVIDWatch iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COVIDWatch iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDWatch_iOSUITests.swift; sourceTree = "<group>"; };
 		2DFDC5C924190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E1FDBF22439275E000D8D67 /* Splash-4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Splash-4.swift"; sourceTree = "<group>"; };
+		2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
+		2E1FDBF624393C53000D8D67 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
+		2E1FDBF724393C53000D8D67 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		2E1FDBF824393C54000D8D67 /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
+		2E1FDBF924393C54000D8D67 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		2E1FDBFA24393C54000D8D67 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
+		2E1FDBFB24393C55000D8D67 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		2E1FDBFC24393C55000D8D67 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		2E1FDBFD24393C55000D8D67 /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		2E1FDBFE24393C56000D8D67 /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
+		2E1FDBFF24393C56000D8D67 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		2E1FDC0024393C56000D8D67 /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
+		2E1FDC0124393C57000D8D67 /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
+		2E1FDC0224393C57000D8D67 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		2E1FDC0324393C58000D8D67 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		2E1FDC0424393C58000D8D67 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		2E1FDC0524393C58000D8D67 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		2E1FDC0624393C59000D8D67 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
 		2E72B1942432D06000560BCC /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		2E72B1992432EE6800560BCC /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		2E72B1BD2433CD8900560BCC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		2E72B1C1243467D900560BCC /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		2E72B1C2243467D900560BCC /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
-		2E72B1C3243467D900560BCC /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
-		2E72B1C4243467D900560BCC /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
-		2E72B1C5243467D900560BCC /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		2E72B1C6243467D900560BCC /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
-		2E72B1C7243467D900560BCC /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
-		2E72B1C8243467D900560BCC /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
-		2E72B1C9243467D900560BCC /* Apache License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License.txt"; sourceTree = "<group>"; };
-		2E72B1CA243467D900560BCC /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
-		2E72B1CB243467D900560BCC /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
-		2E72B1CC243467D900560BCC /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
-		2E72B1CD243467D900560BCC /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
-		2E72B1CE243467D900560BCC /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
-		2E72B1CF243467D900560BCC /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
-		2E72B1D0243467D900560BCC /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
-		2E72B1D1243467D900560BCC /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
-		2E72B1D2243467D900560BCC /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
-		2E72B1D3243467D900560BCC /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		2EF61C31243651F1003046A4 /* SelfReportBanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelfReportBanner.xib; sourceTree = "<group>"; };
 		2EF61C3324365584003046A4 /* SelfReportBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfReportBanner.swift; sourceTree = "<group>"; };
 		2EF61C362436EDAD003046A4 /* SelfReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfReportViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,8 @@
 				2E72B1942432D06000560BCC /* FirstScreenViewController.swift */,
 				2E72B1992432EE6800560BCC /* OnboardingViewController.swift */,
 				2E72B1BD2433CD8900560BCC /* HomeViewController.swift */,
+				2E1FDBF22439275E000D8D67 /* Splash-4.swift */,
+				2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -299,7 +303,7 @@
 				2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */,
 				2DFDC5B324190AB900B108F8 /* Info.plist */,
 				2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */,
-				2E72B1C0243467D900560BCC /* roboto */,
+				2E72B1C0243467D900560BCC /* Montserrat */,
 				2DFDC5AD24190AB900B108F8 /* Preview Content */,
 			);
 			path = "COVIDWatch iOS";
@@ -331,30 +335,29 @@
 			path = "COVIDWatch iOSUITests";
 			sourceTree = "<group>";
 		};
-		2E72B1C0243467D900560BCC /* roboto */ = {
+		2E72B1C0243467D900560BCC /* Montserrat */ = {
 			isa = PBXGroup;
 			children = (
-				2E72B1C1243467D900560BCC /* Roboto-Medium.ttf */,
-				2E72B1C2243467D900560BCC /* Roboto-Light.ttf */,
-				2E72B1C3243467D900560BCC /* RobotoCondensed-Bold.ttf */,
-				2E72B1C4243467D900560BCC /* RobotoCondensed-Light.ttf */,
-				2E72B1C5243467D900560BCC /* Roboto-Regular.ttf */,
-				2E72B1C6243467D900560BCC /* Roboto-MediumItalic.ttf */,
-				2E72B1C7243467D900560BCC /* RobotoCondensed-Italic.ttf */,
-				2E72B1C8243467D900560BCC /* RobotoCondensed-BoldItalic.ttf */,
-				2E72B1C9243467D900560BCC /* Apache License.txt */,
-				2E72B1CA243467D900560BCC /* RobotoCondensed-LightItalic.ttf */,
-				2E72B1CB243467D900560BCC /* Roboto-ThinItalic.ttf */,
-				2E72B1CC243467D900560BCC /* RobotoCondensed-Regular.ttf */,
-				2E72B1CD243467D900560BCC /* Roboto-BoldItalic.ttf */,
-				2E72B1CE243467D900560BCC /* Roboto-LightItalic.ttf */,
-				2E72B1CF243467D900560BCC /* Roboto-Italic.ttf */,
-				2E72B1D0243467D900560BCC /* Roboto-BlackItalic.ttf */,
-				2E72B1D1243467D900560BCC /* Roboto-Bold.ttf */,
-				2E72B1D2243467D900560BCC /* Roboto-Thin.ttf */,
-				2E72B1D3243467D900560BCC /* Roboto-Black.ttf */,
+				2E1FDC0224393C57000D8D67 /* Montserrat-Black.ttf */,
+				2E1FDC0024393C56000D8D67 /* Montserrat-BlackItalic.ttf */,
+				2E1FDBFF24393C56000D8D67 /* Montserrat-Bold.ttf */,
+				2E1FDBFE24393C56000D8D67 /* Montserrat-BoldItalic.ttf */,
+				2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */,
+				2E1FDBF724393C53000D8D67 /* Montserrat-ExtraBoldItalic.ttf */,
+				2E1FDBF924393C54000D8D67 /* Montserrat-ExtraLight.ttf */,
+				2E1FDBFD24393C55000D8D67 /* Montserrat-ExtraLightItalic.ttf */,
+				2E1FDBF824393C54000D8D67 /* Montserrat-Italic.ttf */,
+				2E1FDC0524393C58000D8D67 /* Montserrat-Light.ttf */,
+				2E1FDC0124393C57000D8D67 /* Montserrat-LightItalic.ttf */,
+				2E1FDC0324393C58000D8D67 /* Montserrat-Medium.ttf */,
+				2E1FDBFA24393C54000D8D67 /* Montserrat-MediumItalic.ttf */,
+				2E1FDBFB24393C55000D8D67 /* Montserrat-Regular.ttf */,
+				2E1FDC0424393C58000D8D67 /* Montserrat-SemiBold.ttf */,
+				2E1FDC0624393C59000D8D67 /* Montserrat-SemiBoldItalic.ttf */,
+				2E1FDBFC24393C55000D8D67 /* Montserrat-Thin.ttf */,
+				2E1FDBF624393C53000D8D67 /* Montserrat-ThinItalic.ttf */,
 			);
-			path = roboto;
+			path = Montserrat;
 			sourceTree = "<group>";
 		};
 		2EF61C352436733A003046A4 /* UIComponents */ = {
@@ -511,31 +514,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E72B1DB243467D900560BCC /* RobotoCondensed-BoldItalic.ttf in Resources */,
+				2E1FDC0D24393C5A000D8D67 /* Montserrat-Regular.ttf in Resources */,
+				2E1FDC0E24393C5A000D8D67 /* Montserrat-Thin.ttf in Resources */,
+				2E1FDC0C24393C5A000D8D67 /* Montserrat-MediumItalic.ttf in Resources */,
+				2E1FDC1624393C5A000D8D67 /* Montserrat-SemiBold.ttf in Resources */,
+				2E1FDC1224393C5A000D8D67 /* Montserrat-BlackItalic.ttf in Resources */,
+				2E1FDC1024393C5A000D8D67 /* Montserrat-BoldItalic.ttf in Resources */,
+				2E1FDC1724393C5A000D8D67 /* Montserrat-Light.ttf in Resources */,
 				2DFDC5B224190AB900B108F8 /* LaunchScreen.storyboard in Resources */,
-				2E72B1E4243467D900560BCC /* Roboto-Bold.ttf in Resources */,
-				2E72B1E1243467D900560BCC /* Roboto-LightItalic.ttf in Resources */,
-				2E72B1D8243467D900560BCC /* Roboto-Regular.ttf in Resources */,
-				2E72B1E2243467D900560BCC /* Roboto-Italic.ttf in Resources */,
-				2E72B1DA243467D900560BCC /* RobotoCondensed-Italic.ttf in Resources */,
-				2E72B1E5243467D900560BCC /* Roboto-Thin.ttf in Resources */,
+				2E1FDC1524393C5A000D8D67 /* Montserrat-Medium.ttf in Resources */,
+				2E1FDC0924393C5A000D8D67 /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				2E1FDC0824393C5A000D8D67 /* Montserrat-ThinItalic.ttf in Resources */,
+				2E1FDC1324393C5A000D8D67 /* Montserrat-LightItalic.ttf in Resources */,
 				2D5C540F241CB51D00DB2520 /* Main.storyboard in Resources */,
-				2E72B1DF243467D900560BCC /* RobotoCondensed-Regular.ttf in Resources */,
-				2E72B1D9243467D900560BCC /* Roboto-MediumItalic.ttf in Resources */,
-				2E72B1DC243467D900560BCC /* Apache License.txt in Resources */,
-				2E72B1D6243467D900560BCC /* RobotoCondensed-Bold.ttf in Resources */,
+				2E1FDC1924393C5A000D8D67 /* Montserrat-ExtraBold.ttf in Resources */,
 				2EF61C32243651F1003046A4 /* SelfReportBanner.xib in Resources */,
-				2E72B1D7243467D900560BCC /* RobotoCondensed-Light.ttf in Resources */,
-				2E72B1DE243467D900560BCC /* Roboto-ThinItalic.ttf in Resources */,
-				2E72B1E0243467D900560BCC /* Roboto-BoldItalic.ttf in Resources */,
-				2E72B1D4243467D900560BCC /* Roboto-Medium.ttf in Resources */,
 				2D6655B4242E605000B462E0 /* GoogleService-Info.plist in Resources */,
-				2E72B1E3243467D900560BCC /* Roboto-BlackItalic.ttf in Resources */,
+				2E1FDC1424393C5A000D8D67 /* Montserrat-Black.ttf in Resources */,
+				2E1FDC0A24393C5A000D8D67 /* Montserrat-Italic.ttf in Resources */,
 				2DFDC5AF24190AB900B108F8 /* Preview Assets.xcassets in Resources */,
-				2E72B1D5243467D900560BCC /* Roboto-Light.ttf in Resources */,
-				2E72B1E6243467D900560BCC /* Roboto-Black.ttf in Resources */,
-				2E72B1DD243467D900560BCC /* RobotoCondensed-LightItalic.ttf in Resources */,
+				2E1FDC1124393C5A000D8D67 /* Montserrat-Bold.ttf in Resources */,
 				2DFDC5AC24190AB900B108F8 /* Assets.xcassets in Resources */,
+				2E1FDC1824393C5A000D8D67 /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				2E1FDC0B24393C5A000D8D67 /* Montserrat-ExtraLight.ttf in Resources */,
+				2E1FDC0F24393C5A000D8D67 /* Montserrat-ExtraLightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +683,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E1FDBF5243929F4000D8D67 /* Bluetooth.swift in Sources */,
 				2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */,
 				2D5C5414241CBC5C00DB2520 /* UserProfileViewController.swift in Sources */,
 				2D8496F924321A7C00C71BD1 /* FirestoreOperations.swift in Sources */,
@@ -692,6 +695,7 @@
 				2EF61C372436EDAD003046A4 /* SelfReportViewController.swift in Sources */,
 				2D5C5417241CC18900DB2520 /* ContactEventsTableViewController.swift in Sources */,
 				2DC231E6241B886C00216404 /* Firestore+Constants.swift in Sources */,
+				2E1FDBF32439275E000D8D67 /* Splash-4.swift in Sources */,
 				2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */,
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
 				2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */,
