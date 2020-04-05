@@ -37,7 +37,8 @@ class Finish: UIViewController {
         icon!.frame.size.width = 41
         icon!.frame.size.height = 39
         icon!.center.x = view.center.x
-        icon!.center.y = scalingFactor/1.5 * 100
+        icon!.center.y = 100
+        if screenHeight <= 736.0 { icon!.center.y *= scalingFactor * 1.5 }
         self.view.addSubview(icon!)
         appTitle.text =  "COVID WATCH"
         appTitle.textColor = UIColor(hexString: "F05452")
@@ -50,7 +51,7 @@ class Finish: UIViewController {
         parkImage = UIImageView(image: UIImage(named: "sp-people-in-park-colorized-2"))
         parkImage!.frame.size.width = screenWidth
         parkImage!.center.x = view.center.x
-        parkImage!.center.y = appTitle.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40)
+        parkImage!.center.y = appTitle.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40 * 1.5)
         view.addSubview(parkImage!)
         
         allSet.text =  "You are all set!"
@@ -64,7 +65,7 @@ class Finish: UIViewController {
         allSet.center.y = parkImage!.center.y + parkImage!.image!.size.height/2
         view.addSubview(allSet)
         
-        description2.text =  "Covid Watch is now using bluetooth to anonymously watch who you come in contact with. You will be notified of potential contact to COVID-19.\n\nThank you for helping your community stay safe, anonymously."
+        description2.text =  "Covid Watch is now using bluetooth to anonymously watch who you come in contact with. You will be notified of potential contact to COVID-19."
         description2.textColor = UIColor(hexString: "585858")
         description2.font = UIFont(name: "Montserrat-Regular", size: fontScalingFactor * 18)
         description2.frame.size.width = 330
