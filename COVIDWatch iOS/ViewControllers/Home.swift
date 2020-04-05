@@ -21,10 +21,14 @@ class Home: UIViewController {
     var testedButton = UIView()
     var testedLabel = UILabel()
     var testedDescription = UITextView()
-    var finishButton = UIView()
-    var finishLabel = UILabel()
+    var isCurrentUserSickObserver: NSKeyValueObservation?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        isCurrentUserSickObserver = UserDefaults.standard.observe(\.isCurrentUserSick, options: [.initial, .new], changeHandler: { (_,_) in
+//            self.view.backgroundColor = UserDefaults.standard.isCurrentUserSick ? .systemRed : .systemGreen
+//        })
+//        UserDefaults.standard.isCurrentUserSick = true
         
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
