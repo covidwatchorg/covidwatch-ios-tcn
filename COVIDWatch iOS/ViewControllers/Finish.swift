@@ -15,8 +15,8 @@ class Finish: UIViewController {
     var icon: UIImageView?
     var parkImage: UIImageView?
     var allSet = UITextView()
-    var allowNotificationsButton = UIView()
-    var allowNotificationsLabel = UILabel()
+    var finishButton = UIView()
+    var finishLabel = UILabel()
     var description2 = UITextView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,20 +73,21 @@ class Finish: UIViewController {
         description2.center.y = allSet.center.y + description2.frame.size.height / 2 + scalingFactor * 20
         view.addSubview(description2)
         
-        allowNotificationsButton.frame.size.width = description2.frame.size.width
-        allowNotificationsButton.frame.size.height = 60
-        allowNotificationsButton.center.x = view.center.x
-        allowNotificationsButton.center.y = description2.center.y + description2.frame.size.height/2 + allowNotificationsButton.frame.size.height/2 + (scalingFactor * 10)
-        allowNotificationsButton.backgroundColor = UIColor(hexString: "496FB6")
-        allowNotificationsButton.layer.cornerRadius = 10
-        view.addSubview(allowNotificationsButton)
+        finishButton.frame.size.width = description2.frame.size.width
+        finishButton.frame.size.height = 60
+        finishButton.center.x = view.center.x
+        finishButton.center.y = description2.center.y + description2.frame.size.height/2 + finishButton.frame.size.height/2 + (scalingFactor * 10)
+        finishButton.backgroundColor = UIColor(hexString: "496FB6")
+        finishButton.layer.cornerRadius = 10
+        self.finishButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
+        view.addSubview(finishButton)
 
-        allowNotificationsLabel.text =  "Finish"
-        allowNotificationsLabel.textColor = .white
-        allowNotificationsLabel.font = UIFont(name: "Montserrat-SemiBold", size: 24)
-        allowNotificationsLabel.sizeToFit()
-        allowNotificationsLabel.center = allowNotificationsButton.center
-        view.addSubview(allowNotificationsLabel)
+        finishLabel.text =  "Finish"
+        finishLabel.textColor = .white
+        finishLabel.font = UIFont(name: "Montserrat-SemiBold", size: 24)
+        finishLabel.sizeToFit()
+        finishLabel.center = finishButton.center
+        view.addSubview(finishLabel)
         
         
         
@@ -94,7 +95,11 @@ class Finish: UIViewController {
 
     }
         
-
+    @objc func nextScreen(sender : UITapGestureRecognizer) {
+        if sender.state == .ended {
+            performSegue(withIdentifier: "FinishToHome", sender: self)
+        }
+    }
 
     /*
     // MARK: - Navigation
