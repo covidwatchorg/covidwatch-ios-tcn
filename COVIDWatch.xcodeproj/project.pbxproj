@@ -8,22 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		00999A0AECE2E1E4E9ACA1C6 /* Pods_COVIDWatch_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA04245E319FAE324E129CE /* Pods_COVIDWatch_iOSTests.framework */; };
-		2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */; };
+		2D1987162439DA810070B86C /* SignedReport+CEN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1987152439DA810070B86C /* SignedReport+CEN.swift */; };
+		2D198718243A0C9A0070B86C /* SignedReportsUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D198717243A0C9A0070B86C /* SignedReportsUploader.swift */; };
 		2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30EFC2242268010063C211 /* Array+Chunked.swift */; };
+		2D48C279243A1703002858F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A224190AB800B108F8 /* AppDelegate.swift */; };
+		2D48C27B243A2114002858F9 /* SignedReportsDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48C27A243A2114002858F9 /* SignedReportsDownloadOperation.swift */; };
+		2D48C27E243A3AA8002858F9 /* ContactTracingCEN in Frameworks */ = {isa = PBXBuildFile; productRef = 2D48C27D243A3AA8002858F9 /* ContactTracingCEN */; };
+		2D48C281243A3ABF002858F9 /* ContactTracingBluetooth in Frameworks */ = {isa = PBXBuildFile; productRef = 2D48C280243A3ABF002858F9 /* ContactTracingBluetooth */; };
+		2D52B6912439B9800096BC5C /* KeyStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52B68E2439B97F0096BC5C /* KeyStoreError.swift */; };
+		2D52B6922439B9800096BC5C /* GenericPasswordConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52B68F2439B97F0096BC5C /* GenericPasswordConvertible.swift */; };
+		2D52B6932439B9800096BC5C /* GenericPasswordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52B6902439B9800096BC5C /* GenericPasswordStore.swift */; };
+		2D52B6952439CC080096BC5C /* AppDelegate+CEN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52B6942439CC080096BC5C /* AppDelegate+CEN.swift */; };
 		2D5C540F241CB51D00DB2520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5C540E241CB51C00DB2520 /* Main.storyboard */; };
 		2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
 		2D5C5414241CBC5C00DB2520 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5412241CBC5C00DB2520 /* UserProfileViewController.swift */; };
 		2D5C5415241CBC5D00DB2520 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5413241CBC5C00DB2520 /* MapViewController.swift */; };
-		2D5C5417241CC18900DB2520 /* ContactEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5416241CC18900DB2520 /* ContactEventsTableViewController.swift */; };
-		2D6655AE242BF9A300B462E0 /* BluetoothController+ContactEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6655AD242BF9A300B462E0 /* BluetoothController+ContactEvent.swift */; };
+		2D5C5417241CC18900DB2520 /* ContactEventNumbersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5416241CC18900DB2520 /* ContactEventNumbersTableViewController.swift */; };
 		2D6655B4242E605000B462E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D6655B3242E605000B462E0 /* GoogleService-Info.plist */; };
-		2D8496F724320F2900C71BD1 /* ContactEventsDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F624320F2900C71BD1 /* ContactEventsDownloadOperation.swift */; };
 		2D8496F924321A7C00C71BD1 /* FirestoreOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */; };
 		2D8E7CE92434DB0F0012AFFB /* OSLog+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E7CE82434DB0E0012AFFB /* OSLog+Additions.swift */; };
-		2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A38241975B20049CD2A /* BluetoothService.swift */; };
-		2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */; };
-		2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */; };
-		2DB09A40241A098F0049CD2A /* BerkananFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 2DB09A3F241A098F0049CD2A /* BerkananFoundation */; };
 		2DC231E6241B886C00216404 /* Firestore+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E5241B886C00216404 /* Firestore+Constants.swift */; };
 		2DC231E8241B914200216404 /* CoreData+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E7241B914200216404 /* CoreData+Additions.swift */; };
 		2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */; };
@@ -34,14 +37,12 @@
 		2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */; };
 		2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */; };
 		2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */; };
-		2DFDC5A324190AB800B108F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A224190AB800B108F8 /* AppDelegate.swift */; };
 		2DFDC5A824190AB800B108F8 /* COVIDWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */; };
 		2DFDC5AC24190AB900B108F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5AB24190AB900B108F8 /* Assets.xcassets */; };
 		2DFDC5AF24190AB900B108F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5AE24190AB900B108F8 /* Preview Assets.xcassets */; };
 		2DFDC5B224190AB900B108F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */; };
 		2DFDC5BD24190ABA00B108F8 /* COVIDWatch_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */; };
 		2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */; };
-		2DFF00402433831200F00CB9 /* CBPeripheral+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF003F2433831200F00CB9 /* CBPeripheral+Additions.swift */; };
 		B1D85F9E809BCC12318E2223 /* Pods_COVIDWatch_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */; };
 		F59A36E1AD0F8E40375BE630 /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */; };
 /* End PBXBuildFile section */
@@ -66,22 +67,22 @@
 /* Begin PBXFileReference section */
 		067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA04245E319FAE324E129CE /* Pods_COVIDWatch_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalContactEventsUploader.swift; sourceTree = "<group>"; };
-		2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicContactEventsObserver.swift; sourceTree = "<group>"; };
+		2D1987152439DA810070B86C /* SignedReport+CEN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignedReport+CEN.swift"; sourceTree = "<group>"; };
+		2D198717243A0C9A0070B86C /* SignedReportsUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedReportsUploader.swift; sourceTree = "<group>"; };
 		2D30EFC2242268010063C211 /* Array+Chunked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunked.swift"; sourceTree = "<group>"; };
+		2D48C27A243A2114002858F9 /* SignedReportsDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedReportsDownloadOperation.swift; sourceTree = "<group>"; };
+		2D52B68E2439B97F0096BC5C /* KeyStoreError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyStoreError.swift; sourceTree = "<group>"; };
+		2D52B68F2439B97F0096BC5C /* GenericPasswordConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericPasswordConvertible.swift; sourceTree = "<group>"; };
+		2D52B6902439B9800096BC5C /* GenericPasswordStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericPasswordStore.swift; sourceTree = "<group>"; };
+		2D52B6942439CC080096BC5C /* AppDelegate+CEN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CEN.swift"; sourceTree = "<group>"; };
 		2D5C540E241CB51C00DB2520 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Shared.swift"; sourceTree = "<group>"; };
 		2D5C5412241CBC5C00DB2520 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		2D5C5413241CBC5C00DB2520 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		2D5C5416241CC18900DB2520 /* ContactEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventsTableViewController.swift; sourceTree = "<group>"; };
-		2D6655AD242BF9A300B462E0 /* BluetoothController+ContactEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BluetoothController+ContactEvent.swift"; sourceTree = "<group>"; };
+		2D5C5416241CC18900DB2520 /* ContactEventNumbersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventNumbersTableViewController.swift; sourceTree = "<group>"; };
 		2D6655B3242E605000B462E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2D8496F624320F2900C71BD1 /* ContactEventsDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventsDownloadOperation.swift; sourceTree = "<group>"; };
 		2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreOperations.swift; sourceTree = "<group>"; };
 		2D8E7CE82434DB0E0012AFFB /* OSLog+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OSLog+Additions.swift"; sourceTree = "<group>"; };
-		2DB09A38241975B20049CD2A /* BluetoothService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
-		2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
-		2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BluetoothService+CoreBluetooth.swift"; sourceTree = "<group>"; };
 		2DC231E5241B886C00216404 /* Firestore+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Constants.swift"; sourceTree = "<group>"; };
 		2DC231E7241B914200216404 /* CoreData+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Additions.swift"; sourceTree = "<group>"; };
 		2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserExposureNotifier.swift; sourceTree = "<group>"; };
@@ -105,7 +106,6 @@
 		2DFDC5C324190ABA00B108F8 /* COVIDWatch iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COVIDWatch iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDWatch_iOSUITests.swift; sourceTree = "<group>"; };
 		2DFDC5C924190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2DFF003F2433831200F00CB9 /* CBPeripheral+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBPeripheral+Additions.swift"; sourceTree = "<group>"; };
 		328891014B90A28E0C90E061 /* Pods-COVID-19 RiskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 RiskTests.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 RiskTests/Pods-COVID-19 RiskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; sourceTree = "<group>"; };
 		64576CBB2D573736A801A228 /* Pods-COVIDWatch iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS/Pods-COVIDWatch iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,8 +126,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DB09A40241A098F0049CD2A /* BerkananFoundation in Frameworks */,
 				B1D85F9E809BCC12318E2223 /* Pods_COVIDWatch_iOS.framework in Frameworks */,
+				2D48C27E243A3AA8002858F9 /* ContactTracingCEN in Frameworks */,
+				2D48C281243A3ABF002858F9 /* ContactTracingBluetooth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,32 +155,31 @@
 			isa = PBXGroup;
 			children = (
 				2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */,
+				2D1987152439DA810070B86C /* SignedReport+CEN.swift */,
 				2DC231E7241B914200216404 /* CoreData+Additions.swift */,
 				2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
 		};
+		2D52B68D2439B9490096BC5C /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				2D52B68F2439B97F0096BC5C /* GenericPasswordConvertible.swift */,
+				2D52B6902439B9800096BC5C /* GenericPasswordStore.swift */,
+				2D52B68E2439B97F0096BC5C /* KeyStoreError.swift */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
 		2D9D70AD241CCB4B007ABD89 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				2D5C5413241CBC5C00DB2520 /* MapViewController.swift */,
-				2D5C5416241CC18900DB2520 /* ContactEventsTableViewController.swift */,
+				2D5C5416241CC18900DB2520 /* ContactEventNumbersTableViewController.swift */,
 				2D5C5412241CBC5C00DB2520 /* UserProfileViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		2DB09A37241965FF0049CD2A /* Bluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				2DB09A38241975B20049CD2A /* BluetoothService.swift */,
-				2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */,
-				2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */,
-				2D6655AD242BF9A300B462E0 /* BluetoothController+ContactEvent.swift */,
-				2DFF003F2433831200F00CB9 /* CBPeripheral+Additions.swift */,
-			);
-			path = Bluetooth;
 			sourceTree = "<group>";
 		};
 		2DC231E4241B885500216404 /* Firestore */ = {
@@ -187,9 +187,8 @@
 			children = (
 				2DC231E5241B886C00216404 /* Firestore+Constants.swift */,
 				2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */,
-				2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */,
-				2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */,
-				2D8496F624320F2900C71BD1 /* ContactEventsDownloadOperation.swift */,
+				2D198717243A0C9A0070B86C /* SignedReportsUploader.swift */,
+				2D48C27A243A2114002858F9 /* SignedReportsDownloadOperation.swift */,
 				2DC6439B2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift */,
 				2D6655B3242E605000B462E0 /* GoogleService-Info.plist */,
 			);
@@ -232,13 +231,14 @@
 			isa = PBXGroup;
 			children = (
 				2DFDC5A224190AB800B108F8 /* AppDelegate.swift */,
+				2D52B6942439CC080096BC5C /* AppDelegate+CEN.swift */,
 				2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */,
 				2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */,
 				2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */,
 				2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */,
 				2D8E7CE82434DB0E0012AFFB /* OSLog+Additions.swift */,
+				2D52B68D2439B9490096BC5C /* Crypto */,
 				2DC231E4241B885500216404 /* Firestore */,
-				2DB09A37241965FF0049CD2A /* Bluetooth */,
 				2DDEBF61241A39EE005BE9A8 /* Utility */,
 				2D9D70AD241CCB4B007ABD89 /* ViewControllers */,
 				2D044469241A229E006B61E4 /* Data */,
@@ -327,7 +327,8 @@
 			);
 			name = "COVIDWatch iOS";
 			packageProductDependencies = (
-				2DB09A3F241A098F0049CD2A /* BerkananFoundation */,
+				2D48C27D243A3AA8002858F9 /* ContactTracingCEN */,
+				2D48C280243A3ABF002858F9 /* ContactTracingBluetooth */,
 			);
 			productName = "COVID-19 Risk";
 			productReference = 2DFDC59F24190AB700B108F8 /* Tags!.app */;
@@ -406,6 +407,8 @@
 			mainGroup = 2DFDC59624190AB700B108F8;
 			packageReferences = (
 				2DB09A3E241A098F0049CD2A /* XCRemoteSwiftPackageReference "BerkananFoundation" */,
+				2D48C27C243A3AA8002858F9 /* XCRemoteSwiftPackageReference "contact-tracing-cen-swift" */,
+				2D48C27F243A3ABF002858F9 /* XCRemoteSwiftPackageReference "contact-tracing-bluetooth-ios" */,
 			);
 			productRefGroup = 2DFDC5A024190AB700B108F8 /* Products */;
 			projectDirPath = "";
@@ -573,31 +576,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */,
 				2D5C5414241CBC5C00DB2520 /* UserProfileViewController.swift in Sources */,
+				2D52B6952439CC080096BC5C /* AppDelegate+CEN.swift in Sources */,
+				2D48C27B243A2114002858F9 /* SignedReportsDownloadOperation.swift in Sources */,
 				2D8496F924321A7C00C71BD1 /* FirestoreOperations.swift in Sources */,
 				2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */,
-				2D8496F724320F2900C71BD1 /* ContactEventsDownloadOperation.swift in Sources */,
+				2D198718243A0C9A0070B86C /* SignedReportsUploader.swift in Sources */,
 				2DFDC5A824190AB800B108F8 /* COVIDWatch.xcdatamodeld in Sources */,
 				2D8E7CE92434DB0F0012AFFB /* OSLog+Additions.swift in Sources */,
-				2DFDC5A324190AB800B108F8 /* AppDelegate.swift in Sources */,
-				2D6655AE242BF9A300B462E0 /* BluetoothController+ContactEvent.swift in Sources */,
-				2D5C5417241CC18900DB2520 /* ContactEventsTableViewController.swift in Sources */,
-				2DFF00402433831200F00CB9 /* CBPeripheral+Additions.swift in Sources */,
+				2D5C5417241CC18900DB2520 /* ContactEventNumbersTableViewController.swift in Sources */,
 				2DC231E6241B886C00216404 /* Firestore+Constants.swift in Sources */,
+				2D1987162439DA810070B86C /* SignedReport+CEN.swift in Sources */,
 				2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */,
+				2D52B6932439B9800096BC5C /* GenericPasswordStore.swift in Sources */,
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
 				2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */,
 				2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */,
 				2D5C5415241CBC5D00DB2520 /* MapViewController.swift in Sources */,
 				2DC231E8241B914200216404 /* CoreData+Additions.swift in Sources */,
-				2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */,
-				2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */,
 				2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */,
 				2DC231EC241BA17B00216404 /* UIViewController+ErrorPresenting.swift in Sources */,
-				2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */,
 				2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */,
+				2D48C279243A1703002858F9 /* AppDelegate.swift in Sources */,
+				2D52B6922439B9800096BC5C /* GenericPasswordConvertible.swift in Sources */,
 				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */,
+				2D52B6912439B9800096BC5C /* KeyStoreError.swift in Sources */,
 				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,7 +773,7 @@
 				DEVELOPMENT_TEAM = S647QX78WZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/COVIDWatch iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -794,7 +797,7 @@
 				DEVELOPMENT_TEAM = S647QX78WZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/COVIDWatch iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -937,6 +940,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2D48C27C243A3AA8002858F9 /* XCRemoteSwiftPackageReference "contact-tracing-cen-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/covid19risk/contact-tracing-cen-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		2D48C27F243A3ABF002858F9 /* XCRemoteSwiftPackageReference "contact-tracing-bluetooth-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/covid19risk/contact-tracing-bluetooth-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		2DB09A3E241A098F0049CD2A /* XCRemoteSwiftPackageReference "BerkananFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/zssz/BerkananFoundation";
@@ -948,10 +967,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2DB09A3F241A098F0049CD2A /* BerkananFoundation */ = {
+		2D48C27D243A3AA8002858F9 /* ContactTracingCEN */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2DB09A3E241A098F0049CD2A /* XCRemoteSwiftPackageReference "BerkananFoundation" */;
-			productName = BerkananFoundation;
+			package = 2D48C27C243A3AA8002858F9 /* XCRemoteSwiftPackageReference "contact-tracing-cen-swift" */;
+			productName = ContactTracingCEN;
+		};
+		2D48C280243A3ABF002858F9 /* ContactTracingBluetooth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D48C27F243A3ABF002858F9 /* XCRemoteSwiftPackageReference "contact-tracing-bluetooth-ios" */;
+			productName = ContactTracingBluetooth;
 		};
 /* End XCSwiftPackageProductDependency section */
 

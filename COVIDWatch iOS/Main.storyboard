@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +28,7 @@
         <!--Seen Tags-->
         <scene sceneID="4Yb-kV-CrU">
             <objects>
-                <tableViewController id="Vxd-Mb-2bC" customClass="ContactEventsTableViewController" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Vxd-Mb-2bC" customClass="ContactEventNumbersTableViewController" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VmW-Cj-iyY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +113,7 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <state key="normal" title="No"/>
                                         <connections>
-                                            <action selector="handleTapNoButton:" destination="2dV-uJ-laY" eventType="touchUpInside" id="Dqe-4E-CWo"/>
+                                            <action selector="handleTapNoButton:" destination="2dV-uJ-laY" eventType="touchUpInside" id="7Wx-Ki-EjI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOj-oS-GXE">
@@ -122,7 +121,7 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <state key="normal" title="Yes"/>
                                         <connections>
-                                            <action selector="handleTapYesButton:" destination="2dV-uJ-laY" eventType="touchUpInside" id="Yx4-U8-1wv"/>
+                                            <action selector="handleTapYesButton:" destination="2dV-uJ-laY" eventType="touchUpInside" id="Rdc-Gq-ir9"/>
                                         </connections>
                                     </button>
                                 </subviews>

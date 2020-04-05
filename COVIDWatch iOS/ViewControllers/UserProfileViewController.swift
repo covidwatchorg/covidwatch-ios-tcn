@@ -18,11 +18,11 @@ class UserProfileViewController: UIViewController {
     }
 
     @IBAction func handleTapNoButton(_ sender: UIButton) {
-        UserDefaults.standard.isCurrentUserSick = false
+        UserDefaults.standard.set(false, forKey: UserDefaults.Key.isCurrentUserSick)
     }
     
     @IBAction func handleTapYesButton(_ sender: UIButton) {
-        UserDefaults.standard.isCurrentUserSick = true
+        UserDefaults.standard.set(true, forKey: UserDefaults.Key.isCurrentUserSick)
     }
 
 }

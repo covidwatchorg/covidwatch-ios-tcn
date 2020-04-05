@@ -8,17 +8,30 @@ import Firebase
 
 extension TimeInterval {
     
-    // Only fetch contact events from the past 2 weeks
-    public static let oldestPublicContactEventsToFetch: TimeInterval = 60*60*24*7*2
+    // Only fetch signed reports from the past 2 weeks
+    public static let oldestSignedReportsToFetch: TimeInterval = 60*60*24*7*2
+    
+    // Fetch new signed reports every 6 hours at the earliest
+    public static let minimumBackgroundFetchInterval: TimeInterval = 60*60*6
 }
 
 extension Firestore {
 
     public struct Collections {
-        static let contactEvents = "contact_events"
+        static let signedReports = "signed_reports"
     }
     
     public struct Fields {
+        static let contactEventKeyBytes = "contact_event_key_bytes"
+        static let endPeriod = "end_period"
+        static let memoData = "memo_data"
+        static let memoType = "memo_type"
+        static let reportVerificationPublicKeyBytes = "report_verification_public_key_bytes"
+        static let signatureBytes = "signature_bytes"
+        static let startPeriod = "start_period"
+        
+        // Anonymouse users can't set this field
         static let timestamp = "timestamp"
+        static let isAuthenticatedByHealthOrganization = "is_authenticated_by_health_organization"
     }
 }

@@ -7,9 +7,9 @@ import UIKit
 import CoreData
 import os.log
 
-class ContactEventsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class ContactEventNumbersTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    private var fetchedResultsController: NSFetchedResultsController<ContactEvent>?
+    private var fetchedResultsController: NSFetchedResultsController<ContactEventNumber>?
     
     var isContactEventLoggingEnabledObservation: NSKeyValueObservation?
     var isContactEventLoggingEnabled: Bool = false {
@@ -22,6 +22,16 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
         super.viewDidLoad()
         self.initFetchedResultsController()
         self.configureIsContactEventLoggingObservationEnabled()
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl?.addTarget(self, action: #selector(refreshSignedReports), for: .valueChanged)
+    }
+    
+    @objc private func refreshSignedReports(_ sender: Any) {
+        (UIApplication.shared.delegate as? AppDelegate)?.fetchSignedReports(completionHandler: { (result) in
+            DispatchQueue.main.async {
+                self.refreshControl?.endRefreshing()
+            }            
+        })
     }
     
     func initFetchedResultsController() {
@@ -31,8 +41,8 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
                     throw(error)
                 }
                 let managedObjectContext = PersistentContainer.shared.viewContext
-                let request: NSFetchRequest<ContactEvent> = ContactEvent.fetchRequest()
-                request.sortDescriptors = [NSSortDescriptor(keyPath: \ContactEvent.timestamp, ascending: false)]
+                let request: NSFetchRequest<ContactEventNumber> = ContactEventNumber.fetchRequest()
+                request.sortDescriptors = [NSSortDescriptor(keyPath: \ContactEventNumber.foundDate, ascending: false)]
                 request.returnsObjectsAsFaults = false
                 request.fetchBatchSize = 200
                 self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -54,8 +64,8 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
         let context = PersistentContainer.shared.newBackgroundContext()
         context.perform {
             do {
-                os_log("Deleting contact events...", log: .app)
-                guard let entityName = ContactEvent.entity().name else { return }
+                os_log("Deleting contact event numbers...", log: .app)
+                guard let entityName = ContactEventNumber.entity().name else { return }
                 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
                 let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
                 batchDeleteRequest.resultType = .resultTypeObjectIDs
@@ -64,20 +74,20 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
                 if !deletedObjectIDs.isEmpty {
                     NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSDeletedObjectsKey: deletedObjectIDs], into: [PersistentContainer.shared.viewContext])
                 }
-                os_log("Deleted %d contact event(s)", log: .app, deletedObjectIDs.count)
+                os_log("Deleted %d contact event number(s)", log: .app, deletedObjectIDs.count)
             }
             catch {
-                os_log("Deleting contact events failed: %@", log: .app, type: .error, error as CVarArg)
+                os_log("Deleting contact events numbers failed: %@", log: .app, type: .error, error as CVarArg)
             }
         }
     }
     
     @IBAction func handleTapStartButton(_ sender: UIBarButtonItem) {
-        UserDefaults.standard.isContactEventLoggingEnabled = true
+        UserDefaults.standard.setValue(true, forKey: UserDefaults.Key.isContactEventNumberLoggingEnabled)
     }
     
     @IBAction func handleTapStopButton(_ sender: UIBarButtonItem) {
-        UserDefaults.standard.isContactEventLoggingEnabled = false
+        UserDefaults.standard.setValue(false, forKey: UserDefaults.Key.isContactEventNumberLoggingEnabled)
     }
     
     private func configureBarButtonItems(animated: Bool = false) {
@@ -93,7 +103,7 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
     }
             
     private func configureIsContactEventLoggingObservationEnabled() {
-        self.isContactEventLoggingEnabledObservation = UserDefaults.standard.observe(\.isContactEventLoggingEnabled, options: [.initial, .new], changeHandler: { [weak self] (_, change) in
+        self.isContactEventLoggingEnabledObservation = UserDefaults.standard.observe(\.isContactEventNumberLoggingEnabled, options: [.initial, .new], changeHandler: { [weak self] (_, change) in
             guard let self = self else { return }
             self.isContactEventLoggingEnabled = (change.newValue ?? false)
         })
@@ -120,18 +130,9 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactEventRow", for: indexPath)
         if let contactEvent = self.fetchedResultsController?.object(at: indexPath) {
-            cell.textLabel?.text = self.dateFormatter.string(from: contactEvent.timestamp!)
-            cell.detailTextLabel?.text = contactEvent.identifier?.uuidString
-            cell.backgroundColor = contactEvent.wasPotentiallyInfectious ? .systemRed : .systemGreen
-            if contactEvent.isBroadcastType {
-                let imageView = UIImageView(image: UIImage(named: "RadiowavesRight"))
-                imageView.tintColor = .systemGray
-                cell.accessoryView = imageView
-            }
-            else {
-                cell.accessoryView = nil
-            }
-            
+            cell.textLabel?.text = self.dateFormatter.string(from: contactEvent.foundDate!)
+            cell.detailTextLabel?.text = contactEvent.bytes?.base64EncodedString()
+            cell.backgroundColor = contactEvent.wasPotentiallyInfectious ? .systemRed : .systemGreen            
         }
         return cell
     }

@@ -8,8 +8,8 @@ import CoreData
 struct FirestoreOperations {
     
     // Returns an array of operations for fetching the latest entries and then adding them to the Core Data store.
-    static func getOperationsToDownloadContactEvents(sinceDate: Date, using context: NSManagedObjectContext, mergingContexts: [NSManagedObjectContext]? = nil) -> [Operation] {
-        let downloadOperation = ContactEventsDownloadOperation(sinceDate: sinceDate)
+    static func getOperationsToDownloadSignedReports(sinceDate: Date, using context: NSManagedObjectContext, mergingContexts: [NSManagedObjectContext]? = nil) -> [Operation] {
+        let downloadOperation = SignedReportsDownloadOperation(sinceDate: sinceDate)
         let processingOperation = QuerySnapshotProcessingOperation(context: context, mergingContexts: mergingContexts)
         let passDownloadResultsToProcessing = BlockOperation { [unowned downloadOperation, unowned processingOperation] in
             guard let querySnapshot = downloadOperation.querySnapshot else {

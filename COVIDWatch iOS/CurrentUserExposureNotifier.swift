@@ -10,14 +10,14 @@ import Firebase
 
 open class CurrentUserExposureNotifier: NSObject, NSFetchedResultsControllerDelegate {
     
-    private var fetchedResultsController: NSFetchedResultsController<ContactEvent>
+    private var fetchedResultsController: NSFetchedResultsController<ContactEventNumber>
     
     private var alertContorller: UIAlertController?
     
     override init() {
         let managedObjectContext = PersistentContainer.shared.viewContext
-        let fetchRequest: NSFetchRequest<ContactEvent> = ContactEvent.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \ContactEvent.timestamp, ascending: false)]
+        let fetchRequest: NSFetchRequest<ContactEventNumber> = ContactEventNumber.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \ContactEventNumber.foundDate, ascending: false)]
         fetchRequest.predicate = NSPredicate(format: "wasPotentiallyInfectious == 1")
         fetchRequest.returnsObjectsAsFaults = true
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -46,7 +46,7 @@ open class CurrentUserExposureNotifier: NSObject, NSFetchedResultsControllerDele
         //        guard !UserData.shared.wasCurrentUserNotifiedOfExposure else {
         //            return
         //        }
-        UserDefaults.standard.wasCurrentUserNotifiedOfExposure = true
+        UserDefaults.standard.setValue(true, forKey: UserDefaults.Key.wasCurrentUserNotifiedOfExposure)
         if UIApplication.shared.applicationState == .background {
             (UIApplication.shared.delegate as? AppDelegate)?.showCurrentUserExposedUserNotification()
         }

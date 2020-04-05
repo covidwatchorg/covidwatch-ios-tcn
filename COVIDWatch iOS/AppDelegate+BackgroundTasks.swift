@@ -58,13 +58,13 @@ extension AppDelegate {
     func handleBackgroundAppRefresh(task: BGAppRefreshTask) {
         // Schedule a new task
         self.scheduleBackgroundAppRefreshTask()
-        self.fetchPublicContactEvents(task: task)
+        self.fetchSignedReports(task: task)
     }
     
-    func fetchPublicContactEvents(task: BGAppRefreshTask?) {
+    func fetchSignedReports(task: BGAppRefreshTask?) {
         let now = Date()
-        let oldestDownloadDate = now.addingTimeInterval(-.oldestPublicContactEventsToFetch)
-        var downloadDate = UserDefaults.shared.lastContactEventsDownloadDate ?? oldestDownloadDate
+        let oldestDownloadDate = now.addingTimeInterval(-.oldestSignedReportsToFetch)
+        var downloadDate = UserDefaults.shared.lastFetchDate ?? oldestDownloadDate
         if downloadDate < oldestDownloadDate {
             downloadDate = oldestDownloadDate
         }
@@ -72,7 +72,7 @@ extension AppDelegate {
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
         
-        let operations = FirestoreOperations.getOperationsToDownloadContactEvents(
+        let operations = FirestoreOperations.getOperationsToDownloadSignedReports(
             sinceDate: downloadDate,
             using: PersistentContainer.shared.newBackgroundContext(),
             mergingContexts: [PersistentContainer.shared.viewContext]
@@ -91,7 +91,7 @@ extension AppDelegate {
         lastOperation.completionBlock = {
             let success = !lastOperation.isCancelled
             if success {
-                UserDefaults.shared.lastContactEventsDownloadDate = now
+                UserDefaults.shared.setValue(now, forKey: UserDefaults.Key.lastFetchDate)
             }
             task?.setTaskCompleted(success: success)
         }
@@ -124,7 +124,7 @@ extension AppDelegate {
     
     func scheduleBackgroundAppRefreshTask() {
         let request = BGAppRefreshTaskRequest(identifier: .refreshBackgroundTaskIdentifier)
-        request.earliestBeginDate = nil
+        request.earliestBeginDate = Date(timeIntervalSinceNow: .minimumBackgroundFetchInterval)
         self.submitTask(request: request)
     }
     

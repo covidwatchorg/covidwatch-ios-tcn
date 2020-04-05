@@ -8,20 +8,20 @@ import CoreData
 import Firebase
 import os.log
 import BackgroundTasks
+import ContactTracingBluetooth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var bluetoothController: BluetoothController?
+    var contactTracingBluetoothService: ContactTracingBluetoothService?
     
-    var isContactEventLoggingEnabledObservation: NSKeyValueObservation?
+    var isContactEventNumberLoggingEnabledObservation: NSKeyValueObservation?
     var isCurrentUserSickObservation: NSKeyValueObservation?
     
-    var localContactEventsUploader: LocalContactEventsUploader?
+    var signedReportsUploader: SignedReportsUploader?
     var currentUserExposureNotifier: CurrentUserExposureNotifier?
-    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -30,17 +30,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.registerBackgroundTasks()
         }
         else {
-            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum) // iOS 12 or earlier
+            UIApplication.shared.setMinimumBackgroundFetchInterval(.minimumBackgroundFetchInterval) // iOS 12 or earlier
         }
         let actionsAfterLoading = {
             UserDefaults.standard.register(defaults: UserDefaults.Key.registration)
             self.configureCurrentUserNotificationCenter()
             self.requestUserNotificationAuthorization(provisional: true)
             self.configureIsCurrentUserSickObserver()
-            self.localContactEventsUploader = LocalContactEventsUploader()
+            self.signedReportsUploader = SignedReportsUploader()
             self.currentUserExposureNotifier = CurrentUserExposureNotifier()
-            self.bluetoothController = BluetoothController()
-            self.configureIsContactEventLoggingEnabledObserver()
+            self.configureContactTracingService()
+            self.configureIsContactEventNumberLoggingEnabledObserver()
         }
         PersistentContainer.shared.load { error in
             if let error = error {
@@ -71,10 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PersistentContainer.shared.load { (error) in
             guard error == nil else { return }
             if #available(iOS 13.0, *) {
-                self.fetchPublicContactEvents(task: nil)
+                self.fetchSignedReports(task: nil)
             }
             else {
-                self.fetchPublicContactEvents(completionHandler: nil)
+                self.fetchSignedReports(completionHandler: nil)
             }
         }
     }
@@ -89,25 +89,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func configureIsContactEventLoggingEnabledObserver() {
-        self.isContactEventLoggingEnabledObservation = UserDefaults.standard.observe(\.isContactEventLoggingEnabled, options: [.initial, .new], changeHandler: { [weak self] (_, change) in
+    private func configureIsContactEventNumberLoggingEnabledObserver() {
+        self.isContactEventNumberLoggingEnabledObservation = UserDefaults.standard.observe(\.isContactEventNumberLoggingEnabled, options: [.initial, .new], changeHandler: { [weak self] (_, change) in
             guard let self = self else { return }
             if change.newValue ?? true {
-                self.bluetoothController?.start()
+                self.contactTracingBluetoothService?.start()
             }
             else {
-                self.bluetoothController?.stop()
+                self.contactTracingBluetoothService?.stop()
             }
         })
     }
     
-    private func configureIsCurrentUserSickObserver() {
+    private func configureIsCurrentUserSickObserver() {        
         self.isCurrentUserSickObservation = UserDefaults.standard.observe(\.isCurrentUserSick, options: [.new], changeHandler: { [weak self] (_, change) in
             guard let self = self else { return }
             guard change.newValue == true else {
                 return
             }
-            self.localContactEventsUploader?.markAllLocalContactEventsAsPotentiallyInfectious()
+            // TODO: Handle the case of uploading new reports after the fact the user has reported sick
+            self.generateAndUploadReport()
         })
     }
     
