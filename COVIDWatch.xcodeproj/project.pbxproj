@@ -21,8 +21,6 @@
 		2D52B6952439CC080096BC5C /* AppDelegate+CEN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52B6942439CC080096BC5C /* AppDelegate+CEN.swift */; };
 		2D5C540F241CB51D00DB2520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5C540E241CB51C00DB2520 /* Main.storyboard */; };
 		2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
-		2D5C5414241CBC5C00DB2520 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5412241CBC5C00DB2520 /* UserProfileViewController.swift */; };
-		2D5C5415241CBC5D00DB2520 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5413241CBC5C00DB2520 /* MapViewController.swift */; };
 		2D5C5417241CC18900DB2520 /* ContactEventNumbersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5416241CC18900DB2520 /* ContactEventNumbersTableViewController.swift */; };
 		2D6655B4242E605000B462E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D6655B3242E605000B462E0 /* GoogleService-Info.plist */; };
 		2D8496F924321A7C00C71BD1 /* FirestoreOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */; };
@@ -77,8 +75,6 @@
 		2D52B6942439CC080096BC5C /* AppDelegate+CEN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CEN.swift"; sourceTree = "<group>"; };
 		2D5C540E241CB51C00DB2520 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Shared.swift"; sourceTree = "<group>"; };
-		2D5C5412241CBC5C00DB2520 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		2D5C5413241CBC5C00DB2520 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2D5C5416241CC18900DB2520 /* ContactEventNumbersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventNumbersTableViewController.swift; sourceTree = "<group>"; };
 		2D6655B3242E605000B462E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreOperations.swift; sourceTree = "<group>"; };
@@ -93,7 +89,7 @@
 		2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+ViewControllerUtility.swift"; sourceTree = "<group>"; };
 		2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+BackgroundTasks.swift"; sourceTree = "<group>"; };
 		2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+BackgroundFetch.swift"; sourceTree = "<group>"; };
-		2DFDC59F24190AB700B108F8 /* Tags!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tags!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DFDC59F24190AB700B108F8 /* CEN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFDC5A224190AB800B108F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DFDC5A724190AB800B108F8 /* COVID_19_Risk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = COVID_19_Risk.xcdatamodel; sourceTree = "<group>"; };
 		2DFDC5AB24190AB900B108F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,9 +171,7 @@
 		2D9D70AD241CCB4B007ABD89 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2D5C5413241CBC5C00DB2520 /* MapViewController.swift */,
 				2D5C5416241CC18900DB2520 /* ContactEventNumbersTableViewController.swift */,
-				2D5C5412241CBC5C00DB2520 /* UserProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -220,7 +214,7 @@
 		2DFDC5A024190AB700B108F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DFDC59F24190AB700B108F8 /* Tags!.app */,
+				2DFDC59F24190AB700B108F8 /* CEN.app */,
 				2DFDC5B824190ABA00B108F8 /* COVIDWatch iOSTests.xctest */,
 				2DFDC5C324190ABA00B108F8 /* COVIDWatch iOSUITests.xctest */,
 			);
@@ -331,7 +325,7 @@
 				2D48C280243A3ABF002858F9 /* ContactTracingBluetooth */,
 			);
 			productName = "COVID-19 Risk";
-			productReference = 2DFDC59F24190AB700B108F8 /* Tags!.app */;
+			productReference = 2DFDC59F24190AB700B108F8 /* CEN.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2DFDC5B724190ABA00B108F8 /* COVIDWatch iOSTests */ = {
@@ -576,7 +570,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D5C5414241CBC5C00DB2520 /* UserProfileViewController.swift in Sources */,
 				2D52B6952439CC080096BC5C /* AppDelegate+CEN.swift in Sources */,
 				2D48C27B243A2114002858F9 /* SignedReportsDownloadOperation.swift in Sources */,
 				2D8496F924321A7C00C71BD1 /* FirestoreOperations.swift in Sources */,
@@ -592,7 +585,6 @@
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
 				2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */,
 				2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */,
-				2D5C5415241CBC5D00DB2520 /* MapViewController.swift in Sources */,
 				2DC231E8241B914200216404 /* CoreData+Additions.swift in Sources */,
 				2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */,
 				2DC231EC241BA17B00216404 /* UIViewController+ErrorPresenting.swift in Sources */,
@@ -779,7 +771,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios;
-				PRODUCT_NAME = "Tags!";
+				PRODUCT_NAME = CEN;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -803,7 +795,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios;
-				PRODUCT_NAME = "Tags!";
+				PRODUCT_NAME = CEN;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

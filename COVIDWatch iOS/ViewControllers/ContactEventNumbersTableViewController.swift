@@ -90,6 +90,11 @@ class ContactEventNumbersTableViewController: UITableViewController, NSFetchedRe
         UserDefaults.standard.setValue(false, forKey: UserDefaults.Key.isContactEventNumberLoggingEnabled)
     }
     
+    @IBAction func handleTapUploadButton(_ sender: UIBarButtonItem) {
+        UserDefaults.standard.setValue(true, forKey: UserDefaults.Key.isCurrentUserSick)
+        (UIApplication.shared.delegate as? AppDelegate)?.generateAndUploadReport()
+    }
+    
     private func configureBarButtonItems(animated: Bool = false) {
         var items = [UIBarButtonItem]()
         if self.isContactEventLoggingEnabled {
