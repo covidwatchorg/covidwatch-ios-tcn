@@ -23,12 +23,9 @@ class Finish: UIViewController {
         
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
-        var scalingFactor = CGFloat(screenHeight) / CGFloat(896)
+        let scalingFactor = CGFloat(screenHeight) / CGFloat(896)
         var fontScalingFactor = CGFloat(1.0)
-        if screenHeight <= 736.0 {
-            fontScalingFactor = scalingFactor
-            scalingFactor /= 1.5
-        }
+        if screenHeight <= 736.0 { fontScalingFactor = scalingFactor }
         print("ScreenHeight = \(screenHeight)")
         
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
@@ -38,7 +35,7 @@ class Finish: UIViewController {
         icon!.frame.size.height = 39
         icon!.center.x = view.center.x
         icon!.center.y = 100
-        if screenHeight <= 736.0 { icon!.center.y *= scalingFactor * 1.5 }
+        if screenHeight <= 736.0 { icon!.center.y *= scalingFactor }
         self.view.addSubview(icon!)
         appTitle.text =  "COVID WATCH"
         appTitle.textColor = UIColor(hexString: "F05452")
@@ -51,7 +48,7 @@ class Finish: UIViewController {
         parkImage = UIImageView(image: UIImage(named: "sp-people-in-park-colorized-2"))
         parkImage!.frame.size.width = screenWidth
         parkImage!.center.x = view.center.x
-        parkImage!.center.y = appTitle.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40 * 1.5)
+        parkImage!.center.y = appTitle.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40 )
         view.addSubview(parkImage!)
         
         allSet.text =  "You are all set!"

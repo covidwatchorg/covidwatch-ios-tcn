@@ -31,7 +31,8 @@ class Notifications: UIViewController {
         icon!.frame.size.width = 41
         icon!.frame.size.height = 39
         icon!.center.x = view.center.x
-        icon!.center.y = (scalingFactor/1.5) * 100
+        icon!.center.y = 100
+        if screenHeight <= 736.0 { icon!.center.y *= scalingFactor }
         self.view.addSubview(icon!)
         appTitle.text =  "COVID WATCH"
         appTitle.textColor = UIColor(hexString: "F05452")
