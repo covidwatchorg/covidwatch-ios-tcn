@@ -29,8 +29,8 @@ class Home: UIViewController {
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
         let scalingFactor = CGFloat(screenHeight) / CGFloat(896)
-//        var fontScalingFactor = CGFloat(1.0)
-//        if screenHeight <= 736.0 { fontScalingFactor = scalingFactor }
+        var fontScalingFactor = CGFloat(1.0)
+        if screenHeight <= 736.0 { fontScalingFactor = scalingFactor }
         print("ScreenHeight = \(screenHeight)")
         
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
@@ -58,7 +58,7 @@ class Home: UIViewController {
         
         mainText.text =  "Covid Watch is using bluetooth to anonymously watch who you come in contact with. You will be notified of potential contact to COVID-19.\n\nThank you for helping your community stay safe, anonymously."
         mainText.textColor = UIColor(hexString: "585858")
-        mainText.font = UIFont(name: "Montserrat-Regular", size: 18)
+        mainText.font = UIFont(name: "Montserrat-Regular", size: 18 * fontScalingFactor)
         mainText.frame.size.width = 330
         mainText.frame.size.height = mainText.contentSize.height
         mainText.isEditable = false
@@ -95,7 +95,7 @@ class Home: UIViewController {
         testedButton.frame.size.width = mainText.frame.size.width
         testedButton.frame.size.height = 60
         testedButton.center.x = view.center.x
-        testedButton.center.y = spreadTheWordDescription.center.y + spreadTheWordDescription.frame.size.height/2 + (scalingFactor * 60)
+        testedButton.center.y = spreadTheWordDescription.center.y + (spreadTheWordDescription.frame.size.height/2) + (scalingFactor * 40)
         testedButton.backgroundColor = UIColor(hexString: "ECF2FA")
         testedButton.layer.cornerRadius = 10
         view.addSubview(testedButton)
@@ -116,7 +116,7 @@ class Home: UIViewController {
         testedDescription.isEditable = false
         testedDescription.backgroundColor = .clear
         testedDescription.center.x = view.center.x
-        testedDescription.center.y = testedButton.center.y + testedButton.frame.size.height/2 + (scalingFactor * 20)
+        testedDescription.center.y = testedButton.center.y + testedButton.frame.size.height/2 + (scalingFactor * 25)
         view.addSubview(testedDescription)
         
         
