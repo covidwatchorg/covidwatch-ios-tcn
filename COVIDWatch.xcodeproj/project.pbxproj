@@ -40,7 +40,7 @@
 		2DFDC5B224190AB900B108F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */; };
 		2DFDC5BD24190ABA00B108F8 /* COVIDWatch_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */; };
 		2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */; };
-		2E1FDBF32439275E000D8D67 /* Splash-4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash-4.swift */; };
+		2E1FDBF32439275E000D8D67 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash.swift */; };
 		2E1FDBF5243929F4000D8D67 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */; };
 		2E1FDC0824393C5A000D8D67 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF624393C53000D8D67 /* Montserrat-ThinItalic.ttf */; };
 		2E1FDC0924393C5A000D8D67 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF724393C53000D8D67 /* Montserrat-ExtraBoldItalic.ttf */; };
@@ -131,7 +131,7 @@
 		2DFDC5C324190ABA00B108F8 /* COVIDWatch iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COVIDWatch iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDWatch_iOSUITests.swift; sourceTree = "<group>"; };
 		2DFDC5C924190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E1FDBF22439275E000D8D67 /* Splash-4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Splash-4.swift"; sourceTree = "<group>"; };
+		2E1FDBF22439275E000D8D67 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
 		2E1FDBF624393C53000D8D67 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
 		2E1FDBF724393C53000D8D67 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 				2E72B1942432D06000560BCC /* FirstScreenViewController.swift */,
 				2E72B1992432EE6800560BCC /* OnboardingViewController.swift */,
 				2E72B1BD2433CD8900560BCC /* HomeViewController.swift */,
-				2E1FDBF22439275E000D8D67 /* Splash-4.swift */,
+				2E1FDBF22439275E000D8D67 /* Splash.swift */,
 				2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */,
 				2E1FDC1A24394424000D8D67 /* Notifications.swift */,
 				2E1FDC1C24394643000D8D67 /* Finish.swift */,
@@ -701,7 +701,7 @@
 				2EF61C372436EDAD003046A4 /* SelfReportViewController.swift in Sources */,
 				2D5C5417241CC18900DB2520 /* ContactEventsTableViewController.swift in Sources */,
 				2DC231E6241B886C00216404 /* Firestore+Constants.swift in Sources */,
-				2E1FDBF32439275E000D8D67 /* Splash-4.swift in Sources */,
+				2E1FDBF32439275E000D8D67 /* Splash.swift in Sources */,
 				2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */,
 				2E1FDC1D24394643000D8D67 /* Finish.swift in Sources */,
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,

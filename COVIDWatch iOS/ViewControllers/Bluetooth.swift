@@ -24,26 +24,20 @@ class Bluetooth: UIViewController {
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
         var scalingFactor = CGFloat(screenHeight) / CGFloat(896)
-        print("ScreenHeight = \(screenHeight)")
-        if screenHeight <= 736.0 {
-
-            scalingFactor /= 2
-        }
-        
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
         icon = UIImageView(image: UIImage(named: "logo-cw-color"))
         icon!.frame.size.width = 41
         icon!.frame.size.height = 39
         icon!.center.x = view.center.x
-        icon!.center.y = scalingFactor * 100
+        icon!.center.y = (scalingFactor/1.5) * 100
         self.view.addSubview(icon!)
         appTitle.text =  "COVID WATCH"
         appTitle.textColor = UIColor(hexString: "F05452")
         appTitle.font = UIFont(name: "Montserrat-SemiBold", size: 14)
         appTitle.sizeToFit()
         appTitle.center.x = view.center.x
-        appTitle.center.y = icon!.center.y + icon!.frame.size.height/2 + (scalingFactor * 15)
+        appTitle.center.y = icon!.center.y + icon!.frame.size.height/2 + 15
         self.view.addSubview(appTitle)
         
         parkImage = UIImageView(image: UIImage(named: "sp-people-in-park-colorized-0"))
@@ -69,7 +63,9 @@ class Bluetooth: UIViewController {
         allowBtButton.center.y = description1.center.y + description1.frame.size.height/2 + (scalingFactor * 60)
         allowBtButton.backgroundColor = UIColor(hexString: "496FB6")
         allowBtButton.layer.cornerRadius = 10
+    self.allowBtButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
         view.addSubview(allowBtButton)
+        
 
         allowBtLabel.text =  "Allow Bluetooth"
         allowBtLabel.textColor = .white
@@ -87,12 +83,17 @@ class Bluetooth: UIViewController {
         description2.center.x = view.center.x
         description2.center.y = allowBtButton.center.y + allowBtButton.frame.size.height/2 + (scalingFactor * 20)
         view.addSubview(description2)
-        
-        
-
     }
         
-
+    @objc func nextScreen(sender : UITapGestureRecognizer) {
+        if sender.state == .ended {
+            if UserDefaults.standard.isContactEventLoggingEnabled == false {
+                UserDefaults.standard.isContactEventLoggingEnabled = true
+                
+            }
+            performSegue(withIdentifier: "BluetoothToNotifications", sender: self)
+        }
+    }
 
     /*
     // MARK: - Navigation

@@ -37,7 +37,7 @@ class Finish: UIViewController {
         icon!.frame.size.width = 41
         icon!.frame.size.height = 39
         icon!.center.x = view.center.x
-        icon!.center.y = scalingFactor * 100
+        icon!.center.y = scalingFactor/1.5 * 100
         self.view.addSubview(icon!)
         appTitle.text =  "COVID WATCH"
         appTitle.textColor = UIColor(hexString: "F05452")
@@ -47,7 +47,7 @@ class Finish: UIViewController {
         appTitle.center.y = icon!.center.y + icon!.frame.size.height/2 + 15
         self.view.addSubview(appTitle)
         
-        parkImage = UIImageView(image: UIImage(named: "sp-people-in-park-colorized-0"))
+        parkImage = UIImageView(image: UIImage(named: "sp-people-in-park-colorized-2"))
         parkImage!.frame.size.width = screenWidth
         parkImage!.center.x = view.center.x
         parkImage!.center.y = appTitle.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40)

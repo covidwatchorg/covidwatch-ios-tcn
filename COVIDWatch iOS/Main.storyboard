@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZhN-dh-5Jw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QbB-eA-aHp">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -227,16 +227,19 @@
             </objects>
             <point key="canvasLocation" x="3176.811594202899" y="781.47321428571422"/>
         </scene>
-        <!--Splash4-->
+        <!--Splash-->
         <scene sceneID="cDk-1l-pRt">
             <objects>
-                <viewController id="QbB-eA-aHp" customClass="Splash_4" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QbB-eA-aHp" customClass="Splash" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cgF-uO-z8W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gDc-EV-Sln"/>
                     </view>
+                    <connections>
+                        <segue destination="yuq-xU-X1g" kind="presentation" identifier="SplashToBluetooth" animates="NO" modalPresentationStyle="fullScreen" id="YIg-Qq-rkj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgw-X2-MXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -252,6 +255,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="NIl-X3-qNH"/>
                     </view>
+                    <connections>
+                        <segue destination="CBP-O9-e3p" kind="presentation" identifier="BluetoothToNotifications" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="PZ8-2u-mbq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aj5-jU-DJz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1046,6 +1052,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="45r-Gc-zRR"/>
                     </view>
+                    <connections>
+                        <segue destination="ZhN-dh-5Jw" kind="presentation" identifier="NotificationsToFinish" animates="NO" modalPresentationStyle="fullScreen" id="ekf-jH-KO9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2d-Fa-52A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

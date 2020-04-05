@@ -23,10 +23,7 @@ class Notifications: UIViewController {
         
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
-        var scalingFactor = CGFloat(screenHeight) / CGFloat(896)
-        if screenHeight <= 736.0 {
-            scalingFactor /= 1.5
-        }
+        let scalingFactor = CGFloat(screenHeight) / CGFloat(896)
         
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
@@ -34,7 +31,7 @@ class Notifications: UIViewController {
         icon!.frame.size.width = 41
         icon!.frame.size.height = 39
         icon!.center.x = view.center.x
-        icon!.center.y = scalingFactor * 100
+        icon!.center.y = (scalingFactor/1.5) * 100
         self.view.addSubview(icon!)
         appTitle.text =  "COVID WATCH"
         appTitle.textColor = UIColor(hexString: "F05452")
@@ -44,7 +41,7 @@ class Notifications: UIViewController {
         appTitle.center.y = icon!.center.y + icon!.frame.size.height/2 + (15)
         self.view.addSubview(appTitle)
         
-        parkImage = UIImageView(image: UIImage(named: "sp-people-in-park-colorized-0"))
+        parkImage = UIImageView(image: UIImage(named: "sp-people-in-park-colorized-1"))
         parkImage!.frame.size.width = screenWidth
         parkImage!.center.x = view.center.x
         parkImage!.center.y = appTitle.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40)
@@ -67,6 +64,7 @@ class Notifications: UIViewController {
         allowNotificationsButton.center.y = description1.center.y + description1.frame.size.height/2 + (scalingFactor * 60)
         allowNotificationsButton.backgroundColor = UIColor(hexString: "496FB6")
         allowNotificationsButton.layer.cornerRadius = 10
+        self.allowNotificationsButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
         view.addSubview(allowNotificationsButton)
 
         allowNotificationsLabel.text =  "Allow Notifications"
@@ -90,7 +88,11 @@ class Notifications: UIViewController {
 
     }
         
-
+    @objc func nextScreen(sender : UITapGestureRecognizer) {
+        if sender.state == .ended {
+            performSegue(withIdentifier: "NotificationsToFinish", sender: self)
+        }
+    }
 
     /*
     // MARK: - Navigation
