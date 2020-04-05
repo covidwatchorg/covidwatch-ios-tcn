@@ -1,0 +1,1076 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00999A0AECE2E1E4E9ACA1C6 /* Pods_COVIDWatch_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA04245E319FAE324E129CE /* Pods_COVIDWatch_iOSTests.framework */; };
+		2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */; };
+		2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30EFC2242268010063C211 /* Array+Chunked.swift */; };
+		2D5C540F241CB51D00DB2520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5C540E241CB51C00DB2520 /* Main.storyboard */; };
+		2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
+		2D5C5414241CBC5C00DB2520 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5412241CBC5C00DB2520 /* UserProfileViewController.swift */; };
+		2D5C5415241CBC5D00DB2520 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5413241CBC5C00DB2520 /* MapViewController.swift */; };
+		2D5C5417241CC18900DB2520 /* ContactEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5416241CC18900DB2520 /* ContactEventsTableViewController.swift */; };
+		2D6655AE242BF9A300B462E0 /* BluetoothController+ContactEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6655AD242BF9A300B462E0 /* BluetoothController+ContactEvent.swift */; };
+		2D6655B4242E605000B462E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D6655B3242E605000B462E0 /* GoogleService-Info.plist */; };
+		2D8496F724320F2900C71BD1 /* ContactEventsDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F624320F2900C71BD1 /* ContactEventsDownloadOperation.swift */; };
+		2D8496F924321A7C00C71BD1 /* FirestoreOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */; };
+		2D8E7CE92434DB0F0012AFFB /* OSLog+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E7CE82434DB0E0012AFFB /* OSLog+Additions.swift */; };
+		2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A38241975B20049CD2A /* BluetoothService.swift */; };
+		2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */; };
+		2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */; };
+		2DB09A40241A098F0049CD2A /* BerkananFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 2DB09A3F241A098F0049CD2A /* BerkananFoundation */; };
+		2DC231E6241B886C00216404 /* Firestore+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E5241B886C00216404 /* Firestore+Constants.swift */; };
+		2DC231E8241B914200216404 /* CoreData+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E7241B914200216404 /* CoreData+Additions.swift */; };
+		2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */; };
+		2DC231EC241BA17B00216404 /* UIViewController+ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */; };
+		2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */; };
+		2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6439B2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift */; };
+		2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */; };
+		2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */; };
+		2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */; };
+		2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */; };
+		2DFDC5A324190AB800B108F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A224190AB800B108F8 /* AppDelegate.swift */; };
+		2DFDC5A824190AB800B108F8 /* COVIDWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */; };
+		2DFDC5AC24190AB900B108F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5AB24190AB900B108F8 /* Assets.xcassets */; };
+		2DFDC5AF24190AB900B108F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5AE24190AB900B108F8 /* Preview Assets.xcassets */; };
+		2DFDC5B224190AB900B108F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */; };
+		2DFDC5BD24190ABA00B108F8 /* COVIDWatch_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */; };
+		2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */; };
+		2DFF00402433831200F00CB9 /* CBPeripheral+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF003F2433831200F00CB9 /* CBPeripheral+Additions.swift */; };
+		B1D85F9E809BCC12318E2223 /* Pods_COVIDWatch_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */; };
+		E1451F0924390DD700E8DA09 /* Splash-4.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1451F0824390DD700E8DA09 /* Splash-4.swift */; };
+		E1451F2F2439196C00E8DA09 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1451F2E2439196C00E8DA09 /* Bluetooth.swift */; };
+		E1451F372439298A00E8DA09 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1451F362439298A00E8DA09 /* Test.swift */; };
+		E1451F3F243A04B200E8DA09 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1451F3E243A04B200E8DA09 /* Results.swift */; };
+		E1451F55243A1A9200E8DA09 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F43243A1A9100E8DA09 /* Montserrat-LightItalic.ttf */; };
+		E1451F56243A1A9200E8DA09 /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F44243A1A9100E8DA09 /* Montserrat-ExtraLightItalic.ttf */; };
+		E1451F57243A1A9200E8DA09 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F45243A1A9100E8DA09 /* Montserrat-Bold.ttf */; };
+		E1451F58243A1A9200E8DA09 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F46243A1A9100E8DA09 /* Montserrat-SemiBold.ttf */; };
+		E1451F59243A1A9200E8DA09 /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F47243A1A9100E8DA09 /* Montserrat-MediumItalic.ttf */; };
+		E1451F5A243A1A9200E8DA09 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F48243A1A9100E8DA09 /* Montserrat-Black.ttf */; };
+		E1451F5B243A1A9200E8DA09 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F49243A1A9100E8DA09 /* Montserrat-Regular.ttf */; };
+		E1451F5C243A1A9200E8DA09 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F4A243A1A9100E8DA09 /* Montserrat-ExtraLight.ttf */; };
+		E1451F5D243A1A9200E8DA09 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F4B243A1A9100E8DA09 /* Montserrat-Thin.ttf */; };
+		E1451F5E243A1A9200E8DA09 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F4C243A1A9100E8DA09 /* Montserrat-Medium.ttf */; };
+		E1451F5F243A1A9200E8DA09 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F4D243A1A9200E8DA09 /* Montserrat-ExtraBold.ttf */; };
+		E1451F60243A1A9200E8DA09 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F4E243A1A9200E8DA09 /* Montserrat-ThinItalic.ttf */; };
+		E1451F61243A1A9200E8DA09 /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F4F243A1A9200E8DA09 /* Montserrat-Italic.ttf */; };
+		E1451F62243A1A9200E8DA09 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F50243A1A9200E8DA09 /* Montserrat-Light.ttf */; };
+		E1451F63243A1A9200E8DA09 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F51243A1A9200E8DA09 /* Montserrat-SemiBoldItalic.ttf */; };
+		E1451F64243A1A9200E8DA09 /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F52243A1A9200E8DA09 /* Montserrat-BoldItalic.ttf */; };
+		E1451F65243A1A9200E8DA09 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F53243A1A9200E8DA09 /* Montserrat-ExtraBoldItalic.ttf */; };
+		E1451F66243A1A9200E8DA09 /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1451F54243A1A9200E8DA09 /* Montserrat-BlackItalic.ttf */; };
+		F59A36E1AD0F8E40375BE630 /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2DFDC5B924190ABA00B108F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DFDC59724190AB700B108F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2DFDC59E24190AB700B108F8;
+			remoteInfo = "COVID-19 Risk";
+		};
+		2DFDC5C424190ABA00B108F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DFDC59724190AB700B108F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2DFDC59E24190AB700B108F8;
+			remoteInfo = "COVID-19 Risk";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BA04245E319FAE324E129CE /* Pods_COVIDWatch_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalContactEventsUploader.swift; sourceTree = "<group>"; };
+		2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicContactEventsObserver.swift; sourceTree = "<group>"; };
+		2D30EFC2242268010063C211 /* Array+Chunked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunked.swift"; sourceTree = "<group>"; };
+		2D5C540E241CB51C00DB2520 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Shared.swift"; sourceTree = "<group>"; };
+		2D5C5412241CBC5C00DB2520 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		2D5C5413241CBC5C00DB2520 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2D5C5416241CC18900DB2520 /* ContactEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventsTableViewController.swift; sourceTree = "<group>"; };
+		2D6655AD242BF9A300B462E0 /* BluetoothController+ContactEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BluetoothController+ContactEvent.swift"; sourceTree = "<group>"; };
+		2D6655B3242E605000B462E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2D8496F624320F2900C71BD1 /* ContactEventsDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEventsDownloadOperation.swift; sourceTree = "<group>"; };
+		2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreOperations.swift; sourceTree = "<group>"; };
+		2D8E7CE82434DB0E0012AFFB /* OSLog+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OSLog+Additions.swift"; sourceTree = "<group>"; };
+		2DB09A38241975B20049CD2A /* BluetoothService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
+		2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
+		2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BluetoothService+CoreBluetooth.swift"; sourceTree = "<group>"; };
+		2DC231E5241B886C00216404 /* Firestore+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Constants.swift"; sourceTree = "<group>"; };
+		2DC231E7241B914200216404 /* CoreData+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Additions.swift"; sourceTree = "<group>"; };
+		2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserExposureNotifier.swift; sourceTree = "<group>"; };
+		2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresenting.swift"; sourceTree = "<group>"; };
+		2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UserNotificationCenter.swift"; sourceTree = "<group>"; };
+		2DC6439B2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySnapshotProcessingOperation.swift; sourceTree = "<group>"; };
+		2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
+		2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+ViewControllerUtility.swift"; sourceTree = "<group>"; };
+		2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+BackgroundTasks.swift"; sourceTree = "<group>"; };
+		2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+BackgroundFetch.swift"; sourceTree = "<group>"; };
+		2DFDC59F24190AB700B108F8 /* Tags!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tags!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DFDC5A224190AB800B108F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2DFDC5A724190AB800B108F8 /* COVID_19_Risk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = COVID_19_Risk.xcdatamodel; sourceTree = "<group>"; };
+		2DFDC5AB24190AB900B108F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2DFDC5AE24190AB900B108F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2DFDC5B124190AB900B108F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2DFDC5B324190AB900B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DFDC5B824190ABA00B108F8 /* COVIDWatch iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COVIDWatch iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDWatch_iOSTests.swift; sourceTree = "<group>"; };
+		2DFDC5BE24190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DFDC5C324190ABA00B108F8 /* COVIDWatch iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COVIDWatch iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDWatch_iOSUITests.swift; sourceTree = "<group>"; };
+		2DFDC5C924190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DFF003F2433831200F00CB9 /* CBPeripheral+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBPeripheral+Additions.swift"; sourceTree = "<group>"; };
+		328891014B90A28E0C90E061 /* Pods-COVID-19 RiskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 RiskTests.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 RiskTests/Pods-COVID-19 RiskTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; sourceTree = "<group>"; };
+		64576CBB2D573736A801A228 /* Pods-COVIDWatch iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS/Pods-COVIDWatch iOS.release.xcconfig"; sourceTree = "<group>"; };
+		68229525C3FC0E16F5BEA5CD /* Pods-COVID-19 Risk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk.release.xcconfig"; sourceTree = "<group>"; };
+		797D91CDEEC20C267ED17AE4 /* Pods-COVIDWatch iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOSTests.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOSTests/Pods-COVIDWatch iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		7E3CADDEACD0F3541537B6DD /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS-COVIDWatch iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS-COVIDWatch iOSUITests/Pods-COVIDWatch iOS-COVIDWatch iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9AE0C66067225E42AE3D3DA1 /* Pods-COVID-19 RiskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 RiskTests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 RiskTests/Pods-COVID-19 RiskTests.release.xcconfig"; sourceTree = "<group>"; };
+		9B2EC3BF1237512C18D931F1 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A236DDAE6CBC8116CEEE63D5 /* Pods-COVIDWatch iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS.debug.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS/Pods-COVIDWatch iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		A40ADD9EFD1AE21913D43EB7 /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS-COVIDWatch iOSUITests/Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A5B373FB19305537F2E1D4A1 /* Pods-COVID-19 Risk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk.debug.xcconfig"; sourceTree = "<group>"; };
+		B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1451F0824390DD700E8DA09 /* Splash-4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Splash-4.swift"; sourceTree = "<group>"; };
+		E1451F2E2439196C00E8DA09 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
+		E1451F362439298A00E8DA09 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		E1451F3E243A04B200E8DA09 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		E1451F43243A1A9100E8DA09 /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
+		E1451F44243A1A9100E8DA09 /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		E1451F45243A1A9100E8DA09 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		E1451F46243A1A9100E8DA09 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		E1451F47243A1A9100E8DA09 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
+		E1451F48243A1A9100E8DA09 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		E1451F49243A1A9100E8DA09 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		E1451F4A243A1A9100E8DA09 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		E1451F4B243A1A9100E8DA09 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		E1451F4C243A1A9100E8DA09 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		E1451F4D243A1A9200E8DA09 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		E1451F4E243A1A9200E8DA09 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
+		E1451F4F243A1A9200E8DA09 /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
+		E1451F50243A1A9200E8DA09 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		E1451F51243A1A9200E8DA09 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		E1451F52243A1A9200E8DA09 /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
+		E1451F53243A1A9200E8DA09 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		E1451F54243A1A9200E8DA09 /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
+		ECF661F853918EA18D1C729B /* Pods-COVIDWatch iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOSTests/Pods-COVIDWatch iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2DFDC59C24190AB700B108F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DB09A40241A098F0049CD2A /* BerkananFoundation in Frameworks */,
+				B1D85F9E809BCC12318E2223 /* Pods_COVIDWatch_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DFDC5B524190ABA00B108F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00999A0AECE2E1E4E9ACA1C6 /* Pods_COVIDWatch_iOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DFDC5C024190ABA00B108F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F59A36E1AD0F8E40375BE630 /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D044469241A229E006B61E4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */,
+				2DC231E7241B914200216404 /* CoreData+Additions.swift */,
+				2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2D9D70AD241CCB4B007ABD89 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2D5C5413241CBC5C00DB2520 /* MapViewController.swift */,
+				2D5C5416241CC18900DB2520 /* ContactEventsTableViewController.swift */,
+				2D5C5412241CBC5C00DB2520 /* UserProfileViewController.swift */,
+				E1451F362439298A00E8DA09 /* Test.swift */,
+				E1451F3E243A04B200E8DA09 /* Results.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2DB09A37241965FF0049CD2A /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				2DB09A38241975B20049CD2A /* BluetoothService.swift */,
+				2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */,
+				2DB09A3A24197A7C0049CD2A /* BluetoothController.swift */,
+				2D6655AD242BF9A300B462E0 /* BluetoothController+ContactEvent.swift */,
+				2DFF003F2433831200F00CB9 /* CBPeripheral+Additions.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		2DC231E4241B885500216404 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				2DC231E5241B886C00216404 /* Firestore+Constants.swift */,
+				2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */,
+				2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */,
+				2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */,
+				2D8496F624320F2900C71BD1 /* ContactEventsDownloadOperation.swift */,
+				2DC6439B2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift */,
+				2D6655B3242E605000B462E0 /* GoogleService-Info.plist */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
+		2DDEBF61241A39EE005BE9A8 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */,
+				2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */,
+				2D30EFC2242268010063C211 /* Array+Chunked.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		2DFDC59624190AB700B108F8 = {
+			isa = PBXGroup;
+			children = (
+				2DFDC5A124190AB700B108F8 /* COVIDWatch iOS */,
+				2DFDC5BB24190ABA00B108F8 /* COVIDWatch iOSTests */,
+				2DFDC5C624190ABA00B108F8 /* COVIDWatch iOSUITests */,
+				2DFDC5A024190AB700B108F8 /* Products */,
+				5AECD6E91A3FC6D786A4C832 /* Pods */,
+				DADF6E488DD3842604EFF7C1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2DFDC5A024190AB700B108F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DFDC59F24190AB700B108F8 /* Tags!.app */,
+				2DFDC5B824190ABA00B108F8 /* COVIDWatch iOSTests.xctest */,
+				2DFDC5C324190ABA00B108F8 /* COVIDWatch iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2DFDC5A124190AB700B108F8 /* COVIDWatch iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E1451F67243A1A9C00E8DA09 /* Font */,
+				2DFDC5A224190AB800B108F8 /* AppDelegate.swift */,
+				2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */,
+				2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */,
+				2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */,
+				2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */,
+				2D8E7CE82434DB0E0012AFFB /* OSLog+Additions.swift */,
+				2DC231E4241B885500216404 /* Firestore */,
+				2DB09A37241965FF0049CD2A /* Bluetooth */,
+				2DDEBF61241A39EE005BE9A8 /* Utility */,
+				2D9D70AD241CCB4B007ABD89 /* ViewControllers */,
+				2D044469241A229E006B61E4 /* Data */,
+				2DFDC5AB24190AB900B108F8 /* Assets.xcassets */,
+				E1451F2D2439189700E8DA09 /* Onboarding */,
+				2D5C540E241CB51C00DB2520 /* Main.storyboard */,
+				2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */,
+				2DFDC5B324190AB900B108F8 /* Info.plist */,
+				2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */,
+				2DFDC5AD24190AB900B108F8 /* Preview Content */,
+			);
+			path = "COVIDWatch iOS";
+			sourceTree = "<group>";
+		};
+		2DFDC5AD24190AB900B108F8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2DFDC5AE24190AB900B108F8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2DFDC5BB24190ABA00B108F8 /* COVIDWatch iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */,
+				2DFDC5BE24190ABA00B108F8 /* Info.plist */,
+			);
+			path = "COVIDWatch iOSTests";
+			sourceTree = "<group>";
+		};
+		2DFDC5C624190ABA00B108F8 /* COVIDWatch iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */,
+				2DFDC5C924190ABA00B108F8 /* Info.plist */,
+			);
+			path = "COVIDWatch iOSUITests";
+			sourceTree = "<group>";
+		};
+		5AECD6E91A3FC6D786A4C832 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5B373FB19305537F2E1D4A1 /* Pods-COVID-19 Risk.debug.xcconfig */,
+				68229525C3FC0E16F5BEA5CD /* Pods-COVID-19 Risk.release.xcconfig */,
+				9B2EC3BF1237512C18D931F1 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig */,
+				3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */,
+				328891014B90A28E0C90E061 /* Pods-COVID-19 RiskTests.debug.xcconfig */,
+				9AE0C66067225E42AE3D3DA1 /* Pods-COVID-19 RiskTests.release.xcconfig */,
+				A236DDAE6CBC8116CEEE63D5 /* Pods-COVIDWatch iOS.debug.xcconfig */,
+				64576CBB2D573736A801A228 /* Pods-COVIDWatch iOS.release.xcconfig */,
+				7E3CADDEACD0F3541537B6DD /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.debug.xcconfig */,
+				A40ADD9EFD1AE21913D43EB7 /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig */,
+				ECF661F853918EA18D1C729B /* Pods-COVIDWatch iOSTests.debug.xcconfig */,
+				797D91CDEEC20C267ED17AE4 /* Pods-COVIDWatch iOSTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DADF6E488DD3842604EFF7C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */,
+				B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */,
+				0BA04245E319FAE324E129CE /* Pods_COVIDWatch_iOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1451F2D2439189700E8DA09 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E1451F0824390DD700E8DA09 /* Splash-4.swift */,
+				E1451F2E2439196C00E8DA09 /* Bluetooth.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		E1451F67243A1A9C00E8DA09 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				E1451F48243A1A9100E8DA09 /* Montserrat-Black.ttf */,
+				E1451F54243A1A9200E8DA09 /* Montserrat-BlackItalic.ttf */,
+				E1451F45243A1A9100E8DA09 /* Montserrat-Bold.ttf */,
+				E1451F52243A1A9200E8DA09 /* Montserrat-BoldItalic.ttf */,
+				E1451F4D243A1A9200E8DA09 /* Montserrat-ExtraBold.ttf */,
+				E1451F53243A1A9200E8DA09 /* Montserrat-ExtraBoldItalic.ttf */,
+				E1451F4A243A1A9100E8DA09 /* Montserrat-ExtraLight.ttf */,
+				E1451F44243A1A9100E8DA09 /* Montserrat-ExtraLightItalic.ttf */,
+				E1451F4F243A1A9200E8DA09 /* Montserrat-Italic.ttf */,
+				E1451F50243A1A9200E8DA09 /* Montserrat-Light.ttf */,
+				E1451F43243A1A9100E8DA09 /* Montserrat-LightItalic.ttf */,
+				E1451F4C243A1A9100E8DA09 /* Montserrat-Medium.ttf */,
+				E1451F47243A1A9100E8DA09 /* Montserrat-MediumItalic.ttf */,
+				E1451F49243A1A9100E8DA09 /* Montserrat-Regular.ttf */,
+				E1451F46243A1A9100E8DA09 /* Montserrat-SemiBold.ttf */,
+				E1451F51243A1A9200E8DA09 /* Montserrat-SemiBoldItalic.ttf */,
+				E1451F4B243A1A9100E8DA09 /* Montserrat-Thin.ttf */,
+				E1451F4E243A1A9200E8DA09 /* Montserrat-ThinItalic.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2DFDC59E24190AB700B108F8 /* COVIDWatch iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DFDC5CC24190ABA00B108F8 /* Build configuration list for PBXNativeTarget "COVIDWatch iOS" */;
+			buildPhases = (
+				FF47CA4630BD6DE9380890D3 /* [CP] Check Pods Manifest.lock */,
+				2DFDC59B24190AB700B108F8 /* Sources */,
+				2DFDC59C24190AB700B108F8 /* Frameworks */,
+				2DFDC59D24190AB700B108F8 /* Resources */,
+				7F1803136CC3C3E485586BD6 /* [CP] Embed Pods Frameworks */,
+				2DE56E21241CDDB600764A6F /* Set Build Number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "COVIDWatch iOS";
+			packageProductDependencies = (
+				2DB09A3F241A098F0049CD2A /* BerkananFoundation */,
+			);
+			productName = "COVID-19 Risk";
+			productReference = 2DFDC59F24190AB700B108F8 /* Tags!.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2DFDC5B724190ABA00B108F8 /* COVIDWatch iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DFDC5CF24190ABA00B108F8 /* Build configuration list for PBXNativeTarget "COVIDWatch iOSTests" */;
+			buildPhases = (
+				FC6303ED284885D616B54BE3 /* [CP] Check Pods Manifest.lock */,
+				2DFDC5B424190ABA00B108F8 /* Sources */,
+				2DFDC5B524190ABA00B108F8 /* Frameworks */,
+				2DFDC5B624190ABA00B108F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2DFDC5BA24190ABA00B108F8 /* PBXTargetDependency */,
+			);
+			name = "COVIDWatch iOSTests";
+			productName = "COVID-19 RiskTests";
+			productReference = 2DFDC5B824190ABA00B108F8 /* COVIDWatch iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2DFDC5C224190ABA00B108F8 /* COVIDWatch iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DFDC5D224190ABA00B108F8 /* Build configuration list for PBXNativeTarget "COVIDWatch iOSUITests" */;
+			buildPhases = (
+				25309401B212C1929A08560C /* [CP] Check Pods Manifest.lock */,
+				2DFDC5BF24190ABA00B108F8 /* Sources */,
+				2DFDC5C024190ABA00B108F8 /* Frameworks */,
+				2DFDC5C124190ABA00B108F8 /* Resources */,
+				2BA397E932D420A7FF011A44 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2DFDC5C524190ABA00B108F8 /* PBXTargetDependency */,
+			);
+			name = "COVIDWatch iOSUITests";
+			productName = "COVID-19 RiskUITests";
+			productReference = 2DFDC5C324190ABA00B108F8 /* COVIDWatch iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2DFDC59724190AB700B108F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = IZE;
+				TargetAttributes = {
+					2DFDC59E24190AB700B108F8 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					2DFDC5B724190ABA00B108F8 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 2DFDC59E24190AB700B108F8;
+					};
+					2DFDC5C224190ABA00B108F8 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 2DFDC59E24190AB700B108F8;
+					};
+				};
+			};
+			buildConfigurationList = 2DFDC59A24190AB700B108F8 /* Build configuration list for PBXProject "COVIDWatch" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2DFDC59624190AB700B108F8;
+			packageReferences = (
+				2DB09A3E241A098F0049CD2A /* XCRemoteSwiftPackageReference "BerkananFoundation" */,
+			);
+			productRefGroup = 2DFDC5A024190AB700B108F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2DFDC59E24190AB700B108F8 /* COVIDWatch iOS */,
+				2DFDC5B724190ABA00B108F8 /* COVIDWatch iOSTests */,
+				2DFDC5C224190ABA00B108F8 /* COVIDWatch iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2DFDC59D24190AB700B108F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1451F63243A1A9200E8DA09 /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				E1451F62243A1A9200E8DA09 /* Montserrat-Light.ttf in Resources */,
+				E1451F5F243A1A9200E8DA09 /* Montserrat-ExtraBold.ttf in Resources */,
+				E1451F59243A1A9200E8DA09 /* Montserrat-MediumItalic.ttf in Resources */,
+				E1451F64243A1A9200E8DA09 /* Montserrat-BoldItalic.ttf in Resources */,
+				2DFDC5B224190AB900B108F8 /* LaunchScreen.storyboard in Resources */,
+				E1451F56243A1A9200E8DA09 /* Montserrat-ExtraLightItalic.ttf in Resources */,
+				E1451F65243A1A9200E8DA09 /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				E1451F5C243A1A9200E8DA09 /* Montserrat-ExtraLight.ttf in Resources */,
+				E1451F55243A1A9200E8DA09 /* Montserrat-LightItalic.ttf in Resources */,
+				E1451F61243A1A9200E8DA09 /* Montserrat-Italic.ttf in Resources */,
+				2D5C540F241CB51D00DB2520 /* Main.storyboard in Resources */,
+				E1451F5A243A1A9200E8DA09 /* Montserrat-Black.ttf in Resources */,
+				E1451F5B243A1A9200E8DA09 /* Montserrat-Regular.ttf in Resources */,
+				E1451F58243A1A9200E8DA09 /* Montserrat-SemiBold.ttf in Resources */,
+				2D6655B4242E605000B462E0 /* GoogleService-Info.plist in Resources */,
+				E1451F5D243A1A9200E8DA09 /* Montserrat-Thin.ttf in Resources */,
+				E1451F57243A1A9200E8DA09 /* Montserrat-Bold.ttf in Resources */,
+				2DFDC5AF24190AB900B108F8 /* Preview Assets.xcassets in Resources */,
+				E1451F60243A1A9200E8DA09 /* Montserrat-ThinItalic.ttf in Resources */,
+				2DFDC5AC24190AB900B108F8 /* Assets.xcassets in Resources */,
+				E1451F66243A1A9200E8DA09 /* Montserrat-BlackItalic.ttf in Resources */,
+				E1451F5E243A1A9200E8DA09 /* Montserrat-Medium.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DFDC5B624190ABA00B108F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DFDC5C124190ABA00B108F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		25309401B212C1929A08560C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-COVIDWatch iOS-COVIDWatch iOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2BA397E932D420A7FF011A44 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVIDWatch iOS-COVIDWatch iOSUITests/Pods-COVIDWatch iOS-COVIDWatch iOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVIDWatch iOS-COVIDWatch iOSUITests/Pods-COVIDWatch iOS-COVIDWatch iOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVIDWatch iOS-COVIDWatch iOSUITests/Pods-COVIDWatch iOS-COVIDWatch iOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DE56E21241CDDB600764A6F /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Set the build number to the count of Git commits\nbuildNumber=$(git rev-list --count HEAD)\ninfoPlistPath=\"${TARGET_BUILD_DIR}/${EXECUTABLE_FOLDER_PATH}/Info.plist\"\nPLISTBUDDY=\"/usr/libexec/PlistBuddy\"\n$PLISTBUDDY -c \"Set :CFBundleVersion $buildNumber\" \"${infoPlistPath}\"\n";
+		};
+		7F1803136CC3C3E485586BD6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVIDWatch iOS/Pods-COVIDWatch iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-COVIDWatch iOS/Pods-COVIDWatch iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVIDWatch iOS/Pods-COVIDWatch iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC6303ED284885D616B54BE3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-COVIDWatch iOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF47CA4630BD6DE9380890D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-COVIDWatch iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2DFDC59B24190AB700B108F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */,
+				2D5C5414241CBC5C00DB2520 /* UserProfileViewController.swift in Sources */,
+				2D8496F924321A7C00C71BD1 /* FirestoreOperations.swift in Sources */,
+				2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */,
+				2D8496F724320F2900C71BD1 /* ContactEventsDownloadOperation.swift in Sources */,
+				E1451F0924390DD700E8DA09 /* Splash-4.swift in Sources */,
+				2DFDC5A824190AB800B108F8 /* COVIDWatch.xcdatamodeld in Sources */,
+				2D8E7CE92434DB0F0012AFFB /* OSLog+Additions.swift in Sources */,
+				E1451F372439298A00E8DA09 /* Test.swift in Sources */,
+				2DFDC5A324190AB800B108F8 /* AppDelegate.swift in Sources */,
+				2D6655AE242BF9A300B462E0 /* BluetoothController+ContactEvent.swift in Sources */,
+				2D5C5417241CC18900DB2520 /* ContactEventsTableViewController.swift in Sources */,
+				2DFF00402433831200F00CB9 /* CBPeripheral+Additions.swift in Sources */,
+				2DC231E6241B886C00216404 /* Firestore+Constants.swift in Sources */,
+				2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */,
+				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
+				2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */,
+				2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */,
+				2D5C5415241CBC5D00DB2520 /* MapViewController.swift in Sources */,
+				2DC231E8241B914200216404 /* CoreData+Additions.swift in Sources */,
+				2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */,
+				E1451F2F2439196C00E8DA09 /* Bluetooth.swift in Sources */,
+				2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */,
+				2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */,
+				E1451F3F243A04B200E8DA09 /* Results.swift in Sources */,
+				2DC231EC241BA17B00216404 /* UIViewController+ErrorPresenting.swift in Sources */,
+				2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */,
+				2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */,
+				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */,
+				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DFDC5B424190ABA00B108F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DFDC5BD24190ABA00B108F8 /* COVIDWatch_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DFDC5BF24190ABA00B108F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2DFDC5BA24190ABA00B108F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2DFDC59E24190AB700B108F8 /* COVIDWatch iOS */;
+			targetProxy = 2DFDC5B924190ABA00B108F8 /* PBXContainerItemProxy */;
+		};
+		2DFDC5C524190ABA00B108F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2DFDC59E24190AB700B108F8 /* COVIDWatch iOS */;
+			targetProxy = 2DFDC5C424190ABA00B108F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DFDC5B124190AB900B108F8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2DFDC5CA24190ABA00B108F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2DFDC5CB24190ABA00B108F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2DFDC5CD24190ABA00B108F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A236DDAE6CBC8116CEEE63D5 /* Pods-COVIDWatch iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"COVIDWatch iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = MC27HKM86M;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/COVIDWatch iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios;
+				PRODUCT_NAME = "Tags!";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2DFDC5CE24190ABA00B108F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64576CBB2D573736A801A228 /* Pods-COVIDWatch iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"COVIDWatch iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = MC27HKM86M;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/COVIDWatch iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios;
+				PRODUCT_NAME = "Tags!";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2DFDC5D024190ABA00B108F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECF661F853918EA18D1C729B /* Pods-COVIDWatch iOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S647QX78WZ;
+				INFOPLIST_FILE = "COVIDWatch iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios.COVIDWatchiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/COVIDWatch.app/COVIDWatch";
+			};
+			name = Debug;
+		};
+		2DFDC5D124190ABA00B108F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 797D91CDEEC20C267ED17AE4 /* Pods-COVIDWatch iOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S647QX78WZ;
+				INFOPLIST_FILE = "COVIDWatch iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios.COVIDWatchiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/COVIDWatch.app/COVIDWatch";
+			};
+			name = Release;
+		};
+		2DFDC5D324190ABA00B108F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E3CADDEACD0F3541537B6DD /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S647QX78WZ;
+				INFOPLIST_FILE = "COVIDWatch iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios.COVIDWatchiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "COVIDWatch iOS";
+			};
+			name = Debug;
+		};
+		2DFDC5D424190ABA00B108F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A40ADD9EFD1AE21913D43EB7 /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S647QX78WZ;
+				INFOPLIST_FILE = "COVIDWatch iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios.COVIDWatchiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "COVIDWatch iOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2DFDC59A24190AB700B108F8 /* Build configuration list for PBXProject "COVIDWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DFDC5CA24190ABA00B108F8 /* Debug */,
+				2DFDC5CB24190ABA00B108F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DFDC5CC24190ABA00B108F8 /* Build configuration list for PBXNativeTarget "COVIDWatch iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DFDC5CD24190ABA00B108F8 /* Debug */,
+				2DFDC5CE24190ABA00B108F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DFDC5CF24190ABA00B108F8 /* Build configuration list for PBXNativeTarget "COVIDWatch iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DFDC5D024190ABA00B108F8 /* Debug */,
+				2DFDC5D124190ABA00B108F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DFDC5D224190ABA00B108F8 /* Build configuration list for PBXNativeTarget "COVIDWatch iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DFDC5D324190ABA00B108F8 /* Debug */,
+				2DFDC5D424190ABA00B108F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2DB09A3E241A098F0049CD2A /* XCRemoteSwiftPackageReference "BerkananFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zssz/BerkananFoundation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2DB09A3F241A098F0049CD2A /* BerkananFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2DB09A3E241A098F0049CD2A /* XCRemoteSwiftPackageReference "BerkananFoundation" */;
+			productName = BerkananFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2DFDC5A724190AB800B108F8 /* COVID_19_Risk.xcdatamodel */,
+			);
+			currentVersion = 2DFDC5A724190AB800B108F8 /* COVID_19_Risk.xcdatamodel */;
+			path = COVIDWatch.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2DFDC59724190AB700B108F8 /* Project object */;
+}
