@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var bluetoothController: BluetoothController?
     
     var isContactEventLoggingEnabledObservation: NSKeyValueObservation?
-    var isCurrentUserSickObservation: NSKeyValueObservation?
+    var isUserSickObservation: NSKeyValueObservation?
     
     var localContactEventsUploader: LocalContactEventsUploader?
     var currentUserExposureNotifier: CurrentUserExposureNotifier?
@@ -101,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func configureIsCurrentUserSickObserver() {
-        self.isCurrentUserSickObservation = UserDefaults.standard.observe(\.isCurrentUserSick, options: [.new], changeHandler: { [weak self] (_, change) in
+        self.isUserSickObservation = UserDefaults.standard.observe(\.isUserSick, options: [.new], changeHandler: { [weak self] (_, change) in
             guard let self = self else { return }
             guard change.newValue == true else {
                 return

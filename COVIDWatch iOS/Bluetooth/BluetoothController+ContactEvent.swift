@@ -12,7 +12,7 @@ extension BluetoothController {
             let contactEvent = ContactEvent(context: context)
             contactEvent.identifier = identifier
             contactEvent.timestamp = Date()
-            contactEvent.wasPotentiallyInfectious = UserDefaults.standard.isCurrentUserSick
+            contactEvent.wasPotentiallyInfectious = UserDefaults.standard.isUserSick
             contactEvent.isBroadcastType = isBroadcastType
             try? context.save()
         }
