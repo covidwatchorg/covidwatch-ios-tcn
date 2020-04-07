@@ -9,81 +9,41 @@
 
 import UIKit
 
-class Bluetooth: UIViewController {
-    let screenSize: CGRect = UIScreen.main.bounds
-    var appTitle = UILabel()
-    var icon: UIImageView?
-    var parkImage: UIImageView?
-    var description1 = UITextView()
-    var allowBtButton = UIView()
-    var allowBtLabel = UILabel()
-    var description2 = UITextView()
+class Bluetooth: BaseViewController {
+    var img = UIImageView(image: UIImage(named: "people-group-blue-2"))
+    var largeText = LargeText()
+    var mainText = MainText()
+    var button = Button(text: "Allow Bluetooth", subtext: "This is required for the app to work.")
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        var scalingFactor = CGFloat(screenHeight) / CGFloat(896)
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
+        
+        img.frame.size.width = screenSize.width * 0.832
+        img.frame.size.height = img.frame.size.width / (312.0/326.0)
+        img.center.x = view.center.x
+        img.center.y = header.frame.minY + (282.0/812.0) * screenSize.height
+        view.addSubview(img)
+        
+        largeText.text = "Quickly Connect"
+        largeText.frame.size.height = largeText.contentSize.height
+        largeText.frame.origin.y = header.frame.minY + (481.0/812.0) * screenSize.height
+        largeText.center.x = view.center.x
+        view.addSubview(largeText)
+        
+        mainText.text = "Covid Watch uses bluetooth to anonymously log interactions with other Covid Watch users that you come in contact with."
+        mainText.frame.size.height = mainText.contentSize.height
+        mainText.frame.origin.y = header.frame.minY + (546.0/812.0) * screenSize.height
+        mainText.center.x = view.center.x
+        view.addSubview(mainText)
+        
+        button.center.x = view.center.x
+        button.frame.origin.y = screenSize.height - (144.0/812.0) * screenSize.height
+        view.addSubview(button)
+        button.drawText()
 
-        icon = UIImageView(image: UIImage(named: "logo-cw-color"))
-        icon!.frame.size.width = 41
-        icon!.frame.size.height = 39
-        icon!.center.x = view.center.x
-        icon!.center.y = 100
-        if screenHeight <= 736.0 { icon!.center.y *= scalingFactor }
-        self.view.addSubview(icon!)
-        appTitle.text =  "COVID WATCH"
-        appTitle.textColor = UIColor(hexString: "F05452")
-        appTitle.font = UIFont(name: "Montserrat-SemiBold", size: 14)
-        appTitle.sizeToFit()
-        appTitle.center.x = view.center.x
-        appTitle.center.y = icon!.center.y + icon!.frame.size.height/2 + 15
-        self.view.addSubview(appTitle)
-        
-        parkImage = UIImageView(image: UIImage(named: "sp-people-in-park-colorized-0"))
-        parkImage!.frame.size.width = screenWidth
-        parkImage!.center.x = view.center.x
-        parkImage!.center.y = appTitle.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40)
-        view.addSubview(parkImage!)
-        
-        description1.text =  "Covid Watch uses bluetooth to anonymously watch who you come in contact with."
-        description1.textColor = UIColor(hexString: "585858")
-        description1.font = UIFont(name: "Montserrat-Regular", size: 18)
-        description1.frame.size.width = 330
-        description1.frame.size.height = 75
-        description1.isEditable = false
-        description1.backgroundColor = .clear
-        description1.center.x = view.center.x
-        description1.center.y = parkImage!.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40)
-        view.addSubview(description1)
-        
-        allowBtButton.frame.size.width = description1.frame.size.width
-        allowBtButton.frame.size.height = 60
-        allowBtButton.center.x = view.center.x
-        allowBtButton.center.y = description1.center.y + description1.frame.size.height/2 + (scalingFactor * 60)
-        allowBtButton.backgroundColor = UIColor(hexString: "496FB6")
-        allowBtButton.layer.cornerRadius = 10
-    self.allowBtButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
-        view.addSubview(allowBtButton)
-        
+//    self.allowBtButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
 
-        allowBtLabel.text =  "Allow Bluetooth"
-        allowBtLabel.textColor = .white
-        allowBtLabel.font = UIFont(name: "Montserrat-SemiBold", size: 24)
-        allowBtLabel.sizeToFit()
-        allowBtLabel.center = allowBtButton.center
-        view.addSubview(allowBtLabel)
-        
-        description2.text =  "This is required for the app to work."
-        description2.textColor = UIColor(hexString: "585858")
-        description2.font = UIFont(name: "Montserrat-Regular", size: 14)
-        description2.sizeToFit()
-        description2.isEditable = false
-        description2.backgroundColor = .clear
-        description2.center.x = view.center.x
-        description2.center.y = allowBtButton.center.y + allowBtButton.frame.size.height/2 + (scalingFactor * 20)
-        view.addSubview(description2)
     }
         
     @objc func nextScreen(sender : UITapGestureRecognizer) {
