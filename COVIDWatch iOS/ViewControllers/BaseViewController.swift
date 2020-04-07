@@ -18,6 +18,7 @@ class BaseViewController: UIViewController {
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
+        self.header.backgroundColor = .white
     }
     
 //    override func viewDidLoad() {

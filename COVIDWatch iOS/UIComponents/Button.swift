@@ -9,7 +9,7 @@
 import UIKit
 
 class Button: UIView {
-    var text = UITextView()
+    var text = UILabel()
     var subtext: UITextView?
 
     init(text: String, subtext: String?) {
@@ -22,7 +22,6 @@ class Button: UIView {
         self.text.font = UIFont(name: "Montserrat-Bold", size: 18)
         self.text.textColor = .white
         self.text.backgroundColor = .clear
-        self.text.isEditable = false
         if (subtext != nil) {
             self.subtext = UITextView()
             self.subtext!.text = subtext

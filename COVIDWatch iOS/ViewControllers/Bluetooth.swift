@@ -42,7 +42,7 @@ class Bluetooth: BaseViewController {
         view.addSubview(button)
         button.drawText()
 
-//    self.allowBtButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
+        self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
 
     }
         

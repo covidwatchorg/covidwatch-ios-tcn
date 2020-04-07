@@ -9,84 +9,40 @@
 
 import UIKit
 
-class Notifications: UIViewController {
-    let screenSize: CGRect = UIScreen.main.bounds
-    var appTitle = UILabel()
-    var icon: UIImageView?
-    var parkImage: UIImageView?
-    var description1 = UITextView()
-    var allowNotificationsButton = UIView()
-    var allowNotificationsLabel = UILabel()
-    var description2 = UITextView()
+class Notifications: BaseViewController {
+    var img = UIImageView(image: UIImage(named: "people-standing-01-blue-4"))
+    var largeText = LargeText()
+    var mainText = MainText()
+    var button = Button(text: "Allow Notifications", subtext: "This will help you find out when you may be at risk")
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        let scalingFactor = CGFloat(screenHeight) / CGFloat(896)
-        
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
-
-        icon = UIImageView(image: UIImage(named: "logo-cw-color"))
-        icon!.frame.size.width = 41
-        icon!.frame.size.height = 39
-        icon!.center.x = view.center.x
-        icon!.center.y = 100
-        if screenHeight <= 736.0 { icon!.center.y *= scalingFactor }
-        self.view.addSubview(icon!)
-        appTitle.text =  "COVID WATCH"
-        appTitle.textColor = UIColor(hexString: "F05452")
-        appTitle.font = UIFont(name: "Montserrat-SemiBold", size: 14)
-        appTitle.sizeToFit()
-        appTitle.center.x = view.center.x
-        appTitle.center.y = icon!.center.y + icon!.frame.size.height/2 + (15)
-        self.view.addSubview(appTitle)
         
-        parkImage = UIImageView(image: UIImage(named: "sp-people-in-park-colorized-1"))
-        parkImage!.frame.size.width = screenWidth
-        parkImage!.center.x = view.center.x
-        parkImage!.center.y = appTitle.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40)
-        view.addSubview(parkImage!)
+//        Ratio is Figma image width to Figma screen width
+        img.frame.size.width = screenSize.width * (358.0/375.0)
+        img.frame.size.height = img.frame.size.width / (358.0/252.0)
+        img.center.x = view.center.x
+        img.center.y = header.frame.minY + (282.0/812.0) * screenSize.height
+        view.addSubview(img)
         
-        description1.text =  "Covid Watch uses notifications to warn you of potential contact to COVID-19."
-        description1.textColor = UIColor(hexString: "585858")
-        description1.font = UIFont(name: "Montserrat-Regular", size: 18)
-        description1.frame.size.width = 330
-        description1.frame.size.height = 75
-        description1.isEditable = false
-        description1.backgroundColor = .clear
-        description1.center.x = view.center.x
-        description1.center.y = parkImage!.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40)
-        view.addSubview(description1)
+        largeText.text = "Recieve Alerts"
+        largeText.frame.size.height = largeText.contentSize.height
+        largeText.frame.origin.y = header.frame.minY + (481.0/812.0) * screenSize.height
+        largeText.center.x = view.center.x
+        view.addSubview(largeText)
         
-        allowNotificationsButton.frame.size.width = description1.frame.size.width
-        allowNotificationsButton.frame.size.height = 60
-        allowNotificationsButton.center.x = view.center.x
-        allowNotificationsButton.center.y = description1.center.y + description1.frame.size.height/2 + (scalingFactor * 60)
-        allowNotificationsButton.backgroundColor = UIColor(hexString: "496FB6")
-        allowNotificationsButton.layer.cornerRadius = 10
-        self.allowNotificationsButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
-        view.addSubview(allowNotificationsButton)
-
-        allowNotificationsLabel.text =  "Allow Notifications"
-        allowNotificationsLabel.textColor = .white
-        allowNotificationsLabel.font = UIFont(name: "Montserrat-SemiBold", size: 24)
-        allowNotificationsLabel.sizeToFit()
-        allowNotificationsLabel.center = allowNotificationsButton.center
-        view.addSubview(allowNotificationsLabel)
+        mainText.text = "Covid Watch uses notifications to send alerts when you may have come into contact with COVID-19."
+        mainText.frame.size.height = mainText.contentSize.height
+        mainText.frame.origin.y = header.frame.minY + (546.0/812.0) * screenSize.height
+        mainText.center.x = view.center.x
+        view.addSubview(mainText)
         
-        description2.text =  "This will help you find out when you are at risk."
-        description2.textColor = UIColor(hexString: "585858")
-        description2.font = UIFont(name: "Montserrat-Regular", size: 14)
-        description2.sizeToFit()
-        description2.isEditable = false
-        description2.backgroundColor = .clear
-        description2.center.x = view.center.x
-        description2.center.y = allowNotificationsButton.center.y + allowNotificationsButton.frame.size.height/2 + (scalingFactor * 20)
-        view.addSubview(description2)
-        
-        
-
+        button.center.x = view.center.x
+        button.frame.origin.y = screenSize.height - (144.0/812.0) * screenSize.height
+        view.addSubview(button)
+        button.drawText()
+        self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
     }
         
     @objc func nextScreen(sender : UITapGestureRecognizer) {

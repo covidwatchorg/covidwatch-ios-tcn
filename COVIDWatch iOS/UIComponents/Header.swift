@@ -32,6 +32,7 @@ class Header: UIView {
         print(UIScreen.main.bounds.height * 0.1)
         self.addSubview(self.logo)
         self.addSubview(self.menu)
+        self.backgroundColor = .white
 
     }
     

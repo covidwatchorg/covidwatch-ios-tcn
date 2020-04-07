@@ -9,90 +9,53 @@
 
 import UIKit
 
-class Finish: UIViewController {
-    let screenSize: CGRect = UIScreen.main.bounds
-    var appTitle = UILabel()
-    var icon: UIImageView?
-    var parkImage: UIImageView?
-    var allSet = UITextView()
-    var finishButton = UIView()
-    var finishLabel = UILabel()
-    var description2 = UITextView()
+class Finish: BaseViewController {
+    var img = UIImageView(image: UIImage(named: "people-group-blue-2"))
+    var largeText = LargeText()
+    var mainText = MainText()
+    var button = Button(text: "Finish", subtext: nil)
+    var backgroundGradient = UIView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+//            Layout image first and then layout background gradient compared to it
         
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        let scalingFactor = CGFloat(screenHeight) / CGFloat(896)
-        var fontScalingFactor = CGFloat(1.0)
-        if screenHeight <= 736.0 { fontScalingFactor = scalingFactor }
-        print("ScreenHeight = \(screenHeight)")
-        
-        self.view.backgroundColor = UIColor(hexString: "FFFFFF")
+        img.frame.size.width = screenSize.width * 0.832
+        img.frame.size.height = img.frame.size.width / (312.0/326.0)
+        img.center.x = view.center.x
+        img.center.y = header.frame.minY + (282.0/812.0) * screenSize.height
 
-        icon = UIImageView(image: UIImage(named: "logo-cw-color"))
-        icon!.frame.size.width = 41
-        icon!.frame.size.height = 39
-        icon!.center.x = view.center.x
-        icon!.center.y = 100
-        if screenHeight <= 736.0 { icon!.center.y *= scalingFactor }
-        self.view.addSubview(icon!)
-        appTitle.text =  "COVID WATCH"
-        appTitle.textColor = UIColor(hexString: "F05452")
-        appTitle.font = UIFont(name: "Montserrat-SemiBold", size: 14)
-        appTitle.sizeToFit()
-        appTitle.center.x = view.center.x
-        appTitle.center.y = icon!.center.y + icon!.frame.size.height/2 + 15
-        self.view.addSubview(appTitle)
+        backgroundGradient.frame.size.width = screenSize.width
+        backgroundGradient.frame.size.height = screenSize.height + 40
+        backgroundGradient.frame.origin.y = img.frame.minY
+//        backgroundGradient.backgroundColor = UIColor(patternImage: UIImage(named: "background-gradient-blue")!)
+        backgroundGradient.layer.contents = UIImage(named: "background-gradient-blue")?.cgImage
+        self.view.addSubview(backgroundGradient)
+        view.addSubview(img)
         
-        parkImage = UIImageView(image: UIImage(named: "sp-people-in-park-colorized-2"))
-        parkImage!.frame.size.width = screenWidth
-        parkImage!.center.x = view.center.x
-        parkImage!.center.y = appTitle.center.y + parkImage!.image!.size.height/2 + (scalingFactor * 40 )
-        view.addSubview(parkImage!)
+        largeText.text = "You're all set!"
+        largeText.frame.size.height = largeText.contentSize.height
+        largeText.frame.origin.y = header.frame.minY + (481.0/812.0) * screenSize.height
+        largeText.center.x = view.center.x
+        largeText.backgroundColor = .clear
+        largeText.textColor = .white
+        view.addSubview(largeText)
         
-        allSet.text =  "You are all set!"
-        allSet.textColor = UIColor(hexString: "585858")
-        allSet.font = UIFont(name: "Optima-Bold", size: fontScalingFactor * 36)
-        allSet.frame.size.width = 330
-        allSet.frame.size.height = allSet.contentSize.height
-        allSet.isEditable = false
-        allSet.backgroundColor = .clear
-        allSet.center.x = view.center.x
-        allSet.center.y = parkImage!.center.y + parkImage!.image!.size.height/2
-        view.addSubview(allSet)
+        mainText.text = "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."
+        mainText.frame.size.height = mainText.contentSize.height
+        mainText.frame.origin.y = header.frame.minY + (546.0/812.0) * screenSize.height
+        mainText.center.x = view.center.x
+        mainText.backgroundColor = .clear
+        mainText.textColor = .white
+        view.addSubview(mainText)
         
-        description2.text =  "Covid Watch is now using bluetooth to anonymously watch who you come in contact with. You will be notified of potential contact to COVID-19."
-        description2.textColor = UIColor(hexString: "585858")
-        description2.font = UIFont(name: "Montserrat-Regular", size: fontScalingFactor * 18)
-        description2.frame.size.width = 330
-        description2.frame.size.height = description2.contentSize.height
-        description2.isEditable = false
-        description2.backgroundColor = .clear
-        description2.center.x = view.center.x
-        description2.center.y = allSet.center.y + description2.frame.size.height / 2 + scalingFactor * 20
-        view.addSubview(description2)
-        
-        finishButton.frame.size.width = description2.frame.size.width
-        finishButton.frame.size.height = 60
-        finishButton.center.x = view.center.x
-        finishButton.center.y = description2.center.y + description2.frame.size.height/2 + finishButton.frame.size.height/2 + (scalingFactor * 10)
-        finishButton.backgroundColor = UIColor(hexString: "496FB6")
-        finishButton.layer.cornerRadius = 10
-        self.finishButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
-        view.addSubview(finishButton)
-
-        finishLabel.text =  "Finish"
-        finishLabel.textColor = .white
-        finishLabel.font = UIFont(name: "Montserrat-SemiBold", size: 24)
-        finishLabel.sizeToFit()
-        finishLabel.center = finishButton.center
-        view.addSubview(finishLabel)
-        
-        
-        
-        
-
+        button.center.x = view.center.x
+        button.frame.origin.y = screenSize.height - (144.0/812.0) * screenSize.height
+        view.addSubview(button)
+        button.drawText()
+        button.text.textColor = UIColor(hexString: "585858")
+        button.backgroundColor = .white
+        self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
     }
         
     @objc func nextScreen(sender : UITapGestureRecognizer) {
