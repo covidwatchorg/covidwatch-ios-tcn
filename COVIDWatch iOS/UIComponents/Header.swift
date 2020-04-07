@@ -10,8 +10,8 @@ import UIKit
 
 class Header: UIView {
     var logo = UIImageView(image: UIImage(named: "logo-cw-color"))
-//    var menuIcon = UIImageView(image: UIImage(named: "menu-icon"))
     var menuIcon = UIView()
+    var xIcon = UIView()
     var menu = UIView()
     
     init() {
@@ -19,11 +19,13 @@ class Header: UIView {
     }
     
     func draw() {
-        self.frame.origin.y = (self.parentViewController?.view.safeAreaInsets.top)!
-        self.parentViewController?.view.addSubview(self)
+        self.frame.origin.y = self.parentViewController!.view.safeAreaInsets.top
+        self.parentViewController!.view.addSubview(self)
+//        NOTE: the order of drawing here matters
         drawLogo()
         drawMenuIcon()
         drawMenu()
+        drawXIcon()
     }
     
     private func drawLogo() {
@@ -31,7 +33,7 @@ class Header: UIView {
         logo.frame.size.height = 39
         logo.center.x = 0.1 * self.frame.size.width
         logo.center.y = self.frame.midY
-        parentViewController?.view.addSubview(logo)
+        parentViewController!.view.addSubview(logo)
     }
 
     private func drawMenuIcon() {
@@ -41,20 +43,33 @@ class Header: UIView {
         menuIcon.center.x = 0.9 * self.frame.size.width
         menuIcon.center.y = self.frame.midY
         menuIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
-        parentViewController?.view.addSubview(menuIcon)
+        parentViewController!.view.addSubview(menuIcon)
     }
     
     private func drawMenu() {
-        menu.frame.size.width = self.contentMaxWidth()
-        menu.frame.size.height = 500
+        menu.frame.size.width = 0.8 * UIScreen.main.bounds.width
+        menu.frame.size.height = UIScreen.main.bounds.height
         menu.frame.origin.x = UIScreen.main.bounds.width - menu.frame.size.width
-        menu.frame.origin.y = self.frame.maxY
-        menu.backgroundColor = .blue
-        parentViewController?.view.addSubview(menu)
+        menu.frame.origin.y = self.frame.minY
+        menu.isHidden = true
+        menu.backgroundColor = .red
+        parentViewController!.view.addSubview(menu)
+    }
+    
+    private func drawXIcon() {
+        xIcon.backgroundColor = UIColor(patternImage: UIImage(named: "x-icon")!)
+        xIcon.frame.size.width = 28
+        xIcon.frame.size.height = 28
+        xIcon.center = menuIcon.center
+        xIcon.isHidden = true
+        xIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
+        parentViewController!.view.addSubview(xIcon)
     }
         
     @objc func toggleMenu() {
         menu.isHidden = !menu.isHidden
+        xIcon.isHidden = !xIcon.isHidden
+        menuIcon.isHidden = !menuIcon.isHidden
     }
     
     required init?(coder: NSCoder) {
