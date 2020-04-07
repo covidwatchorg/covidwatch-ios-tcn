@@ -11,16 +11,16 @@ import UIKit
 class BaseViewController: UIViewController {
     var header = Header()
     let screenSize: CGRect = UIScreen.main.bounds
-    override func loadView() {
-        super.loadView()
-        header.translatesAutoresizingMaskIntoConstraints = false
+    override func viewDidLoad() {
+        super.viewDidLoad()
         self.view.addSubview(header)
-        NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-        ])
-        self.header.backgroundColor = .white
     }
     
-//    override func viewDidLoad() {
-//    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        Header must be drawn here instead of viewDidLoad(), because it makes use
+//        of view.safeAreaInsets.top which isn't filled out until this point in the
+//        ViewController life cycle.
+        header.draw()
+    }
 }
