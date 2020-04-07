@@ -13,7 +13,7 @@ class BaseViewController: UIViewController {
     let screenSize: CGRect = UIScreen.main.bounds
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(header)
+//        self.view.addSubview(header)
     }
     
     override func viewDidLayoutSubviews() {
@@ -21,6 +21,6 @@ class BaseViewController: UIViewController {
 //        Header must be drawn here instead of viewDidLoad(), because it makes use
 //        of view.safeAreaInsets.top which isn't filled out until this point in the
 //        ViewController life cycle.
-        header.draw()
+        header.draw(parentVC: self)
     }
 }
