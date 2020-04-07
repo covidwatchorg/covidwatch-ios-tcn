@@ -14,8 +14,22 @@ enum LINE_POSITION {
 }
 
 extension UIView {
-    func contentMaxWidth() -> CGFloat {
-        return UIScreen.main.bounds.width * (321.0/375.0)
+//    let screenWidth = UIScreen.main.bounds.width
+//    let screenHeight = UIScreen.main.bounds.height
+    var screenWidth: CGFloat {
+        get {
+            return UIScreen.main.bounds.width
+        }
+    }
+    var screenHeight: CGFloat {
+        get {
+            return UIScreen.main.bounds.height
+        }
+    }
+    var contentMaxWidth: CGFloat {
+        get {
+            UIScreen.main.bounds.width * (321.0/375.0)
+        }
     }
     
     func addLine(position : LINE_POSITION, color: UIColor, width: Double) {

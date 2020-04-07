@@ -14,8 +14,8 @@ class Button: UIView {
 
     init(text: String, subtext: String?) {
         super.init(frame: CGRect())
-        self.frame.size.width = contentMaxWidth()
-        self.frame.size.height = (58.0/321.0) * contentMaxWidth()
+        self.frame.size.width = contentMaxWidth
+        self.frame.size.height = (58.0/321.0) * contentMaxWidth
         self.backgroundColor = UIColor(hexString: "496FB6")
         self.layer.cornerRadius = 10
         self.text.text = text
@@ -44,7 +44,7 @@ class Button: UIView {
         self.text.sizeToFit()
         self.text.center = self.center
         parentVC.view.addSubview(self.text)
-        self.subtext?.frame.size.width = contentMaxWidth()
+        self.subtext?.frame.size.width = contentMaxWidth
         self.subtext?.frame.size.height = self.subtext?.contentSize.height ?? 0
         self.subtext?.center.x = self.text.center.x
         self.subtext?.frame.origin.y = self.frame.maxY

@@ -13,7 +13,7 @@ class MainText: UITextView {
         super.init(frame: frame, textContainer: textContainer)
         self.font = UIFont(name: "Montserrat", size: 18)
         self.textColor = UIColor(hexString: "585858")
-        self.frame.size.width = contentMaxWidth()
+        self.frame.size.width = contentMaxWidth
         self.isEditable = false
     }
     
