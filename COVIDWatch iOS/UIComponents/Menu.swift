@@ -21,7 +21,13 @@ class Menu: UIView {
     var covidWatchText = UILabel()
     
     func draw(parentVC: UIViewController) {
-//        draw self
+        drawMenuBackground(parentVC: parentVC)
+        drawXIcon(parentVC: parentVC)
+        drawMenuItems(parentVC: parentVC)
+        drawBottomText(parentVC: parentVC)
+    }
+    
+    private func drawMenuBackground(parentVC: UIViewController) {
         self.frame.size.width = 0.8 * UIScreen.main.bounds.width
         self.frame.size.height = UIScreen.main.bounds.height
         self.frame.origin.x = UIScreen.main.bounds.width - self.frame.size.width
@@ -29,11 +35,20 @@ class Menu: UIView {
         self.backgroundColor = .white
         self.isHidden = true
         parentVC.view.addSubview(self)
+    }
         
-//        draw the x icon
-        drawXIcon(parentVC: parentVC)
-        
-//        draw the menu items
+    private func drawXIcon(parentVC: UIViewController) {
+        xIcon.backgroundColor = UIColor(patternImage: UIImage(named: "x-icon")!)
+        xIcon.frame.size.width = 28
+        xIcon.frame.size.height = 28
+        xIcon.center.x = 0.9 * UIScreen.main.bounds.width
+        xIcon.center.y = (UIScreen.main.bounds.height * 0.1)/2 + parentVC.view.safeAreaInsets.top
+        xIcon.isHidden = true
+        xIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
+        parentVC.view.addSubview(xIcon)
+    }
+    
+    private func drawMenuItems(parentVC: UIViewController) {
         let menuItemWidth = (3.0/3.75) * self.frame.size.width
         let item0CenterY = (160.0/812.0) * UIScreen.main.bounds.height
         let item1CenterY = item0CenterY + ((90.0/812.0) * UIScreen.main.bounds.height)
@@ -47,8 +62,9 @@ class Menu: UIView {
         menuItems[3].draw(parentVC:parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item3CenterY)
         menuItems[4].draw(parentVC:parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item4CenterY)
         menuItems[5].draw(parentVC:parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item5CenterY)
-
-//        draw the covid watch text at the bottom
+    }
+    
+    private func drawBottomText(parentVC: UIViewController) {
         covidWatchText.text = "Covid Watch"
         covidWatchText.font = UIFont(name: "Montserrat", size: 14)
         covidWatchText.textColor = UIColor(hexString: "CCCCCC")
@@ -57,17 +73,6 @@ class Menu: UIView {
         covidWatchText.center.y = UIScreen.main.bounds.height - (35.0/812.0) * UIScreen.main.bounds.height
         covidWatchText.isHidden = true
         parentVC.view.addSubview(covidWatchText)
-    }
-        
-    private func drawXIcon(parentVC: UIViewController) {
-        xIcon.backgroundColor = UIColor(patternImage: UIImage(named: "x-icon")!)
-        xIcon.frame.size.width = 28
-        xIcon.frame.size.height = 28
-        xIcon.center.x = 0.9 * UIScreen.main.bounds.width
-        xIcon.center.y = (UIScreen.main.bounds.height * 0.1)/2 + parentVC.view.safeAreaInsets.top
-        xIcon.isHidden = true
-        xIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
-        parentVC.view.addSubview(xIcon)
     }
     
     @objc func toggleMenu() {
