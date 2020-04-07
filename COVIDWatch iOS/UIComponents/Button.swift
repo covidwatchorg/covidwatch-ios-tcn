@@ -31,20 +31,25 @@ class Button: UIView {
             self.subtext!.textAlignment = .center
             self.subtext!.isEditable = false
         }
-        
     }
     
-    func drawText() {
+//    Call this after you set where you want to place your button in the parentVC
+    func draw(parentVC: UIViewController) {
+        parentVC.view.addSubview(self)
+        drawText(parentVC: parentVC)
+    }
+    
+    func drawText(parentVC: UIViewController) {
 //        Call after the button's container has been laid out in parent ViewController
         self.text.sizeToFit()
         self.text.center = self.center
-        parentViewController!.view.addSubview(self.text)
+        parentVC.view.addSubview(self.text)
         self.subtext?.frame.size.width = contentMaxWidth()
         self.subtext?.frame.size.height = self.subtext?.contentSize.height ?? 0
         self.subtext?.center.x = self.text.center.x
         self.subtext?.frame.origin.y = self.frame.maxY
         if (self.subtext != nil) {
-            parentViewController!.view.addSubview(self.subtext!)
+            parentVC.view.addSubview(self.subtext!)
         }
     }
     

@@ -28,7 +28,6 @@ class Finish: BaseViewController {
         backgroundGradient.frame.size.width = screenSize.width
         backgroundGradient.frame.size.height = screenSize.height + 40
         backgroundGradient.frame.origin.y = img.frame.minY
-//        backgroundGradient.backgroundColor = UIColor(patternImage: UIImage(named: "background-gradient-blue")!)
         backgroundGradient.layer.contents = UIImage(named: "background-gradient-blue")?.cgImage
         self.view.addSubview(backgroundGradient)
         view.addSubview(img)
@@ -51,11 +50,10 @@ class Finish: BaseViewController {
         
         button.center.x = view.center.x
         button.frame.origin.y = screenSize.height - (144.0/812.0) * screenSize.height
-        view.addSubview(button)
-        button.drawText()
         button.text.textColor = UIColor(hexString: "585858")
         button.backgroundColor = .white
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
+        button.draw(parentVC: self)
     }
         
     @objc func nextScreen(sender : UITapGestureRecognizer) {

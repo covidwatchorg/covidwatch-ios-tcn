@@ -14,17 +14,6 @@ enum LINE_POSITION {
 }
 
 extension UIView {
-    var parentViewController: UIViewController? {
-        var parentResponder: UIResponder? = self
-        while parentResponder != nil {
-            parentResponder = parentResponder?.next
-            if let viewController = parentResponder as? UIViewController {
-                return viewController
-            }
-        }
-        return nil
-    }
-    
     func contentMaxWidth() -> CGFloat {
         return UIScreen.main.bounds.width * (321.0/375.0)
     }

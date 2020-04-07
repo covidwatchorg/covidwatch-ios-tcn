@@ -40,9 +40,8 @@ class Notifications: BaseViewController {
         
         button.center.x = view.center.x
         button.frame.origin.y = screenSize.height - (144.0/812.0) * screenSize.height
-        view.addSubview(button)
-        button.drawText()
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
+        button.draw(parentVC: self)
     }
         
     @objc func nextScreen(sender : UITapGestureRecognizer) {
