@@ -38,6 +38,8 @@
 		2DFDC5BD24190ABA00B108F8 /* COVIDWatch_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */; };
 		2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */; };
 		2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E5243D05260084F8ED /* MenuItem.swift */; };
+		2E0E86E9243D12BE0084F8ED /* share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E7243D12BE0084F8ED /* share.swift */; };
+		2E0E86EA243D12BE0084F8ED /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E8243D12BE0084F8ED /* Test.swift */; };
 		2E1315D024399B8A001C4DA8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1315CF24399B8A001C4DA8 /* Home.swift */; };
 		2E1FDBF32439275E000D8D67 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash.swift */; };
 		2E1FDBF5243929F4000D8D67 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */; };
@@ -129,6 +131,8 @@
 		2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDWatch_iOSUITests.swift; sourceTree = "<group>"; };
 		2DFDC5C924190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E0E86E5243D05260084F8ED /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		2E0E86E7243D12BE0084F8ED /* share.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = share.swift; sourceTree = "<group>"; };
+		2E0E86E8243D12BE0084F8ED /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		2E1315CF24399B8A001C4DA8 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		2E1FDBF22439275E000D8D67 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 		2D9D70AD241CCB4B007ABD89 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E0E86E7243D12BE0084F8ED /* share.swift */,
+				2E0E86E8243D12BE0084F8ED /* Test.swift */,
 				2E1FDBF22439275E000D8D67 /* Splash.swift */,
 				2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */,
 				2E1FDC1A24394424000D8D67 /* Notifications.swift */,
@@ -701,6 +707,7 @@
 				2EBF8731243C09F1003278E6 /* Button.swift in Sources */,
 				2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */,
 				2E1FDC1D24394643000D8D67 /* Finish.swift in Sources */,
+				2E0E86E9243D12BE0084F8ED /* share.swift in Sources */,
 				2EBF8729243BCFA1003278E6 /* UIViewExtension.swift in Sources */,
 				2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */,
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
@@ -712,6 +719,7 @@
 				2EBF872F243BF41E003278E6 /* MainText.swift in Sources */,
 				2DC231E8241B914200216404 /* CoreData+Additions.swift in Sources */,
 				2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */,
+				2E0E86EA243D12BE0084F8ED /* Test.swift in Sources */,
 				2E1FDC1B24394425000D8D67 /* Notifications.swift in Sources */,
 				2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */,
 				2E1315D024399B8A001C4DA8 /* Home.swift in Sources */,
