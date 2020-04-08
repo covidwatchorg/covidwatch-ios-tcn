@@ -20,13 +20,13 @@ class Finish: BaseViewController {
         super.viewDidLoad()
 //            Layout image first and then layout background gradient compared to it
         
-        img.frame.size.width = screenSize.width * 0.832
+        img.frame.size.width = screenWidth * 0.832
         img.frame.size.height = img.frame.size.width / (312.0/326.0)
         img.center.x = view.center.x
-        img.center.y = header.frame.minY + (282.0/812.0) * screenSize.height
+        img.center.y = header.frame.minY + (282.0/812.0) * screenHeight
 
-        backgroundGradient.frame.size.width = screenSize.width
-        backgroundGradient.frame.size.height = screenSize.height + 40
+        backgroundGradient.frame.size.width = screenWidth
+        backgroundGradient.frame.size.height = screenHeight + 40
         backgroundGradient.frame.origin.y = img.frame.minY
         backgroundGradient.layer.contents = UIImage(named: "background-gradient-blue")?.cgImage
         self.view.addSubview(backgroundGradient)
@@ -34,7 +34,7 @@ class Finish: BaseViewController {
         
         largeText.text = "You're all set!"
         largeText.frame.size.height = largeText.contentSize.height
-        largeText.frame.origin.y = header.frame.minY + (481.0/812.0) * screenSize.height
+        largeText.frame.origin.y = header.frame.minY + (481.0/812.0) * screenHeight
         largeText.center.x = view.center.x
         largeText.backgroundColor = .clear
         largeText.textColor = .white
@@ -42,14 +42,14 @@ class Finish: BaseViewController {
         
         mainText.text = "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."
         mainText.frame.size.height = mainText.contentSize.height
-        mainText.frame.origin.y = header.frame.minY + (546.0/812.0) * screenSize.height
+        mainText.frame.origin.y = header.frame.minY + (546.0/812.0) * screenHeight
         mainText.center.x = view.center.x
         mainText.backgroundColor = .clear
         mainText.textColor = .white
         view.addSubview(mainText)
         
         button.center.x = view.center.x
-        button.frame.origin.y = screenSize.height - (144.0/812.0) * screenSize.height
+        button.frame.origin.y = screenHeight - (144.0/812.0) * screenHeight
         button.text.textColor = UIColor(hexString: "585858")
         button.backgroundColor = .white
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))

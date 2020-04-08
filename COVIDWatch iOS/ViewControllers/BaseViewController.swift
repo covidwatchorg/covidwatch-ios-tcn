@@ -10,10 +10,9 @@ import UIKit
 
 class BaseViewController: UIViewController {
     var header = Header()
-    let screenSize: CGRect = UIScreen.main.bounds
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.addSubview(header)
     }
     
     override func viewDidLayoutSubviews() {

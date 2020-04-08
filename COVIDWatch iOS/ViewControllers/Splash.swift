@@ -17,9 +17,7 @@ class Splash: UIViewController {
     var startLbl = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let screenHeight = screenSize.height
-        
+
         self.view.backgroundColor = UIColor(red: 0.941, green: 0.329, blue: 0.322, alpha: 1)
 
         icon = UIImageView(image: UIImage(named: "logo-cw-white"))

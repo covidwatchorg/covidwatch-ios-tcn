@@ -8,7 +8,7 @@
 
 import UIKit
 
-class share: UIViewController {
+class share: BaseViewController {
     var logo: UIImageView?
     var img: UIImageView?
     var share = UILabel()
@@ -28,22 +28,10 @@ class share: UIViewController {
         super.viewDidLoad()
         
         
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
         self.scalingFactor = CGFloat(screenHeight) / CGFloat(896)
         var fontScalingFactor = CGFloat(1.0)
         if screenHeight <= 736.0 { fontScalingFactor = scalingFactor! }
         print("ScreenHeight = \(screenHeight)")
-        
-        var imagea: UIImage = UIImage(named: "logo-cw (3)")!
-        logo = UIImageView(image: imagea)
-        logo!.frame.size.width = 39
-        logo!.frame.size.height = 39
-        
-        logo!.center.x = view.center.x - 140
-        logo!.center.y = 75
-        if screenHeight <= 736.0 { logo!.center.y *= scalingFactor! }
-        self.view.addSubview(logo!)
         
         var imageb: UIImage = UIImage(named: "woman-hero-blue-2")!
         img = UIImageView(image: imageb)

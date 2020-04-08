@@ -30,15 +30,13 @@ class Home: UIViewController {
     var scalingFactor: CGFloat?
     override func viewDidLoad() {
         super.viewDidLoad()
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
         self.scalingFactor = CGFloat(screenHeight) / CGFloat(896)
         var fontScalingFactor = CGFloat(1.0)
         if screenHeight <= 736.0 { fontScalingFactor = scalingFactor! }
         print("ScreenHeight = \(screenHeight)")
         
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
-
+        
         icon = UIImageView(image: UIImage(named: "logo-cw-color"))
         icon!.frame.size.width = 41
         icon!.frame.size.height = 39
@@ -53,7 +51,7 @@ class Home: UIViewController {
         appTitle.center.x = view.center.x
         appTitle.center.y = icon!.center.y + icon!.frame.size.height/2 + 15
         self.view.addSubview(appTitle)
-
+        
         warningBanner.frame.size.width = screenWidth
         warningBanner.backgroundColor = UIColor(hexString: "F05452")
         warningBanner.center.x = view.center.x
@@ -84,7 +82,7 @@ class Home: UIViewController {
         spreadTheWordButton.backgroundColor = UIColor(hexString: "496FB6")
         spreadTheWordButton.layer.cornerRadius = 10
         view.addSubview(spreadTheWordButton)
-
+        
         spreadTheWordLabel.text =  "Spread the word"
         spreadTheWordLabel.textColor = .white
         spreadTheWordLabel.font = UIFont(name: "Montserrat-SemiBold", size: 24)
@@ -104,7 +102,7 @@ class Home: UIViewController {
         testedButton.layer.cornerRadius = 10
         testedButton.center.x = view.center.x
         view.addSubview(testedButton)
-
+        
         testedLabel.text =  "Tested for COVID-19?"
         testedLabel.textColor = UIColor(hexString: "585858")
         testedLabel.font = UIFont(name: "Montserrat-SemiBold", size: 24)
@@ -123,10 +121,10 @@ class Home: UIViewController {
         print(UserDefaults.standard.isUserSick)
         print(UserDefaults.standard.didUserMakeContactWithSickUser)
         
-//        Change interface based on whether user is sick or made contact
+        //        Change interface based on whether user is sick or made contact
         self.manageGlobalState(UserDefaults.standard.isUserSick, UserDefaults.standard.didUserMakeContactWithSickUser)
         
-//        Set up observers to update based on state changes
+        //        Set up observers to update based on state changes
         isUserSickObserver = UserDefaults.standard.observe(\.isUserSick, options: [.new], changeHandler: { (_, change) in
             if (change.newValue == nil) {
                 return
@@ -140,7 +138,7 @@ class Home: UIViewController {
             self.manageGlobalState(UserDefaults.standard.isUserSick, change.newValue!)
         })
     }
-        
+    
     @objc func nextScreen(sender : UITapGestureRecognizer) {
         if sender.state == .ended {
             performSegue(withIdentifier: "NotificationsToFinish", sender: self)
@@ -150,7 +148,7 @@ class Home: UIViewController {
     private func updateHeightsAndYPositions(_ warningBannerVisible: Bool) {
         warningBanner.frame.size.height = 60 * 1.5 * scalingFactor!
         warningBanner.center.y = appTitle.center.y + warningBanner.frame.size.height/2 + (self.scalingFactor! * 40)
-
+        
         warningLabel.frame.size.height = warningLabel.contentSize.height
         warningLabel.center = warningBanner.center
         
@@ -159,30 +157,30 @@ class Home: UIViewController {
         } else {
             parkImage!.center.y = appTitle.center.y + parkImage!.image!.size.height/2 + (self.scalingFactor! * 40 )
         }
-
+        
         mainText.frame.size.height = mainText.contentSize.height
         mainText.center.y = parkImage!.center.y + (parkImage!.image!.size.height / 2) + (mainText.frame.size.height / 2)
         
         spreadTheWordButton.frame.size.height = 60
         spreadTheWordButton.center.y = mainText.center.y + mainText.frame.size.height/2 + (scalingFactor! * 60)
-
+        
         spreadTheWordLabel.sizeToFit()
         spreadTheWordLabel.center = spreadTheWordButton.center
         
-
+        
         spreadTheWordDescription.center.y = spreadTheWordButton.center.y + spreadTheWordButton.frame.size.height/2 + (scalingFactor! * 20)
         
         testedButton.frame.size.height = 60
         testedButton.center.y = spreadTheWordDescription.center.y + (spreadTheWordDescription.frame.size.height/2) + (scalingFactor! * 40)
-
+        
         testedLabel.sizeToFit()
         testedLabel.center = testedButton.center
         
         testedDescription.frame.size.height = testedDescription.contentSize.height
         testedDescription.center.y = testedButton.center.y + testedButton.frame.size.height/2 + (scalingFactor! * 25)
     }
-
-//    Decides what to display based on global app state
+    
+    //    Decides what to display based on global app state
     private func manageGlobalState(_ isUserSick: Bool, _ didUserMakeContactWithSickUser: Bool) {
         if (isUserSick || didUserMakeContactWithSickUser) {
             warningBanner.isHidden = false
@@ -212,15 +210,15 @@ class Home: UIViewController {
         
     }
     
-
+    
     /*
-    // MARK: - Navigation
-​
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     ​​
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
