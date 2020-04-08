@@ -8,7 +8,7 @@
 
 import UIKit
 
-class shared: UIViewController {
+class share: UIViewController {
     var logo: UIImageView?
     var img: UIImageView?
     var share = UILabel()
@@ -73,6 +73,7 @@ class shared: UIViewController {
         share2.center.x = view.center.x
         share2.center.y = share.center.y + share.frame.size.height/2 + 60
         share2.textAlignment = .center
+        share2.isEditable = false
         view.addSubview(share2)
         
         spread.frame.size.width = share2.frame.size.width
@@ -109,7 +110,7 @@ class shared: UIViewController {
         tested.layer.borderWidth = 1
         tested.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
         tested.layer.cornerRadius = 10
-        //    self.spread.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
+         self.tested.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
         view.addSubview(tested)
         
         testedLbl.text =  "Tested for COVID-19?"
@@ -129,8 +130,11 @@ class shared: UIViewController {
         testedLbl2.center.x = spread.center.x
         testedLbl2.center.y = testedLbl.center.y + testedLbl.frame.size.height/2 + 80
         testedLbl2.textAlignment = .center
+         testedLbl2.isEditable = false
         view.addSubview(testedLbl2)
     }
-    
+    @objc func test(){
+         performSegue(withIdentifier: "test", sender: self)
+    }
     
 }

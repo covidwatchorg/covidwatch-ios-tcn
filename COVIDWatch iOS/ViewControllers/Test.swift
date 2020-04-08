@@ -14,10 +14,11 @@ class Test: UIViewController {
     var q1 = UITextView()
     var q2 = UITextView()
     var terms = UITextView()
-    var not = UIView()
-    var neg = UIView()
-    var pos = UIView()
-    
+    var not = Button(text: "Not tested", subtext: "")
+    var neg = Button(text: "Tested negative", subtext: "")
+    var pos = Button(text: "Tested positive", subtext: "a")
+      var date = Button(text: "Select Date", subtext: "a")
+     var dateLbl = UILabel()
     var back = UIView()
     
     var notLbl = UILabel()
@@ -116,47 +117,91 @@ class Test: UIViewController {
         q2.textAlignment = .left
         view.addSubview(q2)
         
-        not.frame.size.width = 300
-        not.frame.size.height = 75
-        not.center.x = view.center.x
-        not.center.y = q1.center.y + 125
-        not.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
-        not.layer.cornerRadius = 20
-        view.addSubview(not)
+            
+          not.frame.size.width = 300
+                      not.frame.size.height = 75
+                      
+                notLbl.text =  "Tested negative"
+                   notLbl.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
+                    notLbl.font = UIFont(name: "Montserrat-Bold", size: 21)
+                   notLbl.sizeToFit()
+                 notLbl.center.x = not.center.x
+                  notLbl.center.y = not.center.y
+                    
+                    
+                 not.addSubview(notLbl)
+           not.center.x = view.center.x
+           not.center.y = q1.center.y + 125
+               not.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
+               not.layer.cornerRadius = 20
+                 
+                 view.addSubview(not)
         
-        
-        notLbl.text =  "Not yet tested"
-        notLbl.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
-        notLbl.font = UIFont(name: "Montserrat-Bold", size: 21)
-        notLbl.sizeToFit()
-        notLbl.center = not.center
-        
-        view.addSubview(notLbl)
-        
-        neg.frame.size.width = 300
-        neg.frame.size.height = 75
+       neg.frame.size.width = 300
+                   neg.frame.size.height = 75
+                   
+             negLbl.text =  "Tested negative"
+                negLbl.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
+                 negLbl.font = UIFont(name: "Montserrat-Bold", size: 21)
+                negLbl.sizeToFit()
+              negLbl.center.x = neg.center.x
+               negLbl.center.y = neg.center.y
+                 
+                 
+              neg.addSubview(negLbl)
         neg.center.x = view.center.x
         neg.center.y = not.center.y + 125
-        neg.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
-        neg.layer.cornerRadius = 20
-        view.addSubview(neg)
-        
-        negLbl.text =  "Tested negative"
-        negLbl.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
-        negLbl.font = UIFont(name: "Montserrat-Bold", size: 21)
-        negLbl.sizeToFit()
-        negLbl.center = neg.center
-        
-        view.addSubview(negLbl)
-        
+            neg.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
+            neg.layer.cornerRadius = 20
+              
+              view.addSubview(neg)
         pos.frame.size.width = 300
-        pos.frame.size.height = 75
-        pos.center.x = view.center.x
-        pos.center.y = neg.center.y + 125
-        pos.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
-        pos.layer.cornerRadius = 20
+             pos.frame.size.height = 75
+             
+        posLbl.text =  "Tested positive"
+           posLbl.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
+           posLbl.font = UIFont(name: "Montserrat-Bold", size: 21)
+           posLbl.sizeToFit()
+           posLbl.center.x = pos.center.x
+            posLbl.center.y = pos.center.y
+           
+           
+        pos.addSubview(posLbl)
+  pos.center.x = view.center.x
+  pos.center.y = neg.center.y + 125
+      pos.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
+      pos.layer.cornerRadius = 20
         
         view.addSubview(pos)
+        date.frame.size.width = 300
+                          date.frame.size.height = 75
+                          
+                    dateLbl.text =  "Select Date"
+                       dateLbl.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
+                        dateLbl.font = UIFont(name: "Montserrat-Bold", size: 21)
+                       dateLbl.sizeToFit()
+                     dateLbl.center.x = date.center.x
+                      dateLbl.center.y = date.center.y
+                        
+                        
+                     date.addSubview(dateLbl)
+            
+               
+                   date.layer.cornerRadius = 20
+                     
+                   
+        date.frame.size.width = 300
+                    date.frame.size.height = 75
+                    
+           
+         
+                 
+         date.center.x = view.center.x
+         date.center.y = 1000
+             date.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
+             date.layer.cornerRadius = 20
+                 self.date.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dated)))
+               view.addSubview(date)
         
         back.frame.size.width = 75
         back.frame.size.height = 75
@@ -166,14 +211,7 @@ class Test: UIViewController {
         back.layer.cornerRadius = 20
         //    view.addSubview(back)
         
-        posLbl.text =  "Tested positive"
-        posLbl.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
-        posLbl.font = UIFont(name: "Montserrat-Bold", size: 21)
-        posLbl.sizeToFit()
-        posLbl.center = pos.center
         
-        
-        view.addSubview(posLbl)
         
         
         confirm.frame.size.width = 325
@@ -192,7 +230,7 @@ class Test: UIViewController {
         report.center.y = view.center.y + 1000
         report.alpha = 0
         report.backgroundColor = UIColor(red: 0.286, green: 0.435, blue: 0.714, alpha: 1)
-        
+        self.report.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.home)))
         report.layer.cornerRadius = 20
         view.addSubview(report)
         
@@ -271,7 +309,133 @@ class Test: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-    
+    @objc func dated() {
+            step += 1
+        if step == 2 {
+                UIView.animate(withDuration: 1.0,
+                               delay: 0.0,
+                               options: [],
+                               animations: { [weak self] in
+                                
+                                
+                                self!.timePicker.frame = CGRect(x: 0.0, y: (self!.view.frame.height/2 + 60), width: self!.view.frame.width, height: 150.0)
+                                
+                                self!.timePicker.fadeInD(1.0)
+                    }, completion: nil)
+                
+            }
+            if step == 3 {
+                UIView.animate(withDuration: 1.0,
+                               delay: 1.2,
+                               options: [],
+                               animations: { [weak self] in
+                                self!.confirm.center.y = self!.confirm.center.y - 1000
+                                self!.q2.center.y = self!.view.center.y - 120
+                                self!.q1.fadeOut(1.0)
+                                
+                                self!.agree.center.y = self!.agree.center.y - 950
+                                self!.disagree.center.y = self!.disagree.center.y - 950
+                                
+                                self!.agreeLbl.center.y = self!.agreeLbl.center.y - 950
+                                self!.disagreeLbl.center.y = self!.disagreeLbl.center.y - 950
+                                
+                                self!.agree.fadeInV(2.6)
+                                self!.disagree.fadeInV(2.6)
+                                
+                                self!.agreeLbl.fadeInL(2.6)
+                                self!.disagreeLbl.fadeInL(2.6)
+                                self!.confirm.fadeInV(2.0)
+                                
+                                
+                                self!.conditionLbl.fadeInV(2.0)
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    
+                                    self!.conditionLbl.text = "Please confirm that you have \(self!.condition)"
+                                    self!.conditionLbl.isEditable = false
+                                    self!.conditionLbl.sizeToFit()
+                                    self!.conditionLbl.center.x = self!.view.center.x - 11
+                                }
+                                
+                                
+                                self!.conditionLbl.center.y = self!.view.center.y - 35
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                    }, completion: nil)
+                
+                
+                UIView.animate(withDuration: 1.0,
+                               delay: 0.2,
+                               options: [],
+                               animations: { [weak self] in
+                                
+                               
+                                
+                    }, completion: nil)
+                
+                UIView.animate(withDuration: 1.0,
+                               delay: 0.3,
+                               options: [],
+                               animations: { [weak self] in
+                                
+                                self!.q1.center.y = self!.q1.center.y + 1000
+                                
+                                
+                                
+                    }, completion: nil)
+                
+                UIView.animate(withDuration: 1.0,
+                               delay: 0.2,
+                               options: [],
+                               animations: { [weak self] in
+                                self!.not.center.y = self!.q1.center.y + 125
+                                
+                                
+                                
+                    }, completion: nil)
+                
+                UIView.animate(withDuration: 1.0,
+                               delay: 0.1,
+                               options: [],
+                               animations: { [weak self] in
+                                self!.neg.center.y = self!.not.center.y + 125
+                                
+                                
+                                
+                                
+                                
+                    }, completion: nil)
+                
+                UIView.animate(withDuration: 1.0,
+                               delay: 0.0,
+                               options: [],
+                               animations: { [weak self] in
+                                self!.date.center.y = self!.date.center.y + 700
+                               
+                                
+                                
+                                self!.timePicker.frame = CGRect(x: 0.0, y: 1000, width: self!.view.frame.width, height: 150.0)
+                                
+                    }, completion: nil)
+                
+            }
+            
+            
+    }
+
+     @objc func home() {
+        performSegue(withIdentifier: "thanks", sender: self)
+    }
     @objc func agreed() {
         agreeCount += 1
         if agreeCount == 1{
@@ -358,7 +522,7 @@ class Test: UIViewController {
                            options: [],
                            animations: { [weak self] in
                             
-                            self!.posLbl.center.y = self!.q2.center.y + 100
+                            
                             
                 }, completion: nil)
             
@@ -379,7 +543,7 @@ class Test: UIViewController {
                            animations: { [weak self] in
                             self!.not.center.y = self!.q1.center.y + 125
                             
-                            self!.notLbl.center.y = self!.q1.center.y + 125
+                           
                             
                 }, completion: nil)
             
@@ -389,7 +553,7 @@ class Test: UIViewController {
                            animations: { [weak self] in
                             self!.neg.center.y = self!.not.center.y + 125
                             
-                            self!.negLbl.center.y = self!.not.center.y + 125
+                           
                             
                             
                             
@@ -400,7 +564,7 @@ class Test: UIViewController {
                            options: [],
                            animations: { [weak self] in
                             self!.pos.center.y = self!.pos.center.y + 700
-                            self!.posLbl.center.y = self!.posLbl.center.y + 700
+                           
                             
                             
                             self!.timePicker.frame = CGRect(x: 0.0, y: 1000, width: self!.view.frame.width, height: 150.0)
@@ -469,7 +633,7 @@ class Test: UIViewController {
                        options: [],
                        animations: { [weak self] in
                         
-                        self!.posLbl.center.y = self!.q2.center.y + 100
+                       
                         
             }, completion: nil)
         
@@ -490,8 +654,7 @@ class Test: UIViewController {
                        animations: { [weak self] in
                         self!.not.center.y = self!.q1.center.y + 125
                         
-                        self!.notLbl.center.y = self!.q1.center.y + 125
-                        
+                           
             }, completion: nil)
         
         UIView.animate(withDuration: 1.0,
@@ -500,7 +663,7 @@ class Test: UIViewController {
                        animations: { [weak self] in
                         self!.neg.center.y = self!.not.center.y + 125
                         
-                        self!.negLbl.center.y = self!.not.center.y + 125
+                      
                         
                         
                         
@@ -511,7 +674,7 @@ class Test: UIViewController {
                        options: [],
                        animations: { [weak self] in
                         self!.pos.center.y = self!.pos.center.y + 700
-                        self!.posLbl.center.y = self!.posLbl.center.y + 700
+                       
                         
                         
                         self!.timePicker.frame = CGRect(x: 0.0, y: 1000, width: self!.view.frame.width, height: 150.0)
@@ -558,7 +721,7 @@ class Test: UIViewController {
                            animations: { [weak self] in
                             self!.not.center.y = self!.q1.center.y + 125
                             
-                            self!.notLbl.center.y = self!.q1.center.y + 125
+                           
                             self!.notLbl.fadeOutL(1.0)
                             self!.not.fadeOutV(1.0)
                 }, completion: nil)
@@ -569,7 +732,7 @@ class Test: UIViewController {
                            animations: { [weak self] in
                             self!.neg.center.y = self!.not.center.y + 125
                             
-                            self!.negLbl.center.y = self!.not.center.y + 125
+                           
                             self!.neg.fadeOutV(1.0)
                             self!.negLbl.fadeOutL(1.0)
                 }, completion: nil)
@@ -579,25 +742,30 @@ class Test: UIViewController {
                            options: [],
                            animations: { [weak self] in
                             self!.pos.center.y = self!.neg.center.y + 125
-                            self!.posLbl.center.y = self!.neg.center.y + 125
+                           
                             self!.posLbl.fadeOutL(1.0)
                             self!.pos.fadeOutV(1.0)
                 }, completion: nil)
-            
-            
+           
+                                    
+                
             UIView.animate(withDuration: 1.0,
                            delay: 1.0,
                            options: [],
                            animations: { [weak self] in
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {                                          self!.posLbl.text = "Select Date"
-                                self!.pos.center.y = self!.q1.center.y + 125
-                                self!.posLbl.center.y = self!.q1.center.y + 125
+                            
+                              
+                   
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                              
+                                    
+                               
+                               
                                 
-                                
-                                self!.posLbl.sizeToFit()
-                                self!.posLbl.center.x = self!.view.center.x
-                                self!.posLbl.fadeInL(2.6)
-                                self!.pos.fadeInV(2.6)
+                              
+                                                     
+                             
+                                self!.date.fadeInV(2.6)
                                 self!.q1.fadeIn(2.6)
                             }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -605,13 +773,22 @@ class Test: UIViewController {
                                 self!.q1.sizeToFit()
                                 self!.q1.center.x = self!.view.center.x - 45
                                 
-                                
+                                  
                             }
                             
                             
                             
                 }, completion: nil)
-            
+            UIView.animate(withDuration: 1.0,
+                                    delay: 1.1,
+                                    options: [],
+                                    animations: { [weak self] in
+                                     
+                                     self!.date.center.y =  self!.date.center.y - 650
+                                     
+                                     
+                                     
+                         }, completion: nil)
             UIView.animate(withDuration: 1.0,
                            delay: 1.1,
                            options: [],
@@ -628,135 +805,16 @@ class Test: UIViewController {
                            options: [],
                            animations: { [weak self] in
                             
-                            self!.pos.center.y = self!.pos.center.y - 1000
+                            //self!.date.center.y = self!.date.center.y - 1000
                             
-                            self!.posLbl.center.y = self!.posLbl.center.y - 1000
-                            
-                            
-                            
-                }, completion: nil)
-        }
-        if step == 2 {
-            UIView.animate(withDuration: 1.0,
-                           delay: 0.0,
-                           options: [],
-                           animations: { [weak self] in
-                            
-                            
-                            self!.timePicker.frame = CGRect(x: 0.0, y: (self!.view.frame.height/2 + 60), width: self!.view.frame.width, height: 150.0)
-                            
-                            self!.timePicker.fadeInD(1.0)
-                }, completion: nil)
-            
-        }
-        if step == 3 {
-            UIView.animate(withDuration: 1.0,
-                           delay: 1.2,
-                           options: [],
-                           animations: { [weak self] in
-                            self!.confirm.center.y = self!.confirm.center.y - 1000
-                            self!.q2.center.y = self!.view.center.y - 120
-                            self!.q1.fadeOut(1.0)
-                            
-                            self!.agree.center.y = self!.agree.center.y - 950
-                            self!.disagree.center.y = self!.disagree.center.y - 950
-                            
-                            self!.agreeLbl.center.y = self!.agreeLbl.center.y - 950
-                            self!.disagreeLbl.center.y = self!.disagreeLbl.center.y - 950
-                            
-                            self!.agree.fadeInV(2.6)
-                            self!.disagree.fadeInV(2.6)
-                            
-                            self!.agreeLbl.fadeInL(2.6)
-                            self!.disagreeLbl.fadeInL(2.6)
-                            self!.confirm.fadeInV(2.0)
-                            
-                            
-                            self!.conditionLbl.fadeInV(2.0)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                
-                                self!.conditionLbl.text = "Please confirm that you have \(self!.condition)"
-                                self!.conditionLbl.isEditable = false
-                                self!.conditionLbl.sizeToFit()
-                                self!.conditionLbl.center.x = self!.view.center.x - 11
-                            }
-                            
-                            
-                            self!.conditionLbl.center.y = self!.view.center.y - 35
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
+                           
                             
                             
                             
                 }, completion: nil)
-            
-            
-            UIView.animate(withDuration: 1.0,
-                           delay: 0.2,
-                           options: [],
-                           animations: { [weak self] in
-                            
-                            self!.posLbl.center.y = self!.q2.center.y + 100
-                            
-                }, completion: nil)
-            
-            UIView.animate(withDuration: 1.0,
-                           delay: 0.3,
-                           options: [],
-                           animations: { [weak self] in
-                            
-                            self!.q1.center.y = self!.q1.center.y + 1000
-                            
-                            
-                            
-                }, completion: nil)
-            
-            UIView.animate(withDuration: 1.0,
-                           delay: 0.2,
-                           options: [],
-                           animations: { [weak self] in
-                            self!.not.center.y = self!.q1.center.y + 125
-                            
-                            self!.notLbl.center.y = self!.q1.center.y + 125
-                            
-                }, completion: nil)
-            
-            UIView.animate(withDuration: 1.0,
-                           delay: 0.1,
-                           options: [],
-                           animations: { [weak self] in
-                            self!.neg.center.y = self!.not.center.y + 125
-                            
-                            self!.negLbl.center.y = self!.not.center.y + 125
-                            
-                            
-                            
-                }, completion: nil)
-            
-            UIView.animate(withDuration: 1.0,
-                           delay: 0.0,
-                           options: [],
-                           animations: { [weak self] in
-                            self!.pos.center.y = self!.pos.center.y + 700
-                            self!.posLbl.center.y = self!.posLbl.center.y + 700
-                            
-                            
-                            self!.timePicker.frame = CGRect(x: 0.0, y: 1000, width: self!.view.frame.width, height: 150.0)
-                            
-                }, completion: nil)
-            
         }
         
-        
-    }
+}
 }
 extension UITextView {
     func fadeTo(_ alpha: CGFloat, duration: TimeInterval = 0.3) {
