@@ -2,13 +2,13 @@
 //  share.swift
 //  COVIDWatch iOS
 //
-//  Created by Laima Cernius-Ink on 4/7/20.
+//  Created by Laima Cernius-Ink on 4/8/20.
 //  Copyright © 2020 IZE. All rights reserved.
 //
 
 import UIKit
 
-class share: UIViewController {
+class shared: UIViewController {
     var logo: UIImageView?
     var img: UIImageView?
     var share = UILabel()

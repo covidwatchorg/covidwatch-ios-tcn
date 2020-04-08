@@ -1,8 +1,8 @@
 //
-//  Test.swift
+//  test.swift
 //  COVIDWatch iOS
 //
-//  Created by Andreas Ink on 4/4/20.
+//  Created by Laima Cernius-Ink on 4/8/20.
 //  Copyright © 2020 IZE. All rights reserved.
 //
 
