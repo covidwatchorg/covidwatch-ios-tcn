@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yuq-xU-X1g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QbB-eA-aHp">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -80,16 +80,19 @@
             </objects>
             <point key="canvasLocation" x="1006" y="-754"/>
         </scene>
-        <!--Home-->
+        <!--Share-->
         <scene sceneID="RBP-Zq-fHv">
             <objects>
-                <viewController id="pzl-mE-B8I" customClass="Home" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pzl-mE-B8I" customClass="share" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ffs-cl-RhR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Kbk-nY-GVG"/>
                     </view>
+                    <connections>
+                        <segue destination="MAA-T8-XN2" kind="presentation" identifier="test" modalPresentationStyle="fullScreen" id="FOH-TX-lur"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIn-sl-hDQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,10 +108,34 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="0eJ-p4-lV1"/>
                     </view>
+                    <connections>
+                        <segue destination="orA-2R-bFc" kind="presentation" identifier="thanks" modalPresentationStyle="fullScreen" id="cYk-FY-ZeT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgH-ib-gKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1523" y="-49"/>
+            <point key="canvasLocation" x="2778" y="-754"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="e0O-Ne-HiW">
+            <objects>
+                <viewController id="orA-2R-bFc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xDY-gd-zPK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Y4W-Vw-wrE"/>
+                    </view>
+                    <connections>
+                        <segue destination="pzl-mE-B8I" kind="presentation" identifier="home" modalPresentationStyle="fullScreen" id="po4-BW-TAw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mgh-Yv-qQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3639" y="-754"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="po4-BW-TAw"/>
+    </inferredMetricsTieBreakers>
 </document>
