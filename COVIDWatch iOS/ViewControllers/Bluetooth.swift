@@ -11,7 +11,7 @@ import UIKit
 
 class Bluetooth: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-group-blue-2"))
-    var largeText = LargeText()
+    var largeText = LargeText(text: "Quickly Connect")
     var mainText = MainText()
     var button = Button(text: "Allow Bluetooth", subtext: "This is required for the app to work.")
 
@@ -25,11 +25,8 @@ class Bluetooth: BaseViewController {
         img.center.y = header.frame.minY + (282.0/812.0) * screenHeight
         view.addSubview(img)
         
-        largeText.text = "Quickly Connect"
-        largeText.frame.size.height = largeText.contentSize.height
-        largeText.frame.origin.y = header.frame.minY + (481.0/812.0) * screenHeight
-        largeText.center.x = view.center.x
-        view.addSubview(largeText)
+        largeText.draw(parentVC: self, centerX: view.center.x, centerY: header.frame.minY + (512.0/812.0) * screenHeight)
+        
         
         mainText.text = "Covid Watch uses bluetooth to anonymously log interactions with other Covid Watch users that you come in contact with."
         mainText.frame.size.height = mainText.contentSize.height

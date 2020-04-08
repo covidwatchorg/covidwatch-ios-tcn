@@ -11,7 +11,7 @@ import UIKit
 class share: BaseViewController {
     var logo: UIImageView?
     var img: UIImageView?
-    var share = LargeText()
+    var largeText = LargeText(text: "Share & Protect")
     var share2 = MainText()
     var spread = Button(text: "Spread the word", subtext: "It works best when everyone uses it.")
     var tested = Button(text: "Tested for COVID-19?", subtext: "Share your result anonymously to help keep your community stay safe.")
@@ -30,18 +30,12 @@ class share: BaseViewController {
         if screenHeight <= 736.0 { img!.center.y *= scalingFactor! }
         self.view.addSubview(img!)
         
-        
-        share.text =  "Share & Protect"
-        share.frame.size.height = share.contentSize.height
-        share.center.x = view.center.x
-        share.center.y = img!.center.y + img!.frame.size.height/2 + 40
-        
-        view.addSubview(share)
+        largeText.draw(parentVC: self, centerX: view.center.x, centerY: img!.center.y + img!.frame.size.height/2 + 40)
         
         share2.text =  "Covid Watch is using bluetooth to anonymously watch who you come in contact with. You will be notified of potential contact to COVID-19."
         share2.frame.size.height = share2.contentSize.height
         share2.center.x = view.center.x
-        share2.center.y = share.center.y + share.frame.size.height/2 + 60
+        share2.center.y = largeText.center.y + largeText.frame.size.height/2 + 60
         share2.isEditable = false
         view.addSubview(share2)
         

@@ -39,8 +39,6 @@
 		2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */; };
 		2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E5243D05260084F8ED /* MenuItem.swift */; };
 		2E0E86EC243E4C890084F8ED /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86EB243E4C890084F8ED /* UIViewControllerExtension.swift */; };
-		2E0E86EF243E69910084F8ED /* TitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86ED243E69910084F8ED /* TitleText.swift */; };
-		2E0E86F0243E69910084F8ED /* button2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86EE243E69910084F8ED /* button2.swift */; };
 		2E1315D024399B8A001C4DA8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1315CF24399B8A001C4DA8 /* Home.swift */; };
 		2E1FDBF32439275E000D8D67 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash.swift */; };
 		2E1FDBF5243929F4000D8D67 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */; };
@@ -136,8 +134,6 @@
 		2DFDC5C924190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E0E86E5243D05260084F8ED /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		2E0E86EB243E4C890084F8ED /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		2E0E86ED243E69910084F8ED /* TitleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleText.swift; sourceTree = "<group>"; };
-		2E0E86EE243E69910084F8ED /* button2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = button2.swift; sourceTree = "<group>"; };
 		2E1315CF24399B8A001C4DA8 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		2E1FDBF22439275E000D8D67 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
@@ -380,8 +376,6 @@
 		2EF61C352436733A003046A4 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				2E0E86EE243E69910084F8ED /* button2.swift */,
-				2E0E86ED243E69910084F8ED /* TitleText.swift */,
 				2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */,
 				2EBF8724243BC275003278E6 /* Header.swift */,
 				2EBF872A243BEAFA003278E6 /* LargeText.swift */,
@@ -741,9 +735,7 @@
 				2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */,
 				2EBF8735243CE60E003278E6 /* Menu.swift in Sources */,
 				E1A7016D243D448F001FF6F0 /* thankyou.swift in Sources */,
-				2E0E86EF243E69910084F8ED /* TitleText.swift in Sources */,
 				2E0E86EC243E4C890084F8ED /* UIViewControllerExtension.swift in Sources */,
-				2E0E86F0243E69910084F8ED /* button2.swift in Sources */,
 				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */,
 				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,
 				2EBF872B243BEAFA003278E6 /* LargeText.swift in Sources */,
