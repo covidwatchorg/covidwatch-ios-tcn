@@ -14,8 +14,8 @@ enum LINE_POSITION {
 }
 
 extension UIView {
-//    let screenWidth = UIScreen.main.bounds.width
-//    let screenHeight = UIScreen.main.bounds.height
+//    let screenWidth = screenWidth
+//    let screenHeight = screenHeight
     var screenWidth: CGFloat {
         get {
             return UIScreen.main.bounds.width
@@ -28,7 +28,7 @@ extension UIView {
     }
     var contentMaxWidth: CGFloat {
         get {
-            UIScreen.main.bounds.width * (321.0/375.0)
+            screenWidth * (321.0/375.0)
         }
     }
     
