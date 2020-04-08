@@ -73,6 +73,7 @@ class share: UIViewController {
         share2.center.x = view.center.x
         share2.center.y = share.center.y + share.frame.size.height/2 + 60
         share2.textAlignment = .center
+        share2.isEditable = false
         view.addSubview(share2)
         
         spread.frame.size.width = share2.frame.size.width
