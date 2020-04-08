@@ -28,9 +28,9 @@ class Menu: UIView {
     }
     
     private func drawMenuBackground(parentVC: UIViewController) {
-        self.frame.size.width = 0.8 * UIScreen.main.bounds.width
-        self.frame.size.height = UIScreen.main.bounds.height
-        self.frame.origin.x = UIScreen.main.bounds.width - self.frame.size.width
+        self.frame.size.width = 0.8 * screenWidth
+        self.frame.size.height = screenHeight
+        self.frame.origin.x = screenWidth - self.frame.size.width
         self.frame.origin.y = parentVC.view.safeAreaInsets.top
         self.backgroundColor = .white
         self.isHidden = true
@@ -41,8 +41,8 @@ class Menu: UIView {
         xIcon.backgroundColor = UIColor(patternImage: UIImage(named: "x-icon")!)
         xIcon.frame.size.width = 28
         xIcon.frame.size.height = 28
-        xIcon.center.x = 0.9 * UIScreen.main.bounds.width
-        xIcon.center.y = (UIScreen.main.bounds.height * 0.1)/2 + parentVC.view.safeAreaInsets.top
+        xIcon.center.x = 0.9 * screenWidth
+        xIcon.center.y = (screenHeight * 0.1)/2 + parentVC.view.safeAreaInsets.top
         xIcon.isHidden = true
         xIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
         parentVC.view.addSubview(xIcon)
@@ -50,11 +50,11 @@ class Menu: UIView {
     
     private func drawMenuItems(parentVC: UIViewController) {
         let menuItemWidth = (3.0/3.75) * self.frame.size.width
-        let item0CenterY = (160.0/812.0) * UIScreen.main.bounds.height
-        let item1CenterY = item0CenterY + ((90.0/812.0) * UIScreen.main.bounds.height)
-        let item2CenterY = item1CenterY + ((58.0/812.0) * UIScreen.main.bounds.height)
-        let item3CenterY = item2CenterY + ((58.0/812.0) * UIScreen.main.bounds.height)
-        let item4CenterY = item3CenterY + ((58.0/812.0) * UIScreen.main.bounds.height)
+        let item0CenterY = (160.0/812.0) * screenHeight
+        let item1CenterY = item0CenterY + ((90.0/812.0) * screenHeight)
+        let item2CenterY = item1CenterY + ((58.0/812.0) * screenHeight)
+        let item3CenterY = item2CenterY + ((58.0/812.0) * screenHeight)
+        let item4CenterY = item3CenterY + ((58.0/812.0) * screenHeight)
         let item5CenterY = item4CenterY + (item1CenterY - item0CenterY)
         menuItems[0].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item0CenterY)
         menuItems[1].draw(parentVC:parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item1CenterY)
@@ -70,7 +70,7 @@ class Menu: UIView {
         covidWatchText.textColor = UIColor(hexString: "CCCCCC")
         covidWatchText.sizeToFit()
         covidWatchText.center.x = self.center.x
-        covidWatchText.center.y = UIScreen.main.bounds.height - (35.0/812.0) * UIScreen.main.bounds.height
+        covidWatchText.center.y = screenHeight - (35.0/812.0) * screenHeight
         covidWatchText.isHidden = true
         parentVC.view.addSubview(covidWatchText)
     }
