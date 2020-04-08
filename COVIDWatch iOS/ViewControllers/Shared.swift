@@ -2,7 +2,7 @@
 //  share.swift
 //  COVIDWatch iOS
 //
-//  Created by Laima Cernius-Ink on 4/7/20.
+//  Created by Laima Cernius-Ink on 4/8/20.
 //  Copyright © 2020 IZE. All rights reserved.
 //
 
@@ -110,7 +110,7 @@ class share: UIViewController {
         tested.layer.borderWidth = 1
         tested.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
         tested.layer.cornerRadius = 10
-        //    self.spread.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
+         self.tested.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
         view.addSubview(tested)
         
         testedLbl.text =  "Tested for COVID-19?"
@@ -130,8 +130,11 @@ class share: UIViewController {
         testedLbl2.center.x = spread.center.x
         testedLbl2.center.y = testedLbl.center.y + testedLbl.frame.size.height/2 + 80
         testedLbl2.textAlignment = .center
+         testedLbl2.isEditable = false
         view.addSubview(testedLbl2)
     }
-    
+    @objc func test(){
+         performSegue(withIdentifier: "test", sender: self)
+    }
     
 }
