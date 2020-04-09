@@ -12,17 +12,17 @@ class LargeText: UITextView {
     init(text: String) {
         super.init(frame: CGRect(), textContainer: nil)
         self.text = text
-    }
-    
-    func draw(parentVC: UIViewController, centerX: CGFloat, centerY: CGFloat) {
         self.font = UIFont(name: "Montserrat-SemiBold", size: 36)
         self.textColor = UIColor(hexString: "585858")
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = self.contentSize.height
         self.isEditable = false
+        self.backgroundColor = .clear
+    }
+    
+    func draw(parentVC: UIViewController, centerX: CGFloat, centerY: CGFloat) {
         self.center.x = centerX
         self.center.y = centerY
-        self.backgroundColor = .clear
         parentVC.view.addSubview(self)
     }
     
