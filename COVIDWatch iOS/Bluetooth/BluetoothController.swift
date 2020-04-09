@@ -2,6 +2,7 @@
 //  Created by Zsombor Szabo on 11/03/2020.
 //
 //
+// swiftlint:disable file_length
 
 import Foundation
 import CoreBluetooth
@@ -12,88 +13,87 @@ import os.log
 import BerkananFoundation
 
 extension TimeInterval {
-    
+
     public static let peripheralConnectingTimeout: TimeInterval = 8
 }
 
 /// The controller responsible for the Bluetooth communication.
 class BluetoothController: NSObject {
-    
+
     public let label = UUID().uuidString
-    
+
     @available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
     lazy private var log = OSLog(subsystem: label, category: "Bluetooth")
-    
+
     lazy private var dispatchQueue: DispatchQueue =
         DispatchQueue(label: label, qos: .userInteractive)
-    
+
     private var centralManager: CBCentralManager?
-    
+
     private var restoredPeripherals: [CBPeripheral]?
-    
+
     private var discoveredPeripherals = Set<CBPeripheral>()
-    
+
     private var connectingTimeoutTimersForPeripheralIdentifiers =
-        [UUID : Timer]()
-    
+        [UUID: Timer]()
+
     private var connectingPeripheralIdentifiers = Set<UUID>() {
         didSet {
             self.configureBackgroundTaskIfNeeded()
         }
     }
-    
+
     private var connectedPeripheralIdentifiers = Set<UUID>() {
         didSet {
             self.configureBackgroundTaskIfNeeded()
         }
     }
-    
+
     private var connectingConnectedPeripheralIdentifiers: Set<UUID> {
         self.connectingPeripheralIdentifiers.union(
             self.connectedPeripheralIdentifiers
         )
     }
-    
+
     private var discoveringServicesPeripheralIdentifiers = Set<UUID>()
-    
+
     private var readingConfigurationCharacteristics = Set<CBCharacteristic>()
-    
+
     private var writingConfigurationCharacteristics = Set<CBCharacteristic>()
-    
+
     #if os(watchOS) || os(tvOS)
     private static let maxNumberOfConcurrentPeripheralConnections = 2
     #else
     private static let maxNumberOfConcurrentPeripheralConnections = 5
     #endif
-    
+
     private var peripheralManager: CBPeripheralManager?
-    
+
     private var peripheralsToReadContactEventIdentifierFrom = Set<CBPeripheral>()
-    
+
     private var peripheralsToWriteContactEventIdentifierTo = Set<CBPeripheral>()
-    
+
     private var peripheralsToConnect: Set<CBPeripheral> {
         return Set(peripheralsToReadContactEventIdentifierFrom)
             .union(Set(peripheralsToWriteContactEventIdentifierTo))
     }
-    
+
     private func configureBackgroundTaskIfNeeded() {
         #if canImport(UIKit) && !targetEnvironment(macCatalyst) && !os(watchOS)
         if self.connectingPeripheralIdentifiers.isEmpty &&
             self.connectedPeripheralIdentifiers.isEmpty {
             self.endBackgroundTaskIfNeeded()
-        }
-        else {
+        } else {
             self.beginBackgroundTaskIfNeeded()
         }
         #endif
     }
-    
+
     // macCatalyst apps do not need background tasks.
     // watchOS apps do not have background tasks.
     #if canImport(UIKit) && !targetEnvironment(macCatalyst) && !os(watchOS)
     private var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
-    
+
     private func beginBackgroundTaskIfNeeded() {
         guard self.backgroundTaskIdentifier == nil else { return }
         self.backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask {
@@ -114,8 +114,7 @@ class BluetoothController: NSObject {
                     log: self.log,
                     type: .error
                 )
-            }
-            else {
+            } else {
                 os_log(
                     "Begin background task=%d",
                     log: self.log,
@@ -124,7 +123,7 @@ class BluetoothController: NSObject {
             }
         }
     }
-    
+
     private func endBackgroundTaskIfNeeded() {
         if let identifier = self.backgroundTaskIdentifier {
             UIApplication.shared.endBackgroundTask(identifier)
@@ -138,7 +137,7 @@ class BluetoothController: NSObject {
         }
     }
     #endif
-    
+
     override init() {
         super.init()
         // macCatalyst apps do not need background support.
@@ -153,7 +152,7 @@ class BluetoothController: NSObject {
         )
         #endif
     }
-    
+
     deinit {
         #if canImport(UIKit) && !targetEnvironment(macCatalyst) && !os(watchOS)
         let notificationCenter = NotificationCenter.default
@@ -164,9 +163,9 @@ class BluetoothController: NSObject {
         )
         #endif
     }
-    
+
     // MARK: - Notifications
-    
+
     @objc func applicationWillEnterForegroundNotification(
         _ notification: Notification
     ) {
@@ -181,14 +180,14 @@ class BluetoothController: NSObject {
             }
         }
     }
-    
+
     // MARK: -
-    
+
     /// Returns true if the service is started.
     var isStarted: Bool {
         return self.centralManager != nil
     }
-    
+
     /// Starts the service.
     func start() {
         self.dispatchQueue.async {
@@ -219,7 +218,7 @@ class BluetoothController: NSObject {
             }
         }
     }
-    
+
     /// Stops the service.
     func stop() {
         self.dispatchQueue.async {
@@ -237,7 +236,7 @@ class BluetoothController: NSObject {
             }
         }
     }
-    
+
     private func stopCentralManager() {
         self.connectingTimeoutTimersForPeripheralIdentifiers.values.forEach {
             $0.invalidate()
@@ -256,7 +255,7 @@ class BluetoothController: NSObject {
             self.centralManager?.stopScan()
         }
     }
-    
+
     private func stopPeripheralManager() {
         if self.peripheralManager?.isAdvertising ?? false {
             self.peripheralManager?.stopAdvertising()
@@ -265,7 +264,7 @@ class BluetoothController: NSObject {
             self.peripheralManager?.removeAllServices()
         }
     }
-    
+
     private func connectPeripheralsIfNeeded() {
         guard self.peripheralsToConnect.count > 0 else {
             return
@@ -284,7 +283,7 @@ class BluetoothController: NSObject {
             self.connectIfNeeded(peripheral: $0)
         }
     }
-    
+
     private func connectIfNeeded(peripheral: CBPeripheral) {
         guard let centralManager = centralManager else {
             return
@@ -303,18 +302,17 @@ class BluetoothController: NSObject {
                 self.setupConnectingTimeoutTimer(for: peripheral)
                 self.connectingPeripheralIdentifiers.insert(peripheral.identifier)
             }
-        }
-        else {
+        } else {
             self._centralManager(centralManager, didConnect: peripheral)
         }
     }
-    
+
     private func setupConnectingTimeoutTimer(for peripheral: CBPeripheral) {
         let timer = Timer.init(
             timeInterval: .peripheralConnectingTimeout,
             target: self,
             selector: #selector(_connectingTimeoutTimerFired(timer:)),
-            userInfo: ["peripheral" : peripheral],
+            userInfo: ["peripheral": peripheral],
             repeats: false
         )
         timer.tolerance = 0.5
@@ -324,12 +322,12 @@ class BluetoothController: NSObject {
         self.connectingTimeoutTimersForPeripheralIdentifiers[
             peripheral.identifier] = timer
     }
-    
+
     @objc private func _connectingTimeoutTimerFired(timer: Timer) {
         let userInfo = timer.userInfo
         self.dispatchQueue.async { [weak self] in
             guard let self = self else { return }
-            guard let dict = userInfo as? [AnyHashable : Any],
+            guard let dict = userInfo as? [AnyHashable: Any],
                 let peripheral = dict["peripheral"] as? CBPeripheral else {
                     return
             }
@@ -346,14 +344,14 @@ class BluetoothController: NSObject {
             }
         }
     }
-    
+
     private func flushPeripheral(_ peripheral: CBPeripheral) {
         self.peripheralsToReadContactEventIdentifierFrom.remove(peripheral)
         self.peripheralsToWriteContactEventIdentifierTo.remove(peripheral)
         self.discoveredPeripherals.remove(peripheral)
         self.cancelConnectionIfNeeded(for: peripheral)
     }
-    
+
     private func cancelConnectionIfNeeded(for peripheral: CBPeripheral) {
         self.connectingTimeoutTimersForPeripheralIdentifiers[
             peripheral.identifier]?.invalidate()
@@ -385,10 +383,10 @@ class BluetoothController: NSObject {
 }
 
 extension BluetoothController: CBCentralManagerDelegate {
-    
+
     func centralManager(
         _ central: CBCentralManager,
-        willRestoreState dict: [String : Any]
+        willRestoreState dict: [String: Any]
     ) {
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             os_log(
@@ -402,7 +400,7 @@ extension BluetoothController: CBCentralManagerDelegate {
         self.restoredPeripherals =
             dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral]
     }
-    
+
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             os_log(
@@ -413,17 +411,17 @@ extension BluetoothController: CBCentralManagerDelegate {
         }
         self.stopCentralManager()
         switch central.state {
-            case .poweredOn:
-                self.restoredPeripherals?.forEach({
-                    central.cancelPeripheralConnection($0)
-                })
-                self.restoredPeripherals = nil
-                self._startScan()
-            default:
-                ()
+        case .poweredOn:
+            self.restoredPeripherals?.forEach({
+                central.cancelPeripheralConnection($0)
+            })
+            self.restoredPeripherals = nil
+            self._startScan()
+        default:
+            break
         }
     }
-    
+
     private func _startScan() {
         guard let central = self.centralManager else { return }
         #if targetEnvironment(macCatalyst)
@@ -435,9 +433,8 @@ extension BluetoothController: CBCentralManagerDelegate {
             CBUUID(string: BluetoothService.UUIDPeripheralServiceString)
         ]
         #endif
-        let options: [String : Any] = [
-            CBCentralManagerScanOptionAllowDuplicatesKey :
-                NSNumber(booleanLiteral: true)
+        let options: [String: Any] = [
+            CBCentralManagerScanOptionAllowDuplicatesKey: true as NSNumber
         ]
         central.scanForPeripherals(
             withServices: services,
@@ -463,11 +460,11 @@ extension BluetoothController: CBCentralManagerDelegate {
         }
         #endif
     }
-    
+
     func centralManager(
         _ central: CBCentralManager,
         didDiscover peripheral: CBPeripheral,
-        advertisementData: [String : Any],
+        advertisementData: [String: Any],
         rssi RSSI: NSNumber
     ) {
         if !self.discoveredPeripherals.contains(peripheral) {
@@ -481,14 +478,13 @@ extension BluetoothController: CBCentralManagerDelegate {
                     advertisementData.description
                 )
             }
-            if let advertisementDataServiceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [CBUUID : Data],
-                let uuidData = advertisementDataServiceData[CBUUID(string: BluetoothService.UUIDPeripheralServiceString)],
+            if let serviceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [CBUUID: Data],
+                let uuidData = serviceData[CBUUID(string: BluetoothService.UUIDPeripheralServiceString)],
                 let uuid = try? UUID(dataRepresentation: uuidData) {
                 self.logNewContactEvent(with: uuid, isBroadcastType: true)
                 // Remote device is an Android device. Write CEN, because it can not see the iOS device.
                 self.peripheralsToWriteContactEventIdentifierTo.insert(peripheral)
-            }
-            else {
+            } else {
                 self.peripheralsToWriteContactEventIdentifierTo.insert(peripheral)
                 // OR use reading. Both cases are handled.
                 // self.peripheralsToReadContactEventIdentifierFrom.insert(peripheral)
@@ -497,7 +493,7 @@ extension BluetoothController: CBCentralManagerDelegate {
         self.discoveredPeripherals.insert(peripheral)
         self.connectPeripheralsIfNeeded()
     }
-    
+
     func centralManager(
         _ central: CBCentralManager,
         didConnect peripheral: CBPeripheral
@@ -523,14 +519,14 @@ extension BluetoothController: CBCentralManagerDelegate {
         self.connectedPeripheralIdentifiers.insert(peripheral.identifier)
         self._centralManager(central, didConnect: peripheral)
     }
-    
-    func _centralManager(
+
+    private func _centralManager(
         _ central: CBCentralManager,
         didConnect peripheral: CBPeripheral
     ) {
         self.discoverServices(for: peripheral)
     }
-    
+
     private func discoverServices(for peripheral: CBPeripheral) {
         guard !self.discoveringServicesPeripheralIdentifiers.contains(
             peripheral.identifier) else {
@@ -551,12 +547,11 @@ extension BluetoothController: CBCentralManagerDelegate {
                     peripheral.name ?? "",
                     services)
             }
-        }
-        else {
+        } else {
             self._peripheral(peripheral, didDiscoverServices: nil)
         }
     }
-    
+
     func centralManager(
         _ central: CBCentralManager,
         didFailToConnect peripheral: CBPeripheral,
@@ -566,7 +561,7 @@ extension BluetoothController: CBCentralManagerDelegate {
             os_log(
                 "Central manager did fail to connect peripheral (uuid=%@ name='%@') error=%@",
                 log: self.log,
-                type:.error,
+                type: .error,
                 peripheral.identifier.description,
                 peripheral.name ?? "",
                 error as CVarArg? ?? ""
@@ -582,7 +577,7 @@ extension BluetoothController: CBCentralManagerDelegate {
         }
         self.cancelConnectionIfNeeded(for: peripheral)
     }
-    
+
     func centralManager(
         _ central: CBCentralManager,
         didDisconnectPeripheral peripheral: CBPeripheral,
@@ -593,14 +588,13 @@ extension BluetoothController: CBCentralManagerDelegate {
                 os_log(
                     "Central manager did disconnect peripheral (uuid=%@ name='%@') error=%@",
                     log: self.log,
-                    type:.error,
+                    type: .error,
                     peripheral.identifier.description,
                     peripheral.name ?? "",
                     error as CVarArg
                 )
             }
-        }
-        else {
+        } else {
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
                 os_log(
                     "Central manager did disconnect peripheral (uuid=%@ name='%@')",
@@ -615,7 +609,7 @@ extension BluetoothController: CBCentralManagerDelegate {
 }
 
 extension BluetoothController: CBPeripheralDelegate {
-    
+
     func peripheral(
         _ peripheral: CBPeripheral,
         didDiscoverServices error: Error?
@@ -625,14 +619,13 @@ extension BluetoothController: CBPeripheralDelegate {
                 os_log(
                     "Peripheral (uuid=%@ name='%@') did discover services error=%@",
                     log: self.log,
-                    type:.error,
+                    type: .error,
                     peripheral.identifier.description,
                     peripheral.name ?? "",
                     error as CVarArg
                 )
             }
-        }
-        else {
+        } else {
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
                 os_log(
                     "Peripheral (uuid=%@ name='%@') did discover services",
@@ -644,8 +637,8 @@ extension BluetoothController: CBPeripheralDelegate {
         }
         self._peripheral(peripheral, didDiscoverServices: error)
     }
-    
-    func _peripheral(
+
+    private func _peripheral(
         _ peripheral: CBPeripheral,
         didDiscoverServices error: Error?
     ) {
@@ -665,11 +658,10 @@ extension BluetoothController: CBPeripheralDelegate {
         }
         if servicesWithCharacteristicsToDiscover.count == 0 {
             self.startTransfers(for: peripheral)
-        }
-        else {
+        } else {
             servicesWithCharacteristicsToDiscover.forEach { service in
                 let characteristics = [
-                    CBUUID(string: BluetoothService.UUIDContactEventIdentifierCharacteristicString),
+                    CBUUID(string: BluetoothService.UUIDContactEventIdentifierCharacteristicString)
                 ]
                 peripheral.discoverCharacteristics(characteristics, for: service)
                 if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
@@ -685,7 +677,7 @@ extension BluetoothController: CBPeripheralDelegate {
             }
         }
     }
-    
+
     func peripheral(
         _ peripheral: CBPeripheral,
         didDiscoverCharacteristicsFor service: CBService,
@@ -696,15 +688,14 @@ extension BluetoothController: CBPeripheralDelegate {
                 os_log(
                     "Peripheral (uuid=%@ name='%@') did discover characteristics for service=%@ error=%@",
                     log: self.log,
-                    type:.error,
+                    type: .error,
                     peripheral.identifier.description,
                     peripheral.name ?? "",
                     service.description,
                     error as CVarArg
                 )
             }
-        }
-        else {
+        } else {
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
                 os_log(
                     "Peripheral (uuid=%@ name='%@') did discover characteristics for service=%@",
@@ -727,15 +718,15 @@ extension BluetoothController: CBPeripheralDelegate {
             self.startTransfers(for: peripheral)
         }
     }
-    
+
     private func shouldReadContactEventIdentifier(from peripheral: CBPeripheral) -> Bool {
         return self.peripheralsToReadContactEventIdentifierFrom.contains(peripheral)
     }
-    
+
     private func shouldWriteContactEventIdentifier(to peripheral: CBPeripheral) -> Bool {
         return self.peripheralsToWriteContactEventIdentifierTo.contains(peripheral)
     }
-    
+
     private func startTransfers(for peripheral: CBPeripheral) {
         guard let services = peripheral.services else {
             self.cancelConnectionIfNeeded(for: peripheral)
@@ -751,8 +742,8 @@ extension BluetoothController: CBPeripheralDelegate {
         self.peripheralsToReadContactEventIdentifierFrom.remove(peripheral)
         self.peripheralsToWriteContactEventIdentifierTo.remove(peripheral)
     }
-    
-    func _peripheral(
+
+    private func _peripheral(
         _ peripheral: CBPeripheral,
         didDiscoverCharacteristicsFor service: CBService,
         error: Error?
@@ -761,7 +752,7 @@ extension BluetoothController: CBPeripheralDelegate {
             self.cancelConnectionIfNeeded(for: peripheral)
             return
         }
-        
+
         if let contactEventIdentifierCharacteristic = service.characteristics?.first(where: {
             $0.uuid == CBUUID(
                 string: BluetoothService.UUIDContactEventIdentifierCharacteristicString
@@ -811,14 +802,13 @@ extension BluetoothController: CBPeripheralDelegate {
                         )
                     }
                 }
-                
+
             }
-        }
-        else {
+        } else {
             self.cancelConnectionIfNeeded(for: peripheral)
         }
     }
-    
+
     func peripheral(
         _ peripheral: CBPeripheral,
         didUpdateValueFor characteristic: CBCharacteristic,
@@ -829,7 +819,7 @@ extension BluetoothController: CBPeripheralDelegate {
                 os_log(
                     "Peripheral (uuid=%@ name='%@') did update value for characteristic=%@ for service=%@ error=%@",
                     log: self.log,
-                    type:.error,
+                    type: .error,
                     peripheral.identifier.description,
                     peripheral.name ?? "",
                     characteristic.description,
@@ -837,8 +827,7 @@ extension BluetoothController: CBPeripheralDelegate {
                     error as CVarArg
                 )
             }
-        }
-        else {
+        } else {
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
                 os_log(
                     "Peripheral (uuid=%@ name='%@') did update value=%{iec-bytes}d for characteristic=%@ for service=%@",
@@ -861,13 +850,12 @@ extension BluetoothController: CBPeripheralDelegate {
             }
             let identifier = try UUID(dataRepresentation: value)
             self.logNewContactEvent(with: identifier)
-        }
-        catch {
+        } catch {
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
                 os_log(
                     "Processing value failed=%@",
                     log: self.log,
-                    type:.error,
+                    type: .error,
                     error as CVarArg
                 )
             }
@@ -877,7 +865,7 @@ extension BluetoothController: CBPeripheralDelegate {
             self.cancelConnectionIfNeeded(for: peripheral)
         }
     }
-    
+
     func peripheral(
         _ peripheral: CBPeripheral,
         didWriteValueFor characteristic: CBCharacteristic,
@@ -888,7 +876,7 @@ extension BluetoothController: CBPeripheralDelegate {
                 os_log(
                     "Peripheral (uuid=%@ name='%@') did write value for characteristic=%@ for service=%@ error=%@",
                     log: self.log,
-                    type:.error,
+                    type: .error,
                     peripheral.identifier.description,
                     peripheral.name ?? "",
                     characteristic.description,
@@ -896,8 +884,7 @@ extension BluetoothController: CBPeripheralDelegate {
                     error as CVarArg
                 )
             }
-        }
-        else {
+        } else {
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
                 os_log(
                     "Peripheral (uuid=%@ name='%@') did write value for characteristic=%@ for service=%@",
@@ -915,7 +902,7 @@ extension BluetoothController: CBPeripheralDelegate {
             self.cancelConnectionIfNeeded(for: peripheral)
         }
     }
-    
+
     func peripheral(
         _ peripheral: CBPeripheral,
         didModifyServices invalidatedServices: [CBService]
@@ -938,10 +925,10 @@ extension BluetoothController: CBPeripheralDelegate {
 }
 
 extension BluetoothController: CBPeripheralManagerDelegate {
-    
+
     func peripheralManager(
         _ peripheral: CBPeripheralManager,
-        willRestoreState dict: [String : Any]
+        willRestoreState dict: [String: Any]
     ) {
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             os_log(
@@ -951,7 +938,7 @@ extension BluetoothController: CBPeripheralManagerDelegate {
             )
         }
     }
-    
+
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             os_log(
@@ -962,8 +949,8 @@ extension BluetoothController: CBPeripheralManagerDelegate {
         }
         self._peripheralManagerDidUpdateState(peripheral)
     }
-    
-    func _peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
+
+    private func _peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
         //    if #available(OSX 10.15, macCatalyst 13.1, iOS 13.1, tvOS 13.0, watchOS 6.0, *) {
         //      self.service?.bluetoothAuthorization =
         //        BluetoothAuthorization(
@@ -985,24 +972,24 @@ extension BluetoothController: CBPeripheralManagerDelegate {
         //    }
         self.stopPeripheralManager()
         switch peripheral.state {
-            case .poweredOn:
-                let service = BluetoothService.peripheralService
-                service.characteristics = [
-                    BluetoothService.contactEventIdentifierCharacteristic
-                ]
-                if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
-                    os_log(
-                        "Peripheral manager adding service=%@",
-                        log: self.log,
-                        service.description
-                    )
-                }
-                peripheral.add(service)
-            default:
-                ()
+        case .poweredOn:
+            let service = BluetoothService.peripheralService
+            service.characteristics = [
+                BluetoothService.contactEventIdentifierCharacteristic
+            ]
+            if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
+                os_log(
+                    "Peripheral manager adding service=%@",
+                    log: self.log,
+                    service.description
+                )
+            }
+            peripheral.add(service)
+        default:
+            break
         }
     }
-    
+
     func peripheralManager(
         _ peripheral: CBPeripheralManager,
         didAdd service: CBService,
@@ -1013,13 +1000,12 @@ extension BluetoothController: CBPeripheralManagerDelegate {
                 os_log(
                     "Peripheral manager did add service=%@ error=%@",
                     log: self.log,
-                    type:.error,
+                    type: .error,
                     service.description,
                     error as CVarArg
                 )
             }
-        }
-        else {
+        } else {
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
                 os_log(
                     "Peripheral manager did add service=%@",
@@ -1030,11 +1016,10 @@ extension BluetoothController: CBPeripheralManagerDelegate {
             self.startAdvertising()
         }
     }
-    
+
     private func startAdvertising() {
-        let advertisementData: [String : Any] = [
-            CBAdvertisementDataServiceUUIDsKey :
-                [CBUUID(string: BluetoothService.UUIDPeripheralServiceString)]
+        let advertisementData: [String: Any] = [
+            CBAdvertisementDataServiceUUIDsKey: [CBUUID(string: BluetoothService.UUIDPeripheralServiceString)]
         ]
         self.peripheralManager?.startAdvertising(advertisementData)
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
@@ -1045,7 +1030,7 @@ extension BluetoothController: CBPeripheralManagerDelegate {
             )
         }
     }
-    
+
     func peripheralManagerDidStartAdvertising(
         _ peripheral: CBPeripheralManager,
         error: Error?
@@ -1055,12 +1040,11 @@ extension BluetoothController: CBPeripheralManagerDelegate {
                 os_log(
                     "Peripheral manager did start advertising error=%@",
                     log: self.log,
-                    type:.error,
+                    type: .error,
                     error as CVarArg
                 )
             }
-        }
-        else {
+        } else {
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
                 os_log(
                     "Peripheral manager did start advertising",
@@ -1069,7 +1053,7 @@ extension BluetoothController: CBPeripheralManagerDelegate {
             }
         }
     }
-    
+
     func peripheralManager(
         _ peripheral: CBPeripheralManager,
         didReceiveRead request: CBATTRequest
@@ -1091,7 +1075,7 @@ extension BluetoothController: CBPeripheralManagerDelegate {
             CBATTError.success.rawValue
         )
     }
-    
+
     func peripheralManager(
         _ peripheral: CBPeripheralManager,
         didReceiveWrite requests: [CBATTRequest]
@@ -1103,7 +1087,7 @@ extension BluetoothController: CBPeripheralManagerDelegate {
                 requests.description
             )
         }
-        
+
         for request in requests {
             do {
                 guard request.characteristic.uuid == CBUUID(
@@ -1116,8 +1100,7 @@ extension BluetoothController: CBPeripheralManagerDelegate {
                 }
                 let identifier = try UUID(dataRepresentation: value)
                 self.logNewContactEvent(with: identifier)
-            }
-            catch {
+            } catch {
                 var result = CBATTError.invalidPdu
                 if let error = error as? CBATTError {
                     result = error.code
@@ -1134,7 +1117,7 @@ extension BluetoothController: CBPeripheralManagerDelegate {
                 return
             }
         }
-        
+
         if let request = requests.first {
             peripheral.respond(to: request, withResult: .success)
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
@@ -1148,3 +1131,5 @@ extension BluetoothController: CBPeripheralManagerDelegate {
         }
     }
 }
+
+// swiftlint:enable file_length

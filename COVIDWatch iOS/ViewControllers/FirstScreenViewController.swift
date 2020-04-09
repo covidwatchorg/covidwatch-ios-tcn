@@ -17,9 +17,8 @@ class FirstScreenViewController: UIViewController {
         // Do any additional setup after loading the view.
         firstScreenToOnboardingButton.layer.cornerRadius = 10
     }
-    
+
     @IBAction func firstScreenToOnboardingButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "FirstScreenToOnboarding", sender: self)
     }
 }
-

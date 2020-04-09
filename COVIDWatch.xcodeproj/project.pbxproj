@@ -430,6 +430,7 @@
 			buildConfigurationList = 2DFDC5CC24190ABA00B108F8 /* Build configuration list for PBXNativeTarget "COVIDWatch iOS" */;
 			buildPhases = (
 				FF47CA4630BD6DE9380890D3 /* [CP] Check Pods Manifest.lock */,
+				E206411D243EB03A00FB08AE /* SwiftLint */,
 				2DFDC59B24190AB700B108F8 /* Sources */,
 				2DFDC59C24190AB700B108F8 /* Frameworks */,
 				2DFDC59D24190AB700B108F8 /* Resources */,
@@ -654,6 +655,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-COVIDWatch iOS/Pods-COVIDWatch iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E206411D243EB03A00FB08AE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		FC6303ED284885D616B54BE3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -915,7 +934,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"COVIDWatch iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = MC27HKM86M;
+				DEVELOPMENT_TEAM = QMLQF78Y67;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/COVIDWatch iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -939,7 +958,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"COVIDWatch iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = MC27HKM86M;
+				DEVELOPMENT_TEAM = QMLQF78Y67;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/COVIDWatch iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

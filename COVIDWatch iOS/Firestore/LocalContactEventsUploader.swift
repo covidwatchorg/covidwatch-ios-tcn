@@ -9,43 +9,46 @@ import os.log
 import Firebase
 
 open class LocalContactEventsUploader: NSObject, NSFetchedResultsControllerDelegate {
-    
+
     private var fetchedResultsController: NSFetchedResultsController<ContactEvent>
-    
-    private let db = Firestore.firestore()
-    
+
+    private let firestore = Firestore.firestore()
+
     override init() {
         let managedObjectContext = PersistentContainer.shared.viewContext
         let request: NSFetchRequest<ContactEvent> = ContactEvent.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \ContactEvent.timestamp, ascending: false)]
         request.returnsObjectsAsFaults = false
-        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        self.fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil
+        )
         super.init()
         self.fetchedResultsController.delegate = self
         do {
             try self.fetchedResultsController.performFetch()
             self.uploadContactEventsIfNeeded()
-        }
-        catch {
+        } catch {
             os_log("Fetched results controller perform fetch failed: %@", type: .error, error as CVarArg)
         }
     }
-    
+
     private func uploadContactEventsIfNeeded() {
         guard let fetchedObjects = self.fetchedResultsController.fetchedObjects else { return }
-        let contactEventsToUpload = fetchedObjects.filter({ $0.wasPotentiallyInfectious && $0.uploadState == UploadState.notUploaded.rawValue })
+        let contactEventsToUpload = fetchedObjects.filter {
+            $0.wasPotentiallyInfectious && $0.uploadState == UploadState.notUploaded.rawValue
+        }
         self.uploadContactEvents(contactEventsToUpload)
     }
-    
+
     private func uploadContactEvents(_ contactEvents: [ContactEvent]) {
         guard !contactEvents.isEmpty else { return }
-        let batch = self.db.batch()
+        let batch = self.firestore.batch()
         contactEvents.forEach { (contactEvent) in
             guard let identifierString = contactEvent.identifier?.uuidString else { return }
             guard let timestamp = contactEvent.timestamp else { return }
             batch.setData([
-                Firestore.Fields.timestamp : Timestamp(date: timestamp)
-            ], forDocument: db.collection(Firestore.Collections.contactEvents).document(identifierString))
+                Firestore.Fields.timestamp: Timestamp(date: timestamp)
+            ], forDocument: firestore.collection(Firestore.Collections.contactEvents).document(identifierString))
         }
         os_log("Uploading %d contact event(s)...", type: .info, contactEvents.count)
         // Mark local contact events as being uploaded
@@ -65,7 +68,7 @@ open class LocalContactEventsUploader: NSObject, NSFetchedResultsControllerDeleg
             contactEvents.forEach({ $0.uploadState = UploadState.uploaded.rawValue })
         }
     }
-    
+
     public func markAllLocalContactEventsAsPotentiallyInfectious() {
         guard let fetchedObjects = self.fetchedResultsController.fetchedObjects,
             !fetchedObjects.isEmpty else {
@@ -75,14 +78,14 @@ open class LocalContactEventsUploader: NSObject, NSFetchedResultsControllerDeleg
             fetchedObjects.forEach({ $0.wasPotentiallyInfectious = true })
             try self.fetchedResultsController.managedObjectContext.save()
             os_log("Marked %d contact event(s) as potentially infectious=%d", type: .info, fetchedObjects.count, true)
-        }
-        catch {
-            os_log("Marking %d contact event(s) as potentially infectious=%d failed: %@", type: .error, fetchedObjects.count, true, error as CVarArg)
+        } catch {
+            let errorString: StaticString = "Marking %d contact event(s) as potentially infectious=%d failed: %@"
+            os_log(errorString, type: .error, fetchedObjects.count, true, error as CVarArg)
         }
     }
-    
+
     public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.uploadContactEventsIfNeeded()
     }
-    
+
 }

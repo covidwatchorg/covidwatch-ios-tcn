@@ -7,7 +7,7 @@ import Foundation
 import CoreBluetooth
 
 extension BluetoothService {
-    
+
     /// The peripheral service to be added to the local GATT database.
     public static var peripheralService: CBMutableService {
         let service = CBMutableService(
@@ -16,7 +16,7 @@ extension BluetoothService {
         )
         return service
     }
-    
+
     /// The characteristic used for exchanging contact event identifiers.
     public static var contactEventIdentifierCharacteristic: CBMutableCharacteristic {
         return CBMutableCharacteristic(
