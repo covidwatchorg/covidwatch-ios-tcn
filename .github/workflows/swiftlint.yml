@@ -8,11 +8,12 @@ on:
       - '**/*.swift'
 
 jobs:
-  swiftlint:
+  strict_linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: GitHub Action for SwiftLint with --strict
-        uses: norio-nomura/action-swiftlint@3.1.0
-        with:
-          args: --strict
+      - uses: actions/checkout@v2
+      - name: Xcode Build
+        run: |
+          pwd
+          ls
+          ./Pods/SwiftLint/swiftlint --strict
