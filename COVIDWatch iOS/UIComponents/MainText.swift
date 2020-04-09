@@ -16,7 +16,7 @@ class MainText: UITextView {
         self.frame.size.width = contentMaxWidth
         self.isEditable = false
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QbB-eA-aHp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QbB-eA-aHp">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -83,7 +83,7 @@
         <!--Share-->
         <scene sceneID="RBP-Zq-fHv">
             <objects>
-                <viewController id="pzl-mE-B8I" customClass="share" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pzl-mE-B8I" customClass="Share" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ffs-cl-RhR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="2778" y="-754"/>
         </scene>
-        <!--Thankyou-->
+        <!--Thank You-->
         <scene sceneID="e0O-Ne-HiW">
             <objects>
-                <viewController id="orA-2R-bFc" customClass="thankyou" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="orA-2R-bFc" customClass="ThankYou" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xDY-gd-zPK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +136,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FOH-TX-lur"/>
+        <segue reference="cYk-FY-ZeT"/>
         <segue reference="po4-BW-TAw"/>
     </inferredMetricsTieBreakers>
 </document>
