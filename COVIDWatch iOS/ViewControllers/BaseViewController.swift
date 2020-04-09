@@ -10,11 +10,11 @@ import UIKit
 
 class BaseViewController: UIViewController {
     var header = Header()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 //        Header must be drawn here instead of viewDidLoad(), because it makes use

@@ -16,6 +16,7 @@ class Splash: UIViewController {
     var start = UIView()
     var startLbl = UILabel()
 
+    // swiftlint:disable:next function_body_length
     override func viewDidLoad() {
         super.viewDidLoad()
 

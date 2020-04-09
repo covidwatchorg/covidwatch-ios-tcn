@@ -51,8 +51,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             return
         }
         UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: nil)
-        let logString: StaticString =
-            "Added notification request (.identifier=%@ .content.categoryIdentifier=%@ .content.threadIdentifier=%@) to user notification center."
+        // swiftlint:disable:next line_length
+        let logString: StaticString = "Added notification request (.identifier=%@ .content.categoryIdentifier=%@ .content.threadIdentifier=%@) to user notification center."
         os_log(logString,
                notificationRequest.identifier,
                notificationRequest.content.categoryIdentifier,

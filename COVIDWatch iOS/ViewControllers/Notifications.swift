@@ -31,6 +31,7 @@ class Notifications: BaseViewController {
         largeText.center.x = view.center.x
         view.addSubview(largeText)
 
+        // swiftlint:disable:next line_length
         mainText.text = "Covid Watch uses notifications to send alerts when you may have come into contact with COVID-19."
         mainText.frame.size.height = mainText.contentSize.height
         mainText.frame.origin.y = header.frame.minY + (546.0/812.0) * screenHeight
@@ -43,7 +44,7 @@ class Notifications: BaseViewController {
         button.draw(parentVC: self)
     }
 
-    @objc func nextScreen(sender : UITapGestureRecognizer) {
+    @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             performSegue(withIdentifier: "NotificationsToFinish", sender: self)
         }

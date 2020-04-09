@@ -30,6 +30,7 @@ class Bluetooth: BaseViewController {
         largeText.center.x = view.center.x
         view.addSubview(largeText)
 
+        // swiftlint:disable:next line_length
         mainText.text = "Covid Watch uses bluetooth to anonymously log interactions with other Covid Watch users that you come in contact with."
         mainText.frame.size.height = mainText.contentSize.height
         mainText.frame.origin.y = header.frame.minY + (546.0/812.0) * screenHeight
@@ -42,7 +43,7 @@ class Bluetooth: BaseViewController {
         button.draw(parentVC: self)
     }
 
-    @objc func nextScreen(sender : UITapGestureRecognizer) {
+    @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             if UserDefaults.standard.isContactEventLoggingEnabled == false {
                 UserDefaults.standard.isContactEventLoggingEnabled = true

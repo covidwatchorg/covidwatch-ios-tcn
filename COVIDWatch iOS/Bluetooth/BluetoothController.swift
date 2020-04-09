@@ -18,6 +18,8 @@ extension TimeInterval {
 }
 
 /// The controller responsible for the Bluetooth communication.
+
+// swiftlint:disable:next type_body_length
 class BluetoothController: NSObject {
 
     public let label = UUID().uuidString
@@ -743,6 +745,7 @@ extension BluetoothController: CBPeripheralDelegate {
         self.peripheralsToWriteContactEventIdentifierTo.remove(peripheral)
     }
 
+    // swiftlint:disable:next function_body_length
     private func _peripheral(
         _ peripheral: CBPeripheral,
         didDiscoverCharacteristicsFor service: CBService,
@@ -829,8 +832,10 @@ extension BluetoothController: CBPeripheralDelegate {
             }
         } else {
             if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
+                // swiftlint:disable:next line_length
+                let logString: StaticString = "Peripheral (uuid=%@ name='%@') did update value=%{iec-bytes}d for characteristic=%@ for service=%@"
                 os_log(
-                    "Peripheral (uuid=%@ name='%@') did update value=%{iec-bytes}d for characteristic=%@ for service=%@",
+                    logString,
                     log: self.log,
                     peripheral.identifier.description,
                     peripheral.name ?? "",

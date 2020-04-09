@@ -24,9 +24,12 @@ class Home: UIViewController {
     var warningLabel = UITextView()
     var isUserSickObserver: NSKeyValueObservation?
     var didUserMakeContactWithSickUserObserver: NSKeyValueObservation?
+    // swiftlint:disable:next line_length
     let mainText1 = "Covid Watch is using bluetooth to anonymously watch who you come in contact with. You will be notified of potential contact to COVID-19.\n\n"
     let mainText2 = "Thank you for helping your community stay safe, anonymously."
     var scalingFactor: CGFloat?
+
+    // swiftlint:disable:next function_body_length
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scalingFactor = CGFloat(screenHeight) / CGFloat(896)
@@ -124,21 +127,25 @@ class Home: UIViewController {
         self.manageGlobalState(UserDefaults.standard.isUserSick, UserDefaults.standard.didUserMakeContactWithSickUser)
 
         //        Set up observers to update based on state changes
-        isUserSickObserver = UserDefaults.standard.observe(\.isUserSick, options: [.new], changeHandler: { (_, change) in
-            if (change.newValue == nil) {
+        isUserSickObserver = UserDefaults.standard.observe(
+            \.isUserSick, options: [.new]
+        ) { (_, change) in
+            if change.newValue == nil {
                 return
             }
             self.manageGlobalState(change.newValue!, UserDefaults.standard.didUserMakeContactWithSickUser)
-        })
-        didUserMakeContactWithSickUserObserver = UserDefaults.standard.observe(\.didUserMakeContactWithSickUser, options: [.initial, .new], changeHandler: { (_, change) in
-            if (change.newValue == nil) {
+        }
+        didUserMakeContactWithSickUserObserver = UserDefaults.standard.observe(
+            \.didUserMakeContactWithSickUser, options: [.initial, .new]
+        ) { (_, change) in
+            if change.newValue == nil {
                 return
             }
             self.manageGlobalState(UserDefaults.standard.isUserSick, change.newValue!)
-        })
+        }
     }
 
-    @objc func nextScreen(sender : UITapGestureRecognizer) {
+    @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             performSegue(withIdentifier: "NotificationsToFinish", sender: self)
         }
@@ -151,8 +158,12 @@ class Home: UIViewController {
         warningLabel.frame.size.height = warningLabel.contentSize.height
         warningLabel.center = warningBanner.center
 
-        if (warningBannerVisible) {
-            parkImage!.center.y = warningBanner.center.y + warningBanner.frame.size.height/2 + parkImage!.image!.size.height/2
+        if warningBannerVisible {
+            parkImage!.center.y = (
+                warningBanner.center.y +
+                warningBanner.frame.size.height/2 +
+                parkImage!.image!.size.height/2
+            )
         } else {
             parkImage!.center.y = appTitle.center.y + parkImage!.image!.size.height/2 + (self.scalingFactor! * 40 )
         }
@@ -166,11 +177,18 @@ class Home: UIViewController {
         spreadTheWordLabel.sizeToFit()
         spreadTheWordLabel.center = spreadTheWordButton.center
 
-
-        spreadTheWordDescription.center.y = spreadTheWordButton.center.y + spreadTheWordButton.frame.size.height/2 + (scalingFactor! * 20)
+        spreadTheWordDescription.center.y = (
+            spreadTheWordButton.center.y +
+            spreadTheWordButton.frame.size.height/2 +
+            (scalingFactor! * 20)
+        )
 
         testedButton.frame.size.height = 60
-        testedButton.center.y = spreadTheWordDescription.center.y + (spreadTheWordDescription.frame.size.height/2) + (scalingFactor! * 40)
+        testedButton.center.y = (
+            spreadTheWordDescription.center.y +
+            (spreadTheWordDescription.frame.size.height/2) +
+            (scalingFactor! * 40)
+        )
 
         testedLabel.sizeToFit()
         testedLabel.center = testedButton.center
@@ -181,7 +199,7 @@ class Home: UIViewController {
 
     //    Decides what to display based on global app state
     private func manageGlobalState(_ isUserSick: Bool, _ didUserMakeContactWithSickUser: Bool) {
-        if (isUserSick || didUserMakeContactWithSickUser) {
+        if isUserSick || didUserMakeContactWithSickUser {
             warningBanner.isHidden = false
             warningLabel.isHidden = false
 
@@ -208,7 +226,6 @@ class Home: UIViewController {
         self.updateHeightsAndYPositions(isUserSick || didUserMakeContactWithSickUser)
 
     }
-
 
     /*
      // MARK: - Navigation

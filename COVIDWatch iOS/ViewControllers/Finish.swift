@@ -39,6 +39,7 @@ class Finish: BaseViewController {
         largeText.textColor = .white
         view.addSubview(largeText)
 
+        // swiftlint:disable:next line_length
         mainText.text = "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."
         mainText.frame.size.height = mainText.contentSize.height
         mainText.frame.origin.y = header.frame.minY + (546.0/812.0) * screenHeight
@@ -55,7 +56,7 @@ class Finish: BaseViewController {
         button.draw(parentVC: self)
     }
 
-    @objc func nextScreen(sender : UITapGestureRecognizer) {
+    @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             performSegue(withIdentifier: "FinishToHome", sender: self)
         }
