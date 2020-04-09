@@ -10,14 +10,14 @@ import Firebase
 
 open class CurrentUserExposureNotifier: NSObject, NSFetchedResultsControllerDelegate {
     
-    private var fetchedResultsController: NSFetchedResultsController<ContactEventNumber>
+    private var fetchedResultsController: NSFetchedResultsController<TemporaryContactNumber>
     
     private var alertContorller: UIAlertController?
     
     override init() {
         let managedObjectContext = PersistentContainer.shared.viewContext
-        let fetchRequest: NSFetchRequest<ContactEventNumber> = ContactEventNumber.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \ContactEventNumber.foundDate, ascending: false)]
+        let fetchRequest: NSFetchRequest<TemporaryContactNumber> = TemporaryContactNumber.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \TemporaryContactNumber.foundDate, ascending: false)]
         fetchRequest.predicate = NSPredicate(format: "wasPotentiallyInfectious == 1")
         fetchRequest.returnsObjectsAsFaults = true
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)

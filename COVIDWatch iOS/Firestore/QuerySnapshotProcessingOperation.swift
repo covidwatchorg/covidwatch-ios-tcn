@@ -6,7 +6,7 @@ import Foundation
 import Firebase
 import CoreData
 import os.log
-import ContactTracingCEN
+import TCNClient
 
 // TODO: split this operation into an add to core data and a process signed reports operation
 class QuerySnapshotProcessingOperation: Operation {
@@ -24,10 +24,10 @@ class QuerySnapshotProcessingOperation: Operation {
         guard let querySnapshot = self.querySnapshot else { return }
         let addedDocuments = querySnapshot.documentChanges.filter({ $0.type == .added }).map({ $0.document })
         guard !isCancelled else { return }
-        self.markFoundContactEventsNumbersAsPotentiallyInfectious(from: addedDocuments)
+        self.markFoundTemporaryContactsNumbersAsPotentiallyInfectious(from: addedDocuments)
     }
     
-    private func markFoundContactEventsNumbersAsPotentiallyInfectious(from queryDocumentSnapshots: [QueryDocumentSnapshot]) {
+    private func markFoundTemporaryContactsNumbersAsPotentiallyInfectious(from queryDocumentSnapshots: [QueryDocumentSnapshot]) {
         guard !queryDocumentSnapshots.isEmpty else { return }        
         self.context.performAndWait { [weak self] in
             do {
@@ -38,17 +38,17 @@ class QuerySnapshotProcessingOperation: Operation {
                     
                     let snapshotData = snapshot.data()
                     
-                    if let contactEventKeyBytes = snapshotData[Firestore.Fields.contactEventKeyBytes] as? Data,
-                        let endPeriod = snapshotData[Firestore.Fields.endPeriod] as? UInt16,
+                    if let temporaryContactKeyBytes = snapshotData[Firestore.Fields.temporaryContactKeyBytes] as? Data,
+                        let endIndex = snapshotData[Firestore.Fields.endIndex] as? UInt16,
                         let memoData = snapshotData[Firestore.Fields.memoData] as? Data,
                         let memoType = snapshotData[Firestore.Fields.memoType] as? UInt8,
                         let reportVerificationPublicKeyBytes = snapshotData[Firestore.Fields.reportVerificationPublicKeyBytes] as? Data,
                         let signatureBytes = snapshotData[Firestore.Fields.signatureBytes] as? Data,
-                        let startPeriod = snapshotData[Firestore.Fields.startPeriod] as? UInt16 {
+                        let startIndex = snapshotData[Firestore.Fields.startIndex] as? UInt16 {
                         
-                        let report = Report(reportVerificationPublicKeyBytes: reportVerificationPublicKeyBytes, contactEventKeyBytes: contactEventKeyBytes, startPeriod: startPeriod, endPeriod: endPeriod, memoType: MemoType(rawValue: memoType) ?? MemoType.CovidWatchV1, memoData: memoData)
+                        let report = Report(reportVerificationPublicKeyBytes: reportVerificationPublicKeyBytes, temporaryContactKeyBytes: temporaryContactKeyBytes, startIndex: startIndex, endIndex: endIndex, memoType: MemoType(rawValue: memoType) ?? MemoType.CovidWatchV1, memoData: memoData)
                         
-                        let signedReport = ContactTracingCEN.SignedReport(report: report, signatureBytes: signatureBytes)
+                        let signedReport = TCNClient.SignedReport(report: report, signatureBytes: signatureBytes)
                         
                         let signatureBytesBase64EncodedString = signedReport.signatureBytes.base64EncodedString()
                         do {
@@ -65,18 +65,18 @@ class QuerySnapshotProcessingOperation: Operation {
                         managedSignedReport.configure(with: signedReport)
                         
                         // Long-running operation
-                        let recomputedContactEventNumbers = signedReport.report.getContactEventNumbers()
+                        let recomputedTemporaryContactNumbers = signedReport.report.getTemporaryContactNumbers()
                         
                         guard !self.isCancelled else { return }
                         
-                        let identifiers: [Data] = recomputedContactEventNumbers.compactMap({ $0.bytes })
+                        let identifiers: [Data] = recomputedTemporaryContactNumbers.compactMap({ $0.bytes })
                         
-                        os_log("Marking %d contact event numbers(s) as potentially infectious=%d ...", log: .app, identifiers.count, true)
+                        os_log("Marking %d temporary contact numbers(s) as potentially infectious=%d ...", log: .app, identifiers.count, true)
                         
                         var allUpdatedObjectIDs = [NSManagedObjectID]()
                         try identifiers.chunked(into: 300000).forEach { (identifiers) in
                             guard !self.isCancelled else { return }
-                            let batchUpdateRequest = NSBatchUpdateRequest(entity: ContactEventNumber.entity())
+                            let batchUpdateRequest = NSBatchUpdateRequest(entity: TemporaryContactNumber.entity())
                             batchUpdateRequest.predicate = NSPredicate(format: "bytes IN %@", identifiers, true)
                             batchUpdateRequest.resultType = .updatedObjectIDsResultType
                             batchUpdateRequest.propertiesToUpdate = [
@@ -93,12 +93,12 @@ class QuerySnapshotProcessingOperation: Operation {
                             NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSUpdatedObjectsKey: allUpdatedObjectIDs], into: mergingContexts)
                         }
                         
-                        os_log("Marked %d contact event number(s) as potentially infectious=%d", log: .app, identifiers.count, true)
+                        os_log("Marked %d temporary contact number(s) as potentially infectious=%d", log: .app, identifiers.count, true)
                     }
                 }
             }
             catch {
-                os_log("Marking contact event number(s) as potentially infectious=%d failed: %@", log: .app, type: .error, true, error as CVarArg)
+                os_log("Marking temporary contact number(s) as potentially infectious=%d failed: %@", log: .app, type: .error, true, error as CVarArg)
             }
         }
     }

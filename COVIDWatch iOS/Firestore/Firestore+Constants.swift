@@ -22,13 +22,13 @@ extension Firestore {
     }
     
     public struct Fields {
-        static let contactEventKeyBytes = "contact_event_key_bytes"
-        static let endPeriod = "end_period"
+        static let temporaryContactKeyBytes = "contact_event_key_bytes"
+        static let endIndex = "end_index"
         static let memoData = "memo_data"
         static let memoType = "memo_type"
         static let reportVerificationPublicKeyBytes = "report_verification_public_key_bytes"
         static let signatureBytes = "signature_bytes"
-        static let startPeriod = "start_period"
+        static let startIndex = "start_index"
         
         // Anonymouse users can't set this field
         static let timestamp = "timestamp"

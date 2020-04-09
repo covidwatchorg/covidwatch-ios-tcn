@@ -7,12 +7,12 @@ import UIKit
 import CoreData
 import os.log
 
-class ContactEventNumbersTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class TemporaryContactNumbersTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    private var fetchedResultsController: NSFetchedResultsController<ContactEventNumber>?
+    private var fetchedResultsController: NSFetchedResultsController<TemporaryContactNumber>?
     
-    var isContactEventLoggingEnabledObservation: NSKeyValueObservation?
-    var isContactEventLoggingEnabled: Bool = false {
+    var isTemporaryContactLoggingEnabledObservation: NSKeyValueObservation?
+    var isTemporaryContactLoggingEnabled: Bool = false {
         didSet {
             configureBarButtonItems(animated: isViewLoaded)
         }
@@ -21,7 +21,7 @@ class ContactEventNumbersTableViewController: UITableViewController, NSFetchedRe
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initFetchedResultsController()
-        self.configureIsContactEventLoggingObservationEnabled()
+        self.configureIsTemporaryContactLoggingObservationEnabled()
         self.tableView.refreshControl = UIRefreshControl()
         self.tableView.refreshControl?.addTarget(self, action: #selector(refreshSignedReports), for: .valueChanged)
     }
@@ -41,8 +41,8 @@ class ContactEventNumbersTableViewController: UITableViewController, NSFetchedRe
                     throw(error)
                 }
                 let managedObjectContext = PersistentContainer.shared.viewContext
-                let request: NSFetchRequest<ContactEventNumber> = ContactEventNumber.fetchRequest()
-                request.sortDescriptors = [NSSortDescriptor(keyPath: \ContactEventNumber.foundDate, ascending: false)]
+                let request: NSFetchRequest<TemporaryContactNumber> = TemporaryContactNumber.fetchRequest()
+                request.sortDescriptors = [NSSortDescriptor(keyPath: \TemporaryContactNumber.foundDate, ascending: false)]
                 request.returnsObjectsAsFaults = false
                 request.fetchBatchSize = 200
                 self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -64,8 +64,8 @@ class ContactEventNumbersTableViewController: UITableViewController, NSFetchedRe
         let context = PersistentContainer.shared.newBackgroundContext()
         context.perform {
             do {
-                os_log("Deleting contact event numbers...", log: .app)
-                guard let entityName = ContactEventNumber.entity().name else { return }
+                os_log("Deleting temporary contact numbers...", log: .app)
+                guard let entityName = TemporaryContactNumber.entity().name else { return }
                 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
                 let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
                 batchDeleteRequest.resultType = .resultTypeObjectIDs
@@ -74,30 +74,29 @@ class ContactEventNumbersTableViewController: UITableViewController, NSFetchedRe
                 if !deletedObjectIDs.isEmpty {
                     NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSDeletedObjectsKey: deletedObjectIDs], into: [PersistentContainer.shared.viewContext])
                 }
-                os_log("Deleted %d contact event number(s)", log: .app, deletedObjectIDs.count)
+                os_log("Deleted %d temporary contact number(s)", log: .app, deletedObjectIDs.count)
             }
             catch {
-                os_log("Deleting contact events numbers failed: %@", log: .app, type: .error, error as CVarArg)
+                os_log("Deleting temporary contacts numbers failed: %@", log: .app, type: .error, error as CVarArg)
             }
         }
     }
     
     @IBAction func handleTapStartButton(_ sender: UIBarButtonItem) {
-        UserDefaults.standard.setValue(true, forKey: UserDefaults.Key.isContactEventNumberLoggingEnabled)
+        UserDefaults.standard.setValue(true, forKey: UserDefaults.Key.isTemporaryContactNumberLoggingEnabled)
     }
     
     @IBAction func handleTapStopButton(_ sender: UIBarButtonItem) {
-        UserDefaults.standard.setValue(false, forKey: UserDefaults.Key.isContactEventNumberLoggingEnabled)
+        UserDefaults.standard.setValue(false, forKey: UserDefaults.Key.isTemporaryContactNumberLoggingEnabled)
     }
     
     @IBAction func handleTapUploadButton(_ sender: UIBarButtonItem) {
-        UserDefaults.standard.setValue(true, forKey: UserDefaults.Key.isCurrentUserSick)
         (UIApplication.shared.delegate as? AppDelegate)?.generateAndUploadReport()
     }
     
     private func configureBarButtonItems(animated: Bool = false) {
         var items = [UIBarButtonItem]()
-        if self.isContactEventLoggingEnabled {
+        if self.isTemporaryContactLoggingEnabled {
             items.append(stopBarButtonItem)
         }
         else {
@@ -107,10 +106,10 @@ class ContactEventNumbersTableViewController: UITableViewController, NSFetchedRe
         self.navigationItem.setRightBarButtonItems(items, animated: animated)
     }
             
-    private func configureIsContactEventLoggingObservationEnabled() {
-        self.isContactEventLoggingEnabledObservation = UserDefaults.standard.observe(\.isContactEventNumberLoggingEnabled, options: [.initial, .new], changeHandler: { [weak self] (_, change) in
+    private func configureIsTemporaryContactLoggingObservationEnabled() {
+        self.isTemporaryContactLoggingEnabledObservation = UserDefaults.standard.observe(\.isTemporaryContactNumberLoggingEnabled, options: [.initial, .new], changeHandler: { [weak self] (_, change) in
             guard let self = self else { return }
-            self.isContactEventLoggingEnabled = (change.newValue ?? false)
+            self.isTemporaryContactLoggingEnabled = (change.newValue ?? false)
         })
     }
     
@@ -133,11 +132,11 @@ class ContactEventNumbersTableViewController: UITableViewController, NSFetchedRe
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactEventRow", for: indexPath)
-        if let contactEvent = self.fetchedResultsController?.object(at: indexPath) {
-            cell.textLabel?.text = self.dateFormatter.string(from: contactEvent.foundDate!)
-            cell.detailTextLabel?.text = contactEvent.bytes?.base64EncodedString()
-            cell.backgroundColor = contactEvent.wasPotentiallyInfectious ? .systemRed : .systemGreen            
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TemporaryContactRow", for: indexPath)
+        if let temporaryContactNumber = self.fetchedResultsController?.object(at: indexPath) {
+            cell.textLabel?.text = self.dateFormatter.string(from: temporaryContactNumber.foundDate!)
+            cell.detailTextLabel?.text = temporaryContactNumber.bytes?.base64EncodedString()
+            cell.backgroundColor = temporaryContactNumber.wasPotentiallyInfectious ? .systemRed : .systemGreen            
         }
         return cell
     }

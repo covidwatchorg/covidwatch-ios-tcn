@@ -3,7 +3,7 @@
 //
 
 import Foundation
-import ContactTracingCEN
+import TCNClient
 import CryptoKit
 
 extension UserDefaults {        
@@ -13,19 +13,19 @@ extension UserDefaults {
     public struct Key {
         public static let isCurrentUserSick = "isCurrentUserSick"
         public static let wasCurrentUserNotifiedOfExposure = "wasCurrentUserNotifiedOfExposure"
-        public static let isContactEventNumberLoggingEnabled = "isContactEventNumberLoggingEnabled"
+        public static let isTemporaryContactNumberLoggingEnabled = "isTemporaryContactNumberLoggingEnabled"
         public static let lastFetchDate = "lastFetchDate"
         
-        // ContactEventKey
-        public static let currentContactEventKeyIndex = "currentContactEventKeyIndex"
-        public static let currentContactEventKeyReportVerificationPublicKeyBytes = "currentContactEventKeyReportVerificationPublicKeyBytes"
-        public static let currentContactEventKeyBytes = "currentContactEventKeyBytes"
+        // TemporaryContactKey
+        public static let currentTemporaryContactKeyIndex = "currentTemporaryContactKeyIndex"
+        public static let currentTemporaryContactKeyReportVerificationPublicKeyBytes = "currentTemporaryContactKeyReportVerificationPublicKeyBytes"
+        public static let currentTemporaryContactKeyBytes = "currentTemporaryContactKeyBytes"
 
         
         public static let registration: [String : Any] = [
             isCurrentUserSick: false,
             wasCurrentUserNotifiedOfExposure: false,
-            isContactEventNumberLoggingEnabled: false,
+            isTemporaryContactNumberLoggingEnabled: false,
         ]
     }
     
@@ -37,33 +37,33 @@ extension UserDefaults {
         return bool(forKey: Key.wasCurrentUserNotifiedOfExposure)
     }
     
-    @objc dynamic public var isContactEventNumberLoggingEnabled: Bool {
-        return bool(forKey: Key.isContactEventNumberLoggingEnabled)
+    @objc dynamic public var isTemporaryContactNumberLoggingEnabled: Bool {
+        return bool(forKey: Key.isTemporaryContactNumberLoggingEnabled)
     }
     
     @objc dynamic public var lastFetchDate: Date? {
         return object(forKey: Key.lastFetchDate) as? Date
     }
     
-    public var currentContactEventKey: ContactEventKey? {
+    public var currentTemporaryContactKey: TemporaryContactKey? {
         get {
-            if let index = UserDefaults.shared.object(forKey: UserDefaults.Key.currentContactEventKeyIndex) as? UInt16,
-                let reportVerificationPublicKeyBytes = UserDefaults.shared.object(forKey: UserDefaults.Key.currentContactEventKeyReportVerificationPublicKeyBytes) as? Data,
-                let contactEventKeyBytes = UserDefaults.shared.object(forKey: UserDefaults.Key.currentContactEventKeyBytes) as? Data {
+            if let index = UserDefaults.shared.object(forKey: UserDefaults.Key.currentTemporaryContactKeyIndex) as? UInt16,
+                let reportVerificationPublicKeyBytes = UserDefaults.shared.object(forKey: UserDefaults.Key.currentTemporaryContactKeyReportVerificationPublicKeyBytes) as? Data,
+                let temporaryContactKeyBytes = UserDefaults.shared.object(forKey: UserDefaults.Key.currentTemporaryContactKeyBytes) as? Data {
                 
-                return ContactEventKey(
+                return TemporaryContactKey(
                     index: index,
                     reportVerificationPublicKeyBytes: reportVerificationPublicKeyBytes,
-                    bytes: contactEventKeyBytes
+                    bytes: temporaryContactKeyBytes
                 )
             }
             
             return nil
         }
         set {
-            setValue(newValue?.index, forKey: UserDefaults.Key.currentContactEventKeyIndex)
-            setValue(newValue?.reportVerificationPublicKeyBytes, forKey: UserDefaults.Key.currentContactEventKeyReportVerificationPublicKeyBytes)
-            setValue(newValue?.bytes, forKey: UserDefaults.Key.currentContactEventKeyBytes)
+            setValue(newValue?.index, forKey: UserDefaults.Key.currentTemporaryContactKeyIndex)
+            setValue(newValue?.reportVerificationPublicKeyBytes, forKey: UserDefaults.Key.currentTemporaryContactKeyReportVerificationPublicKeyBytes)
+            setValue(newValue?.bytes, forKey: UserDefaults.Key.currentTemporaryContactKeyBytes)
         }
     }
     

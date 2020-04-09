@@ -8,16 +8,16 @@ import CoreData
 import Firebase
 import os.log
 import BackgroundTasks
-import ContactTracingBluetooth
+import TCNClient
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var contactTracingBluetoothService: ContactTracingBluetoothService?
+    var tcnBluetoothService: TCNBluetoothService?
     
-    var isContactEventNumberLoggingEnabledObservation: NSKeyValueObservation?
+    var isTemporaryContactNumberLoggingEnabledObservation: NSKeyValueObservation?
     var isCurrentUserSickObservation: NSKeyValueObservation?
     
     var signedReportsUploader: SignedReportsUploader?
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.signedReportsUploader = SignedReportsUploader()
             self.currentUserExposureNotifier = CurrentUserExposureNotifier()
             self.configureContactTracingService()
-            self.configureIsContactEventNumberLoggingEnabledObserver()
+            self.configureIsTemporaryContactNumberLoggingEnabledObserver()
         }
         PersistentContainer.shared.load { error in
             if let error = error {
@@ -89,14 +89,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func configureIsContactEventNumberLoggingEnabledObserver() {
-        self.isContactEventNumberLoggingEnabledObservation = UserDefaults.standard.observe(\.isContactEventNumberLoggingEnabled, options: [.initial, .new], changeHandler: { [weak self] (_, change) in
+    private func configureIsTemporaryContactNumberLoggingEnabledObserver() {
+        self.isTemporaryContactNumberLoggingEnabledObservation = UserDefaults.standard.observe(\.isTemporaryContactNumberLoggingEnabled, options: [.initial, .new], changeHandler: { [weak self] (_, change) in
             guard let self = self else { return }
             if change.newValue ?? true {
-                self.contactTracingBluetoothService?.start()
+                self.tcnBluetoothService?.start()
             }
             else {
-                self.contactTracingBluetoothService?.stop()
+                self.tcnBluetoothService?.stop()
             }
         })
     }

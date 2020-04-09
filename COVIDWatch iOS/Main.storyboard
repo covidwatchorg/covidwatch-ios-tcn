@@ -6,16 +6,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Found CENs-->
+        <!--Found TCNs-->
         <scene sceneID="4Yb-kV-CrU">
             <objects>
-                <tableViewController id="Vxd-Mb-2bC" customClass="ContactEventNumbersTableViewController" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Vxd-Mb-2bC" customClass="TemporaryContactNumbersTableViewController" customModule="CEN" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VmW-Cj-iyY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ContactEventRow" textLabel="Thx-k8-b5i" detailTextLabel="BRP-26-4pc" style="IBUITableViewCellStyleSubtitle" id="X7u-1H-FHD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TemporaryContactRow" textLabel="Thx-k8-b5i" detailTextLabel="BRP-26-4pc" style="IBUITableViewCellStyleSubtitle" id="X7u-1H-FHD">
                                 <rect key="frame" x="0.0" y="28" width="414" height="58.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X7u-1H-FHD" id="ZZM-aS-zXA">
@@ -45,7 +45,7 @@
                             <outlet property="delegate" destination="Vxd-Mb-2bC" id="Tdp-X9-Gau"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Found CENs" id="uu8-DF-5Zq">
+                    <navigationItem key="navigationItem" title="Found TCNs" id="uu8-DF-5Zq">
                         <barButtonItem key="leftBarButtonItem" title="Upload" id="Vv3-eZ-nlF">
                             <connections>
                                 <action selector="handleTapUploadButton:" destination="Vxd-Mb-2bC" id="W6v-vn-f0N"/>
@@ -78,11 +78,10 @@
             </objects>
             <point key="canvasLocation" x="1679.7101449275362" y="-358.25892857142856"/>
         </scene>
-        <!--Seen CENs-->
+        <!--Navigation Controller-->
         <scene sceneID="hsy-yR-063">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xIW-yl-ZHW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Seen CENs" image="UITabBarTag" id="wBe-ib-3f8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tbi-dS-Zy9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -98,7 +97,4 @@
             <point key="canvasLocation" x="769.56521739130437" y="-358.25892857142856"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="UITabBarTag" width="19" height="19"/>
-    </resources>
 </document>

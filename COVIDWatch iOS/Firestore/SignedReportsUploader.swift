@@ -49,13 +49,13 @@ open class SignedReportsUploader: NSObject, NSFetchedResultsControllerDelegate {
             os_log("Uploading signed report (%@)...", log: .app, signatureBytesBase64EncodedString)
             signedReport.uploadState = UploadState.uploading.rawValue
             self.db.collection(Firestore.Collections.signedReports).addDocument(data: [
-                Firestore.Fields.contactEventKeyBytes : signedReport.contactEventKeyBytes ?? Data(),
-                Firestore.Fields.endPeriod : signedReport.endPeriod,
+                Firestore.Fields.temporaryContactKeyBytes : signedReport.temporaryContactKeyBytes ?? Data(),
+                Firestore.Fields.endIndex : signedReport.endIndex,
                 Firestore.Fields.memoData : signedReport.memoData ?? Data(),
                 Firestore.Fields.memoType : signedReport.memoType,
                 Firestore.Fields.reportVerificationPublicKeyBytes : signedReport.reportVerificationPublicKeyBytes ?? Data(),
                 Firestore.Fields.signatureBytes : signedReport.signatureBytes ?? Data(),
-                Firestore.Fields.startPeriod : signedReport.startPeriod,
+                Firestore.Fields.startIndex : signedReport.startIndex,
                 Firestore.Fields.timestamp: FieldValue.serverTimestamp()
             ]) { [weak self] error in
                 guard let self = self else { return }

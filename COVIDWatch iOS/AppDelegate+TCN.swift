@@ -3,25 +3,24 @@
 //
 
 import Foundation
-import ContactTracingBluetooth
-import ContactTracingCEN
+import TCNClient
 import CryptoKit
 import os.log
 
 extension AppDelegate {
     
     // Do not keep the report authorization key around in memory,
-    // since contains sensitive information.
+    // since it contains sensitive information.
     // Fetch it every time from our secure store (Keychain).
     var reportAuthorizationKey: ReportAuthorizationKey {
         do {
-            if let storedKey: Curve25519.Signing.PrivateKey = try GenericPasswordStore().readKey(account: "cen-rak") {
+            if let storedKey: Curve25519.Signing.PrivateKey = try GenericPasswordStore().readKey(account: "tcn-rak") {
                 return ReportAuthorizationKey(reportAuthorizationPrivateKey: storedKey)
             }
             else {
                 let newKey = Curve25519.Signing.PrivateKey()
                 do {
-                    try GenericPasswordStore().storeKey(newKey, account: "cen-rak")
+                    try GenericPasswordStore().storeKey(newKey, account: "tcn-rak")
                 }
                 catch {
                     os_log("Storing report authorization key in Keychain failed: %@", log: .app, type: .error, error as CVarArg)
@@ -35,44 +34,40 @@ extension AppDelegate {
         }
     }
     
-    // It is safe to store the contact event key in the user defaults,
+    // It is safe to store the temporary contact key in the user defaults,
     // since it does not contain sensitive information.
-    var currentContactEventKey: ContactEventKey {
+    var currentTemporaryContactKey: TemporaryContactKey {
         get {
-            if let key = UserDefaults.shared.currentContactEventKey {
+            if let key = UserDefaults.shared.currentTemporaryContactKey {
                 return key
             } else {
-                // If there isn't a contact event key in the UserDefaults,
-                // then use the initial contact event key.
-                return self.reportAuthorizationKey.initialContactEventKey
+                // If there isn't a temporary contact key in the UserDefaults,
+                // then use the initial temporary contact key.
+                return self.reportAuthorizationKey.initialTemporaryContactKey
             }
         }
         set {
-            UserDefaults.shared.currentContactEventKey = newValue
+            UserDefaults.shared.currentTemporaryContactKey = newValue
         }
     }
     
     func configureContactTracingService() {
-        self.contactTracingBluetoothService =
-            ContactTracingBluetoothService(
-                cenGenerator: { () -> Data in
+        self.tcnBluetoothService =
+            TCNBluetoothService(
+                tcnGenerator: { () -> Data in
                     
-                    os_log("Bluetooth sharing asked to generate a contact event number to share it", log: .app)
+                    let temporaryContactNumber = self.currentTemporaryContactKey.temporaryContactNumber
                     
-                    let contactEventNumber = self.currentContactEventKey.contactEventNumber
-                    
-                    // Ratched the key so, we will get a new contact event number the next time
-                    if let newContactEventKey = self.currentContactEventKey.ratchet() {
-                        self.currentContactEventKey = newContactEventKey
+                    // Ratched the key so, we will get a new temporary contact number the next time
+                    if let newTemporaryContactKey = self.currentTemporaryContactKey.ratchet() {
+                        self.currentTemporaryContactKey = newTemporaryContactKey
                     }
                     
-                    return contactEventNumber.bytes
+                    return temporaryContactNumber.bytes
                     
-            }, cenFinder: { (data) in
+            }, tcnFinder: { (data) in
                 
-                os_log("Bluetooth sharing found a contact event number from a nearby device: %@", log: .app)
-                
-                self.logFoundContactEventNumber(with: data)
+                self.logFoundTemporaryContactNumber(with: data)
                 
             }, errorHandler: { (error) in
                 // TODO: Handle errors, like user not giving permission to access Bluetooth, etc.
@@ -81,36 +76,36 @@ extension AppDelegate {
         )
     }
     
-    func logFoundContactEventNumber(with bytes: Data) {
+    func logFoundTemporaryContactNumber(with bytes: Data) {
         DispatchQueue.main.async {
             let context = PersistentContainer.shared.viewContext
-            let contactEvent = ContactEventNumber(context: context)
-            contactEvent.bytes = bytes
-            contactEvent.foundDate = Date()
+            let temporaryContactNumber = TemporaryContactNumber(context: context)
+            temporaryContactNumber.bytes = bytes
+            temporaryContactNumber.foundDate = Date()
             try? context.save()
         }
     }
         
     func generateAndUploadReport() {
         do {
-            // Assuming contact event numbers were changed at least every 15 minutes, and the user was infectious in the last 14 days, calculate the start period from the end period.
-            let endPeriod = currentContactEventKey.index
+            // Assuming temporary contact numbers were changed at least every 15 minutes, and the user was infectious in the last 14 days, calculate the start period from the end period.
+            let endIndex = currentTemporaryContactKey.index
             let minutesIn14Days = 60*24*7*2
             let periods = minutesIn14Days / 15
-            let startPeriod: UInt16 = UInt16(max(0, Int(endPeriod) - periods))
+            let startIndex: UInt16 = UInt16(max(0, Int(endIndex) - periods))
             
-            let cenSignedReport = try self.reportAuthorizationKey.createSignedReport(
+            let tcnSignedReport = try self.reportAuthorizationKey.createSignedReport(
                 memoType: .CovidWatchV1,
                 memoData: "Hello, World!".data(using: .utf8)!,
-                startPeriod: startPeriod,
-                endPeriod: endPeriod
+                startIndex: startIndex,
+                endIndex: endIndex
             )
             
             // Create a new Signed Report with `uploadState` set to `.notUploaded` and store it in the local persistent store.
             // This will kick off an observer that watches for signed reports which were not uploaded and will upload it.
             let context = PersistentContainer.shared.viewContext
             let signedReport = SignedReport(context: context)
-            signedReport.configure(with: cenSignedReport)
+            signedReport.configure(with: tcnSignedReport)
             signedReport.isProcessed = true
             signedReport.uploadState = UploadState.notUploaded.rawValue
             try context.save()
