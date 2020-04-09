@@ -1,0 +1,17 @@
+name: pull_request
+
+on:
+  pull_request:
+    branches: [master, dev]
+env:
+  DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Xcode Build
+      run: |
+        xcodebuild build -workspace COVIDWatch.xcworkspace -scheme 'COVIDWatch iOS' CODE_SIGNING_ALLOWED=NO
