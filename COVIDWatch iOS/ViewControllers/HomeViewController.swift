@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var shareButton: UIButton!
@@ -18,7 +19,7 @@ class HomeViewController: UIViewController {
 
         if UserDefaults.standard.isContactEventLoggingEnabled == false {
             UserDefaults.standard.isContactEventLoggingEnabled = true
-
+            
         }
     }
 }

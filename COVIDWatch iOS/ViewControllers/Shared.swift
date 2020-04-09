@@ -8,53 +8,51 @@
 
 import UIKit
 
-class Share: BaseViewController {
+class share: BaseViewController {
     var logo: UIImageView?
     var img: UIImageView?
     var share = UILabel()
     var share2 = UITextView()
-
+    
     var spread = UIView()
     var spreadLbl = UILabel()
     var spreadLbl2 = UILabel()
-
+    
     var tested = UIView()
     var testedLbl = UILabel()
     var testedLbl2 = UITextView()
-
+    
     let screenSize: CGRect = UIScreen.main.bounds
     var scalingFactor: CGFloat?
-
-    // swiftlint:disable:next function_body_length
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         self.scalingFactor = CGFloat(screenHeight) / CGFloat(896)
         var fontScalingFactor = CGFloat(1.0)
         if screenHeight <= 736.0 { fontScalingFactor = scalingFactor! }
         print("ScreenHeight = \(screenHeight)")
-
-        if let uiImage = UIImage(named: "woman-hero-blue-2") {
-            img = UIImageView(image: uiImage)
-        }
+        
+        var imageb: UIImage = UIImage(named: "woman-hero-blue-2")!
+        img = UIImageView(image: imageb)
         img!.frame.size.width = 253
         img!.frame.size.height = 259
-
+        
         img!.center.x = view.center.x - 5
         img!.center.y = 240
         if screenHeight <= 736.0 { img!.center.y *= scalingFactor! }
         self.view.addSubview(img!)
-
+        
+        
         share.text =  "Share & Protect"
         share.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
         share.font = UIFont(name: "Montserrat-SemiBold", size: 36 * fontScalingFactor)
         share.sizeToFit()
         share.center.x = view.center.x
         share.center.y = img!.center.y + img!.frame.size.height/2 + 40
-
+        
         view.addSubview(share)
-
-        // swiftlint:disable:next line_length
+        
         share2.text =  "Covid Watch is using bluetooth to anonymously watch who you come in contact with. You will be notified of potential contact to COVID-19."
         share2.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
         share2.font = UIFont(name: "Montserrat-Regular", size: 18 * fontScalingFactor)
@@ -65,7 +63,7 @@ class Share: BaseViewController {
         share2.textAlignment = .center
         share2.isEditable = false
         view.addSubview(share2)
-
+        
         spread.frame.size.width = share2.frame.size.width
         spread.frame.size.height = 58
         spread.center.x = view.center.x
@@ -80,18 +78,18 @@ class Share: BaseViewController {
         spreadLbl.sizeToFit()
         spreadLbl.center.x = spread.center.x
         spreadLbl.center.y = spread.center.y
-
+        
         view.addSubview(spreadLbl)
-
+        
         spreadLbl2.text =  "It works best when everyone uses it."
         spreadLbl2.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
         spreadLbl2.font = UIFont(name: "Montserrat-Regular", size: 14 * fontScalingFactor)
         spreadLbl2.sizeToFit()
         spreadLbl2.center.x = spread.center.x
         spreadLbl2.center.y = spreadLbl.center.y + spreadLbl.frame.size.height/2 + 40
-
+        
         view.addSubview(spreadLbl2)
-
+        
         tested.frame.size.width = share2.frame.size.width
         tested.frame.size.height = 58
         tested.center.x = view.center.x
@@ -102,16 +100,16 @@ class Share: BaseViewController {
         tested.layer.cornerRadius = 10
          self.tested.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
         view.addSubview(tested)
-
+        
         testedLbl.text =  "Tested for COVID-19?"
         testedLbl.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
         testedLbl.font = UIFont(name: "Montserrat-Bold", size: 18 * fontScalingFactor)
         testedLbl.sizeToFit()
         testedLbl.center.x = tested.center.x
         testedLbl.center.y = tested.center.y
-
+        
         view.addSubview(testedLbl)
-
+        
         testedLbl2.text =  "Share your result anonymously to help your community stay safe."
         testedLbl2.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
         testedLbl2.font = UIFont(name: "Montserrat-Regular", size: 14 * fontScalingFactor)
@@ -123,8 +121,8 @@ class Share: BaseViewController {
          testedLbl2.isEditable = false
         view.addSubview(testedLbl2)
     }
-    @objc func test() {
+    @objc func test(){
          performSegue(withIdentifier: "test", sender: self)
     }
-
+    
 }

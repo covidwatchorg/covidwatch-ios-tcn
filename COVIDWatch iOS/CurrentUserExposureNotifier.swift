@@ -9,35 +9,29 @@ import os.log
 import Firebase
 
 open class CurrentUserExposureNotifier: NSObject, NSFetchedResultsControllerDelegate {
-
+    
     private var fetchedResultsController: NSFetchedResultsController<ContactEvent>
-
+    
     private var alertContorller: UIAlertController?
-
+    
     override init() {
         let managedObjectContext = PersistentContainer.shared.viewContext
         let fetchRequest: NSFetchRequest<ContactEvent> = ContactEvent.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \ContactEvent.timestamp, ascending: false)]
         fetchRequest.predicate = NSPredicate(format: "wasPotentiallyInfectious == 1")
         fetchRequest.returnsObjectsAsFaults = true
-        self.fetchedResultsController = NSFetchedResultsController(
-            fetchRequest: fetchRequest, managedObjectContext: managedObjectContext,
-            sectionNameKeyPath: nil, cacheName: nil
-        )
+        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         super.init()
         self.fetchedResultsController.delegate = self
         do {
             try self.fetchedResultsController.performFetch()
-        } catch {
+        }
+        catch {
             os_log("Fetched results controller perform fetch failed: %@", type: .error, error as CVarArg)
         }
     }
-
-    public func controller(
-        _ controller: NSFetchedResultsController<NSFetchRequestResult>,
-        didChange anObject: Any, at indexPath: IndexPath?,
-        for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?
-    ) {
+    
+    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         // No need to notify current user of exposure if they reported themselves sick
         guard !UserDefaults.standard.isUserSick else {
             return
@@ -47,7 +41,7 @@ open class CurrentUserExposureNotifier: NSObject, NSFetchedResultsControllerDele
         }
         self.notifyCurrentUserOfExposureIfNeeded()
     }
-
+    
     private func notifyCurrentUserOfExposureIfNeeded() {
         //        guard !UserData.shared.wasCurrentUserNotifiedOfExposure else {
         //            return
@@ -55,22 +49,14 @@ open class CurrentUserExposureNotifier: NSObject, NSFetchedResultsControllerDele
         UserDefaults.standard.wasCurrentUserNotifiedOfExposure = true
         if UIApplication.shared.applicationState == .background {
             (UIApplication.shared.delegate as? AppDelegate)?.showCurrentUserExposedUserNotification()
-        } else {
+        }
+        else {
             guard self.alertContorller == nil else { return }
-            let controller = UIAlertController(
-                title: NSLocalizedString("You have been notified", comment: ""),
-                message: nil, preferredStyle: .alert
-            )
-            controller.addAction(
-                UIAlertAction(
-                    title: NSLocalizedString("OK", comment: ""),
-                    style: .cancel,
-                    handler: { [weak self] _ in
-                        guard let self = self else { return }
-                        self.alertContorller = nil
-                    }
-                )
-            )
+            let controller = UIAlertController(title: NSLocalizedString("You have been notified", comment: ""), message: nil, preferredStyle: .alert)
+            controller.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: { [weak self] _ in
+                guard let self = self else { return }
+                self.alertContorller = nil
+            }))
             UIApplication.shared.topViewController?.present(controller, animated: true, completion: nil)
             self.alertContorller = controller
         }

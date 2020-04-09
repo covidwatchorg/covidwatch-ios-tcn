@@ -10,23 +10,23 @@ import UIKit
 
 class Menu: UIView {
     var xIcon = UIView()
-    var menuItems: [MenuItem] = [
+    var menuItems: Array<MenuItem> = [
         MenuItem(text: "How does this work?", addLinkImg: false),
         MenuItem(text: "CDC Health Guidlines", addLinkImg: true),
         MenuItem(text: "Covid Watch Website", addLinkImg: true),
         MenuItem(text: "Terms of Use", addLinkImg: true),
         MenuItem(text: "Privacy Policy", addLinkImg: true),
-        MenuItem(text: "Delete app data", addLinkImg: false)
+        MenuItem(text: "Delete app data", addLinkImg: false),
     ]
     var covidWatchText = UILabel()
-
+    
     func draw(parentVC: UIViewController) {
         drawMenuBackground(parentVC: parentVC)
         drawXIcon(parentVC: parentVC)
         drawMenuItems(parentVC: parentVC)
         drawBottomText(parentVC: parentVC)
     }
-
+    
     private func drawMenuBackground(parentVC: UIViewController) {
         self.frame.size.width = 0.8 * screenWidth
         self.frame.size.height = screenHeight
@@ -36,7 +36,7 @@ class Menu: UIView {
         self.isHidden = true
         parentVC.view.addSubview(self)
     }
-
+        
     private func drawXIcon(parentVC: UIViewController) {
         xIcon.backgroundColor = UIColor(patternImage: UIImage(named: "x-icon")!)
         xIcon.frame.size.width = 28
@@ -47,7 +47,7 @@ class Menu: UIView {
         xIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
         parentVC.view.addSubview(xIcon)
     }
-
+    
     private func drawMenuItems(parentVC: UIViewController) {
         let menuItemWidth = (3.0/3.75) * self.frame.size.width
         let item0CenterY = (160.0/812.0) * screenHeight
@@ -57,13 +57,13 @@ class Menu: UIView {
         let item4CenterY = item3CenterY + ((58.0/812.0) * screenHeight)
         let item5CenterY = item4CenterY + (item1CenterY - item0CenterY)
         menuItems[0].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item0CenterY)
-        menuItems[1].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item1CenterY)
-        menuItems[2].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item2CenterY)
-        menuItems[3].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item3CenterY)
-        menuItems[4].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item4CenterY)
-        menuItems[5].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item5CenterY)
+        menuItems[1].draw(parentVC:parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item1CenterY)
+        menuItems[2].draw(parentVC:parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item2CenterY)
+        menuItems[3].draw(parentVC:parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item3CenterY)
+        menuItems[4].draw(parentVC:parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item4CenterY)
+        menuItems[5].draw(parentVC:parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item5CenterY)
     }
-
+    
     private func drawBottomText(parentVC: UIViewController) {
         covidWatchText.text = "Covid Watch"
         covidWatchText.font = UIFont(name: "Montserrat", size: 14)
@@ -74,7 +74,7 @@ class Menu: UIView {
         covidWatchText.isHidden = true
         parentVC.view.addSubview(covidWatchText)
     }
-
+    
     @objc func toggleMenu() {
         self.isHidden = !self.isHidden
         xIcon.isHidden = !xIcon.isHidden
@@ -83,11 +83,11 @@ class Menu: UIView {
         }
         covidWatchText.isHidden = !covidWatchText.isHidden
     }
-
+    
     init() {
         super.init(frame: CGRect())
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

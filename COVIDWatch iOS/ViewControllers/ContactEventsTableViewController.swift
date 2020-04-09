@@ -8,22 +8,22 @@ import CoreData
 import os.log
 
 class ContactEventsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
+    
     private var fetchedResultsController: NSFetchedResultsController<ContactEvent>?
-
+    
     var isContactEventLoggingEnabledObservation: NSKeyValueObservation?
     var isContactEventLoggingEnabled: Bool = false {
         didSet {
             configureBarButtonItems(animated: isViewLoaded)
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initFetchedResultsController()
         self.configureIsContactEventLoggingObservationEnabled()
     }
-
+    
     func initFetchedResultsController() {
         PersistentContainer.shared.load { error in
             do {
@@ -35,23 +35,21 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
                 request.sortDescriptors = [NSSortDescriptor(keyPath: \ContactEvent.timestamp, ascending: false)]
                 request.returnsObjectsAsFaults = false
                 request.fetchBatchSize = 200
-                self.fetchedResultsController = NSFetchedResultsController(
-                    fetchRequest: request, managedObjectContext: managedObjectContext,
-                    sectionNameKeyPath: nil, cacheName: nil
-                )
+                self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
                 self.fetchedResultsController?.delegate = self
                 try self.fetchedResultsController?.performFetch()
                 self.tableView.reloadData()
-            } catch {
+            }
+            catch {
                 os_log("Fetched results controller perform fetch failed: %@", type: .error, error as CVarArg)
             }
         }
     }
-
+    
     @IBOutlet weak var clearBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var startBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var stopBarButtonItem: UIBarButtonItem!
-
+    
     @IBAction func handleTapClearButton(_ sender: UIBarButtonItem) {
         let context = PersistentContainer.shared.newBackgroundContext()
         context.perform {
@@ -61,50 +59,46 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
                 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
                 let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
                 batchDeleteRequest.resultType = .resultTypeObjectIDs
-                if let batchDeleteResult = try context.execute(batchDeleteRequest) as? NSBatchDeleteResult,
-                   let deletedObjectIDs = batchDeleteResult.result as? [NSManagedObjectID] {
-                    if !deletedObjectIDs.isEmpty {
-                        NSManagedObjectContext.mergeChanges(
-                            fromRemoteContextSave: [NSDeletedObjectsKey: deletedObjectIDs],
-                            into: [PersistentContainer.shared.viewContext]
-                        )
-                    }
+                let batchDeleteResult = try context.execute(batchDeleteRequest) as! NSBatchDeleteResult
+                let deletedObjectIDs = batchDeleteResult.result as! [NSManagedObjectID]
+                if !deletedObjectIDs.isEmpty {
+                    NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSDeletedObjectsKey: deletedObjectIDs], into: [PersistentContainer.shared.viewContext])
                 }
                 os_log("Deleted %d contact event(s)", type: .info, deletedObjectIDs.count)
-            } catch {
+            }
+            catch {
                 os_log("Deleting contact events failed: %@", type: .error, error as CVarArg)
             }
         }
     }
-
+    
     @IBAction func handleTapStartButton(_ sender: UIBarButtonItem) {
         UserDefaults.standard.isContactEventLoggingEnabled = true
     }
-
+    
     @IBAction func handleTapStopButton(_ sender: UIBarButtonItem) {
         UserDefaults.standard.isContactEventLoggingEnabled = false
     }
-
+    
     private func configureBarButtonItems(animated: Bool = false) {
         var items = [UIBarButtonItem]()
         if self.isContactEventLoggingEnabled {
             items.append(stopBarButtonItem)
-        } else {
+        }
+        else {
             items.append(startBarButtonItem)
         }
         items.append(clearBarButtonItem)
         self.navigationItem.setRightBarButtonItems(items, animated: animated)
     }
-
+            
     private func configureIsContactEventLoggingObservationEnabled() {
-        self.isContactEventLoggingEnabledObservation = UserDefaults.standard.observe(
-            \.isContactEventLoggingEnabled, options: [.initial, .new]
-        ) { [weak self] (_, change) in
+        self.isContactEventLoggingEnabledObservation = UserDefaults.standard.observe(\.isContactEventLoggingEnabled, options: [.initial, .new], changeHandler: { [weak self] (_, change) in
             guard let self = self else { return }
             self.isContactEventLoggingEnabled = (change.newValue ?? false)
-        }
+        })
     }
-
+    
     lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.doesRelativeDateFormatting = true
@@ -112,17 +106,17 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
         dateFormatter.timeStyle = .medium
         return dateFormatter
     }()
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.fetchedResultsController?.fetchedObjects?.count ?? 0
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactEventRow", for: indexPath)
         if let contactEvent = self.fetchedResultsController?.object(at: indexPath) {
@@ -133,43 +127,39 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
                 let imageView = UIImageView(image: UIImage(named: "RadiowavesRight"))
                 imageView.tintColor = .systemGray
                 cell.accessoryView = imageView
-            } else {
+            }
+            else {
                 cell.accessoryView = nil
             }
-
+            
         }
         return cell
     }
-
+    
     // MARK: - NSFetchedResultsControllerDelegate
-
+    
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.beginUpdates()
     }
-
-    func controller(
-        _ controller: NSFetchedResultsController<NSFetchRequestResult>,
-        didChange anObject: Any, at indexPath: IndexPath?,
-        for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?
-    ) {
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
-        case .insert:
-            self.tableView.insertRows(at: [newIndexPath!], with: .automatic)
-        case .delete:
-            self.tableView.deleteRows(at: [indexPath!], with: .automatic)
-        case .update:
-            self.tableView.reloadRows(at: [indexPath!], with: .automatic)
-        case .move:
-            self.tableView.moveRow(at: indexPath!, to: newIndexPath!)
-        @unknown default:
-            break
+            case .insert:
+                self.tableView.insertRows(at: [newIndexPath!], with: .automatic)
+            case .delete:
+                self.tableView.deleteRows(at: [indexPath!], with: .automatic)
+            case .update:
+                self.tableView.reloadRows(at: [indexPath!], with: .automatic)
+            case .move:
+                self.tableView.moveRow(at: indexPath!, to: newIndexPath!)
+            @unknown default: ()
         }
     }
-
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
     }
-
+    
     /*
      // MARK: - Navigation
      
@@ -179,5 +169,5 @@ class ContactEventsTableViewController: UITableViewController, NSFetchedResultsC
      // Pass the selected object to the new view controller.
      }
      */
-
+    
 }
