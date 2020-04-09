@@ -19,18 +19,18 @@ class Notifications: BaseViewController {
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
 //        Ratio is Figma image width to Figma screen width
-        img.frame.size.width = screenWidth * (358.0/375.0)
+        img.frame.size.width = 358.0 * figmaToiOSHorizontalScalingFactor
         img.frame.size.height = img.frame.size.width / (358.0/252.0)
         img.center.x = view.center.x
-        img.center.y = header.frame.minY + (282.0/812.0) * screenHeight
+        img.center.y = header.frame.minY + (282.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
 
-        largeText.draw(parentVC: self, centerX: view.center.x, centerY: header.frame.minY + (512.0/812.0) * screenHeight)
+        largeText.draw(parentVC: self, centerX: view.center.x, centerY: header.frame.minY + (512.0 * figmaToiOSVerticalScalingFactor))
 
-        mainText.draw(parentVC: self, centerX: view.center.x, originY: header.frame.minY + (546.0/812.0) * screenHeight)
+        mainText.draw(parentVC: self, centerX: view.center.x, originY: header.frame.minY + (546.0 * figmaToiOSVerticalScalingFactor))
 
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
-        button.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (114.0/812.0) * screenHeight)
+        button.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (114.0 * figmaToiOSVerticalScalingFactor))
     }
 
     @objc func nextScreen(sender: UITapGestureRecognizer) {
