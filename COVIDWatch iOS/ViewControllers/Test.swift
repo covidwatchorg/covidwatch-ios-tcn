@@ -782,4 +782,5 @@ extension UIDatePicker {
     func fadeOutD(_ duration: TimeInterval = 0.3) {
         fadeToD(0.0, duration: duration)
     }
+// swiftlint:disable:next file_length
 }
