@@ -21,7 +21,7 @@ extension UIApplication {
         #if AppExtension
             return nil
         #else
-            return topViewController(keyWindow)
+            return topViewController(windows.first)
         #endif
     }
 
