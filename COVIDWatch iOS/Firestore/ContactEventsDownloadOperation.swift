@@ -8,17 +8,17 @@ import CoreData
 import os.log
 
 class ContactEventsDownloadOperation: Operation {
-
+    
     private let sinceDate: Date
-
+    
     public var querySnapshot: QuerySnapshot?
     public var error: Error?
-
+    
     init(sinceDate: Date) {
         self.sinceDate = sinceDate
         super.init()
     }
-
+    
     override func main() {
         let semaphore = DispatchSemaphore(value: 0)
         os_log("Downloading contact events...", type: .info)
@@ -42,5 +42,5 @@ class ContactEventsDownloadOperation: Operation {
             self.error = NSError(domain: NSURLErrorDomain, code: NSURLErrorTimedOut, userInfo: nil)
         }
     }
-
+    
 }

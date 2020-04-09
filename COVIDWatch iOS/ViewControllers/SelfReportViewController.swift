@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ConfirmationButtonsSelector {
+struct confirmationButtonsSelector {
     var yesButton: Bool = false {
         didSet {
             if yesButton == true {
@@ -46,17 +46,17 @@ class SelfReportViewController: UIViewController {
             toggleConfirmationButtonColors()
         }
     }
-
+    
     required init?(coder: NSCoder) {
         self.confirmationSelector = confirmationButtonsSelector()
         super.init(coder: coder)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonInit()
     }
-
+    
     private func buttonInit() {
         reportButton.layer.cornerRadius = 10
         reportButton.isEnabled = false
@@ -65,7 +65,7 @@ class SelfReportViewController: UIViewController {
         noButton.layer.cornerRadius = 5
         notTestedButton.layer.cornerRadius = 5
     }
-
+    
     private func yesNoOrNotTestedPressed(_ sender: UIButton) {
         switch sender {
         case yesButton:
@@ -80,30 +80,30 @@ class SelfReportViewController: UIViewController {
             self.confirmationSelector.notTestedButton = false
         }
     }
-
+    
     private func toggleConfirmationButtonColors() {
         if self.confirmationSelector.yesButton == true {
             yesButton.backgroundColor = UIColor(hexString: "#779f98")
         } else {
             yesButton.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.25)
         }
-
+        
         if self.confirmationSelector.noButton == true {
             noButton.backgroundColor = UIColor(hexString: "#779f98")
         } else {
             noButton.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.25)
         }
-
+        
         if self.confirmationSelector.notTestedButton == true {
             notTestedButton.backgroundColor = UIColor(hexString: "#779f98")
         } else {
             notTestedButton.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.25)
         }
-
+        
         reportButton.backgroundColor = UIColor(hexString: "#bf3f4a")
         reportButton.isEnabled = true
     }
-
+    
     @IBAction func yesButtonPressed(_ sender: UIButton) {
         yesNoOrNotTestedPressed(sender)
     }

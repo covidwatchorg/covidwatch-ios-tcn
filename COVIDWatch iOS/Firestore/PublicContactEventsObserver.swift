@@ -9,9 +9,9 @@ import CoreData
 import os.log
 
 open class PublicContactEventsObserver: NSObject {
-
+    
     let operationQueue = OperationQueue()
-
+    
     override init() {
         super.init()
         // Only observe the contact events from the past 2 weeks
@@ -21,17 +21,13 @@ open class PublicContactEventsObserver: NSObject {
             .addSnapshotListener { [weak self] (querySnapshot, error) in
                 guard let self = self else { return }
                 if let error = error {
-                    let errorString = "Listening for realtime updates of contact events failed: %@"
-                    os_log(errorString, type: .error, error as CVarArg)
+                    os_log("Listening for realtime updates of contact events failed: %@", type: .error, error as CVarArg)
                     UIApplication.shared.topViewController?.present(error as NSError, animated: true)
                     return
                 }
                 guard let querySnapshot = querySnapshot else { return }
                 os_log("Listened for realtime updates of %d contact event(s)", type: .info, querySnapshot.count)
-                let processingOperation = QuerySnapshotProcessingOperation(
-                    context: PersistentContainer.shared.viewContext,
-                    mergingContexts: [PersistentContainer.shared.newBackgroundContext()]
-                )
+                let processingOperation = QuerySnapshotProcessingOperation(context: PersistentContainer.shared.viewContext, mergingContexts: [PersistentContainer.shared.newBackgroundContext()])
                 processingOperation.querySnapshot = querySnapshot
                 self.operationQueue.addOperation(processingOperation)
         }
