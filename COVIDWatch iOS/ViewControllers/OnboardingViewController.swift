@@ -16,8 +16,7 @@ class OnboardingViewController: UIViewController {
         // Do any additional setup after loading the view.
         onboardingToTabBarButton.layer.cornerRadius = 10
     }
-    
-    
+
     @IBAction func onboardingToTabBarButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "OnboardingToTabBar", sender: self)
     }

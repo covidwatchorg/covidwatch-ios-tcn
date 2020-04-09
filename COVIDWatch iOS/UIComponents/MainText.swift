@@ -25,7 +25,7 @@ class MainText: UITextView {
         self.frame.origin.y = originY
         parentVC.view.addSubview(self)
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

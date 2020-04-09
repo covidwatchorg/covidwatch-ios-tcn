@@ -116,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="2778" y="-754"/>
         </scene>
-        <!--Thankyou-->
+        <!--Thank You-->
         <scene sceneID="e0O-Ne-HiW">
             <objects>
-                <viewController id="orA-2R-bFc" customClass="thankyou" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="orA-2R-bFc" customClass="ThankYou" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xDY-gd-zPK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

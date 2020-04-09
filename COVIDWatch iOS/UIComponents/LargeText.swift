@@ -25,7 +25,7 @@ class LargeText: UITextView {
         self.center.y = centerY
         parentVC.view.addSubview(self)
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

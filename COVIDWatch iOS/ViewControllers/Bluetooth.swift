@@ -6,7 +6,6 @@
 //  Copyright © 2020 IZE. All rights reserved.
 //
 
-
 import UIKit
 
 class Bluetooth: BaseViewController {
@@ -18,7 +17,7 @@ class Bluetooth: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
-        
+
         img.frame.size.width = screenWidth * 0.832
         img.frame.size.height = img.frame.size.width / (312.0/326.0)
         img.center.x = view.center.x
@@ -32,12 +31,12 @@ class Bluetooth: BaseViewController {
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
         button.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (114.0/812.0) * screenHeight)
     }
-        
-    @objc func nextScreen(sender : UITapGestureRecognizer) {
+
+    @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             if UserDefaults.standard.isContactEventLoggingEnabled == false {
                 UserDefaults.standard.isContactEventLoggingEnabled = true
-                
+
             }
             performSegue(withIdentifier: "BluetoothToNotifications", sender: self)
         }
@@ -45,7 +44,7 @@ class Bluetooth: BaseViewController {
 
     /*
     // MARK: - Navigation
-​
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

@@ -1,44 +1,40 @@
 //
-//  Header.swift
+//  button2.swift
 //  COVIDWatch iOS
 //
-//  Created by Isaiah Becker-Mayer on 4/6/20.
+//  Created by Laima Cernius-Ink on 4/8/20.
 //  Copyright © 2020 IZE. All rights reserved.
 //
 
 import UIKit
 
-class Button: UIView {
+class Button2: UIView {
     var text = UILabel()
     var subtext: UITextView?
 
     init(text: String, subtext: String?) {
         super.init(frame: CGRect())
-        self.text.text = text
-        if (subtext != nil) {
-            self.subtext = UITextView()
-        }
-        self.subtext?.text = subtext
-        
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = (58.0/321.0) * contentMaxWidth
-        self.backgroundColor = UIColor(hexString: "496FB6")
+        self.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
         self.layer.cornerRadius = 10
+        self.text.text = text
         self.text.font = UIFont(name: "Montserrat-Bold", size: 18)
-        self.text.textColor = .white
+        self.text.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
         self.text.backgroundColor = .clear
-        self.subtext?.font = UIFont(name: "Montserrat", size: 14)
-        self.subtext?.textColor = UIColor(hexString: "585858")
-        self.subtext?.backgroundColor = .clear
-        self.subtext?.textAlignment = .center
-        self.subtext?.isEditable = false
+        if subtext != nil {
+            self.subtext = UITextView()
+            self.subtext!.text = subtext
+            self.subtext!.font = UIFont(name: "Montserrat", size: 14)
+            self.subtext!.textColor = UIColor(hexString: "585858")
+            self.subtext!.backgroundColor = .clear
+            self.subtext!.textAlignment = .center
+            self.subtext!.isEditable = false
+        }
     }
 
 //    Call this after you set where you want to place your button in the parentVC
-    func draw(parentVC: UIViewController, centerX: CGFloat, centerY: CGFloat) {
-        
-        self.center.x = centerX
-        self.center.y = centerY
+    func draw(parentVC: UIViewController) {
         parentVC.view.addSubview(self)
         drawText(parentVC: parentVC)
     }

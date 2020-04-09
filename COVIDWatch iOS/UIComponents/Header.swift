@@ -12,21 +12,20 @@ class Header: UIView {
     var logo = UIImageView(image: UIImage(named: "logo-cw-color"))
     var menuIcon = UIView()
     var menu = Menu()
-    
-    
+
     init() {
         super.init(frame: CGRect())
         self.frame.size.width = screenWidth
         self.frame.size.height = screenHeight * 0.1
     }
-    
+
     func draw(parentVC: UIViewController) {
         self.frame.origin.y = parentVC.view.safeAreaInsets.top
         drawLogo(parentVC: parentVC)
         drawMenuIcon(parentVC: parentVC)
         menu.draw(parentVC: parentVC)
     }
-    
+
     private func drawLogo(parentVC: UIViewController) {
         logo.frame.size.width = 41
         logo.frame.size.height = 39
@@ -34,7 +33,7 @@ class Header: UIView {
         logo.center.y = self.frame.midY
         parentVC.view.addSubview(logo)
     }
-    
+
     private func drawMenuIcon(parentVC: UIViewController) {
         menuIcon.backgroundColor = UIColor(patternImage: UIImage(named: "menu-icon")!)
         menuIcon.frame.size.width = 36
@@ -44,14 +43,14 @@ class Header: UIView {
         menuIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
         parentVC.view.addSubview(menuIcon)
     }
-    
+
     @objc func toggleMenu() {
         //        menuIcon.isHidden = !menuIcon.isHidden
         menu.toggleMenu()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
 }

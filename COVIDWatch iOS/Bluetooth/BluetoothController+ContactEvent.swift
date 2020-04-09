@@ -5,7 +5,7 @@
 import Foundation
 
 extension BluetoothController {
-    
+
     func logNewContactEvent(with identifier: UUID, isBroadcastType: Bool = false) {
         DispatchQueue.main.async {
             let context = PersistentContainer.shared.viewContext

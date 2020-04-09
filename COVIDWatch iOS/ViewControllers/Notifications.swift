@@ -6,7 +6,6 @@
 //  Copyright © 2020 IZE. All rights reserved.
 //
 
-
 import UIKit
 
 class Notifications: BaseViewController {
@@ -18,7 +17,7 @@ class Notifications: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
-        
+
 //        Ratio is Figma image width to Figma screen width
         img.frame.size.width = screenWidth * (358.0/375.0)
         img.frame.size.height = img.frame.size.width / (358.0/252.0)
@@ -33,8 +32,8 @@ class Notifications: BaseViewController {
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
         button.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (114.0/812.0) * screenHeight)
     }
-        
-    @objc func nextScreen(sender : UITapGestureRecognizer) {
+
+    @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             performSegue(withIdentifier: "NotificationsToFinish", sender: self)
         }
@@ -42,7 +41,7 @@ class Notifications: BaseViewController {
 
     /*
     // MARK: - Navigation
-​
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

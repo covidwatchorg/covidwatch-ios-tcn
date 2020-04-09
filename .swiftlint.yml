@@ -1,0 +1,16 @@
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+
+identifier_name:
+  allowed_symbols: "_"
+  validates_start_with_lowercase: false
+  min_length: 1
+  max_length:
+    warning: 90
+    error: 1000
+  excluded:
+    - id
+
+disabled_rules:
+  - implicit_getter

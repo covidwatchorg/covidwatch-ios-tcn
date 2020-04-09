@@ -6,7 +6,6 @@
 //  Copyright © 2020 IZE. All rights reserved.
 //
 
-
 import UIKit
 
 class Finish: BaseViewController {
@@ -19,7 +18,7 @@ class Finish: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //            Layout image first and then layout background gradient compared to it
-        
+
         img.frame.size.width = screenWidth * 0.832
         img.frame.size.height = img.frame.size.width / (312.0/326.0)
         img.center.x = view.center.x
@@ -43,8 +42,8 @@ class Finish: BaseViewController {
         button.text.textColor = UIColor(hexString: "585858")
         button.backgroundColor = .white
     }
-        
-    @objc func nextScreen(sender : UITapGestureRecognizer) {
+
+    @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             performSegue(withIdentifier: "FinishToHome", sender: self)
         }
@@ -52,7 +51,7 @@ class Finish: BaseViewController {
 
     /*
     // MARK: - Navigation
-​
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
