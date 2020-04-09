@@ -12,7 +12,7 @@ import UIKit
 class Notifications: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-standing-01-blue-4"))
     var largeText = LargeText(text: "Recieve Alerts")
-    var mainText = MainText()
+    var mainText = MainText(text: "Covid Watch uses notifications to send alerts when you may have come into contact with COVID-19.")
     var button = Button(text: "Allow Notifications", subtext: "This will help you find out when you may be at risk")
 
     override func viewDidLoad() {
@@ -28,11 +28,7 @@ class Notifications: BaseViewController {
         
         largeText.draw(parentVC: self, centerX: view.center.x, centerY: header.frame.minY + (512.0/812.0) * screenHeight)
         
-        mainText.text = "Covid Watch uses notifications to send alerts when you may have come into contact with COVID-19."
-        mainText.frame.size.height = mainText.contentSize.height
-        mainText.frame.origin.y = header.frame.minY + (546.0/812.0) * screenHeight
-        mainText.center.x = view.center.x
-        view.addSubview(mainText)
+        mainText.draw(parentVC: self, centerX: view.center.x, originY: header.frame.minY + (546.0/812.0) * screenHeight)
         
         button.center.x = view.center.x
         button.frame.origin.y = screenHeight - (144.0/812.0) * screenHeight

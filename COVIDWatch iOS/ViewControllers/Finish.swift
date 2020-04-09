@@ -12,7 +12,7 @@ import UIKit
 class Finish: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-group-blue-2"))
     var largeText = LargeText(text: "You're all set!")
-    var mainText = MainText()
+    var mainText = MainText(text: "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19.")
     var button = Button(text: "Finish", subtext: nil)
     var backgroundGradient = UIView()
 
@@ -35,13 +35,8 @@ class Finish: BaseViewController {
         largeText.draw(parentVC: self, centerX: view.center.x, centerY: header.frame.minY + (512.0/812.0) * screenHeight)
         largeText.textColor = .white
         
-        mainText.text = "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."
-        mainText.frame.size.height = mainText.contentSize.height
-        mainText.frame.origin.y = header.frame.minY + (546.0/812.0) * screenHeight
-        mainText.center.x = view.center.x
-        mainText.backgroundColor = .clear
+        mainText.draw(parentVC: self, centerX: view.center.x, originY: header.frame.minY + (546.0/812.0) * screenHeight)
         mainText.textColor = .white
-        view.addSubview(mainText)
         
         button.center.x = view.center.x
         button.frame.origin.y = screenHeight - (144.0/812.0) * screenHeight
