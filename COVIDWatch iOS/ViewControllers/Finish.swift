@@ -30,13 +30,13 @@ class Finish: BaseViewController {
         backgroundGradient.layer.contents = UIImage(named: "background-gradient-blue")?.cgImage
         self.view.addSubview(backgroundGradient)
         view.addSubview(img)
-        
+
         largeText.draw(parentVC: self, centerX: view.center.x, centerY: header.frame.minY + (512.0/812.0) * screenHeight)
         largeText.textColor = .white
-        
+
         mainText.textColor = .white
         mainText.draw(parentVC: self, centerX: view.center.x, originY: header.frame.minY + (546.0/812.0) * screenHeight)
-        
+
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
         button.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (114.0/812.0) * screenHeight)
         button.text.textColor = UIColor(hexString: "585858")

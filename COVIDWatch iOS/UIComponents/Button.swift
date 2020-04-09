@@ -15,11 +15,11 @@ class Button: UIView {
     init(text: String, subtext: String?) {
         super.init(frame: CGRect())
         self.text.text = text
-        if (subtext != nil) {
+        if subtext != nil {
             self.subtext = UITextView()
         }
         self.subtext?.text = subtext
-        
+
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = (58.0/321.0) * contentMaxWidth
         self.backgroundColor = UIColor(hexString: "496FB6")
@@ -36,7 +36,7 @@ class Button: UIView {
 
 //    Call this after you set where you want to place your button in the parentVC
     func draw(parentVC: UIViewController, centerX: CGFloat, centerY: CGFloat) {
-        
+
         self.center.x = centerX
         self.center.y = centerY
         parentVC.view.addSubview(self)

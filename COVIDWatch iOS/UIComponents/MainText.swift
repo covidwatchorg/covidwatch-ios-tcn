@@ -19,7 +19,7 @@ class MainText: UITextView {
         self.isEditable = false
         self.backgroundColor = .clear
     }
-    
+
     func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {
         self.center.x = centerX
         self.frame.origin.y = originY

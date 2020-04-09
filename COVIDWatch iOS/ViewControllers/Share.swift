@@ -23,18 +23,18 @@ class Share: BaseViewController {
         img = UIImageView(image: imageb)
         img!.frame.size.width = 253
         img!.frame.size.height = 259
-        
+
         img!.center.x = view.center.x - 5
         img!.center.y = 240
         if screenHeight <= 736.0 { img!.center.y *= scalingFactor! }
         self.view.addSubview(img!)
-        
+
         largeText.draw(parentVC: self, centerX: view.center.x, centerY: img!.center.y + img!.frame.size.height/2 + 40)
-        
+
         mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.center.y + largeText.frame.size.height/2 + 60)
-        
+
         spreadButton.draw(parentVC: self, centerX: view.center.x, centerY: mainText.center.y + mainText.frame.size.height/2 + 40)
-        
+
         self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
         testedButton.draw(parentVC: self, centerX: view.center.x, centerY: spreadButton.subtext!.center.y + spreadButton.subtext!.frame.size.height/2 + 40)
         testedButton.backgroundColor = .clear
@@ -42,8 +42,8 @@ class Share: BaseViewController {
         testedButton.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
         testedButton.text.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
     }
-    @objc func test(){
+    @objc func test() {
          performSegue(withIdentifier: "test", sender: self)
     }
-    
+
 }

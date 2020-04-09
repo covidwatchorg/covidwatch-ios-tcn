@@ -19,7 +19,7 @@ class LargeText: UITextView {
         self.isEditable = false
         self.backgroundColor = .clear
     }
-    
+
     func draw(parentVC: UIViewController, centerX: CGFloat, centerY: CGFloat) {
         self.center.x = centerX
         self.center.y = centerY

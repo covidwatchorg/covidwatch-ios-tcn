@@ -23,9 +23,9 @@ class Bluetooth: BaseViewController {
         img.center.x = view.center.x
         img.center.y = header.frame.minY + (282.0/812.0) * screenHeight
         view.addSubview(img)
-        
+
         largeText.draw(parentVC: self, centerX: view.center.x, centerY: header.frame.minY + (512.0/812.0) * screenHeight)
-        
+
         mainText.draw(parentVC: self, centerX: view.center.x, originY: header.frame.minY + (546.0/812.0) * screenHeight)
 
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
