@@ -11,6 +11,7 @@ import UIKit
 class Notifications: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-standing-01-blue-4"))
     var largeText = LargeText(text: "Recieve Alerts")
+    //swiftlint:disable:next line_length
     var mainText = MainText(text: "Covid Watch uses notifications to send alerts when you may have come into contact with COVID-19.")
     var button = Button(text: "Allow Notifications", subtext: "This will help you find out when you may be at risk")
 

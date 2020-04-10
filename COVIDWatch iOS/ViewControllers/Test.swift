@@ -370,7 +370,7 @@ class Test: UIViewController {
                            options: [],
                            animations: { [weak self] in
                                 if let controller = self {
-                                    controller.not.center.y += 125
+                                    controller.not.center.y = controller.q1.center.y + 125
                                 }
                             },
                            completion: nil
@@ -381,7 +381,7 @@ class Test: UIViewController {
                            options: [],
                            animations: { [weak self] in
                                 if let controller = self {
-                                    controller.neg.center.y += 125
+                                    controller.neg.center.y = controller.not.center.y + 125
                                 }
                            },
                            completion: nil
@@ -498,7 +498,7 @@ class Test: UIViewController {
                            options: [],
                            animations: { [weak self] in
                             if let controller = self {
-                                controller.not.center.y += 125
+                                controller.not.center.y = controller.q1.center.y + 125
                             }
 
                 }, completion: nil)
@@ -508,7 +508,7 @@ class Test: UIViewController {
                            options: [],
                            animations: { [weak self] in
                             if let controller = self {
-                                controller.neg.center.y += 125
+                                controller.neg.center.y = controller.not.center.y + 125
                             }
 
                 }, completion: nil)
@@ -591,7 +591,7 @@ class Test: UIViewController {
                        options: [],
                        animations: { [weak self] in
                         if let controller = self {
-                            controller.not.center.y += 125
+                            controller.not.center.y = controller.q1.center.y + 125
                         }
 
             }, completion: nil)
@@ -601,7 +601,7 @@ class Test: UIViewController {
                        options: [],
                        animations: { [weak self] in
                         if let controller = self {
-                            controller.neg.center.y += 125
+                            controller.neg.center.y = controller.not.center.y + 125
                         }
 
             }, completion: nil)

@@ -11,6 +11,7 @@ import UIKit
 class Finish: BaseViewController {
     var img = UIImageView(image: UIImage(named: "woman-hero-blue-3"))
     var largeText = LargeText(text: "You're all set!")
+    //swiftlint:disable:next line_length
     var mainText = MainText(text: "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19.")
     var button = Button(text: "Finish", subtext: nil)
     var backgroundGradient = UIView()

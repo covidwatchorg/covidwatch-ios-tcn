@@ -11,9 +11,11 @@ import UIKit
 class Share: BaseViewController {
     var img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
     var largeText = LargeText(text: "Share & Protect")
+    //swiftlint:disable:next line_length
     var mainText = MainText(text: "Covid Watch is using bluetooth to anonymously watch who you come in contact with. You will be notified of potential contact to COVID-19.")
     var spreadButton = Button(text: "Spread the word", subtext: "It works best when everyone uses it.")
-    var testedButton = Button(text: "Tested for COVID-19?", subtext: "Share your result anonymously to help keep your community stay safe.")
+    var testedButton = Button(text: "Tested for COVID-19?",
+                              subtext: "Share your result anonymously to help keep your community stay safe.")
     let screenSize: CGRect = UIScreen.main.bounds
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -40,6 +42,7 @@ class Share: BaseViewController {
         self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
         let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
         testedButton.draw(parentVC: self, centerX: view.center.x, originY: testedButtonTop)
+
         testedButton.backgroundColor = .clear
         testedButton.layer.borderWidth = 1
         testedButton.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
