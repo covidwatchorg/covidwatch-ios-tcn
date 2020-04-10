@@ -37,7 +37,7 @@ class Notifications: BaseViewController {
 
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
 
-        var buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
+        let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
         button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
     }
 

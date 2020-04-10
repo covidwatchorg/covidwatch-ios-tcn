@@ -37,7 +37,9 @@ class Finish: BaseViewController {
         }
         img.frame.origin.y = header.frame.maxY + (59 * figmaToiOSVerticalScalingFactor)
 
-        largeText.draw(parentVC: self, centerX: view.center.x, originY: img.frame.maxY + (33.0 * figmaToiOSVerticalScalingFactor))
+        largeText.draw(parentVC: self,
+                       centerX: view.center.x,
+                       originY: img.frame.maxY + (33.0 * figmaToiOSVerticalScalingFactor))
         largeText.textColor = .white
 
         mainText.textColor = .white

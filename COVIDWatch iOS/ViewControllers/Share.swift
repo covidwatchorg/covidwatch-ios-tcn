@@ -33,11 +33,15 @@ class Share: BaseViewController {
         img.frame.origin.y = header.frame.minY + 101.0 * figmaToiOSVerticalScalingFactor
         self.view.addSubview(img)
 
-        largeText.draw(parentVC: self, centerX: view.center.x, originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
+        largeText.draw(parentVC: self,
+                       centerX: view.center.x,
+                       originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
 
         mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
 
-        spreadButton.draw(parentVC: self, centerX: view.center.x, originY: mainText.frame.maxY + (5.0 * figmaToiOSVerticalScalingFactor))
+        spreadButton.draw(parentVC: self,
+                          centerX: view.center.x,
+                          originY: mainText.frame.maxY + (5.0 * figmaToiOSVerticalScalingFactor))
 
         self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
         let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
