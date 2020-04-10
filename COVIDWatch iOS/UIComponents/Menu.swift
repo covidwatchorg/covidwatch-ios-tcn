@@ -50,11 +50,11 @@ class Menu: UIView {
 
     private func drawMenuItems(parentVC: UIViewController) {
         let menuItemWidth = (3.0/3.75) * self.frame.size.width
-        let item0CenterY = (160.0/812.0) * screenHeight
-        let item1CenterY = item0CenterY + ((90.0/812.0) * screenHeight)
-        let item2CenterY = item1CenterY + ((58.0/812.0) * screenHeight)
-        let item3CenterY = item2CenterY + ((58.0/812.0) * screenHeight)
-        let item4CenterY = item3CenterY + ((58.0/812.0) * screenHeight)
+        let item0CenterY = (160.0 * figmaToiOSVerticalScalingFactor)
+        let item1CenterY = item0CenterY + ((90.0 * figmaToiOSVerticalScalingFactor))
+        let item2CenterY = item1CenterY + ((58.0 * figmaToiOSVerticalScalingFactor))
+        let item3CenterY = item2CenterY + ((58.0 * figmaToiOSVerticalScalingFactor))
+        let item4CenterY = item3CenterY + ((58.0 * figmaToiOSVerticalScalingFactor))
         let item5CenterY = item4CenterY + (item1CenterY - item0CenterY)
         menuItems[0].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item0CenterY)
         menuItems[1].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item1CenterY)
@@ -70,7 +70,7 @@ class Menu: UIView {
         covidWatchText.textColor = UIColor(hexString: "CCCCCC")
         covidWatchText.sizeToFit()
         covidWatchText.center.x = self.center.x
-        covidWatchText.center.y = screenHeight - (35.0/812.0) * screenHeight
+        covidWatchText.center.y = screenHeight - (35.0 * figmaToiOSVerticalScalingFactor)
         covidWatchText.isHidden = true
         parentVC.view.addSubview(covidWatchText)
     }
