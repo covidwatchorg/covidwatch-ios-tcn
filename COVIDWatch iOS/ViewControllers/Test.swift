@@ -57,8 +57,7 @@ class Test: UIViewController {
     }
 
     // swiftlint:disable:next function_body_length
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         openTimePicker()
 

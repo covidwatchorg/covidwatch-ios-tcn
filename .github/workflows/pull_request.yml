@@ -23,6 +23,4 @@ jobs:
     - uses: actions/checkout@v2
     - name: Xcode Build
       run: |
-        pwd
-        ls
         ./Pods/SwiftLint/swiftlint --strict
