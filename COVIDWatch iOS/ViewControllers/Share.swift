@@ -21,7 +21,7 @@ class Share: BaseViewController {
         img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
         img.frame.size.width = 253 * figmaToiOSHorizontalScalingFactor
         img.frame.size.height = 259 * figmaToiOSVerticalScalingFactor
-        
+
         if screenHeight <= 667 {
             img.frame.size.width /= 1.5
             img.frame.size.height /= 1.5

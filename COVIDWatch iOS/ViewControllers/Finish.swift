@@ -27,7 +27,7 @@ class Finish: BaseViewController {
 
         img.frame.size.width = 251 * figmaToiOSHorizontalScalingFactor
         img.frame.size.height = 308 * figmaToiOSVerticalScalingFactor
-        
+
         img.frame.origin.x = -15.0 * figmaToiOSHorizontalScalingFactor
         if screenHeight <= 667 {
             img.frame.size.width /= 1.5
