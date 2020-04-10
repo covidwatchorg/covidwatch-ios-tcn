@@ -21,22 +21,22 @@ class Share: BaseViewController {
         self.scalingFactor = CGFloat(screenHeight) / CGFloat(896)
         let imageb: UIImage = UIImage(named: "woman-hero-blue-2")!
         img = UIImageView(image: imageb)
-        img!.frame.size.width = 253
-        img!.frame.size.height = 259
+        img!.frame.size.width = 253 * figmaToiOSHorizontalScalingFactor
+        img!.frame.size.height = 259 * figmaToiOSVerticalScalingFactor
 
-        img!.center.x = view.center.x - 5
-        img!.center.y = 240
+        img!.center.x = view.center.x - 5 * figmaToiOSHorizontalScalingFactor
+        img!.frame.origin.y = 101.0 * figmaToiOSVerticalScalingFactor
         if screenHeight <= 736.0 { img!.center.y *= scalingFactor! }
         self.view.addSubview(img!)
 
-        largeText.draw(parentVC: self, centerX: view.center.x, centerY: img!.center.y + img!.frame.size.height/2 + 40)
+        largeText.draw(parentVC: self, centerX: view.center.x, centerY: header.frame.minY + (407.0 * figmaToiOSVerticalScalingFactor))
 
-        mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.center.y + largeText.frame.size.height/2 + 60)
+        mainText.draw(parentVC: self, centerX: view.center.x, originY: header.frame.minY + (442.0 * figmaToiOSVerticalScalingFactor))
 
-        spreadButton.draw(parentVC: self, centerX: view.center.x, centerY: mainText.center.y + mainText.frame.size.height/2 + 40)
+        spreadButton.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (223.0 * figmaToiOSVerticalScalingFactor))
 
         self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
-        testedButton.draw(parentVC: self, centerX: view.center.x, centerY: spreadButton.subtext!.center.y + spreadButton.subtext!.frame.size.height/2 + 40)
+        testedButton.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (114.0 * figmaToiOSVerticalScalingFactor))
         testedButton.backgroundColor = .clear
         testedButton.layer.borderWidth = 1
         testedButton.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor

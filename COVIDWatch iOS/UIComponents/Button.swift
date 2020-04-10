@@ -42,6 +42,14 @@ class Button: UIView {
         parentVC.view.addSubview(self)
         drawText(parentVC: parentVC)
     }
+    
+    func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {
+
+        self.center.x = centerX
+        self.frame.origin.y = originY
+        parentVC.view.addSubview(self)
+        drawText(parentVC: parentVC)
+    }
 
     func drawText(parentVC: UIViewController) {
 //        Call after the button's container has been laid out in parent ViewController
