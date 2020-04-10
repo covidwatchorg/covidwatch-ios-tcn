@@ -21,7 +21,7 @@ class MenuItem: UIView {
         menuItem1text.textColor = UIColor(hexString: "585858")
         menuItem1text.sizeToFit()
         menuItem1text.frame.size.width = menuItem1.frame.size.width
-        menuItem1.frame.size.height = (38.0/812.0) * screenHeight
+        menuItem1.frame.size.height = (38.0 * figmaToiOSVerticalScalingFactor)
         menuItem1text.center = menuItem1.center
         menuItem1.addLine(position: .bottom, color: UIColor(hexString: "CCCCCC"), width: 0.5)
         if linkImg != nil {

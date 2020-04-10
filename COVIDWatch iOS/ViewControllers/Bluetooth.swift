@@ -10,8 +10,8 @@ import UIKit
 
 class Bluetooth: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-group-blue-2"))
-    var largeText = LargeText()
-    var mainText = MainText()
+    var largeText = LargeText(text: "Quickly Connect")
+    var mainText = MainText(text: "Covid Watch uses bluetooth to anonymously log interactions with other Covid Watch users that you come in contact with.")
     var button = Button(text: "Allow Bluetooth", subtext: "This is required for the app to work.")
 
     override func viewDidLoad() {
@@ -21,26 +21,15 @@ class Bluetooth: BaseViewController {
         img.frame.size.width = screenWidth * 0.832
         img.frame.size.height = img.frame.size.width / (312.0/326.0)
         img.center.x = view.center.x
-        img.center.y = header.frame.minY + (282.0/812.0) * screenHeight
+        img.center.y = header.frame.minY + (282.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
 
-        largeText.text = "Quickly Connect"
-        largeText.frame.size.height = largeText.contentSize.height
-        largeText.frame.origin.y = header.frame.minY + (481.0/812.0) * screenHeight
-        largeText.center.x = view.center.x
-        view.addSubview(largeText)
+        largeText.draw(parentVC: self, centerX: view.center.x, centerY: header.frame.minY + (512.0 * figmaToiOSVerticalScalingFactor))
 
-        // swiftlint:disable:next line_length
-        mainText.text = "Covid Watch uses bluetooth to anonymously log interactions with other Covid Watch users that you come in contact with."
-        mainText.frame.size.height = mainText.contentSize.height
-        mainText.frame.origin.y = header.frame.minY + (546.0/812.0) * screenHeight
-        mainText.center.x = view.center.x
-        view.addSubview(mainText)
+        mainText.draw(parentVC: self, centerX: view.center.x, originY: header.frame.minY + (546.0 * figmaToiOSVerticalScalingFactor))
 
-        button.center.x = view.center.x
-        button.frame.origin.y = screenHeight - (144.0/812.0) * screenHeight
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
-        button.draw(parentVC: self)
+        button.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (114.0 * figmaToiOSVerticalScalingFactor))
     }
 
     @objc func nextScreen(sender: UITapGestureRecognizer) {

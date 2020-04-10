@@ -136,6 +136,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="FOH-TX-lur"/>
         <segue reference="po4-BW-TAw"/>
     </inferredMetricsTieBreakers>
 </document>
