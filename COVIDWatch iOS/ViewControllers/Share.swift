@@ -27,24 +27,25 @@ class Share: BaseViewController {
         img!.frame.size.height = 259
 
         img!.center.x = view.center.x - 5
-        img!.center.y = 240
+        img!.center.y = 200
         if screenHeight <= 736.0 { img!.center.y *= scalingFactor! }
+        if screenHeight <= 812.0 { img!.center.y += 40 }
         self.view.addSubview(img!)
 
         largeText.draw(parentVC: self, centerX: view.center.x, centerY: img!.center.y + img!.frame.size.height/2 + 40)
 
         mainText.draw(parentVC: self,
                       centerX: view.center.x,
-                      originY: largeText.center.y + largeText.frame.size.height/2 + 60)
+                      originY: largeText.center.y + largeText.frame.size.height/2 )
 
         spreadButton.draw(parentVC: self,
                           centerX: view.center.x,
-                          centerY: mainText.center.y + mainText.frame.size.height/2 + 40)
+                          centerY: mainText.center.y + mainText.frame.size.height/2 + 30)
 
         self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
         testedButton.draw(parentVC: self,
                           centerX: view.center.x,
-                          centerY: spreadButton.subtext!.center.y + spreadButton.subtext!.frame.size.height/2 + 40)
+                          centerY: spreadButton.subtext!.center.y + spreadButton.subtext!.frame.size.height/2 + 20)
         testedButton.backgroundColor = .clear
         testedButton.layer.borderWidth = 1
         testedButton.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
