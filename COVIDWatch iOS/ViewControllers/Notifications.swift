@@ -24,7 +24,7 @@ class Notifications: BaseViewController {
         img.center.x = view.center.x
         img.frame.origin.y = header.frame.minY + (146.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
-        
+
         var imgToLargeTextGap = 83.0 * figmaToiOSVerticalScalingFactor
         if screenHeight <= 667 {
             imgToLargeTextGap /= 2

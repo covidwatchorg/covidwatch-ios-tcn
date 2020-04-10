@@ -24,7 +24,7 @@ class Finish: BaseViewController {
         backgroundGradient.layer.contents = UIImage(named: "background-gradient-blue")?.cgImage
         self.view.addSubview(backgroundGradient)
         view.addSubview(img)
-        
+
         img.frame.size.width = 251 * figmaToiOSHorizontalScalingFactor
         img.frame.size.height = 308 * figmaToiOSVerticalScalingFactor
         img.frame.origin.x = -15.0 * figmaToiOSHorizontalScalingFactor
@@ -51,7 +51,7 @@ class Finish: BaseViewController {
             performSegue(withIdentifier: "FinishToHome", sender: self)
         }
     }
-    
+
 //    override func viewDidLayoutSubviews() {
 //        super.viewDidLayoutSubviews()
 //        img.frame.size.width = screenWidth * 0.832

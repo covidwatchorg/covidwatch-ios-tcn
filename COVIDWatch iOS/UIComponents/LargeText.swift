@@ -31,7 +31,7 @@ class LargeText: UITextView {
         self.center.y = centerY
         parentVC.view.addSubview(self)
     }
-    
+
     func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {
         self.center.x = centerX
         self.frame.origin.y = originY

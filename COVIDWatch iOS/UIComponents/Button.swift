@@ -42,7 +42,7 @@ class Button: UIView {
         parentVC.view.addSubview(self)
         drawText(parentVC: parentVC)
     }
-    
+
     func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {
 
         self.center.x = centerX
