@@ -21,7 +21,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Xcode Build
+    - name: SwiftLint
       run: |
         ./Pods/SwiftLint/swiftlint --strict
-        
