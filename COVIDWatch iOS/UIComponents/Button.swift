@@ -14,27 +14,31 @@ class Button: UIView {
 
     init(text: String, subtext: String?) {
         super.init(frame: CGRect())
+        self.text.text = text
+        if subtext != nil {
+            self.subtext = UITextView()
+        }
+        self.subtext?.text = subtext
+
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = (58.0/321.0) * contentMaxWidth
         self.backgroundColor = UIColor(hexString: "496FB6")
         self.layer.cornerRadius = 10
-        self.text.text = text
         self.text.font = UIFont(name: "Montserrat-Bold", size: 18)
         self.text.textColor = .white
         self.text.backgroundColor = .clear
-        if subtext != nil {
-            self.subtext = UITextView()
-            self.subtext!.text = subtext
-            self.subtext!.font = UIFont(name: "Montserrat", size: 14)
-            self.subtext!.textColor = UIColor(hexString: "585858")
-            self.subtext!.backgroundColor = .clear
-            self.subtext!.textAlignment = .center
-            self.subtext!.isEditable = false
-        }
+        self.subtext?.font = UIFont(name: "Montserrat", size: 14)
+        self.subtext?.textColor = UIColor(hexString: "585858")
+        self.subtext?.backgroundColor = .clear
+        self.subtext?.textAlignment = .center
+        self.subtext?.isEditable = false
     }
 
 //    Call this after you set where you want to place your button in the parentVC
-    func draw(parentVC: UIViewController) {
+    func draw(parentVC: UIViewController, centerX: CGFloat, centerY: CGFloat) {
+
+        self.center.x = centerX
+        self.center.y = centerY
         parentVC.view.addSubview(self)
         drawText(parentVC: parentVC)
     }
