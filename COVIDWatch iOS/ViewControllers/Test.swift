@@ -13,7 +13,7 @@ class Test: UIViewController {
     var title1 = LargeText(text: "COVID WATCH")
     var q1 = MainText(text: "Have you been tested for COVID-19?")
     var q2 =  MainText(text: "I attest that the information I’ve submitted is true to the best of my knowledge.")
-    var terms =  MainText(text: "By clicking \"Report\", you acknowledge, understand and further agree to our Privacy Policy and Terms & Conditions.")
+    var terms =  UITextView()
        var not = Button(text: "Not tested", subtext: "")
        var neg = Button(text: "Tested negative", subtext: "")
        var pos = Button(text: "Tested positive", subtext: "")
@@ -22,14 +22,14 @@ class Test: UIViewController {
        var confirm = UIView()
        var agree =  Button(text: "Agree", subtext: "")
        var disagree =  Button(text: "Disagree", subtext: "")
-       var report =  Button(text: "Report", subtext: "")
+     // swiftlint:disable:next line_length
+       var report =  Button(text: "Report", subtext: "By clicking \"Report\", you acknowledge, understand and further agree to our Privacy Policy and Terms & Conditions.")
        var conditionLbl = UITextView()
        var step = 0
        var agreeCount = 0
        var condition = ""
        let screenSize: CGRect = UIScreen.main.bounds
        let timePicker = UIDatePicker()
-
     func openTimePicker() {
         timePicker.datePickerMode = UIDatePicker.Mode.date
         timePicker.frame = CGRect(x: 0.0, y: 1000, width: self.view.frame.width, height: 150.0)
@@ -49,7 +49,6 @@ class Test: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         openTimePicker()
-
         if let uiImage = UIImage(named: "logo-cw (3)") {
             icon = UIImageView(image: uiImage)
         }
@@ -76,8 +75,6 @@ class Test: UIViewController {
         q1.center.y = title1.center.y + 100
 
         view.addSubview(q1)
-
-        // swiftlint:disable:next line_length
         terms.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
         terms.font = UIFont(name: "Montserrat-SemiBold", size: 12)
         terms.frame.size.width = 320
@@ -101,25 +98,28 @@ class Test: UIViewController {
 
         not.frame.size.width = 300
         not.frame.size.height = 75
-  
         not.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
         not.layer.cornerRadius = 20
  not.text.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
-        not.draw(parentVC: self, centerX:view.center.x , centerY: q1.center.y + 125 )
-
+not.draw(parentVC: self, centerX: view.center.x,
+         centerY: q1.center.y + 125)
         neg.frame.size.width = 300
         neg.frame.size.height = 75
    neg.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
         neg.layer.cornerRadius = 20
  neg.text.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
-        neg.draw(parentVC: self, centerX:view.center.x , centerY: not.center.y + 125 )
+        neg.draw(parentVC: self,
+                 centerX: view.center.x,
+                 centerY: not.center.y + 125 )
         pos.frame.size.width = 300
         pos.frame.size.height = 75
 
         pos.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
         pos.layer.cornerRadius = 20
          pos.text.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
-        pos.draw(parentVC: self, centerX:view.center.x , centerY: neg.center.y + 125 )
+        pos.draw(parentVC: self,
+                 centerX: view.center.x,
+                 centerY: neg.center.y + 125)
         date.frame.size.width = 300
         date.frame.size.height = 75
 
@@ -131,7 +131,9 @@ class Test: UIViewController {
         date.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
         date.layer.cornerRadius = 20
         self.date.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dated)))
-       date.draw(parentVC: self, centerX:view.center.x , centerY: 1000)
+       date.draw(parentVC: self,
+                 centerX: view.center.x ,
+                 centerY: 1000)
 
         back.frame.size.width = 75
         back.frame.size.height = 75
@@ -157,7 +159,10 @@ class Test: UIViewController {
         report.backgroundColor = UIColor(red: 0.286, green: 0.435, blue: 0.714, alpha: 1)
         self.report.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.home)))
         report.layer.cornerRadius = 20
-        report.draw(parentVC: self, centerX:view.center.x, centerY: view.center.y + 1000)
+         report.subtext?.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        report.draw(parentVC: self,
+                    centerX: view.center.x,
+                    centerY: view.center.y + 1000)
 
         agree.frame.size.width = 289
         agree.frame.size.height = 58
@@ -167,7 +172,9 @@ class Test: UIViewController {
         agree.backgroundColor = UIColor(red: 0.286, green: 0.435, blue: 0.714, alpha: 1)
         agree.alpha = 0
         agree.layer.cornerRadius = 20
-       agree.draw(parentVC: self, centerX:view.center.x , centerY: view.center.y + 1000)
+       agree.draw(parentVC: self,
+                  centerX: view.center.x,
+                  centerY: view.center.y + 1000)
         disagree.frame.size.width = 289
         disagree.frame.size.height = 58
         disagree.center.x = view.center.x
@@ -176,7 +183,9 @@ class Test: UIViewController {
         disagree.backgroundColor = UIColor(red: 0.925, green: 0.949, blue: 0.98, alpha: 1)
   disagree.text.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
         disagree.layer.cornerRadius = 20
-        disagree.draw(parentVC: self, centerX:view.center.x , centerY: agree.center.y + 75)
+        disagree.draw(parentVC: self,
+                      centerX: view.center.x,
+                      centerY: agree.center.y + 75)
 
         conditionLbl.text =  "Not yet tested"
         conditionLbl.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
@@ -381,7 +390,7 @@ class Test: UIViewController {
                                    controller.conditionLbl.fadeInV(2.0)
 
                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    controller.conditionLbl.text = "Please confirm that you have \(controller.condition)"
+                                    controller.conditionLbl.text = "Did you \(controller.condition)?"
                                        controller.conditionLbl.isEditable = false
                                        controller.conditionLbl.sizeToFit()
                                        controller.conditionLbl.center.x = controller.view.center.x - 11
@@ -447,7 +456,6 @@ class Test: UIViewController {
                    }, completion: nil)
 
            }
-
 
     // swiftlint:disable:next function_body_length
     @objc func negTap() {
