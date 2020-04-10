@@ -21,7 +21,7 @@ class InfoBanner: UITextView {
         self.font = UIFont(name: "Montserrat-Bold", size: fontSize)
         self.textColor = .white
         self.frame.size.width = screenWidth
-        self.frame.size.height = 130 * figmaToiOSVerticalScalingFactor
+        self.frame.size.height = 100 * figmaToiOSVerticalScalingFactor
         self.isEditable = false
         self.backgroundColor = UIColor(hexString: "F05452")
     }

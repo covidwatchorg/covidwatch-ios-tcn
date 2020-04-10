@@ -30,7 +30,7 @@ class Share: BaseViewController {
         super.viewDidLayoutSubviews()
 
 //        TODO: for testing purposes only; user state should be stored and managed globally
-        var userState = UserState(firstTimeUser: true, testedState: .notTested, hasBeenInContact: false)
+        var userState = UserState(firstTimeUser: false, testedState: .notTested, hasBeenInContact: false)
         
         drawScreen(userState: userState)
     }
@@ -39,28 +39,53 @@ class Share: BaseViewController {
     }
     
     private func drawScreen(userState: UserState) {
-        img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
+//        optionally draw the info banner and determine the coordinate for the top of the image
+        var imgTop: CGFloat
+        if !userState.firstTimeUser {
+            infoBanner.draw(parentVC: self, centerX: view.center.x, originY: header.frame.maxY)
+            imgTop = infoBanner.frame.maxY + 21.0 * figmaToiOSVerticalScalingFactor
+        } else {
+            imgTop = header.frame.maxY
+        }
+//        determine image size
         img.frame.size.width = 253 * figmaToiOSHorizontalScalingFactor
         img.frame.size.height = 259 * figmaToiOSVerticalScalingFactor
-
-        if screenHeight <= 667 {
+        if userState.firstTimeUser && screenHeight <= 667 {
             img.frame.size.width /= 1.5
             img.frame.size.height /= 1.5
         }
-
         img.center.x = view.center.x - 5 * figmaToiOSHorizontalScalingFactor
-        img.frame.origin.y = header.frame.minY + 101.0 * figmaToiOSVerticalScalingFactor
+        img.frame.origin.y = imgTop
         self.view.addSubview(img)
 
-        largeText.draw(parentVC: self,
-                       centerX: view.center.x,
-                       originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
+//        draw "You're all set!" if first time user and determine mainText top
+        var mainTextTop: CGFloat
+        if userState.firstTimeUser {
+            largeText.draw(parentVC: self,
+            centerX: view.center.x,
+            originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
+            mainTextTop = largeText.frame.maxY
+        } else {
+            mainTextTop = img.frame.maxY + 25.0 * figmaToiOSVerticalScalingFactor
+        }
+//        draw mainText with respect to largeText or img or not at all, and determine spread button top
+        var spreadButtonTop: CGFloat
+        if userState.firstTimeUser {
+            mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
+            spreadButtonTop = mainText.frame.maxY + (5.0 * figmaToiOSVerticalScalingFactor)
+        } else if userState.testedState != .notTested {
+            mainText.text = "Thank you for helping your community stay safe, anonymously."
+            mainText.textAlignment = .center
+            mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
+            spreadButtonTop = mainText.frame.maxY + (10.0 * figmaToiOSVerticalScalingFactor)
+        } else {
+            spreadButtonTop = img.frame.maxY + (30.0 * figmaToiOSVerticalScalingFactor)
+        }
 
-        mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
 
         spreadButton.draw(parentVC: self,
                           centerX: view.center.x,
-                          originY: mainText.frame.maxY + (5.0 * figmaToiOSVerticalScalingFactor))
+                          originY: spreadButtonTop)
 
         if userState.testedState == .notTested {
             self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
