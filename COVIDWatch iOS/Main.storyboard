@@ -17,27 +17,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="btT-ps-Ijn">
-                                <rect key="frame" x="167" y="144" width="80" height="80"/>
+                                <rect key="frame" x="167" y="104" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="9a4-ZB-JmS"/>
                                     <constraint firstAttribute="width" constant="80" id="CYv-nr-OQ0"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COVID WATCH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3d-b4-wRM">
-                                <rect key="frame" x="32" y="250" width="350" height="21"/>
+                                <rect key="frame" x="32" y="210" width="350" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="EvC-0U-UrV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FfY-15-nc7">
-                                <rect key="frame" x="102.66666666666669" y="474.66666666666674" width="209" height="206"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FfY-15-nc7">
+                                <rect key="frame" x="102.66666666666669" y="431" width="209" height="206"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="206" id="SCw-hS-mph"/>
-                                    <constraint firstAttribute="width" constant="209" id="eGF-Nj-yhZ"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="209" id="FVX-ru-VvU"/>
+                                    <constraint firstAttribute="width" secondItem="FfY-15-nc7" secondAttribute="height" multiplier="209:206" id="QRH-Ag-cCX"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help your community stay safe, anonymously." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csG-s4-Jdl">
-                                <rect key="frame" x="32" y="712.66666666666663" width="350" height="20.333333333333371"/>
+                                <rect key="frame" x="28" y="669" width="358" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Fdu-pm-dIE"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,9 +65,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="csG-s4-Jdl" firstAttribute="top" secondItem="FfY-15-nc7" secondAttribute="bottom" constant="32" id="6Zb-ji-kK6"/>
-                            <constraint firstItem="FfY-15-nc7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="v3d-b4-wRM" secondAttribute="bottom" constant="100" id="ANK-R6-lFv"/>
-                            <constraint firstItem="gDc-EV-Sln" firstAttribute="trailing" secondItem="csG-s4-Jdl" secondAttribute="trailing" constant="32" id="IZZ-mj-f94"/>
+                            <constraint firstItem="csG-s4-Jdl" firstAttribute="top" secondItem="FfY-15-nc7" secondAttribute="bottom" constant="16" id="6Zb-ji-kK6"/>
+                            <constraint firstItem="FfY-15-nc7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="v3d-b4-wRM" secondAttribute="bottom" constant="16" id="ANK-R6-lFv"/>
+                            <constraint firstItem="gDc-EV-Sln" firstAttribute="trailing" secondItem="csG-s4-Jdl" secondAttribute="trailing" constant="28" id="IZZ-mj-f94"/>
                             <constraint firstItem="kBx-Na-snW" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="32" id="Jtt-fF-L60"/>
                             <constraint firstItem="v3d-b4-wRM" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="32" id="M3f-h8-HA7"/>
                             <constraint firstItem="gDc-EV-Sln" firstAttribute="bottom" secondItem="kBx-Na-snW" secondAttribute="bottom" constant="32" id="Nqp-NB-tpO"/>
@@ -70,8 +76,8 @@
                             <constraint firstItem="FfY-15-nc7" firstAttribute="centerX" secondItem="cgF-uO-z8W" secondAttribute="centerX" id="UzR-46-4Wo"/>
                             <constraint firstItem="v3d-b4-wRM" firstAttribute="top" secondItem="btT-ps-Ijn" secondAttribute="bottom" constant="26" id="XHn-hW-9MD"/>
                             <constraint firstItem="gDc-EV-Sln" firstAttribute="trailing" secondItem="v3d-b4-wRM" secondAttribute="trailing" constant="32" id="YNQ-fg-j7O"/>
-                            <constraint firstItem="btT-ps-Ijn" firstAttribute="top" secondItem="gDc-EV-Sln" secondAttribute="top" constant="100" id="YYl-hQ-4vs"/>
-                            <constraint firstItem="csG-s4-Jdl" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="32" id="kdh-JK-XzV"/>
+                            <constraint firstItem="btT-ps-Ijn" firstAttribute="top" secondItem="gDc-EV-Sln" secondAttribute="top" constant="60" id="YYl-hQ-4vs"/>
+                            <constraint firstItem="csG-s4-Jdl" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="28" id="kdh-JK-XzV"/>
                             <constraint firstItem="kBx-Na-snW" firstAttribute="top" secondItem="csG-s4-Jdl" secondAttribute="bottom" constant="32" id="qPC-c0-twa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gDc-EV-Sln"/>
