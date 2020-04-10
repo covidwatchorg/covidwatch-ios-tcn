@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		00999A0AECE2E1E4E9ACA1C6 /* Pods_COVIDWatch_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA04245E319FAE324E129CE /* Pods_COVIDWatch_iOSTests.framework */; };
-		1F2F1A56243EB8A00061702F /* Button2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F1A54243EB8A00061702F /* Button2.swift */; };
-		1F2F1A57243EB8A00061702F /* TitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F1A55243EB8A00061702F /* TitleText.swift */; };
 		2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */; };
 		2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30EFC2242268010063C211 /* Array+Chunked.swift */; };
 		2D5C540F241CB51D00DB2520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5C540E241CB51C00DB2520 /* Main.storyboard */; };
@@ -40,8 +38,6 @@
 		2DFDC5BD24190ABA00B108F8 /* COVIDWatch_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */; };
 		2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */; };
 		2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E5243D05260084F8ED /* MenuItem.swift */; };
-		2E0E86EC243E4C890084F8ED /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86EB243E4C890084F8ED /* UIViewControllerExtension.swift */; };
-		2E1315D024399B8A001C4DA8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1315CF24399B8A001C4DA8 /* Home.swift */; };
 		2E1FDBF32439275E000D8D67 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash.swift */; };
 		2E1FDBF5243929F4000D8D67 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */; };
 		2E1FDC0824393C5A000D8D67 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF624393C53000D8D67 /* Montserrat-ThinItalic.ttf */; };
@@ -72,10 +68,11 @@
 		2EBF8731243C09F1003278E6 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8730243C09F1003278E6 /* Button.swift */; };
 		2EBF8735243CE60E003278E6 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8734243CE60E003278E6 /* Menu.swift */; };
 		2EF61C392436F82D003046A4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF61C382436F82D003046A4 /* UIColorExtension.swift */; };
+		2EFE6304243F990900D00305 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6303243F990900D00305 /* Share.swift */; };
+		2EFE6308243FB54F00D00305 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */; };
 		B1D85F9E809BCC12318E2223 /* Pods_COVIDWatch_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */; };
 		E1A7016D243D448F001FF6F0 /* ThankYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7016A243D448F001FF6F0 /* ThankYou.swift */; };
 		E1C729FF243DE30900D30118 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C729FE243DE30900D30118 /* Test.swift */; };
-		E1C72A01243DE33400D30118 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C72A00243DE33400D30118 /* Shared.swift */; };
 		F59A36E1AD0F8E40375BE630 /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,8 +96,6 @@
 /* Begin PBXFileReference section */
 		067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA04245E319FAE324E129CE /* Pods_COVIDWatch_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F2F1A54243EB8A00061702F /* Button2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button2.swift; sourceTree = "<group>"; };
-		1F2F1A55243EB8A00061702F /* TitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleText.swift; sourceTree = "<group>"; };
 		2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalContactEventsUploader.swift; sourceTree = "<group>"; };
 		2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicContactEventsObserver.swift; sourceTree = "<group>"; };
 		2D30EFC2242268010063C211 /* Array+Chunked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunked.swift"; sourceTree = "<group>"; };
@@ -137,8 +132,6 @@
 		2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDWatch_iOSUITests.swift; sourceTree = "<group>"; };
 		2DFDC5C924190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E0E86E5243D05260084F8ED /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		2E0E86EB243E4C890084F8ED /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		2E1315CF24399B8A001C4DA8 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		2E1FDBF22439275E000D8D67 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
 		2E1FDBF624393C53000D8D67 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
@@ -169,6 +162,8 @@
 		2EBF8730243C09F1003278E6 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		2EBF8734243CE60E003278E6 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		2EF61C382436F82D003046A4 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		2EFE6303243F990900D00305 /* Share.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
+		2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		328891014B90A28E0C90E061 /* Pods-COVID-19 RiskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 RiskTests.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 RiskTests/Pods-COVID-19 RiskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; sourceTree = "<group>"; };
 		64576CBB2D573736A801A228 /* Pods-COVIDWatch iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS/Pods-COVIDWatch iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,7 +178,6 @@
 		B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A7016A243D448F001FF6F0 /* ThankYou.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThankYou.swift; sourceTree = "<group>"; };
 		E1C729FE243DE30900D30118 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
-		E1C72A00243DE33400D30118 /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		ECF661F853918EA18D1C729B /* Pods-COVIDWatch iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOSTests/Pods-COVIDWatch iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,13 +226,11 @@
 				2E1FDBF22439275E000D8D67 /* Splash.swift */,
 				2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */,
 				2E1FDC1A24394424000D8D67 /* Notifications.swift */,
-				E1A7016A243D448F001FF6F0 /* ThankYou.swift */,
 				2E1FDC1C24394643000D8D67 /* Finish.swift */,
+				2EFE6303243F990900D00305 /* Share.swift */,
 				E1C729FE243DE30900D30118 /* Test.swift */,
-				E1C72A00243DE33400D30118 /* Shared.swift */,
-				2E1315CF24399B8A001C4DA8 /* Home.swift */,
+				E1A7016A243D448F001FF6F0 /* ThankYou.swift */,
 				2EBF8726243BC7F8003278E6 /* BaseViewController.swift */,
-				2E0E86EB243E4C890084F8ED /* UIViewControllerExtension.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +267,8 @@
 				2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */,
 				2D30EFC2242268010063C211 /* Array+Chunked.swift */,
 				2EF61C382436F82D003046A4 /* UIColorExtension.swift */,
+				2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */,
+				2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -380,9 +374,6 @@
 		2EF61C352436733A003046A4 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				1F2F1A54243EB8A00061702F /* Button2.swift */,
-				1F2F1A55243EB8A00061702F /* TitleText.swift */,
-				2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */,
 				2EBF8724243BC275003278E6 /* Header.swift */,
 				2EBF872A243BEAFA003278E6 /* LargeText.swift */,
 				2EBF872E243BF41E003278E6 /* MainText.swift */,
@@ -738,7 +729,6 @@
 				2EBF8731243C09F1003278E6 /* Button.swift in Sources */,
 				2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */,
 				2E1FDC1D24394643000D8D67 /* Finish.swift in Sources */,
-				E1C72A01243DE33400D30118 /* Shared.swift in Sources */,
 				2EBF8729243BCFA1003278E6 /* UIViewExtension.swift in Sources */,
 				2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */,
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
@@ -746,8 +736,6 @@
 				2EF61C392436F82D003046A4 /* UIColorExtension.swift in Sources */,
 				2EBF8725243BC275003278E6 /* Header.swift in Sources */,
 				2EBF8727243BC7F8003278E6 /* BaseViewController.swift in Sources */,
-				1F2F1A56243EB8A00061702F /* Button2.swift in Sources */,
-				1F2F1A57243EB8A00061702F /* TitleText.swift in Sources */,
 				2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */,
 				E1C729FF243DE30900D30118 /* Test.swift in Sources */,
 				2EBF872F243BF41E003278E6 /* MainText.swift in Sources */,
@@ -755,14 +743,14 @@
 				2DB09A39241975B20049CD2A /* BluetoothService.swift in Sources */,
 				2E1FDC1B24394425000D8D67 /* Notifications.swift in Sources */,
 				2DB09A3B24197A7C0049CD2A /* BluetoothController.swift in Sources */,
-				2E1315D024399B8A001C4DA8 /* Home.swift in Sources */,
 				2DDEBF60241A369B005BE9A8 /* UIWindow+ViewControllerUtility.swift in Sources */,
 				2DC231EC241BA17B00216404 /* UIViewController+ErrorPresenting.swift in Sources */,
 				2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */,
 				2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */,
 				2EBF8735243CE60E003278E6 /* Menu.swift in Sources */,
 				E1A7016D243D448F001FF6F0 /* ThankYou.swift in Sources */,
-				2E0E86EC243E4C890084F8ED /* UIViewControllerExtension.swift in Sources */,
+				2EFE6308243FB54F00D00305 /* UIResponderExtension.swift in Sources */,
+				2EFE6304243F990900D00305 /* Share.swift in Sources */,
 				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */,
 				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,
 				2EBF872B243BEAFA003278E6 /* LargeText.swift in Sources */,
@@ -946,7 +934,7 @@
 				PRODUCT_NAME = "Tags!";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -970,7 +958,7 @@
 				PRODUCT_NAME = "Tags!";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

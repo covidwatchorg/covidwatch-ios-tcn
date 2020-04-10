@@ -10,8 +10,9 @@ import UIKit
 
 class Notifications: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-standing-01-blue-4"))
-    var largeText = LargeText()
-    var mainText = MainText()
+    var largeText = LargeText(text: "Recieve Alerts")
+    //swiftlint:disable:next line_length
+    var mainText = MainText(text: "Covid Watch uses notifications to send alerts when you may have come into contact with COVID-19.")
     var button = Button(text: "Allow Notifications", subtext: "This will help you find out when you may be at risk")
 
     override func viewDidLoad() {
@@ -19,29 +20,24 @@ class Notifications: BaseViewController {
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
 //        Ratio is Figma image width to Figma screen width
-        img.frame.size.width = screenWidth * (358.0/375.0)
+        img.frame.size.width = 358.0 * figmaToiOSHorizontalScalingFactor
         img.frame.size.height = img.frame.size.width / (358.0/252.0)
         img.center.x = view.center.x
-        img.center.y = header.frame.minY + (282.0/812.0) * screenHeight
+        img.center.y = header.frame.minY + (282.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
 
-        largeText.text = "Recieve Alerts"
-        largeText.frame.size.height = largeText.contentSize.height
-        largeText.frame.origin.y = header.frame.minY + (481.0/812.0) * screenHeight
-        largeText.center.x = view.center.x
-        view.addSubview(largeText)
+        largeText.draw(parentVC: self,
+                       centerX: view.center.x,
+                       centerY: header.frame.minY + (512.0 * figmaToiOSVerticalScalingFactor))
 
-        // swiftlint:disable:next line_length
-        mainText.text = "Covid Watch uses notifications to send alerts when you may have come into contact with COVID-19."
-        mainText.frame.size.height = mainText.contentSize.height
-        mainText.frame.origin.y = header.frame.minY + (546.0/812.0) * screenHeight
-        mainText.center.x = view.center.x
-        view.addSubview(mainText)
+        mainText.draw(parentVC: self,
+                      centerX: view.center.x,
+                      originY: header.frame.minY + (546.0 * figmaToiOSVerticalScalingFactor))
 
-        button.center.x = view.center.x
-        button.frame.origin.y = screenHeight - (144.0/812.0) * screenHeight
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
-        button.draw(parentVC: self)
+        button.draw(parentVC: self,
+                    centerX: view.center.x,
+                    centerY: screenHeight - (114.0 * figmaToiOSVerticalScalingFactor))
     }
 
     @objc func nextScreen(sender: UITapGestureRecognizer) {
