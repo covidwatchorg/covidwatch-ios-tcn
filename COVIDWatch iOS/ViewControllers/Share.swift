@@ -9,29 +9,31 @@
 import UIKit
 
 class Share: BaseViewController {
-    var img: UIImageView?
+    var img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
     var largeText = LargeText(text: "Share & Protect")
     var mainText = MainText(text: "Covid Watch is using bluetooth to anonymously watch who you come in contact with. You will be notified of potential contact to COVID-19.")
     var spreadButton = Button(text: "Spread the word", subtext: "It works best when everyone uses it.")
     var testedButton = Button(text: "Tested for COVID-19?", subtext: "Share your result anonymously to help keep your community stay safe.")
     let screenSize: CGRect = UIScreen.main.bounds
-    var scalingFactor: CGFloat?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.scalingFactor = CGFloat(screenHeight) / CGFloat(896)
-        let imageb: UIImage = UIImage(named: "woman-hero-blue-2")!
-        img = UIImageView(image: imageb)
-        img!.frame.size.width = 253 * figmaToiOSHorizontalScalingFactor
-        img!.frame.size.height = 259 * figmaToiOSVerticalScalingFactor
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
-        img!.center.x = view.center.x - 5 * figmaToiOSHorizontalScalingFactor
-        img!.frame.origin.y = 101.0 * figmaToiOSVerticalScalingFactor
-        if screenHeight <= 736.0 { img!.center.y *= scalingFactor! }
-        self.view.addSubview(img!)
+        img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
+        img.frame.size.width = 253 * figmaToiOSHorizontalScalingFactor
+        img.frame.size.height = 259 * figmaToiOSVerticalScalingFactor
+        
+        if screenHeight <= 667 {
+            img.frame.size.width /= 1.5
+            img.frame.size.height /= 1.5
+        }
 
-        largeText.draw(parentVC: self, centerX: view.center.x, centerY: header.frame.minY + (407.0 * figmaToiOSVerticalScalingFactor))
+        img.center.x = view.center.x - 5 * figmaToiOSHorizontalScalingFactor
+        img.frame.origin.y = header.frame.minY + 101.0 * figmaToiOSVerticalScalingFactor
+        self.view.addSubview(img)
 
-        mainText.draw(parentVC: self, centerX: view.center.x, originY: header.frame.minY + (442.0 * figmaToiOSVerticalScalingFactor))
+        largeText.draw(parentVC: self, centerX: view.center.x, originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
+
+        mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
 
         spreadButton.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (223.0 * figmaToiOSVerticalScalingFactor))
 

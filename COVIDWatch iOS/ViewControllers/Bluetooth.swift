@@ -20,6 +20,10 @@ class Bluetooth: BaseViewController {
 
         img.frame.size.width = 312 * figmaToiOSHorizontalScalingFactor
         img.frame.size.height = 326.0 * figmaToiOSVerticalScalingFactor
+        if screenHeight <= 667 {
+            img.frame.size.width /= 1.5
+            img.frame.size.height /= 1.5
+        }
         img.center.x = view.center.x
         img.frame.origin.y = header.frame.minY + (119.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
@@ -30,9 +34,6 @@ class Bluetooth: BaseViewController {
 
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
         var buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
-        if mainText.frame.maxY > buttonTop {
-            buttonTop = mainText.frame.maxY
-        }
         button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
     }
 
