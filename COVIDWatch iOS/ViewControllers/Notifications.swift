@@ -11,6 +11,7 @@ import UIKit
 class Notifications: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-standing-01-blue-4"))
     var largeText = LargeText(text: "Recieve Alerts")
+    //swiftlint:disable:next line_length
     var mainText = MainText(text: "Covid Watch uses notifications to send alerts when you may have come into contact with COVID-19.")
     var button = Button(text: "Allow Notifications", subtext: "This will help you find out when you may be at risk")
 
@@ -25,12 +26,18 @@ class Notifications: BaseViewController {
         img.center.y = header.frame.minY + (282.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
 
-        largeText.draw(parentVC: self, centerX: view.center.x, centerY: header.frame.minY + (512.0 * figmaToiOSVerticalScalingFactor))
+        largeText.draw(parentVC: self,
+                       centerX: view.center.x,
+                       centerY: header.frame.minY + (512.0 * figmaToiOSVerticalScalingFactor))
 
-        mainText.draw(parentVC: self, centerX: view.center.x, originY: header.frame.minY + (546.0 * figmaToiOSVerticalScalingFactor))
+        mainText.draw(parentVC: self,
+                      centerX: view.center.x,
+                      originY: header.frame.minY + (546.0 * figmaToiOSVerticalScalingFactor))
 
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
-        button.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (114.0 * figmaToiOSVerticalScalingFactor))
+        button.draw(parentVC: self,
+                    centerX: view.center.x,
+                    centerY: screenHeight - (114.0 * figmaToiOSVerticalScalingFactor))
     }
 
     @objc func nextScreen(sender: UITapGestureRecognizer) {

@@ -11,6 +11,7 @@ import UIKit
 class Finish: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-group-blue-2"))
     var largeText = LargeText(text: "You're all set!")
+    //swiftlint:disable:next line_length
     var mainText = MainText(text: "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19.")
     var button = Button(text: "Finish", subtext: nil)
     var backgroundGradient = UIView()
@@ -31,14 +32,20 @@ class Finish: BaseViewController {
         self.view.addSubview(backgroundGradient)
         view.addSubview(img)
 
-        largeText.draw(parentVC: self, centerX: view.center.x, centerY: header.frame.minY + (512.0 * figmaToiOSVerticalScalingFactor))
+        largeText.draw(parentVC: self,
+                       centerX: view.center.x,
+                       centerY: header.frame.minY + (512.0 * figmaToiOSVerticalScalingFactor))
         largeText.textColor = .white
 
         mainText.textColor = .white
-        mainText.draw(parentVC: self, centerX: view.center.x, originY: header.frame.minY + (546.0 * figmaToiOSVerticalScalingFactor))
+        mainText.draw(parentVC: self,
+                      centerX: view.center.x,
+                      originY: header.frame.minY + (546.0 * figmaToiOSVerticalScalingFactor))
 
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
-        button.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (114.0 * figmaToiOSVerticalScalingFactor))
+        button.draw(parentVC: self,
+                    centerX: view.center.x,
+                    centerY: screenHeight - (114.0 * figmaToiOSVerticalScalingFactor))
         button.text.textColor = UIColor(hexString: "585858")
         button.backgroundColor = .white
     }
