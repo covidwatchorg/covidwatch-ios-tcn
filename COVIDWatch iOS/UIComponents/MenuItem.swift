@@ -23,6 +23,7 @@ class MenuItem: UIView {
         menuItem1text.frame.size.width = menuItem1.frame.size.width
         menuItem1.frame.size.height = (38.0 * figmaToiOSVerticalScalingFactor)
         menuItem1text.center = menuItem1.center
+        menuItem1text.layer.zPosition = 1
         menuItem1.addLine(position: .bottom, color: UIColor(hexString: "CCCCCC"), width: 0.5)
         if linkImg != nil {
             linkImg = UIView()
@@ -31,10 +32,13 @@ class MenuItem: UIView {
             linkImg!.frame.size.width = linkImg!.frame.size.height
             linkImg!.center.y = menuItem1.center.y
             linkImg!.frame.origin.x = menuItem1.frame.maxX - linkImg!.frame.size.width
-            linkImg?.isHidden = true
+            linkImg!.isHidden = true
+            linkImg!.layer.zPosition = 1
         }
         menuItem1text.isHidden = true
         menuItem1.isHidden = true
+        menuItem1text.layer.zPosition = 1
+        menuItem1.layer.zPosition = 1
 
         parentVC.view.addSubview(menuItem1)
         parentVC.view.addSubview(menuItem1text)

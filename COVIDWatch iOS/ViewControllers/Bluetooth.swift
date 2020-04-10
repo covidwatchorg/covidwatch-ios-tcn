@@ -15,28 +15,29 @@ class Bluetooth: BaseViewController {
     var mainText = MainText(text: "Covid Watch uses bluetooth to anonymously log interactions with other Covid Watch users that you come in contact with.")
     var button = Button(text: "Allow Bluetooth", subtext: "This is required for the app to work.")
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
-        img.frame.size.width = screenWidth * 0.832
-        img.frame.size.height = img.frame.size.width / (312.0/326.0)
+        img.frame.size.width = 312 * figmaToiOSHorizontalScalingFactor
+        img.frame.size.height = 326.0 * figmaToiOSVerticalScalingFactor
+        if screenHeight <= 667 {
+            img.frame.size.width /= 1.5
+            img.frame.size.height /= 1.5
+        }
         img.center.x = view.center.x
-        img.center.y = header.frame.minY + (282.0 * figmaToiOSVerticalScalingFactor)
+        img.frame.origin.y = header.frame.minY + (119.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
 
         largeText.draw(parentVC: self,
                        centerX: view.center.x,
-                       centerY: header.frame.minY + (512.0 * figmaToiOSVerticalScalingFactor))
+                       originY: img.frame.maxY + 20 * figmaToiOSVerticalScalingFactor)
 
-        mainText.draw(parentVC: self,
-                      centerX: view.center.x,
-                      originY: header.frame.minY + (546.0 * figmaToiOSVerticalScalingFactor))
+        mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
 
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
-        button.draw(parentVC: self,
-                    centerX: view.center.x,
-                    centerY: screenHeight - (114.0 * figmaToiOSVerticalScalingFactor))
+        let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
+        button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
     }
 
     @objc func nextScreen(sender: UITapGestureRecognizer) {

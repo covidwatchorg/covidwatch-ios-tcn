@@ -9,7 +9,7 @@
 import UIKit
 
 class Share: BaseViewController {
-    var img: UIImageView?
+    var img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
     var largeText = LargeText(text: "Share & Protect")
     //swiftlint:disable:next line_length
     var mainText = MainText(text: "Covid Watch is using bluetooth to anonymously watch who you come in contact with. You will be notified of potential contact to COVID-19.")
@@ -17,34 +17,36 @@ class Share: BaseViewController {
     var testedButton = Button(text: "Tested for COVID-19?",
                               subtext: "Share your result anonymously to help keep your community stay safe.")
     let screenSize: CGRect = UIScreen.main.bounds
-    var scalingFactor: CGFloat?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.scalingFactor = CGFloat(screenHeight) / CGFloat(896)
-        let imageb: UIImage = UIImage(named: "woman-hero-blue-2")!
-        img = UIImageView(image: imageb)
-        img!.frame.size.width = 253
-        img!.frame.size.height = 259
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
-        img!.center.x = view.center.x - 5
-        img!.center.y = 240
-        if screenHeight <= 736.0 { img!.center.y *= scalingFactor! }
-        self.view.addSubview(img!)
+        img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
+        img.frame.size.width = 253 * figmaToiOSHorizontalScalingFactor
+        img.frame.size.height = 259 * figmaToiOSVerticalScalingFactor
 
-        largeText.draw(parentVC: self, centerX: view.center.x, centerY: img!.center.y + img!.frame.size.height/2 + 40)
+        if screenHeight <= 667 {
+            img.frame.size.width /= 1.5
+            img.frame.size.height /= 1.5
+        }
 
-        mainText.draw(parentVC: self,
-                      centerX: view.center.x,
-                      originY: largeText.center.y + largeText.frame.size.height/2 + 60)
+        img.center.x = view.center.x - 5 * figmaToiOSHorizontalScalingFactor
+        img.frame.origin.y = header.frame.minY + 101.0 * figmaToiOSVerticalScalingFactor
+        self.view.addSubview(img)
+
+        largeText.draw(parentVC: self,
+                       centerX: view.center.x,
+                       originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
+
+        mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
 
         spreadButton.draw(parentVC: self,
                           centerX: view.center.x,
-                          centerY: mainText.center.y + mainText.frame.size.height/2 + 40)
+                          originY: mainText.frame.maxY + (5.0 * figmaToiOSVerticalScalingFactor))
 
         self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
-        testedButton.draw(parentVC: self,
-                          centerX: view.center.x,
-                          centerY: spreadButton.subtext!.center.y + spreadButton.subtext!.frame.size.height/2 + 40)
+        let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
+        testedButton.draw(parentVC: self, centerX: view.center.x, originY: testedButtonTop)
+
         testedButton.backgroundColor = .clear
         testedButton.layer.borderWidth = 1
         testedButton.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
