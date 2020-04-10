@@ -16,7 +16,6 @@ extension UIResponder {
     }
     var screenHeight: CGFloat {
         get {
-            print(UIScreen.main.bounds.height)
             return UIScreen.main.bounds.height
         }
     }

@@ -21,14 +21,15 @@ class Notifications: BaseViewController {
 //        Ratio is Figma image width to Figma screen width
         img.frame.size.width = 358.0 * figmaToiOSHorizontalScalingFactor
         img.frame.size.height = 252.0 * figmaToiOSVerticalScalingFactor
+        if screenHeight <= 667 {
+            img.frame.size.width /= 1.5
+            img.frame.size.height /= 1.5
+        }
         img.center.x = view.center.x
         img.frame.origin.y = header.frame.minY + (146.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
 
-        var imgToLargeTextGap = 83.0 * figmaToiOSVerticalScalingFactor
-        if screenHeight <= 667 {
-            imgToLargeTextGap /= 2
-        }
+        let imgToLargeTextGap = 40.0 * figmaToiOSVerticalScalingFactor
         largeText.draw(parentVC: self, centerX: view.center.x, originY: img.frame.maxY + imgToLargeTextGap)
 
         mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
@@ -36,9 +37,6 @@ class Notifications: BaseViewController {
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
 
         var buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
-        if mainText.frame.maxY > buttonTop {
-            buttonTop = mainText.frame.maxY
-        }
         button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
     }
 

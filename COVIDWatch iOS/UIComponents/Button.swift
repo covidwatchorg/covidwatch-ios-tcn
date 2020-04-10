@@ -24,10 +24,19 @@ class Button: UIView {
         self.frame.size.height = (58.0/321.0) * contentMaxWidth
         self.backgroundColor = UIColor(hexString: "496FB6")
         self.layer.cornerRadius = 10
-        self.text.font = UIFont(name: "Montserrat-Bold", size: 18)
+        var buttonFontSize: CGFloat = 18
+        var subtextFontSize: CGFloat = 14
+        if screenHeight <= 568 {
+            subtextFontSize = 10
+            buttonFontSize = 14
+        } else if screenHeight <= 667 {
+            subtextFontSize = 12
+            buttonFontSize = 16
+        }
+        self.text.font = UIFont(name: "Montserrat-Bold", size: buttonFontSize)
         self.text.textColor = .white
         self.text.backgroundColor = .clear
-        self.subtext?.font = UIFont(name: "Montserrat", size: 14)
+        self.subtext?.font = UIFont(name: "Montserrat", size: subtextFontSize)
         self.subtext?.textColor = UIColor(hexString: "585858")
         self.subtext?.backgroundColor = .clear
         self.subtext?.textAlignment = .center

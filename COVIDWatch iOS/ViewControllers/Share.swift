@@ -35,10 +35,11 @@ class Share: BaseViewController {
 
         mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
 
-        spreadButton.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (223.0 * figmaToiOSVerticalScalingFactor))
+        spreadButton.draw(parentVC: self, centerX: view.center.x, originY: mainText.frame.maxY + (5.0 * figmaToiOSVerticalScalingFactor))
 
         self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
-        testedButton.draw(parentVC: self, centerX: view.center.x, centerY: screenHeight - (114.0 * figmaToiOSVerticalScalingFactor))
+        let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
+        testedButton.draw(parentVC: self, centerX: view.center.x, originY: testedButtonTop)
         testedButton.backgroundColor = .clear
         testedButton.layer.borderWidth = 1
         testedButton.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor

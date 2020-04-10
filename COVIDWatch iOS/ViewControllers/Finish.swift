@@ -27,8 +27,13 @@ class Finish: BaseViewController {
 
         img.frame.size.width = 251 * figmaToiOSHorizontalScalingFactor
         img.frame.size.height = 308 * figmaToiOSVerticalScalingFactor
+        
         img.frame.origin.x = -15.0 * figmaToiOSHorizontalScalingFactor
-        print(header.frame.maxY)
+        if screenHeight <= 667 {
+            img.frame.size.width /= 1.5
+            img.frame.size.height /= 1.5
+            img.center.x = view.center.x - 0.5 * view.center.x
+        }
         img.frame.origin.y = header.frame.maxY + (59 * figmaToiOSVerticalScalingFactor)
 
         largeText.draw(parentVC: self, centerX: view.center.x, originY: img.frame.maxY + (33.0 * figmaToiOSVerticalScalingFactor))
@@ -37,10 +42,7 @@ class Finish: BaseViewController {
         mainText.textColor = .white
         mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
         self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
-        var buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
-        if mainText.frame.maxY > buttonTop {
-            buttonTop = mainText.frame.maxY
-        }
+        let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
         button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
         button.text.textColor = UIColor(hexString: "585858")
         button.backgroundColor = .white

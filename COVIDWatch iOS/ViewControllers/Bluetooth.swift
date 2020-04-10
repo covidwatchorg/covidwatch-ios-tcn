@@ -28,7 +28,7 @@ class Bluetooth: BaseViewController {
         img.frame.origin.y = header.frame.minY + (119.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
 
-        largeText.draw(parentVC: self, centerX: view.center.x, originY: img.frame.maxY + 36 * figmaToiOSVerticalScalingFactor)
+        largeText.draw(parentVC: self, centerX: view.center.x, originY: img.frame.maxY + 20 * figmaToiOSVerticalScalingFactor)
 
         mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
 
