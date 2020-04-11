@@ -33,6 +33,8 @@ jobs:
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: 'Pull request has passed checks and is ready for review.'
+        SLACK_ICON_EMOJI: ':robot:'
+        SLACK_USERNAME: 'Github Actions'
 
   testflight_upload:
     runs-on: macos-latest
