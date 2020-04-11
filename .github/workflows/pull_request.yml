@@ -27,9 +27,9 @@ jobs:
   testflight_upload:
     runs-on: macos-latest
     steps:
-    -uses: actions/checkout@v2
-    -name: TestFlight Upload
-     run: |
+    - uses: actions/checkout@v2
+    - name: TestFlight Upload
+      run: |
         bundle install
         bundle exec fastlane beta
     - name: Slack Notification
