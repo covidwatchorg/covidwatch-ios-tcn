@@ -967,8 +967,8 @@
 			baseConfigurationReference = 64576CBB2D573736A801A228 /* Pods-COVIDWatch iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Distribution";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"COVIDWatch iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = NTX63W5EU6;
 				ENABLE_PREVIEWS = YES;
@@ -980,7 +980,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jefflett.cov;
 				PRODUCT_NAME = "Tags!";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.jefflett.cov";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
