@@ -18,7 +18,7 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    setup_ci(provider: "travis")
+    create_keychain
     match(readonly: true)
     build_app(workspace: "COVIDWatch.xcworkspace", scheme: "COVIDWatch iOS", verbose: true)
     testflight(skip_waiting_for_build_processing: true, apple_id: "jeffctown@gmail.com", skip_submission: true, verbose: true)
