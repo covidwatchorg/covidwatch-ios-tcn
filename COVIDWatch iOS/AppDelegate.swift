@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var localContactEventsUploader: LocalContactEventsUploader?
     var currentUserExposureNotifier: CurrentUserExposureNotifier?
 
-    func application(
+    application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
