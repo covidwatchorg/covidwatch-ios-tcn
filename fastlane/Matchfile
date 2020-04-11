@@ -1,4 +1,4 @@
-git_url("git@github.com:jeffctown/match.git")
+git_url("https://github.com/jeffctown/match.git")
 storage_mode("git")
 type("appstore")
 

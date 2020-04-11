@@ -18,7 +18,7 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    match(verbose: true, git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"])
+    match(verbose: true)
     build_app(workspace: "COVIDWatch.xcworkspace", scheme: "COVIDWatch iOS")
     upload_to_testflight
   end
