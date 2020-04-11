@@ -16,12 +16,7 @@ jobs:
       run: |
         gem install bundler:1.16.6
         bundle install
-        xcodebuild build -workspace COVIDWatch.xcworkspace -scheme 'COVIDWatch iOS' CODE_SIGNING_ALLOWED=NO | tee xcodebuild.log | xcpretty
-    - uses: actions/upload-artifact@v1
-      if: failure()
-      with:
-        name: xcodebuild.log
-        path: xcodebuild.log
+        xcodebuild clean build -workspace COVIDWatch.xcworkspace -scheme 'COVIDWatch iOS' CODE_SIGNING_ALLOWED=NO | xcpretty
 
   swiftlint:
     runs-on: macos-latest
@@ -29,9 +24,4 @@ jobs:
     - uses: actions/checkout@v2
     - name: SwiftLint
       run: |
-        ./Pods/SwiftLint/swiftlint --strict 2>&1 | tee swiftlint-violations.log
-    - uses: actions/upload-artifact@v1
-      if: failure()
-      with:
-        name: swiftlint-violations.log
-        path: swiftlint-violations.log
+        ./Pods/SwiftLint/swiftlint --strict
