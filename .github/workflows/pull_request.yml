@@ -24,18 +24,18 @@ jobs:
       run: |
         ./Pods/SwiftLint/swiftlint --strict
 
-  notify_ready_for_review:
-    needs: [xcodebuild, swiftlint]
-    runs-on: ubuntu-latest
-    steps:
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@master
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_TITLE: 'Pull Request: Ready For Review!'
-        SLACK_MESSAGE: 'Pull request has passed all quality checks and is ready for review.'
-        SLACK_ICON_EMOJI: ':robot:'
-        SLACK_USERNAME: 'Github Actions'
+#  notify_ready_for_review:
+#    needs: [xcodebuild, swiftlint]
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: Slack Notification
+#      uses: rtCamp/action-slack-notify@master
+#      env:
+#        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+#        SLACK_TITLE: 'Pull Request: Ready For Review!'
+#        SLACK_MESSAGE: 'Pull request has passed all quality checks and is ready for review.'
+#        SLACK_ICON_EMOJI: ':robot:'
+#        SLACK_USERNAME: 'Github Actions'
 
   testflight_upload:
     runs-on: macos-latest
