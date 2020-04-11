@@ -26,7 +26,7 @@ jobs:
 
   notify_ready_for_review:
     needs: [xcodebuild, swiftlint]
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2.0.0
@@ -45,8 +45,3 @@ jobs:
         bundle exec fastlane beta
       env:
         MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.TOKEN_FOR_PROFILES }}
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@v2.0.0
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: 'A new TestFlight build was uploaded.'
