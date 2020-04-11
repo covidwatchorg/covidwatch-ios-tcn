@@ -33,6 +33,8 @@ jobs:
         gem install bundler:1.16.6
         bundle install
         bundle exec fastlane beta
+      env:
+        MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.TOKEN_FOR_PROFILES }}
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2.0.0
       env:
