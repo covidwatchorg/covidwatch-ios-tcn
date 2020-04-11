@@ -12,7 +12,13 @@ class LargeText: UITextView {
     init(text: String) {
         super.init(frame: CGRect(), textContainer: nil)
         self.text = text
-        self.font = UIFont(name: "Montserrat-SemiBold", size: 36)
+        var fontSize: CGFloat = 36
+        if screenHeight <= 568 {
+            fontSize = 28
+        } else if screenHeight <= 667 {
+            fontSize = 32
+        }
+        self.font = UIFont(name: "Montserrat-SemiBold", size: fontSize)
         self.textColor = UIColor(hexString: "585858")
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = self.contentSize.height
@@ -23,6 +29,12 @@ class LargeText: UITextView {
     func draw(parentVC: UIViewController, centerX: CGFloat, centerY: CGFloat) {
         self.center.x = centerX
         self.center.y = centerY
+        parentVC.view.addSubview(self)
+    }
+
+    func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {
+        self.center.x = centerX
+        self.frame.origin.y = originY
         parentVC.view.addSubview(self)
     }
 

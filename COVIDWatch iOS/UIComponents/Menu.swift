@@ -34,6 +34,7 @@ class Menu: UIView {
         self.frame.origin.y = parentVC.view.safeAreaInsets.top
         self.backgroundColor = .white
         self.isHidden = true
+        self.layer.zPosition = 1
         parentVC.view.addSubview(self)
     }
 
@@ -45,6 +46,7 @@ class Menu: UIView {
         xIcon.center.y = (screenHeight * 0.1)/2 + parentVC.view.safeAreaInsets.top
         xIcon.isHidden = true
         xIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
+        xIcon.layer.zPosition = 1
         parentVC.view.addSubview(xIcon)
     }
 
@@ -72,6 +74,7 @@ class Menu: UIView {
         covidWatchText.center.x = self.center.x
         covidWatchText.center.y = screenHeight - (35.0 * figmaToiOSVerticalScalingFactor)
         covidWatchText.isHidden = true
+        covidWatchText.layer.zPosition = 1
         parentVC.view.addSubview(covidWatchText)
     }
 

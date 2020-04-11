@@ -12,7 +12,13 @@ class MainText: UITextView {
     init(text: String) {
         super.init(frame: CGRect(), textContainer: nil)
         self.text = text
-        self.font = UIFont(name: "Montserrat", size: 18)
+        var fontSize: CGFloat = 18
+        if screenHeight <= 568 {
+            fontSize = 14
+        } else if screenHeight <= 667 {
+            fontSize = 16
+        }
+        self.font = UIFont(name: "Montserrat", size: fontSize)
         self.textColor = UIColor(hexString: "585858")
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = self.contentSize.height
