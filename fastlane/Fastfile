@@ -18,8 +18,9 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    match(verbose: true)
+    setup_ci(provider: "travis")
+    match(readonly: true)
     build_app(workspace: "COVIDWatch.xcworkspace", scheme: "COVIDWatch iOS")
-    upload_to_testflight
+    testflight(skip_waiting_for_build_processing: true, apple_id: "1507495537", skip_submission: true, verbose: true)
   end
 end
