@@ -7,9 +7,9 @@ env:
   DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
 
 jobs:
+
   xcodebuild:
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Xcode Build
@@ -18,9 +18,22 @@ jobs:
 
   swiftlint:
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: SwiftLint
       run: |
         ./Pods/SwiftLint/swiftlint --strict
+
+  testflight_upload:
+    runs-on: macos-latest
+    steps:
+    -uses: actions/checkout@v2
+    -name: TestFlight Upload
+      run: |
+        bundle install
+        bundle exec fastlane beta
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2.0.0
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_MESSAGE: 'A new TestFlight build was uploaded.'

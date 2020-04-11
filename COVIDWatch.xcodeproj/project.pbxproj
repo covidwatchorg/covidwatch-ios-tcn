@@ -946,7 +946,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"COVIDWatch iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = QMLQF78Y67;
+				DEVELOPMENT_TEAM = NTX63W5EU6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/COVIDWatch iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -954,7 +954,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jefflett.cov;
 				PRODUCT_NAME = "Tags!";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -970,7 +970,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"COVIDWatch iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = QMLQF78Y67;
+				DEVELOPMENT_TEAM = NTX63W5EU6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/COVIDWatch iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -978,7 +978,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jefflett.cov;
 				PRODUCT_NAME = "Tags!";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
