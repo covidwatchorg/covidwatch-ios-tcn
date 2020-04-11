@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var localContactEventsUploader: LocalContactEventsUploader?
     var currentUserExposureNotifier: CurrentUserExposureNotifier?
 
-    application(
+    // swiftlint:disable:next function_body_length
+    func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
