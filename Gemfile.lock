@@ -239,6 +239,7 @@ PLATFORMS
 DEPENDENCIES
   cocoapods!
   fastlane!
+  xcpretty!
 
 BUNDLED WITH
    1.16.6
