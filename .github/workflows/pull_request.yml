@@ -41,10 +41,6 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Setup SSH Keys and known_hosts
-      run: |
-        mkdir -p ~/.ssh
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
     - name: TestFlight Upload
       run: |
         gem install bundler:1.16.6
