@@ -2,15 +2,14 @@
 //  Created by Zsombor Szabo on 11/03/2020.
 //
 //
-a
+
 import UIKit
 import CoreData
 import Firebase
 import os.log
 import BackgroundTasks
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+@UIApplicationMainAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -22,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var localContactEventsUploader: LocalContactEventsUploader?
     var currentUserExposureNotifier: CurrentUserExposureNotifier?
 
-    // swiftlint:disable:next function_body_length
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
