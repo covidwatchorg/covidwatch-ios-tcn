@@ -20,6 +20,6 @@ platform :ios do
   lane :beta do
     match(verbose: true)
     build_app(workspace: "COVIDWatch.xcworkspace", scheme: "COVIDWatch iOS")
-    upload_to_testflight
+    testflight(skip_waiting_for_build_processing: true)
   end
 end
