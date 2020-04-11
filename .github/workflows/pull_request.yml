@@ -41,7 +41,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Setup SSH Keys and known_hosts
+    - name: Add Github.com to known_hosts
       run: |
         mkdir -p ~/.ssh
         ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -52,3 +52,4 @@ jobs:
         bundle exec fastlane beta
       env:
         MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.TOKEN_FOR_PROFILES }}
+        MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
