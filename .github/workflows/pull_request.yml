@@ -32,7 +32,8 @@ jobs:
       uses: rtCamp/action-slack-notify@v2.0.0
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: 'Pull request has passed checks and is ready for review.'
+        SLACK_TITLE: 'Pull Request: Ready For Review!'
+        SLACK_MESSAGE: 'Pull request has passed all quality checks and is ready for review.'
         SLACK_ICON_EMOJI: ':robot:'
         SLACK_USERNAME: 'Github Actions'
 
