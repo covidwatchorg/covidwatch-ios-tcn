@@ -40,6 +40,16 @@ class Splash: UIViewController {
         descriptionText.textAlignment = .center
         descriptionText.backgroundColor = .clear
 
+        let height = NSLayoutConstraint(
+            item: self.startButton!,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: nil,
+            attribute: .notAnAttribute,
+            multiplier: 1,
+            constant: (58.0/321.0) * contentMaxWidth
+        )
+        startButton.addConstraint(height)
         startButton.layer.cornerRadius = 10
         startButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 24)
 

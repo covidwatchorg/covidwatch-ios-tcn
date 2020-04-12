@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ayA-Zb-ImF">
-                                <rect key="frame" x="102.66666666666669" y="447" width="209" height="206"/>
+                                <rect key="frame" x="102.66666666666669" y="482" width="209" height="206"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="family-superhero" translatesAutoresizingMaskIntoConstraints="NO" id="FfY-15-nc7">
                                         <rect key="frame" x="0.0" y="0.0" width="209" height="206"/>
@@ -45,7 +45,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help your community stay safe, anonymously." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csG-s4-Jdl">
-                                <rect key="frame" x="28" y="669" width="358" height="64"/>
+                                <rect key="frame" x="28" y="704" width="358" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Fdu-pm-dIE"/>
                                 </constraints>
@@ -54,11 +54,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBx-Na-snW">
-                                <rect key="frame" x="32" y="765" width="350" height="65"/>
+                                <rect key="frame" x="32" y="800" width="350" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="HHR-dz-cow"/>
-                                </constraints>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
