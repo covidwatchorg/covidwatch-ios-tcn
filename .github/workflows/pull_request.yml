@@ -9,7 +9,6 @@ env:
 jobs:
   xcodebuild:
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Xcode Build
@@ -18,7 +17,6 @@ jobs:
 
   swiftlint:
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: SwiftLint
