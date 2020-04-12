@@ -28,8 +28,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         notificationContent.categoryIdentifier = UNNotificationCategory.currentUserExposed
         notificationContent.sound = .defaultCritical
         // When exporting for localizations Xcode doesn't look for NSString.localizedUserNotificationString(forKey:, arguments:))
-        _ = NSLocalizedString("You have been notified", comment: "")
-        notificationContent.body = NSString.localizedUserNotificationString(forKey: "You have been notified", arguments: nil)
+        _ = NSLocalizedString("You have been possibly exposed to someone who you have recently been in contact with, and who has subsequently self-reported as having the virus.", comment: "")
+        notificationContent.body = NSString.localizedUserNotificationString(forKey: "You have been possibly exposed to someone who you have recently been in contact with, and who has subsequently self-reported as having the virus.", arguments: nil)
         let notificationRequest = UNNotificationRequest(identifier: UNNotificationCategory.currentUserExposed, content: notificationContent, trigger:
             UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false))
         addToCurrentUserNotificationCenterNotificationRequest(notificationRequest)

@@ -30,9 +30,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Allow access to Bluetooth.</string>
+	<string>Allow access to Bluetooth to enable privacy-preserving contact tracing.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>Allow access to Bluetooth.</string>
+	<string>Allow access to Bluetooth to enable privacy-preserving contact tracing.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>

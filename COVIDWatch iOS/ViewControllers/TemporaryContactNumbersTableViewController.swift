@@ -22,6 +22,7 @@ class TemporaryContactNumbersTableViewController: UITableViewController, NSFetch
         super.viewDidLoad()
         self.initFetchedResultsController()
         self.configureIsTemporaryContactLoggingObservationEnabled()
+        self.configureClearButton()
         self.tableView.refreshControl = UIRefreshControl()
         self.tableView.refreshControl?.addTarget(self, action: #selector(refreshSignedReports), for: .valueChanged)
     }
@@ -60,26 +61,37 @@ class TemporaryContactNumbersTableViewController: UITableViewController, NSFetch
     @IBOutlet weak var startBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var stopBarButtonItem: UIBarButtonItem!
     
+    private func configureClearButton() {
+        self.clearBarButtonItem.isEnabled = (self.fetchedResultsController?.fetchedObjects?.count ?? 0) > 0
+    }
+    
     @IBAction func handleTapClearButton(_ sender: UIBarButtonItem) {
-        let context = PersistentContainer.shared.newBackgroundContext()
-        context.perform {
-            do {
-                os_log("Deleting temporary contact numbers...", log: .app)
-                guard let entityName = TemporaryContactNumber.entity().name else { return }
-                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-                let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-                batchDeleteRequest.resultType = .resultTypeObjectIDs
-                let batchDeleteResult = try context.execute(batchDeleteRequest) as! NSBatchDeleteResult
-                let deletedObjectIDs = batchDeleteResult.result as! [NSManagedObjectID]
-                if !deletedObjectIDs.isEmpty {
-                    NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSDeletedObjectsKey: deletedObjectIDs], into: [PersistentContainer.shared.viewContext])
+        let alertController = UIAlertController(title: NSLocalizedString("Clear discovered rolling proximity identifiers (RPI) stored on this device?", comment: ""), message: "", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { _ in
+            ()
+        }))
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Clear", comment: ""), style: .default, handler: { _ in
+            let context = PersistentContainer.shared.newBackgroundContext()
+            context.perform {
+                do {
+                    os_log("Deleting temporary contact numbers...", log: .app)
+                    guard let entityName = TemporaryContactNumber.entity().name else { return }
+                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+                    let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+                    batchDeleteRequest.resultType = .resultTypeObjectIDs
+                    let batchDeleteResult = try context.execute(batchDeleteRequest) as! NSBatchDeleteResult
+                    let deletedObjectIDs = batchDeleteResult.result as! [NSManagedObjectID]
+                    if !deletedObjectIDs.isEmpty {
+                        NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSDeletedObjectsKey: deletedObjectIDs], into: [PersistentContainer.shared.viewContext])
+                    }
+                    os_log("Deleted %d temporary contact number(s)", log: .app, deletedObjectIDs.count)
                 }
-                os_log("Deleted %d temporary contact number(s)", log: .app, deletedObjectIDs.count)
+                catch {
+                    os_log("Deleting temporary contacts numbers failed: %@", log: .app, type: .error, error as CVarArg)
+                }
             }
-            catch {
-                os_log("Deleting temporary contacts numbers failed: %@", log: .app, type: .error, error as CVarArg)
-            }
-        }
+        }))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func handleTapStartButton(_ sender: UIBarButtonItem) {
@@ -91,7 +103,14 @@ class TemporaryContactNumbersTableViewController: UITableViewController, NSFetch
     }
     
     @IBAction func handleTapUploadButton(_ sender: UIBarButtonItem) {
-        (UIApplication.shared.delegate as? AppDelegate)?.generateAndUploadReport()
+        let alertController = UIAlertController(title: NSLocalizedString("Upload self-report to the cloud?", comment: ""), message: "", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { _ in
+            ()
+        }))
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Upload", comment: ""), style: .default, handler: { _ in
+            (UIApplication.shared.delegate as? AppDelegate)?.generateAndUploadReport()
+        }))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     private func configureBarButtonItems(animated: Bool = false) {
@@ -163,6 +182,7 @@ class TemporaryContactNumbersTableViewController: UITableViewController, NSFetch
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
+        self.configureClearButton()
     }
     
     /*

@@ -102,14 +102,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func configureIsCurrentUserSickObserver() {        
-        self.isCurrentUserSickObservation = UserDefaults.standard.observe(\.isCurrentUserSick, options: [.new], changeHandler: { [weak self] (_, change) in
-            guard let self = self else { return }
-            guard change.newValue == true else {
-                return
-            }
-            // TODO: Handle the case of uploading new reports after the fact the user has reported sick
-            self.generateAndUploadReport()
-        })
+//        self.isCurrentUserSickObservation = UserDefaults.standard.observe(\.isCurrentUserSick, options: [.new], changeHandler: { [weak self] (_, change) in
+//            guard let self = self else { return }
+//            guard change.newValue == true else {
+//                return
+//            }
+//            // TODO: Handle the case of uploading new reports after the fact the user has reported sick
+//            self.generateAndUploadReport()
+//        })
     }
     
 }

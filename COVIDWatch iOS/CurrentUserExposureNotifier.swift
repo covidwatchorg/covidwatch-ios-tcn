@@ -52,7 +52,7 @@ open class CurrentUserExposureNotifier: NSObject, NSFetchedResultsControllerDele
         }
         else {
             guard self.alertContorller == nil else { return }
-            let controller = UIAlertController(title: NSLocalizedString("You have been notified", comment: ""), message: nil, preferredStyle: .alert)
+            let controller = UIAlertController(title: NSLocalizedString("You have been possibly exposed to someone who you have recently been in contact with, and who has subsequently self-reported as having the virus.", comment: ""), message: nil, preferredStyle: .alert)
             controller.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: { [weak self] _ in
                 guard let self = self else { return }
                 self.alertContorller = nil
