@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2DFDC59E24190AB700B108F8"
-               BuildableName = "TCN.app"
+               BuildableName = "COVID Watch.app"
                BlueprintName = "COVIDWatch iOS"
                ReferencedContainer = "container:COVIDWatch.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2DFDC59E24190AB700B108F8"
-            BuildableName = "TCN.app"
+            BuildableName = "COVID Watch.app"
             BlueprintName = "COVIDWatch iOS"
             ReferencedContainer = "container:COVIDWatch.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2DFDC59E24190AB700B108F8"
-            BuildableName = "TCN.app"
+            BuildableName = "COVID Watch.app"
             BlueprintName = "COVIDWatch iOS"
             ReferencedContainer = "container:COVIDWatch.xcodeproj">
          </BuildableReference>
