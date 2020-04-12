@@ -34,6 +34,7 @@ class Home: BaseViewController {
     @objc func test() {
          performSegue(withIdentifier: "test", sender: self)
     }
+    // swiftlint:disable:next function_body_length
     private func drawScreen(userState: UserState) {
 //        optionally draw the info banner and determine the coordinate for the top of the image
         var imgTop: CGFloat
@@ -74,9 +75,11 @@ class Home: BaseViewController {
 
 //        draw mainText with respect to largeText or img or not at all
         if userState.firstTimeUser {
+            // swiftlint:disable:next line_length
             mainText.text = "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
         } else if !userState.hasBeenInContact {
+            // swiftlint:disable:next line_length
             mainText.text = "Covid Watch has not detected exposure to COVID-19. Share the app with family and friends to help your community stay safe."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
         } else {
