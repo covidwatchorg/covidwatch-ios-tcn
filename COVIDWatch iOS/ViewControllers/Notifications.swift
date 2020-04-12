@@ -54,9 +54,11 @@ class Notifications: BaseViewController {
 
                 if granted {
                     // handle if permission granted
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "NotificationsToFinish", sender: self)
+                    }
                 }
             }
-            performSegue(withIdentifier: "NotificationsToFinish", sender: self)
         }
     }
 
