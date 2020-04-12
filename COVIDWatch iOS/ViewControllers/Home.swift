@@ -15,7 +15,7 @@ struct UserState {
     var hasBeenTestedInLast14Days: Bool
 }
 
-class Share: BaseViewController {
+class Home: BaseViewController {
     var img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
     var largeText = LargeText(text: "You're all set!")
     //swiftlint:disable:next line_length
