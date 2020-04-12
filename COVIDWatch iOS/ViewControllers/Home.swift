@@ -101,8 +101,8 @@ class Home: BaseViewController {
             testedButton.draw(parentVC: self, centerX: view.center.x, originY: testedButtonTop)
             testedButton.backgroundColor = .clear
             testedButton.layer.borderWidth = 1
-            testedButton.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
-            testedButton.text.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
+            testedButton.layer.borderColor = UIColor.Secondary.LightGray.cgColor
+            testedButton.text.textColor = UIColor.Primary.Gray
             spreadButton.drawBetween(parentVC: self,
                                      top: mainText.frame.maxY,
                                      bottom: testedButtonTop,

@@ -78,11 +78,11 @@ class Button: UIView {
 //        Draw the button so that it and its subtext taken together are
 //        centered between top and bottom
         self.draw(parentVC: parentVC, centerX: centerX, centerY: (top+bottom)/2)
-        if self.subtext != nil {
-            let adjustment = (self.subtext!.frame.maxY - self.frame.maxY) / 2
+        if let selfSubtext = self.subtext {
+            let adjustment = (selfSubtext.frame.maxY - self.frame.maxY) / 2
             self.center.y -= adjustment
             self.text.center.y -= adjustment
-            self.subtext!.center.y -= adjustment
+            selfSubtext.center.y -= adjustment
         }
     }
 

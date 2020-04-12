@@ -23,7 +23,7 @@ class InfoBanner: UITextView {
         self.frame.size.width = screenWidth
         self.frame.size.height = 100 * figmaToiOSVerticalScalingFactor
         self.isEditable = false
-        self.backgroundColor = UIColor(hexString: "F05452")
+        self.backgroundColor = UIColor.Secondary.Tangerine
     }
 
     func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {
