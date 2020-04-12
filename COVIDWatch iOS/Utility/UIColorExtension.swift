@@ -58,5 +58,6 @@ extension UIColor {
     struct Secondary {
         static let Lavender = UIColor(hexString: "#a680b7")
         static let Tangerine = UIColor(hexString: "#f05452")
+        static let LightGray = UIColor(hexString: "#BDBDBD")
     }
 }
