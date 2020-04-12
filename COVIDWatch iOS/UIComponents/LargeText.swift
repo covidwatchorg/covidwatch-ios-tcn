@@ -19,7 +19,7 @@ class LargeText: UITextView {
             fontSize = 32
         }
         self.font = UIFont(name: "Montserrat-SemiBold", size: fontSize)
-        self.textColor = UIColor(hexString: "585858")
+        self.textColor = UIColor.Primary.Gray
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = self.contentSize.height
         self.isEditable = false

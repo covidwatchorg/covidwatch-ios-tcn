@@ -12,8 +12,8 @@ class Notifications: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-standing-01-blue-4"))
     var largeText = LargeText(text: "Recieve Alerts")
     //swiftlint:disable:next line_length
-    var mainText = MainText(text: "Covid Watch uses notifications to send alerts when you may have come into contact with COVID-19.")
-    var button = Button(text: "Allow Notifications", subtext: "This will help you find out when you may be at risk")
+    var mainText = MainText(text: "Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19.")
+    var button = Button(text: "Allow Notifications")
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -43,6 +43,19 @@ class Notifications: BaseViewController {
 
     @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+
+                if error != nil {
+                    // Handle the error here.
+                }
+
+                // Enable or disable features based on the authorization.
+
+                if granted {
+                    // handle if permission granted
+                }
+            }
             performSegue(withIdentifier: "NotificationsToFinish", sender: self)
         }
     }

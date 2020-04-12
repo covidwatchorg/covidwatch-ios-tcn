@@ -52,6 +52,7 @@ extension UIColor {
         static let White = UIColor(hexString: "#ffffff")
         static let Plum = UIColor(hexString: "#4B0A70")
         static let Elderberry = UIColor(hexString: "#2c007b")
+        static let Gray = UIColor(hexString: "#585858")
     }
 
     struct Secondary {
