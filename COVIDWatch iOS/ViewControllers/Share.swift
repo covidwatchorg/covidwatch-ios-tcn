@@ -29,13 +29,11 @@ class Share: BaseViewController {
 
 //        TODO: for testing purposes only; user state should be stored and managed globally
         let userState = UserState(firstTimeUser: true, hasBeenInContact: false, hasBeenTestedInLast14Days: false)
-        
         drawScreen(userState: userState)
     }
     @objc func test() {
          performSegue(withIdentifier: "test", sender: self)
     }
-    
     private func drawScreen(userState: UserState) {
 //        optionally draw the info banner and determine the coordinate for the top of the image
         var imgTop: CGFloat
@@ -74,30 +72,25 @@ class Share: BaseViewController {
             mainTextTop = img.frame.maxY + 25.0 * figmaToiOSVerticalScalingFactor
         }
 
-//        draw mainText with respect to largeText or img or not at all, and determine spread button top
-        var spreadButtonTop: CGFloat
+//        draw mainText with respect to largeText or img or not at all
         if userState.firstTimeUser {
             mainText.text = "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
-            spreadButtonTop = mainText.frame.maxY + (5.0 * figmaToiOSVerticalScalingFactor)
-        } else if !userState.hasBeenInContact    {
+        } else if !userState.hasBeenInContact {
             mainText.text = "Covid Watch has not detected exposure to COVID-19. Share the app with family and friends to help your community stay safe."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
-            spreadButtonTop = mainText.frame.maxY + (10.0 * figmaToiOSVerticalScalingFactor)
         } else {
 //            userState.hasBeenInContact
             mainText.text = "Thank you for helping your community stay safe, anonymously."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
             mainText.textAlignment = .center
-            spreadButtonTop = mainText.frame.maxY + (10.0 * figmaToiOSVerticalScalingFactor)
         }
-        
+
         if userState.hasBeenInContact || screenHeight <= 568 {
 //            Necessary to fit on screen
             spreadButton.subtext = nil
         }
 //        spreadButton drawn below because its position depends on whether testedButton is drawn
-        
 
         if !userState.hasBeenTestedInLast14Days {
             self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
@@ -107,11 +100,17 @@ class Share: BaseViewController {
             testedButton.layer.borderWidth = 1
             testedButton.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
             testedButton.text.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
-            spreadButton.drawBetween(parentVC: self, top: mainText.frame.maxY, bottom: testedButtonTop, centerX: view.center.x)
+            spreadButton.drawBetween(parentVC: self,
+                                     top: mainText.frame.maxY,
+                                     bottom: testedButtonTop,
+                                     centerX: view.center.x)
         } else {
-            spreadButton.drawBetween(parentVC: self, top: mainText.frame.maxY, bottom: screenHeight - self.view.safeAreaInsets.bottom, centerX: view.center.x)
+            spreadButton.drawBetween(parentVC: self,
+                                     top: mainText.frame.maxY,
+                                     bottom: screenHeight - self.view.safeAreaInsets.bottom,
+                                     centerX: view.center.x)
         }
-        
+
     }
 
 }
