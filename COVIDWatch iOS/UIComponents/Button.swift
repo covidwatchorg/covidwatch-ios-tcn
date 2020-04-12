@@ -73,6 +73,18 @@ class Button: UIView {
             parentVC.view.addSubview(self.subtext!)
         }
     }
+    
+    func drawBetween(parentVC: UIViewController, top: CGFloat, bottom: CGFloat, centerX: CGFloat) {
+//        Draw the button so that it and its subtext taken together are
+//        centered between top and bottom
+        self.draw(parentVC: parentVC, centerX: centerX, centerY: (top+bottom)/2)
+        if self.subtext != nil {
+            var adjustment = (self.subtext!.frame.maxY - self.frame.maxY) / 2
+            self.center.y -= adjustment
+            self.text.center.y -= adjustment
+            self.subtext!.center.y -= adjustment
+        }
+    }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)

@@ -7,21 +7,19 @@
 //
 
 import UIKit
-enum TestedState {
-    case notTested, testedPositive, testedNegative
-}
 
+// TODO: This should become a global user state
 struct UserState {
     var firstTimeUser: Bool
-    var testedState: TestedState
     var hasBeenInContact: Bool
+    var hasBeenTestedInLast14Days: Bool
 }
 
 class Share: BaseViewController {
     var img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
-    var largeText = LargeText(text: "Share & Protect")
+    var largeText = LargeText(text: "You're all set!")
     //swiftlint:disable:next line_length
-    var mainText = MainText(text: "Covid Watch is using bluetooth to anonymously watch who you come in contact with. You will be notified of potential contact to COVID-19.")
+    var mainText = MainText(text: "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19.")
     var spreadButton = Button(text: "Spread the word", subtext: "It works best when everyone uses it.")
     var testedButton = Button(text: "Tested for COVID-19?",
                               subtext: "Share your result anonymously to help keep your community stay safe.")
@@ -30,7 +28,7 @@ class Share: BaseViewController {
         super.viewDidLayoutSubviews()
 
 //        TODO: for testing purposes only; user state should be stored and managed globally
-        var userState = UserState(firstTimeUser: false, testedState: .notTested, hasBeenInContact: false)
+        let userState = UserState(firstTimeUser: true, hasBeenInContact: false, hasBeenTestedInLast14Days: false)
         
         drawScreen(userState: userState)
     }
@@ -41,7 +39,7 @@ class Share: BaseViewController {
     private func drawScreen(userState: UserState) {
 //        optionally draw the info banner and determine the coordinate for the top of the image
         var imgTop: CGFloat
-        if !userState.firstTimeUser {
+        if userState.hasBeenInContact {
             infoBanner.draw(parentVC: self, centerX: view.center.x, originY: header.frame.maxY)
             imgTop = infoBanner.frame.maxY + 21.0 * figmaToiOSVerticalScalingFactor
         } else {
@@ -58,36 +56,50 @@ class Share: BaseViewController {
         img.frame.origin.y = imgTop
         self.view.addSubview(img)
 
-//        draw "You're all set!" if first time user and determine mainText top
         var mainTextTop: CGFloat
         if userState.firstTimeUser {
+            largeText.text = "You're all set!"
+            largeText.draw(parentVC: self,
+            centerX: view.center.x,
+            originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
+            mainTextTop = largeText.frame.maxY
+        } else if !userState.hasBeenInContact {
+            largeText.text = "Welcome Back!"
             largeText.draw(parentVC: self,
             centerX: view.center.x,
             originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
             mainTextTop = largeText.frame.maxY
         } else {
+//            userState.hasBeenInContact
             mainTextTop = img.frame.maxY + 25.0 * figmaToiOSVerticalScalingFactor
         }
+
 //        draw mainText with respect to largeText or img or not at all, and determine spread button top
         var spreadButtonTop: CGFloat
         if userState.firstTimeUser {
+            mainText.text = "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
             spreadButtonTop = mainText.frame.maxY + (5.0 * figmaToiOSVerticalScalingFactor)
-        } else if userState.testedState != .notTested {
-            mainText.text = "Thank you for helping your community stay safe, anonymously."
-            mainText.textAlignment = .center
+        } else if !userState.hasBeenInContact    {
+            mainText.text = "Covid Watch has not detected exposure to COVID-19. Share the app with family and friends to help your community stay safe."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
             spreadButtonTop = mainText.frame.maxY + (10.0 * figmaToiOSVerticalScalingFactor)
         } else {
-            spreadButtonTop = img.frame.maxY + (30.0 * figmaToiOSVerticalScalingFactor)
+//            userState.hasBeenInContact
+            mainText.text = "Thank you for helping your community stay safe, anonymously."
+            mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
+            mainText.textAlignment = .center
+            spreadButtonTop = mainText.frame.maxY + (10.0 * figmaToiOSVerticalScalingFactor)
         }
+        
+        if userState.hasBeenInContact || screenHeight <= 568 {
+//            Necessary to fit on screen
+            spreadButton.subtext = nil
+        }
+//        spreadButton drawn below because its position depends on whether testedButton is drawn
+        
 
-
-        spreadButton.draw(parentVC: self,
-                          centerX: view.center.x,
-                          originY: spreadButtonTop)
-
-        if userState.testedState == .notTested {
+        if !userState.hasBeenTestedInLast14Days {
             self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
             let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
             testedButton.draw(parentVC: self, centerX: view.center.x, originY: testedButtonTop)
@@ -95,7 +107,11 @@ class Share: BaseViewController {
             testedButton.layer.borderWidth = 1
             testedButton.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
             testedButton.text.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
+            spreadButton.drawBetween(parentVC: self, top: mainText.frame.maxY, bottom: testedButtonTop, centerX: view.center.x)
+        } else {
+            spreadButton.drawBetween(parentVC: self, top: mainText.frame.maxY, bottom: screenHeight - self.view.safeAreaInsets.bottom, centerX: view.center.x)
         }
+        
     }
 
 }
