@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QbB-eA-aHp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QbB-eA-aHp">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,128 +15,94 @@
                     <view key="view" contentMode="scaleToFill" id="cgF-uO-z8W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="btT-ps-Ijn">
+                                <rect key="frame" x="167" y="104" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="9a4-ZB-JmS"/>
+                                    <constraint firstAttribute="width" constant="80" id="CYv-nr-OQ0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COVID WATCH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3d-b4-wRM">
+                                <rect key="frame" x="32" y="210" width="350" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="EvC-0U-UrV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FfY-15-nc7">
+                                <rect key="frame" x="102.66666666666669" y="431" width="209" height="206"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="209" id="FVX-ru-VvU"/>
+                                    <constraint firstAttribute="width" secondItem="FfY-15-nc7" secondAttribute="height" multiplier="209:206" id="QRH-Ag-cCX"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help your community stay safe, anonymously." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csG-s4-Jdl">
+                                <rect key="frame" x="28" y="669" width="358" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Fdu-pm-dIE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBx-Na-snW">
+                                <rect key="frame" x="32" y="765" width="350" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="HHR-dz-cow"/>
+                                </constraints>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5SZ-V2-tjU" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="43K-C0-WVH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="csG-s4-Jdl" firstAttribute="top" secondItem="FfY-15-nc7" secondAttribute="bottom" constant="16" id="6Zb-ji-kK6"/>
+                            <constraint firstItem="FfY-15-nc7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="v3d-b4-wRM" secondAttribute="bottom" constant="16" id="ANK-R6-lFv"/>
+                            <constraint firstItem="gDc-EV-Sln" firstAttribute="trailing" secondItem="csG-s4-Jdl" secondAttribute="trailing" constant="28" id="IZZ-mj-f94"/>
+                            <constraint firstItem="kBx-Na-snW" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="32" id="Jtt-fF-L60"/>
+                            <constraint firstItem="v3d-b4-wRM" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="32" id="M3f-h8-HA7"/>
+                            <constraint firstItem="gDc-EV-Sln" firstAttribute="bottom" secondItem="kBx-Na-snW" secondAttribute="bottom" constant="32" id="Nqp-NB-tpO"/>
+                            <constraint firstItem="btT-ps-Ijn" firstAttribute="centerX" secondItem="cgF-uO-z8W" secondAttribute="centerX" id="R9T-ay-Cc2"/>
+                            <constraint firstItem="gDc-EV-Sln" firstAttribute="trailing" secondItem="kBx-Na-snW" secondAttribute="trailing" constant="32" id="Rmw-0D-2eL"/>
+                            <constraint firstItem="FfY-15-nc7" firstAttribute="centerX" secondItem="cgF-uO-z8W" secondAttribute="centerX" id="UzR-46-4Wo"/>
+                            <constraint firstItem="v3d-b4-wRM" firstAttribute="top" secondItem="btT-ps-Ijn" secondAttribute="bottom" constant="26" id="XHn-hW-9MD"/>
+                            <constraint firstItem="gDc-EV-Sln" firstAttribute="trailing" secondItem="v3d-b4-wRM" secondAttribute="trailing" constant="32" id="YNQ-fg-j7O"/>
+                            <constraint firstItem="btT-ps-Ijn" firstAttribute="top" secondItem="gDc-EV-Sln" secondAttribute="top" constant="60" id="YYl-hQ-4vs"/>
+                            <constraint firstItem="csG-s4-Jdl" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="28" id="kdh-JK-XzV"/>
+                            <constraint firstItem="kBx-Na-snW" firstAttribute="top" secondItem="csG-s4-Jdl" secondAttribute="bottom" constant="32" id="qPC-c0-twa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gDc-EV-Sln"/>
                     </view>
                     <connections>
-                        <segue destination="yuq-xU-X1g" kind="presentation" identifier="SplashToBluetooth" animates="NO" modalPresentationStyle="fullScreen" id="YIg-Qq-rkj"/>
+                        <outlet property="descriptionText" destination="csG-s4-Jdl" id="F2p-bC-cdn"/>
+                        <outlet property="iconImage" destination="btT-ps-Ijn" id="FNT-9b-S6J"/>
+                        <outlet property="startButton" destination="kBx-Na-snW" id="kyG-YS-FE6"/>
+                        <outlet property="superheroImage" destination="FfY-15-nc7" id="6Uy-to-qVg"/>
+                        <outlet property="titleText" destination="v3d-b4-wRM" id="ijt-8h-sbw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgw-X2-MXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1522" y="-754"/>
+            <point key="canvasLocation" x="-1628" y="-735"/>
         </scene>
         <!--Bluetooth-->
-        <scene sceneID="G44-Xj-f59">
+        <scene sceneID="8tf-by-WAm">
             <objects>
-                <viewController id="yuq-xU-X1g" customClass="Bluetooth" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kVv-Ca-arp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="NIl-X3-qNH"/>
-                    </view>
-                    <connections>
-                        <segue destination="CBP-O9-e3p" kind="presentation" identifier="BluetoothToNotifications" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="PZ8-2u-mbq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aj5-jU-DJz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Bluetooth" id="5SZ-V2-tjU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="f6h-E8-xKf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPL-Qo-6pc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-683" y="-754"/>
-        </scene>
-        <!--Notifications-->
-        <scene sceneID="Nlx-xT-zRX">
-            <objects>
-                <viewController id="CBP-O9-e3p" customClass="Notifications" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pg6-Eq-Ol1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="45r-Gc-zRR"/>
-                    </view>
-                    <connections>
-                        <segue destination="ZhN-dh-5Jw" kind="presentation" identifier="NotificationsToFinish" animates="NO" modalPresentationStyle="fullScreen" id="ekf-jH-KO9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N2d-Fa-52A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="172" y="-754"/>
-        </scene>
-        <!--Finish-->
-        <scene sceneID="ADx-7R-R0C">
-            <objects>
-                <viewController id="ZhN-dh-5Jw" customClass="Finish" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wIY-GO-VzB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Ybk-0V-UZG"/>
-                    </view>
-                    <connections>
-                        <segue destination="pzl-mE-B8I" kind="presentation" identifier="FinishToHome" animates="NO" modalPresentationStyle="fullScreen" id="lAI-L2-nZt"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GNH-kn-Rwy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1006" y="-754"/>
-        </scene>
-        <!--Share-->
-        <scene sceneID="RBP-Zq-fHv">
-            <objects>
-                <viewController id="pzl-mE-B8I" customClass="Share" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ffs-cl-RhR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Kbk-nY-GVG"/>
-                    </view>
-                    <connections>
-                        <segue destination="MAA-T8-XN2" kind="presentation" identifier="test" modalPresentationStyle="fullScreen" id="FOH-TX-lur"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eIn-sl-hDQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1904" y="-754"/>
-        </scene>
-        <!--Test-->
-        <scene sceneID="hKc-iX-Vjp">
-            <objects>
-                <viewController id="MAA-T8-XN2" customClass="Test" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="m8H-xf-Vus">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="0eJ-p4-lV1"/>
-                    </view>
-                    <connections>
-                        <segue destination="orA-2R-bFc" kind="presentation" identifier="thanks" modalPresentationStyle="fullScreen" id="cYk-FY-ZeT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vgH-ib-gKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2778" y="-754"/>
-        </scene>
-        <!--Thank You-->
-        <scene sceneID="e0O-Ne-HiW">
-            <objects>
-                <viewController id="orA-2R-bFc" customClass="ThankYou" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xDY-gd-zPK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Y4W-Vw-wrE"/>
-                    </view>
-                    <connections>
-                        <segue destination="pzl-mE-B8I" kind="presentation" identifier="home" modalPresentationStyle="fullScreen" id="po4-BW-TAw"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mgh-Yv-qQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3639" y="-754"/>
+            <point key="canvasLocation" x="-1071" y="-735"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="FOH-TX-lur"/>
-        <segue reference="po4-BW-TAw"/>
-    </inferredMetricsTieBreakers>
 </document>
