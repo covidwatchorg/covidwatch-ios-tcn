@@ -12,7 +12,7 @@ class Button: UIView {
     var text = UILabel()
     var subtext: UITextView?
 
-    init(text: String, subtext: String?) {
+    init(text: String, subtext: String? = nil) {
         super.init(frame: CGRect())
         self.text.text = text
         if subtext != nil {
@@ -22,7 +22,7 @@ class Button: UIView {
 
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = (58.0/321.0) * contentMaxWidth
-        self.backgroundColor = UIColor(hexString: "496FB6")
+        self.backgroundColor = UIColor.Primary.Bluejay
         self.layer.cornerRadius = 10
         var buttonFontSize: CGFloat = 18
         var subtextFontSize: CGFloat = 14
@@ -34,10 +34,10 @@ class Button: UIView {
             buttonFontSize = 16
         }
         self.text.font = UIFont(name: "Montserrat-Bold", size: buttonFontSize)
-        self.text.textColor = .white
+        self.text.textColor = UIColor.Primary.White
         self.text.backgroundColor = .clear
         self.subtext?.font = UIFont(name: "Montserrat", size: subtextFontSize)
-        self.subtext?.textColor = UIColor(hexString: "585858")
+        self.subtext?.textColor = UIColor.Primary.Gray
         self.subtext?.backgroundColor = .clear
         self.subtext?.textAlignment = .center
         self.subtext?.isEditable = false

@@ -10,9 +10,7 @@ import UIKit
 
 class Splash: UIViewController {
 
-    @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var titleText: UILabel!
-    @IBOutlet weak var superheroImage: UIImageView!
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var startButton: UIButton!
 
@@ -30,14 +28,10 @@ class Splash: UIViewController {
         mainGradient.frame = view.frame
         view.layer.insertSublayer(mainGradient, at: 0)
 
-        iconImage.image = UIImage(named: "logo-cw-white")
-
         titleText.text =  "COVID WATCH"
         titleText.textColor = .white
         titleText.font = UIFont(name: "Montserrat-SemiBold", size: 24)
         titleText.sizeToFit()
-
-        superheroImage.image = UIImage(named: "family-superhero")
 
         // description text
         descriptionText.text = "Help your community stay safe, anonymously."
