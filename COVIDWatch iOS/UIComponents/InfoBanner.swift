@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainText: UITextView {
+class InfoBanner: UITextView {
     init(text: String) {
         super.init(frame: CGRect(), textContainer: nil)
         self.text = text
@@ -18,17 +18,15 @@ class MainText: UITextView {
         } else if screenHeight <= 667 {
             fontSize = 16
         }
-        self.font = UIFont(name: "Montserrat", size: fontSize)
-        self.textColor = UIColor.Primary.Gray
-        self.frame.size.width = contentMaxWidth
-        self.frame.size.height = self.contentSize.height
+        self.font = UIFont(name: "Montserrat-Bold", size: fontSize)
+        self.textColor = .white
+        self.frame.size.width = screenWidth
+        self.frame.size.height = 100 * figmaToiOSVerticalScalingFactor
         self.isEditable = false
-        self.backgroundColor = .clear
+        self.backgroundColor = UIColor.Secondary.Tangerine
     }
 
     func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {
-        self.frame.size.width = contentMaxWidth
-        self.frame.size.height = self.contentSize.height
         self.center.x = centerX
         self.frame.origin.y = originY
         parentVC.view.addSubview(self)
