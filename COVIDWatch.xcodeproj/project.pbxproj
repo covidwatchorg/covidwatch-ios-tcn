@@ -59,7 +59,6 @@
 		2E1FDC1824393C5A000D8D67 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0624393C59000D8D67 /* Montserrat-SemiBoldItalic.ttf */; };
 		2E1FDC1924393C5A000D8D67 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */; };
 		2E1FDC1B24394425000D8D67 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDC1A24394424000D8D67 /* Notifications.swift */; };
-		2E1FDC1D24394643000D8D67 /* Finish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDC1C24394643000D8D67 /* Finish.swift */; };
 		2EBF8725243BC275003278E6 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8724243BC275003278E6 /* Header.swift */; };
 		2EBF8727243BC7F8003278E6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8726243BC7F8003278E6 /* BaseViewController.swift */; };
 		2EBF8729243BCFA1003278E6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */; };
@@ -72,7 +71,6 @@
 		2EFE6308243FB54F00D00305 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */; };
 		60EF50F12440E624006CDD76 /* Bluetooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F02440E624006CDD76 /* Bluetooth.storyboard */; };
 		60EF50F32440FAA4006CDD76 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F22440FAA4006CDD76 /* Notifications.storyboard */; };
-		60EF50F52440FAD7006CDD76 /* Finish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F42440FAD7006CDD76 /* Finish.storyboard */; };
 		60EF50F72440FAE0006CDD76 /* Share.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Share.storyboard */; };
 		60EF50F92440FAF3006CDD76 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F82440FAF3006CDD76 /* Test.storyboard */; };
 		60EF50FB2440FAFC006CDD76 /* Thankyou.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50FA2440FAFC006CDD76 /* Thankyou.storyboard */; };
@@ -562,7 +560,6 @@
 				2E1FDC0824393C5A000D8D67 /* Montserrat-ThinItalic.ttf in Resources */,
 				60EF50F32440FAA4006CDD76 /* Notifications.storyboard in Resources */,
 				2E1FDC1324393C5A000D8D67 /* Montserrat-LightItalic.ttf in Resources */,
-				60EF50F52440FAD7006CDD76 /* Finish.storyboard in Resources */,
 				2D5C540F241CB51D00DB2520 /* Main.storyboard in Resources */,
 				2E1FDC1924393C5A000D8D67 /* Montserrat-ExtraBold.ttf in Resources */,
 				2D6655B4242E605000B462E0 /* GoogleService-Info.plist in Resources */,
@@ -752,7 +749,6 @@
 				2E1FDBF32439275E000D8D67 /* Splash.swift in Sources */,
 				2EBF8731243C09F1003278E6 /* Button.swift in Sources */,
 				2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */,
-				2E1FDC1D24394643000D8D67 /* Finish.swift in Sources */,
 				2EBF8729243BCFA1003278E6 /* UIViewExtension.swift in Sources */,
 				2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */,
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,

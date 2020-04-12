@@ -10,9 +10,9 @@ import UIKit
 
 class Bluetooth: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-group-blue-2"))
-    var largeText = LargeText(text: "Quickly Connect")
+    var largeText = LargeText(text: "Privately Connect")
     //swiftlint:disable:next line_length
-    var mainText = MainText(text: "Covid Watch uses bluetooth to anonymously log interactions with other Covid Watch users that you come in contact with.")
+    var mainText = MainText(text: "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
     var button = Button(text: "Allow Bluetooth", subtext: "This is required for the app to work.")
 
     override func viewDidLayoutSubviews() {
