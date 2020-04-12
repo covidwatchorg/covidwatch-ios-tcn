@@ -8,7 +8,7 @@
 
 import UIKit
 
-// TODO: This should become a global user state
+// This should become a global user state
 struct UserState {
     var firstTimeUser: Bool
     var hasBeenInContact: Bool
@@ -27,7 +27,7 @@ class Home: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-//        TODO: for testing purposes only; user state should be stored and managed globally
+//        for testing purposes only; user state should be stored and managed globally
         let userState = UserState(firstTimeUser: true, hasBeenInContact: false, hasBeenTestedInLast14Days: false)
         drawScreen(userState: userState)
     }
