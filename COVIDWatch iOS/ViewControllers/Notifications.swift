@@ -15,6 +15,13 @@ class Notifications: BaseViewController {
     var mainText = MainText(text: "Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19.")
     var button = Button(text: "Allow Notifications")
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(nextScreenIfNotificationsEnabled),
+            name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
@@ -41,6 +48,15 @@ class Notifications: BaseViewController {
         button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
     }
 
+    @objc func nextScreenIfNotificationsEnabled() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "NotificationsToFinish", sender: self)
+            }
+        }
+    }
+
     @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             let center = UNUserNotificationCenter.current()
@@ -57,6 +73,26 @@ class Notifications: BaseViewController {
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "NotificationsToFinish", sender: self)
                     }
+                } else {
+                    let notificationsSettingsAlert = UIAlertController(
+                        title: NSLocalizedString("Notifications Required", comment: ""),
+                        message: "Please turn on Notifications in Settings", preferredStyle: .alert
+                    )
+                    notificationsSettingsAlert.addAction(
+                        UIAlertAction(
+                            title: NSLocalizedString("Open Settings", comment: ""),
+                            style: .default,
+                            handler: { _ in
+                                if let url = URL(string: UIApplication.openSettingsURLString) {
+                                    UIApplication.shared.open(url)
+                                }
+                            }
+                        )
+                    )
+                    DispatchQueue.main.async {
+                        self.present(notificationsSettingsAlert, animated: true)
+                    }
+                    print("Please go into settings and enable Notifications")
                 }
             }
         }
