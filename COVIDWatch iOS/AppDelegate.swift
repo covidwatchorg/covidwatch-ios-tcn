@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        window?.tintColor = UIColor(red: 50.0/255.0, green: 90.0/255.0, blue: 169.0/255.0, alpha: 1.0)
         if #available(iOS 13.0, *) {
             self.registerBackgroundTasks()
         }
