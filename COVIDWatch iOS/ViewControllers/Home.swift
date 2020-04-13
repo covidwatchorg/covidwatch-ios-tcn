@@ -8,19 +8,12 @@
 
 import UIKit
 
-// This should become a global user state
-struct UserState {
-    var firstTimeUser: Bool
-    var hasBeenInContact: Bool
-    var hasBeenTestedInLast14Days: Bool
-}
-
 class Home: BaseViewController {
     var img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
     var largeText = LargeText(text: "You're all set!")
     //swiftlint:disable:next line_length
     var mainText = MainText(text: "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19.")
-    var spreadButton = Button(text: "Spread the word", subtext: "It works best when everyone uses it.")
+    var spreadButton = Button(text: "Share the app", subtext: "It works best when everyone uses it.")
     var testedButton = Button(text: "Tested for COVID-19?",
                               subtext: "Share your result anonymously to help keep your community stay safe.")
     var infoBanner = InfoBanner(text: "You may have been in contact with COVID-19")
@@ -139,6 +132,8 @@ class Home: BaseViewController {
                                      bottom: screenHeight - self.view.safeAreaInsets.bottom,
                                      centerX: view.center.x)
         }
+
+        UserDefaults.shared.isFirstTimeUser = false
 
     }
 

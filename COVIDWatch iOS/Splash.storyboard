@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QbB-eA-aHp">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash-->
+        <scene sceneID="cDk-1l-pRt">
+            <objects>
+                <viewController id="QbB-eA-aHp" customClass="Splash" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cgF-uO-z8W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-cw-white" translatesAutoresizingMaskIntoConstraints="NO" id="btT-ps-Ijn">
+                                <rect key="frame" x="167" y="104" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="9a4-ZB-JmS"/>
+                                    <constraint firstAttribute="width" constant="80" id="CYv-nr-OQ0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COVID WATCH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3d-b4-wRM">
+                                <rect key="frame" x="32" y="210" width="350" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="EvC-0U-UrV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ayA-Zb-ImF">
+                                <rect key="frame" x="102.66666666666669" y="482" width="209" height="206"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="family-superhero" translatesAutoresizingMaskIntoConstraints="NO" id="FfY-15-nc7">
+                                        <rect key="frame" x="0.0" y="0.0" width="209" height="206"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="206" id="7FU-9j-CC7"/>
+                                            <constraint firstAttribute="width" constant="209" id="m8X-FI-Gf5"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help your community stay safe, anonymously." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csG-s4-Jdl">
+                                <rect key="frame" x="28" y="704" width="358" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Fdu-pm-dIE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBx-Na-snW">
+                                <rect key="frame" x="32" y="800" width="350" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5SZ-V2-tjU" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="43K-C0-WVH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="csG-s4-Jdl" firstAttribute="top" secondItem="ayA-Zb-ImF" secondAttribute="bottom" constant="16" id="2u8-Cg-aro"/>
+                            <constraint firstItem="ayA-Zb-ImF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="v3d-b4-wRM" secondAttribute="bottom" constant="32" id="Gpr-xt-gZ7"/>
+                            <constraint firstItem="gDc-EV-Sln" firstAttribute="trailing" secondItem="csG-s4-Jdl" secondAttribute="trailing" constant="28" id="IZZ-mj-f94"/>
+                            <constraint firstItem="kBx-Na-snW" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="32" id="Jtt-fF-L60"/>
+                            <constraint firstItem="v3d-b4-wRM" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="32" id="M3f-h8-HA7"/>
+                            <constraint firstItem="gDc-EV-Sln" firstAttribute="bottom" secondItem="kBx-Na-snW" secondAttribute="bottom" constant="32" id="Nqp-NB-tpO"/>
+                            <constraint firstItem="btT-ps-Ijn" firstAttribute="centerX" secondItem="cgF-uO-z8W" secondAttribute="centerX" id="R9T-ay-Cc2"/>
+                            <constraint firstItem="gDc-EV-Sln" firstAttribute="trailing" secondItem="kBx-Na-snW" secondAttribute="trailing" constant="32" id="Rmw-0D-2eL"/>
+                            <constraint firstItem="v3d-b4-wRM" firstAttribute="top" secondItem="btT-ps-Ijn" secondAttribute="bottom" constant="26" id="XHn-hW-9MD"/>
+                            <constraint firstItem="gDc-EV-Sln" firstAttribute="trailing" secondItem="v3d-b4-wRM" secondAttribute="trailing" constant="32" id="YNQ-fg-j7O"/>
+                            <constraint firstItem="btT-ps-Ijn" firstAttribute="top" secondItem="gDc-EV-Sln" secondAttribute="top" constant="60" id="YYl-hQ-4vs"/>
+                            <constraint firstItem="csG-s4-Jdl" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="28" id="kdh-JK-XzV"/>
+                            <constraint firstItem="ayA-Zb-ImF" firstAttribute="centerX" secondItem="cgF-uO-z8W" secondAttribute="centerX" id="l6C-nK-jDG"/>
+                            <constraint firstItem="kBx-Na-snW" firstAttribute="top" secondItem="csG-s4-Jdl" secondAttribute="bottom" constant="32" id="qPC-c0-twa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gDc-EV-Sln"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionText" destination="csG-s4-Jdl" id="F2p-bC-cdn"/>
+                        <outlet property="startButton" destination="kBx-Na-snW" id="kyG-YS-FE6"/>
+                        <outlet property="titleText" destination="v3d-b4-wRM" id="ijt-8h-sbw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jgw-X2-MXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1628" y="-735"/>
+        </scene>
+        <!--Bluetooth-->
+        <scene sceneID="8tf-by-WAm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Bluetooth" id="5SZ-V2-tjU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="f6h-E8-xKf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPL-Qo-6pc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1071" y="-735"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="family-superhero" width="209" height="206"/>
+        <image name="logo-cw-white" width="101" height="100"/>
+    </resources>
+</document>
