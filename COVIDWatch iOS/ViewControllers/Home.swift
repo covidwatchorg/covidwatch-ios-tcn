@@ -61,6 +61,9 @@ class Home: BaseViewController {
 //        self.present(activityViewController, animated: true, completion: nil)
 //        TODO: Delete below and uncomment above!!!
         UserDefaults.shared.didUserMakeContactWithSickUser = !UserDefaults.shared.didUserMakeContactWithSickUser
+        let today = Date()
+        let thirteenDaysBeforeToday = Calendar.current.date(byAdding: .day, value: -15, to: today)!
+        UserDefaults.shared.lastTestedDate = thirteenDaysBeforeToday
     }
     // swiftlint:disable:next function_body_length
     private func drawScreen() {
@@ -160,6 +163,9 @@ class Home: BaseViewController {
                                      top: mainText.frame.maxY,
                                      bottom: testedButtonTop,
                                      centerX: view.center.x)
+            testedButton.isHidden = false
+            testedButton.text.isHidden = false
+            testedButton.subtext?.isHidden = false
         } else {
             testedButton.isHidden = true
             testedButton.text.isHidden = true
