@@ -38,32 +38,23 @@ class Home: BaseViewController {
         drawScreen()
     }
     @objc func test() {
-//        performSegue(withIdentifier: "test", sender: self)
-//        TODO: Delete below and uncomment above!!!
-        let today = Date()
-        let thirteenDaysBeforeToday = Calendar.current.date(byAdding: .day, value: -13, to: today)!
-        UserDefaults.shared.lastTestedDate = thirteenDaysBeforeToday
+        performSegue(withIdentifier: "test", sender: self)
     }
 
     @objc func share() {
         // text to share
-//        let text = "Become a COVID Watcher and help your community stay safe."
-//        let url = NSURL(string: "https://www.covid-watch.org")
-//
-//        // set up activity view controller
-//        let itemsToShare: [Any] = [ text, url as Any ]
-//        let activityViewController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
-//
-//        // so that iPads won't crash
-//        activityViewController.popoverPresentationController?.sourceView = self.view
-//
-//        // present the view controller
-//        self.present(activityViewController, animated: true, completion: nil)
-//        TODO: Delete below and uncomment above!!!
-        UserDefaults.shared.didUserMakeContactWithSickUser = !UserDefaults.shared.didUserMakeContactWithSickUser
-        let today = Date()
-        let thirteenDaysBeforeToday = Calendar.current.date(byAdding: .day, value: -15, to: today)!
-        UserDefaults.shared.lastTestedDate = thirteenDaysBeforeToday
+        let text = "Become a COVID Watcher and help your community stay safe."
+        let url = NSURL(string: "https://www.covid-watch.org")
+
+        // set up activity view controller
+        let itemsToShare: [Any] = [ text, url as Any ]
+        let activityViewController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
+
+        // so that iPads won't crash
+        activityViewController.popoverPresentationController?.sourceView = self.view
+
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
     }
     // swiftlint:disable:next function_body_length
     private func drawScreen() {
