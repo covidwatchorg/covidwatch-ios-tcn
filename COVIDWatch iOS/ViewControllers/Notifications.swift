@@ -17,7 +17,9 @@ class Notifications: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(nextScreenIfNotificationsEnabled), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(nextScreenIfNotificationsEnabled),
+            name: UIApplication.willEnterForegroundNotification, object: nil)
     }
 
     override func viewDidLayoutSubviews() {
