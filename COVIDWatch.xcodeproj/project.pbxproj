@@ -10,7 +10,7 @@
 		00999A0AECE2E1E4E9ACA1C6 /* Pods_COVIDWatch_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA04245E319FAE324E129CE /* Pods_COVIDWatch_iOSTests.framework */; };
 		2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */; };
 		2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30EFC2242268010063C211 /* Array+Chunked.swift */; };
-		2D5C540F241CB51D00DB2520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5C540E241CB51C00DB2520 /* Main.storyboard */; };
+		2D5C540F241CB51D00DB2520 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5C540E241CB51C00DB2520 /* Splash.storyboard */; };
 		2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
 		2D6655AE242BF9A300B462E0 /* BluetoothController+ContactEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6655AD242BF9A300B462E0 /* BluetoothController+ContactEvent.swift */; };
 		2D6655B4242E605000B462E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D6655B3242E605000B462E0 /* GoogleService-Info.plist */; };
@@ -70,6 +70,8 @@
 		2EFE6304243F990900D00305 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6303243F990900D00305 /* Home.swift */; };
 		2EFE6308243FB54F00D00305 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */; };
 		2EFE630C2440E9EA00D00305 /* InfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE630B2440E9EA00D00305 /* InfoBanner.swift */; };
+		60A44B4E244402A500A8154B /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A44B4D244402A500A8154B /* Entry.swift */; };
+		60A44B502444046A00A8154B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A44B4F2444046A00A8154B /* Main.storyboard */; };
 		60EF50F12440E624006CDD76 /* Bluetooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F02440E624006CDD76 /* Bluetooth.storyboard */; };
 		60EF50F32440FAA4006CDD76 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F22440FAA4006CDD76 /* Notifications.storyboard */; };
 		60EF50F72440FAE0006CDD76 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Home.storyboard */; };
@@ -104,7 +106,7 @@
 		2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalContactEventsUploader.swift; sourceTree = "<group>"; };
 		2D1F0FE6241B7B4700356B3A /* PublicContactEventsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicContactEventsObserver.swift; sourceTree = "<group>"; };
 		2D30EFC2242268010063C211 /* Array+Chunked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunked.swift"; sourceTree = "<group>"; };
-		2D5C540E241CB51C00DB2520 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2D5C540E241CB51C00DB2520 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Shared.swift"; sourceTree = "<group>"; };
 		2D6655AD242BF9A300B462E0 /* BluetoothController+ContactEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BluetoothController+ContactEvent.swift"; sourceTree = "<group>"; };
 		2D6655B3242E605000B462E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -171,6 +173,8 @@
 		2EFE630B2440E9EA00D00305 /* InfoBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBanner.swift; sourceTree = "<group>"; };
 		328891014B90A28E0C90E061 /* Pods-COVID-19 RiskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 RiskTests.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 RiskTests/Pods-COVID-19 RiskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; sourceTree = "<group>"; };
+		60A44B4D244402A500A8154B /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		60A44B4F2444046A00A8154B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		60EF50F02440E624006CDD76 /* Bluetooth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Bluetooth.storyboard; sourceTree = "<group>"; };
 		60EF50F22440FAA4006CDD76 /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		60EF50F62440FAE0006CDD76 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 				2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */,
 				2E1FDC1A24394424000D8D67 /* Notifications.swift */,
 				2EFE6303243F990900D00305 /* Home.swift */,
+				60A44B4D244402A500A8154B /* Entry.swift */,
 				E1C729FE243DE30900D30118 /* Test.swift */,
 				E1A7016A243D448F001FF6F0 /* ThankYou.swift */,
 				2EBF8726243BC7F8003278E6 /* BaseViewController.swift */,
@@ -319,7 +324,8 @@
 				2EF61C352436733A003046A4 /* UIComponents */,
 				2D044469241A229E006B61E4 /* Data */,
 				2DFDC5AB24190AB900B108F8 /* Assets.xcassets */,
-				2D5C540E241CB51C00DB2520 /* Main.storyboard */,
+				2D5C540E241CB51C00DB2520 /* Splash.storyboard */,
+				60A44B4F2444046A00A8154B /* Main.storyboard */,
 				60EF50F62440FAE0006CDD76 /* Home.storyboard */,
 				60EF50F82440FAF3006CDD76 /* Test.storyboard */,
 				60EF50FA2440FAFC006CDD76 /* Thankyou.storyboard */,
@@ -548,6 +554,7 @@
 				2E1FDC0D24393C5A000D8D67 /* Montserrat-Regular.ttf in Resources */,
 				2E1FDC0E24393C5A000D8D67 /* Montserrat-Thin.ttf in Resources */,
 				2E1FDC0C24393C5A000D8D67 /* Montserrat-MediumItalic.ttf in Resources */,
+				60A44B502444046A00A8154B /* Main.storyboard in Resources */,
 				60EF50FB2440FAFC006CDD76 /* Thankyou.storyboard in Resources */,
 				2E1FDC1624393C5A000D8D67 /* Montserrat-SemiBold.ttf in Resources */,
 				2E1FDC1224393C5A000D8D67 /* Montserrat-BlackItalic.ttf in Resources */,
@@ -559,7 +566,7 @@
 				2E1FDC0824393C5A000D8D67 /* Montserrat-ThinItalic.ttf in Resources */,
 				60EF50F32440FAA4006CDD76 /* Notifications.storyboard in Resources */,
 				2E1FDC1324393C5A000D8D67 /* Montserrat-LightItalic.ttf in Resources */,
-				2D5C540F241CB51D00DB2520 /* Main.storyboard in Resources */,
+				2D5C540F241CB51D00DB2520 /* Splash.storyboard in Resources */,
 				2E1FDC1924393C5A000D8D67 /* Montserrat-ExtraBold.ttf in Resources */,
 				2D6655B4242E605000B462E0 /* GoogleService-Info.plist in Resources */,
 				2E1FDC1424393C5A000D8D67 /* Montserrat-Black.ttf in Resources */,
@@ -751,6 +758,7 @@
 				2EBF8729243BCFA1003278E6 /* UIViewExtension.swift in Sources */,
 				2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */,
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
+				60A44B4E244402A500A8154B /* Entry.swift in Sources */,
 				2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */,
 				2EF61C392436F82D003046A4 /* UIColorExtension.swift in Sources */,
 				2EBF8725243BC275003278E6 /* Header.swift in Sources */,
