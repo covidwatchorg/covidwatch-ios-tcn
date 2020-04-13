@@ -19,6 +19,8 @@ class Home: BaseViewController {
     var infoBanner = InfoBanner(text: "You may have been in contact with COVID-19")
     var notificationsObserver: NSObjectProtocol?
 
+    var observer: NSObjectProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // prevent removal of permissions by accident after allowing them
@@ -30,6 +32,39 @@ class Home: BaseViewController {
         }
         self.forceNotificationsEnabled()
     }
+        self.observer = NotificationCenter.default.addObserver(
+            forName: UIApplication.didBecomeActiveNotification,
+            object: nil, queue: OperationQueue.main
+        ) { [weak self] _ in
+            self?.checkBluetoothPermission()
+        }
+    }
+
+    func checkBluetoothPermission() {
+        BluetoothPermission.sharedInstance.checkPermission({
+            // nothing to do
+            print("Bluetooth is still enabled")
+        }, {
+            // can also change the home page to visually inform the user that bluetooth is not enabled
+            let bluetoothSettingsAlert = UIAlertController(
+                title: NSLocalizedString("Bluetooth Required", comment: ""),
+                message: "Please turn on Bluetooth in Settings", preferredStyle: .alert
+            )
+            bluetoothSettingsAlert.addAction(
+                UIAlertAction(
+                    title: NSLocalizedString("Open Settings", comment: ""),
+                    style: .default,
+                    handler: { _ in
+                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                )
+            )
+            self.present(bluetoothSettingsAlert, animated: true)
+        })
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         drawScreen()
