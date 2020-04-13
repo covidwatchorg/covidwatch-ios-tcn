@@ -38,13 +38,14 @@ class Home: BaseViewController {
         ) { [weak self] _ in
             self?.checkBluetoothPermission()
         }
+        self.checkBluetoothPermission()
     }
 
     func checkBluetoothPermission() {
         BluetoothPermission.sharedInstance.checkPermission({
             // nothing to do
             print("Bluetooth is still enabled")
-        }, {
+        }, { [weak self] in
             // can also change the home page to visually inform the user that bluetooth is not enabled
             let bluetoothSettingsAlert = UIAlertController(
                 title: NSLocalizedString("Bluetooth Required", comment: ""),
@@ -61,7 +62,7 @@ class Home: BaseViewController {
                     }
                 )
             )
-            self.present(bluetoothSettingsAlert, animated: true)
+            self?.present(bluetoothSettingsAlert, animated: true)
         })
     }
 
