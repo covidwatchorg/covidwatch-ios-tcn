@@ -20,8 +20,8 @@ class Home: BaseViewController {
     var lastTestedDateObserver: NSKeyValueObservation?
     var didUserMakeContactWithSickUserObserver: NSKeyValueObservation?
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         lastTestedDateObserver = UserDefaults.shared.observe(
             \.lastTestedDate,
             options: [.initial, .new],
@@ -35,6 +35,10 @@ class Home: BaseViewController {
             changeHandler: { (_, _) in
             self.drawScreen()
         })
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         drawScreen()
     }
     @objc func test() {
