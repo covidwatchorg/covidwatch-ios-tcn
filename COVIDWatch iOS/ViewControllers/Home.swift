@@ -22,13 +22,17 @@ class Home: BaseViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        lastTestedDateObserver = UserDefaults.shared.observe(\.lastTestedDate,
-                                                             options: [.initial, .new],
-                                                             changeHandler: { (_, _) in
+        lastTestedDateObserver = UserDefaults.shared.observe(
+            \.lastTestedDate,
+            options: [.initial, .new],
+            changeHandler: { (_, _) in
             self.drawScreen()
         })
 
-        didUserMakeContactWithSickUserObserver = UserDefaults.shared.observe(\.didUserMakeContactWithSickUser, options: [], changeHandler: { (_, _) in
+        didUserMakeContactWithSickUserObserver = UserDefaults.shared.observe(
+            \.didUserMakeContactWithSickUser,
+            options: [],
+            changeHandler: { (_, _) in
             self.drawScreen()
         })
         drawScreen()
