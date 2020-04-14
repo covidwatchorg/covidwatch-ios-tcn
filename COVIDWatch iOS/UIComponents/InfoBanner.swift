@@ -8,29 +8,23 @@
 
 import UIKit
 
-class LargeText: UITextView {
+class InfoBanner: UITextView {
     init(text: String) {
         super.init(frame: CGRect(), textContainer: nil)
         self.text = text
-        var fontSize: CGFloat = 36
+        var fontSize: CGFloat = 18
         if screenHeight <= 568 {
-            fontSize = 28
+            fontSize = 14
         } else if screenHeight <= 667 {
-            fontSize = 32
+            fontSize = 16
         }
-        self.font = UIFont(name: "Montserrat-SemiBold", size: fontSize)
-        self.textColor = UIColor.Primary.Gray
-        self.frame.size.width = contentMaxWidth
-        self.frame.size.height = self.contentSize.height
+        self.font = UIFont(name: "Montserrat-Bold", size: fontSize)
+        self.textColor = .white
+        self.frame.size.width = screenWidth
+        self.frame.size.height = 100 * figmaToiOSVerticalScalingFactor
         self.isEditable = false
-        self.backgroundColor = .clear
+        self.backgroundColor = UIColor.Secondary.Tangerine
         self.isSelectable = false
-    }
-
-    func draw(parentVC: UIViewController, centerX: CGFloat, centerY: CGFloat) {
-        self.center.x = centerX
-        self.center.y = centerY
-        parentVC.view.addSubview(self)
     }
 
     func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {

@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "logo-cw.jpg",
+      "filename" : "CW brandmark blue 2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "logo-cw@2x.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "logo-cw@3x.jpg",
       "scale" : "3x"
     }
   ],

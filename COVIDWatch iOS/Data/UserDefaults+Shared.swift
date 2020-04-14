@@ -14,11 +14,14 @@ extension UserDefaults {
         public static let wasCurrentUserNotifiedOfExposure = "wasCurrentUserNotifiedOfExposure"
         public static let isContactEventLoggingEnabled = "isContactEventLoggingEnabled"
         public static let lastContactEventsDownloadDate = "lastContactEventsDownloadDate"
+        public static let isFirstTimeUser = "isFirstTimeUser"
+        public static let lastTestedDate = "lastTestedDate"
 
         public static let registration: [String: Any] = [
             isUserSick: false,
             wasCurrentUserNotifiedOfExposure: false,
-            isContactEventLoggingEnabled: false
+            isContactEventLoggingEnabled: false,
+            isFirstTimeUser: true
         ]
     }
 
@@ -64,6 +67,24 @@ extension UserDefaults {
         }
         set {
             setValue(newValue, forKey: Key.lastContactEventsDownloadDate)
+        }
+    }
+
+    @objc dynamic public var isFirstTimeUser: Bool {
+        get {
+            return bool(forKey: Key.isFirstTimeUser)
+        }
+        set {
+            setValue(newValue, forKey: Key.isFirstTimeUser)
+        }
+    }
+
+    @objc dynamic public var lastTestedDate: Date? {
+        get {
+            return object(forKey: Key.lastTestedDate) as? Date
+        }
+        set {
+            setValue(newValue, forKey: Key.lastTestedDate)
         }
     }
 

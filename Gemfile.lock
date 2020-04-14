@@ -237,6 +237,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler!
   cocoapods!
   fastlane!
   xcpretty!
