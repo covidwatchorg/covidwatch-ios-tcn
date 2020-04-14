@@ -38,7 +38,6 @@ class Header: UIView {
         self.frame.origin.y = parentVC.view.safeAreaInsets.top
         drawLogo(parentVC: parentVC)
         drawMenuIcon(parentVC: parentVC)
-        menu.draw(parentVC: parentVC)
     }
 
     private func drawLogo(parentVC: UIViewController) {
@@ -60,10 +59,10 @@ class Header: UIView {
         menuIcon.isUserInteractionEnabled = true
         menuIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
         parentVC.view.addSubview(menuIcon)
+        parentVC.view.bringSubviewToFront(menuIcon)
     }
 
     @objc func toggleMenu() {
-        //        menuIcon.isHidden = !menuIcon.isHidden
         menu.toggleMenu()
     }
 

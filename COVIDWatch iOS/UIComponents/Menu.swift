@@ -11,14 +11,29 @@ import UIKit
 class Menu: UIView {
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))
     var menuItems: [MenuItem] = [
-        MenuItem(text: "How does this work?", addLinkImg: false),
-        MenuItem(text: "CDC Health Guidlines", addLinkImg: true),
-        MenuItem(text: "Covid Watch Website", addLinkImg: true),
-        MenuItem(text: "Terms of Use", addLinkImg: true),
-        MenuItem(text: "Privacy Policy", addLinkImg: true),
-        MenuItem(text: "Delete app data", addLinkImg: false)
+        MenuItem(text: "Settings", addLinkImg: false, onClick: {
+            print("Clicked Settings") // Dummy function for now
+        }),
+        MenuItem(text: "Test Results", addLinkImg: false, onClick: {
+            print("Clicked Test Results") // Dummy function for now
+        }),
+        MenuItem(text: "How does this work?", addLinkImg: true, onClick: {
+            print("Clicked How does this work?") // Dummy function for now
+        }),
+        MenuItem(text: "Covid Watch Website", addLinkImg: true, onClick: {
+            print("Clicked Covid Watch Website") // Dummy function for now
+        }),
+        MenuItem(text: "Health Guidlines", addLinkImg: true, onClick: {
+            print("Clicked Health Guidlines") // Dummy function for now
+        }),
+        MenuItem(text: "Terms of Use", addLinkImg: true, onClick: {
+            print("Clicked Terms of Use") // Dummy function for now
+        }),
+        MenuItem(text: "Privacy Policy", addLinkImg: true, onClick: {
+            print("Clicked Privacy Policy") // Dummy function for now
+        })
     ]
-    var covidWatchText = UILabel()
+    var bottomWaterMark = UIImageView(image: UIImage(named: "collab-with-stanford"))
 
     func draw(parentVC: UIViewController) {
         drawMenuBackground(parentVC: parentVC)
@@ -52,30 +67,30 @@ class Menu: UIView {
 
     private func drawMenuItems(parentVC: UIViewController) {
         let menuItemWidth = (3.0/3.75) * self.frame.size.width
-        let item0CenterY = (160.0 * figmaToiOSVerticalScalingFactor)
-        let item1CenterY = item0CenterY + ((90.0 * figmaToiOSVerticalScalingFactor))
-        let item2CenterY = item1CenterY + ((58.0 * figmaToiOSVerticalScalingFactor))
-        let item3CenterY = item2CenterY + ((58.0 * figmaToiOSVerticalScalingFactor))
-        let item4CenterY = item3CenterY + ((58.0 * figmaToiOSVerticalScalingFactor))
-        let item5CenterY = item4CenterY + (item1CenterY - item0CenterY)
-        menuItems[0].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item0CenterY)
-        menuItems[1].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item1CenterY)
-        menuItems[2].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item2CenterY)
-        menuItems[3].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item3CenterY)
-        menuItems[4].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item4CenterY)
-        menuItems[5].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item5CenterY)
+        let firstItemYValue = 160.0 * figmaToiOSVerticalScalingFactor
+        let menuItemYGap = 58.0 * figmaToiOSVerticalScalingFactor
+
+        var lastYCenter: CGFloat = 0.0
+        for (index, item) in self.menuItems.enumerated() {
+            var yCenter: CGFloat
+            if index == 0 {
+                yCenter = firstItemYValue
+            } else {
+                yCenter = lastYCenter + menuItemYGap
+            }
+            lastYCenter = yCenter
+            item.draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: yCenter)
+        }
     }
 
     private func drawBottomText(parentVC: UIViewController) {
-        covidWatchText.text = "Covid Watch"
-        covidWatchText.font = UIFont(name: "Montserrat", size: 14)
-        covidWatchText.textColor = UIColor(hexString: "CCCCCC")
-        covidWatchText.sizeToFit()
-        covidWatchText.center.x = self.center.x
-        covidWatchText.center.y = screenHeight - (35.0 * figmaToiOSVerticalScalingFactor)
-        covidWatchText.isHidden = true
-        covidWatchText.layer.zPosition = 1
-        parentVC.view.addSubview(covidWatchText)
+        bottomWaterMark.frame.size.width = screenWidth - 82.0 * figmaToiOSHorizontalScalingFactor
+        bottomWaterMark.frame.size.height = (61.0/300.0) * bottomWaterMark.frame.size.width
+        bottomWaterMark.center.x = self.center.x
+        bottomWaterMark.center.y = screenHeight - (69.5 * figmaToiOSVerticalScalingFactor)
+        bottomWaterMark.isHidden = true
+        bottomWaterMark.layer.zPosition = 1
+        parentVC.view.addSubview(bottomWaterMark)
     }
 
     @objc func toggleMenu() {
@@ -84,7 +99,7 @@ class Menu: UIView {
         for menuItem in menuItems {
             menuItem.toggleShow()
         }
-        covidWatchText.isHidden = !covidWatchText.isHidden
+        bottomWaterMark.isHidden = !bottomWaterMark.isHidden
     }
 
     init() {

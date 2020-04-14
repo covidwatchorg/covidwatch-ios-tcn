@@ -50,6 +50,7 @@ class Home: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         drawScreen()
+        super.drawMenuOnTop()
     }
 
     @objc func test() {
