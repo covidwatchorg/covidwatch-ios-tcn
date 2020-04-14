@@ -24,6 +24,7 @@ class MainText: UITextView {
         self.frame.size.height = self.contentSize.height
         self.isEditable = false
         self.backgroundColor = .clear
+        self.isSelectable = false
     }
 
     func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {
