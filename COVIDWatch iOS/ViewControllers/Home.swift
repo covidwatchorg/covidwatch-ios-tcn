@@ -36,7 +36,7 @@ class Home: BaseViewController {
             changeHandler: { (_, _) in
             self.drawScreen()
         })
-      
+
       // prevent removal of permissions by accident after allowing them
         self.notificationsObserver = NotificationCenter.default.addObserver(
             forName: UIApplication.didBecomeActiveNotification,
@@ -46,7 +46,7 @@ class Home: BaseViewController {
         }
         self.forceNotificationsEnabled()
     }
-  
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         drawScreen()
