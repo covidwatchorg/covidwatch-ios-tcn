@@ -9,16 +9,15 @@
 import Foundation
 import CoreBluetooth
 
-typealias BluetoothPermissionCallback = () -> Void
-typealias PermissionResult = Result<Void, BluetoothPermissionError>
+typealias BluetoothPermissionResult = Result<Void, BluetoothPermissionError>
 enum BluetoothPermissionError: String, Error {
     case notAuthorized
 }
 
 class BluetoothPermission: NSObject, CBCentralManagerDelegate {
     var centralManager: CBCentralManager
-    var callback: (PermissionResult) -> Void
-    init(_ callback: @escaping (PermissionResult) -> Void) {
+    var callback: (BluetoothPermissionResult) -> Void
+    init(_ callback: @escaping (BluetoothPermissionResult) -> Void) {
         self.centralManager = CBCentralManager()
         self.callback = callback
         super.init()

@@ -80,6 +80,7 @@
 		B1D85F9E809BCC12318E2223 /* Pods_COVIDWatch_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */; };
 		E1A7016D243D448F001FF6F0 /* ThankYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7016A243D448F001FF6F0 /* ThankYou.swift */; };
 		E1C729FF243DE30900D30118 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C729FE243DE30900D30118 /* Test.swift */; };
+		E24BC323244545CB00819EF0 /* NotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BC322244545CB00819EF0 /* NotificationPermission.swift */; };
 		E2B451A924443FE900E17888 /* BluetoothPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B451A824443FE900E17888 /* BluetoothPermission.swift */; };
 		F59A36E1AD0F8E40375BE630 /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */; };
 /* End PBXBuildFile section */
@@ -193,6 +194,7 @@
 		B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A7016A243D448F001FF6F0 /* ThankYou.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThankYou.swift; sourceTree = "<group>"; };
 		E1C729FE243DE30900D30118 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		E24BC322244545CB00819EF0 /* NotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermission.swift; sourceTree = "<group>"; };
 		E2B451A824443FE900E17888 /* BluetoothPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothPermission.swift; sourceTree = "<group>"; };
 		ECF661F853918EA18D1C729B /* Pods-COVIDWatch iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOSTests/Pods-COVIDWatch iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -286,6 +288,7 @@
 				2EF61C382436F82D003046A4 /* UIColorExtension.swift */,
 				2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */,
 				2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */,
+				E24BC322244545CB00819EF0 /* NotificationPermission.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 				2EBF8735243CE60E003278E6 /* Menu.swift in Sources */,
 				E1A7016D243D448F001FF6F0 /* ThankYou.swift in Sources */,
 				2EFE6308243FB54F00D00305 /* UIResponderExtension.swift in Sources */,
+				E24BC323244545CB00819EF0 /* NotificationPermission.swift in Sources */,
 				2EFE6304243F990900D00305 /* Home.swift in Sources */,
 				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */,
 				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,

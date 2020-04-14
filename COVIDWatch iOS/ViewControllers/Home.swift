@@ -27,39 +27,9 @@ class Home: BaseViewController {
             forName: UIApplication.didBecomeActiveNotification,
             object: nil, queue: OperationQueue.main
         ) { [weak self] _ in
-            self?.forceNotificationsEnabled()
-            self?.checkBluetoothPermission()
+            self?.checkNotificationPersmission()
         }
-        self.forceNotificationsEnabled()
-        self.checkBluetoothPermission()
-    }
-
-    func checkBluetoothPermission() {
-        self.bluetoothPermission = BluetoothPermission { [weak self] (result) in
-            switch result {
-            case .success:
-                // nothing to do
-                print("Bluetooth is still enabled")
-            case .failure:
-                // can also change the home page to visually inform the user that bluetooth is not enabled
-                let bluetoothSettingsAlert = UIAlertController(
-                    title: NSLocalizedString("Bluetooth Required", comment: ""),
-                    message: "Please turn on Bluetooth in Settings", preferredStyle: .alert
-                )
-                bluetoothSettingsAlert.addAction(
-                    UIAlertAction(
-                        title: NSLocalizedString("Open Settings", comment: ""),
-                        style: .default,
-                        handler: { _ in
-                            if let url = URL(string: UIApplication.openSettingsURLString) {
-                                UIApplication.shared.open(url)
-                            }
-                        }
-                    )
-                )
-                self?.present(bluetoothSettingsAlert, animated: true)
-            }
-        }
+        self.checkNotificationPersmission()
     }
 
     override func viewDidLayoutSubviews() {
@@ -71,14 +41,63 @@ class Home: BaseViewController {
         self.performSegue(withIdentifier: "test", sender: self)
     }
 
-    @objc func forceNotificationsEnabled() {
-        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            guard settings.authorizationStatus != .authorized else { return }
-            let notificationsSettingsAlert = UIAlertController(
-                title: NSLocalizedString("Notifications Required", comment: ""),
-                message: "Please turn on Notifications in Settings", preferredStyle: .alert
+    // bluetooth and notification permissions
+    enum AuthorizedPermissions {
+        case bluetooth
+        case notifications
+    }
+
+    func checkNotificationPersmission(_ requiredPermissions: [AuthorizedPermissions] = []) {
+        var morePermissions = requiredPermissions
+        _ = NotificationPermission { [weak self] (result) in
+            switch result {
+            case .success:
+                self?.checkBluetoothPermission(morePermissions)
+            case .failure(let error):
+                morePermissions.append(.notifications)
+                self?.checkBluetoothPermission(morePermissions)
+                print("Please go insto settings and enable Notifications", error)
+            }
+        }
+    }
+
+    func checkBluetoothPermission(_ requiredPermissions: [AuthorizedPermissions] = []) {
+        self.bluetoothPermission = BluetoothPermission { [weak self] (result) in
+            var morePermissions = requiredPermissions
+            switch result {
+            case .success:
+                // nothing to do
+                print("Bluetooth is still enabled")
+                self?.showPermissionsAlert(morePermissions)
+            case .failure:
+                morePermissions.append(.bluetooth)
+                self?.showPermissionsAlert(morePermissions)
+            }
+        }
+    }
+
+    func showPermissionsAlert(_ requiredPermissions: [AuthorizedPermissions] = []) {
+        if requiredPermissions.count > 0 {
+            var permissionTitle = "Permission Required"
+            var permissionText = "Bluetooth and Notifications"
+            if requiredPermissions.count == 1 {
+                for permission in requiredPermissions {
+                    switch permission {
+                    case .bluetooth:
+                        permissionTitle = "Bluetooth Required"
+                        permissionText = "Bluetooth"
+                    case .notifications:
+                        permissionTitle = "Notifications Required"
+                        permissionText = "Notifications"
+                    }
+                }
+            }
+
+            let permissionsAlert = UIAlertController(
+                title: NSLocalizedString(permissionTitle, comment: ""),
+                message: "Please turn on \(permissionText) in Settings", preferredStyle: .alert
             )
-            notificationsSettingsAlert.addAction(
+            permissionsAlert.addAction(
                 UIAlertAction(
                     title: NSLocalizedString("Open Settings", comment: ""),
                     style: .default,
@@ -89,11 +108,7 @@ class Home: BaseViewController {
                     }
                 )
             )
-            DispatchQueue.main.async {
-                self.present(notificationsSettingsAlert, animated: true)
-            }
-            print("Please go into settings and enable Notifications")
-
+            self.present(permissionsAlert, animated: true)
         }
     }
 

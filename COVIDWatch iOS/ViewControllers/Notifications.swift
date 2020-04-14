@@ -14,6 +14,7 @@ class Notifications: BaseViewController {
     //swiftlint:disable:next line_length
     var mainText = MainText(text: "Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19.")
     var button = Button(text: "Allow Notifications")
+    var buttonRecognizer: UITapGestureRecognizer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,38 +43,39 @@ class Notifications: BaseViewController {
 
         mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
 
-        self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
+        self.buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.nextScreen))
+        if let buttonRecognizer = self.buttonRecognizer {
+            self.button.addGestureRecognizer(buttonRecognizer)
+        }
 
         let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
         button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
     }
 
     @objc func nextScreenIfNotificationsEnabled() {
-        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            guard settings.authorizationStatus == .authorized else { return }
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "NotificationsToFinish", sender: self)
+        _ = NotificationPermission { [weak self] (result) in
+            switch result {
+            case .success:
+                DispatchQueue.main.async {
+                    self?.performSegue(withIdentifier: "NotificationsToFinish", sender: self)
+                }
+            case .failure(let error):
+                print("Still no notifications permissions", error)
             }
         }
     }
 
     @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            let center = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-
-                if error != nil {
-                    // Handle the error here.
-                }
-
-                // Enable or disable features based on the authorization.
-
-                if granted {
-                    // handle if permission granted
+            self.buttonRecognizer?.isEnabled = false
+            _ = NotificationPermission { [weak self] result in
+                self?.buttonRecognizer?.isEnabled = true
+                switch result {
+                case .success:
                     DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "NotificationsToFinish", sender: self)
+                        self?.performSegue(withIdentifier: "NotificationsToFinish", sender: self)
                     }
-                } else {
+                case .failure:
                     let notificationsSettingsAlert = UIAlertController(
                         title: NSLocalizedString("Notifications Required", comment: ""),
                         message: "Please turn on Notifications in Settings", preferredStyle: .alert
@@ -90,7 +92,7 @@ class Notifications: BaseViewController {
                         )
                     )
                     DispatchQueue.main.async {
-                        self.present(notificationsSettingsAlert, animated: true)
+                        self?.present(notificationsSettingsAlert, animated: true)
                     }
                     print("Please go into settings and enable Notifications")
                 }
