@@ -30,6 +30,13 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var reportView: UIView!
     @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var close: UIImageView!
+    @IBOutlet var reportTopSpace: NSLayoutConstraint!
+    @IBOutlet var continueTopSpace: NSLayoutConstraint!
+    @IBOutlet var dateTopSpace: NSLayoutConstraint!
+    @IBOutlet var detailsTopSpace: NSLayoutConstraint!
+    @IBOutlet var negativeTopSpace: NSLayoutConstraint!
+    @IBOutlet var positiveTopSpace: NSLayoutConstraint!
+    @IBOutlet var titleTopSpace: NSLayoutConstraint!
 
     var step = 0
     var pickerData: [String] = [String]()
@@ -63,27 +70,22 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         negativeView.layer.borderWidth = 2.0
         negativeView.layer.cornerRadius = 10
         negativeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.testedNegative)))
-        negativeView.addConstraint(getButtonHeight(view: negativeView))
 
         positiveView.layer.borderWidth = 2.0
         positiveView.layer.cornerRadius = 10
         positiveView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.testedPositive)))
-        positiveView.addConstraint(getButtonHeight(view: positiveView))
 
         dateView.layer.borderWidth = 2.0
         dateView.layer.cornerRadius = 10
         dateView.layer.borderColor = UIColor.Secondary.LightGray.cgColor
-        dateView.addConstraint(getButtonHeight(view: dateView))
         dateView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.pickDate)))
 
         continueButton.layer.cornerRadius = 10
         continueButton.layer.backgroundColor = UIColor.Primary.Bluejay.cgColor
-        continueButton.addConstraint(getButtonHeight(view: continueButton))
         continueButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(submitNegative)))
 
         reportButton.layer.cornerRadius = 10
         reportButton.layer.backgroundColor = UIColor.Primary.Bluejay.cgColor
-        reportButton.addConstraint(getButtonHeight(view: reportButton))
         reportButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(submitPositive)))
         reportView.isHidden = true
 
@@ -167,18 +169,6 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         showOnNegativeView.isHidden = true
     }
 
-    func getButtonHeight(view: Any!) -> NSLayoutConstraint {
-        return NSLayoutConstraint(
-            item: view!,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: nil,
-            attribute: .notAnAttribute,
-            multiplier: 1,
-            constant: (58.0/321.0) * contentMaxWidth
-        )
-    }
-
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -200,5 +190,40 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         dateCheckmark.isHidden = false
         pickDateView.isHidden = true
         reportView.isHidden = false
+    }
+}
+
+// MARK: - Layout Constraints
+extension Test {
+    override func updateViewConstraints() {
+        negativeView.addConstraint(getButtonHeight(view: negativeView))
+        positiveView.addConstraint(getButtonHeight(view: positiveView))
+        dateView.addConstraint(getButtonHeight(view: dateView))
+        continueButton.addConstraint(getButtonHeight(view: continueButton))
+        reportButton.addConstraint(getButtonHeight(view: reportButton))
+
+        titleTopSpace.constant = (30.0/321.0) * contentMaxWidth
+        detailsTopSpace.constant = (30.0/321.0) * contentMaxWidth
+
+        negativeTopSpace.constant = (15.0/321.0) * contentMaxWidth
+        dateTopSpace.constant = (15.0/321.0) * contentMaxWidth
+        continueTopSpace.constant = (15.0/321.0) * contentMaxWidth
+
+        reportTopSpace.constant = (5.0/321.0) * contentMaxWidth
+        positiveTopSpace.constant = (5.0/321.0) * contentMaxWidth
+
+        super.updateViewConstraints()
+    }
+
+    func getButtonHeight(view: Any!) -> NSLayoutConstraint {
+        return NSLayoutConstraint(
+            item: view!,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: nil,
+            attribute: .notAnAttribute,
+            multiplier: 1,
+            constant: (58.0/321.0) * contentMaxWidth
+        )
     }
 }
