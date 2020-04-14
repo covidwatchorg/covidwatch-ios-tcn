@@ -27,7 +27,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-cw-white" translatesAutoresizingMaskIntoConstraints="NO" id="cfd-1X-7JK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-cw-color" translatesAutoresizingMaskIntoConstraints="NO" id="cfd-1X-7JK">
                                 <rect key="frame" x="20" y="64" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="1Ic-Dp-Rjq"/>
@@ -400,7 +400,7 @@
     </scenes>
     <resources>
         <image name="checkmark" width="23.5" height="23.5"/>
-        <image name="logo-cw-white" width="101" height="100"/>
+        <image name="logo-cw-color" width="141" height="140"/>
         <image name="x-icon" width="24" height="24"/>
     </resources>
 </document>
