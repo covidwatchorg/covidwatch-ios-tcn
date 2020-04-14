@@ -12,6 +12,21 @@ class Header: UIView {
     var logo = UIImageView(image: UIImage(named: "logo-cw-color"))
     var menuIcon = UIView()
     var menu = Menu()
+    private var _hasMenu: Bool = true
+    var hasMenu: Bool {
+        get {
+            return _hasMenu
+        }
+        set (val) {
+            self._hasMenu = val
+            if val {
+                self.menuIcon.isHidden = false
+            } else {
+                self.menuIcon.isHidden = true
+            }
+
+        }
+    }
 
     init() {
         super.init(frame: CGRect())
