@@ -11,14 +11,29 @@ import UIKit
 class Menu: UIView {
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))
     var menuItems: [MenuItem] = [
-        MenuItem(text: "How does this work?", addLinkImg: false),
-        MenuItem(text: "CDC Health Guidlines", addLinkImg: true),
-        MenuItem(text: "Covid Watch Website", addLinkImg: true),
-        MenuItem(text: "Terms of Use", addLinkImg: true),
-        MenuItem(text: "Privacy Policy", addLinkImg: true),
-        MenuItem(text: "Delete app data", addLinkImg: false)
+        MenuItem(text: "Settings", addLinkImg: false, onClick: {
+            print("Clicked Settings") // Dummy function for now
+        }),
+        MenuItem(text: "Test Results", addLinkImg: false, onClick: {
+            print("Clicked Test Results") // Dummy function for now
+        }),
+        MenuItem(text: "How does this work?", addLinkImg: true, onClick: {
+            print("Clicked How does this work?") // Dummy function for now
+        }),
+        MenuItem(text: "Covid Watch Website", addLinkImg: true, onClick: {
+            print("Clicked Covid Watch Website") // Dummy function for now
+        }),
+        MenuItem(text: "Health Guidlines", addLinkImg: true, onClick: {
+            print("Clicked Health Guidlines") // Dummy function for now
+        }),
+        MenuItem(text: "Terms of Use", addLinkImg: true, onClick: {
+            print("Clicked Terms of Use") // Dummy function for now
+        }),
+        MenuItem(text: "Privacy Policy", addLinkImg: true, onClick: {
+            print("Clicked Privacy Policy") // Dummy function for now
+        })
     ]
-    var covidWatchText = UILabel()
+    var bottomWaterMark = UIImageView(image: UIImage(named: "collab-with-stanford"))
 
     func draw(parentVC: UIViewController) {
         drawMenuBackground(parentVC: parentVC)
@@ -69,15 +84,13 @@ class Menu: UIView {
     }
 
     private func drawBottomText(parentVC: UIViewController) {
-        covidWatchText.text = "Covid Watch"
-        covidWatchText.font = UIFont(name: "Montserrat", size: 14)
-        covidWatchText.textColor = UIColor(hexString: "CCCCCC")
-        covidWatchText.sizeToFit()
-        covidWatchText.center.x = self.center.x
-        covidWatchText.center.y = screenHeight - (35.0 * figmaToiOSVerticalScalingFactor)
-        covidWatchText.isHidden = true
-        covidWatchText.layer.zPosition = 1
-        parentVC.view.addSubview(covidWatchText)
+        bottomWaterMark.frame.size.width = screenWidth - 82.0 * figmaToiOSHorizontalScalingFactor
+        bottomWaterMark.frame.size.height = (61.0/300.0) * bottomWaterMark.frame.size.width
+        bottomWaterMark.center.x = self.center.x
+        bottomWaterMark.center.y = screenHeight - (69.5 * figmaToiOSVerticalScalingFactor)
+        bottomWaterMark.isHidden = true
+        bottomWaterMark.layer.zPosition = 1
+        parentVC.view.addSubview(bottomWaterMark)
     }
 
     @objc func toggleMenu() {
@@ -86,7 +99,7 @@ class Menu: UIView {
         for menuItem in menuItems {
             menuItem.toggleShow()
         }
-        covidWatchText.isHidden = !covidWatchText.isHidden
+        bottomWaterMark.isHidden = !bottomWaterMark.isHidden
     }
 
     init() {
