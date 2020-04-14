@@ -21,6 +21,6 @@ platform :ios do
     setup_ci(provider: "travis")
     match(readonly: true)
     build_app(workspace: "COVIDWatch.xcworkspace", scheme: "COVIDWatch iOS")
-    testflight(skip_waiting_for_build_processing: true, verbose: true)
+    testflight(skip_waiting_for_build_processing: true, verbose: true, apple_id: "1507495537")
   end
 end
