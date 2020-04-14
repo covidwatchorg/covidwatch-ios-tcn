@@ -52,18 +52,20 @@ class Menu: UIView {
 
     private func drawMenuItems(parentVC: UIViewController) {
         let menuItemWidth = (3.0/3.75) * self.frame.size.width
-        let item0CenterY = (160.0 * figmaToiOSVerticalScalingFactor)
-        let item1CenterY = item0CenterY + ((90.0 * figmaToiOSVerticalScalingFactor))
-        let item2CenterY = item1CenterY + ((58.0 * figmaToiOSVerticalScalingFactor))
-        let item3CenterY = item2CenterY + ((58.0 * figmaToiOSVerticalScalingFactor))
-        let item4CenterY = item3CenterY + ((58.0 * figmaToiOSVerticalScalingFactor))
-        let item5CenterY = item4CenterY + (item1CenterY - item0CenterY)
-        menuItems[0].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item0CenterY)
-        menuItems[1].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item1CenterY)
-        menuItems[2].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item2CenterY)
-        menuItems[3].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item3CenterY)
-        menuItems[4].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item4CenterY)
-        menuItems[5].draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: item5CenterY)
+        let firstItemYValue = 160.0 * figmaToiOSVerticalScalingFactor
+        let menuItemYGap = 58.0 * figmaToiOSVerticalScalingFactor
+
+        var lastYCenter: CGFloat = 0.0
+        for (index, item) in self.menuItems.enumerated() {
+            var yCenter: CGFloat
+            if index == 0 {
+                yCenter = firstItemYValue
+            } else {
+                yCenter = lastYCenter + menuItemYGap
+            }
+            lastYCenter = yCenter
+            item.draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: yCenter)
+        }
     }
 
     private func drawBottomText(parentVC: UIViewController) {
