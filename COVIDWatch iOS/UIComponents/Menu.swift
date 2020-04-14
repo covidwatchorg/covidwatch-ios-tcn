@@ -9,7 +9,7 @@
 import UIKit
 
 class Menu: UIView {
-    var xIcon = UIImageView(image: UIImage(named: "icon-close"))
+    var xIcon = UIImageView(image: UIImage(named: "x-icon"))
     var menuItems: [MenuItem] = [
         MenuItem(text: "How does this work?", addLinkImg: false),
         MenuItem(text: "CDC Health Guidlines", addLinkImg: true),
