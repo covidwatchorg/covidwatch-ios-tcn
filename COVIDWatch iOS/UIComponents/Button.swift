@@ -72,6 +72,7 @@ class Button: UIView {
         if self.subtext != nil {
             parentVC.view.addSubview(self.subtext!)
         }
+        self.subtext?.isSelectable = false
     }
 
     func drawBetween(parentVC: UIViewController, top: CGFloat, bottom: CGFloat, centerX: CGFloat) {
