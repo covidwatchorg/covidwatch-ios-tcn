@@ -17,12 +17,27 @@ class Home: BaseViewController {
     var testedButton = Button(text: "Tested for COVID-19?",
                               subtext: "Share your result anonymously to help keep your community stay safe.")
     var infoBanner = InfoBanner(text: "You may have been in contact with COVID-19")
-
+    var lastTestedDateObserver: NSKeyValueObservation?
+    var didUserMakeContactWithSickUserObserver: NSKeyValueObservation?
     var observer: NSObjectProtocol?
     var bluetoothPermission: BluetoothPermission?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        lastTestedDateObserver = UserDefaults.shared.observe(
+            \.lastTestedDate,
+            options: [.initial, .new],
+            changeHandler: { (_, _) in
+            self.drawScreen()
+        })
+
+        didUserMakeContactWithSickUserObserver = UserDefaults.shared.observe(
+            \.didUserMakeContactWithSickUser,
+            options: [],
+            changeHandler: { (_, _) in
+            self.drawScreen()
+        })
+
         self.observer = NotificationCenter.default.addObserver(
             forName: UIApplication.didBecomeActiveNotification,
             object: nil, queue: OperationQueue.main
@@ -132,9 +147,11 @@ class Home: BaseViewController {
 //        optionally draw the info banner and determine the coordinate for the top of the image
         var imgTop: CGFloat
         if UserDefaults.shared.didUserMakeContactWithSickUser {
+            infoBanner.isHidden = false
             infoBanner.draw(parentVC: self, centerX: view.center.x, originY: header.frame.maxY)
             imgTop = infoBanner.frame.maxY + 21.0 * figmaToiOSVerticalScalingFactor
         } else {
+            infoBanner.isHidden = true
             imgTop = header.frame.maxY
         }
 //        determine image size
@@ -150,12 +167,14 @@ class Home: BaseViewController {
 
         var mainTextTop: CGFloat
         if UserDefaults.shared.isFirstTimeUser {
+            largeText.isHidden = false
             largeText.text = "You're all set!"
             largeText.draw(parentVC: self,
             centerX: view.center.x,
             originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
             mainTextTop = largeText.frame.maxY
         } else if !UserDefaults.shared.didUserMakeContactWithSickUser {
+            largeText.isHidden = false
             largeText.text = "Welcome Back!"
             largeText.draw(parentVC: self,
             centerX: view.center.x,
@@ -163,6 +182,7 @@ class Home: BaseViewController {
             mainTextTop = largeText.frame.maxY
         } else {
 //            userState.hasBeenInContact
+            largeText.isHidden = true
             mainTextTop = img.frame.maxY + 25.0 * figmaToiOSVerticalScalingFactor
         }
 
@@ -184,7 +204,14 @@ class Home: BaseViewController {
 
         if UserDefaults.shared.didUserMakeContactWithSickUser || screenHeight <= 568 {
 //            Necessary to fit on screen
+            spreadButton.subtext?.removeFromSuperview()
             spreadButton.subtext = nil
+        } else {
+//            Clunky, but easier than messing with button internals
+            spreadButton.text.removeFromSuperview()
+            spreadButton.subtext?.removeFromSuperview()
+            spreadButton.removeFromSuperview()
+            spreadButton = Button(text: "Share the app", subtext: "It works best when everyone uses it.")
         }
 //        spreadButton drawn below because its position depends on whether testedButton is drawn
 
@@ -213,7 +240,13 @@ class Home: BaseViewController {
                                      top: mainText.frame.maxY,
                                      bottom: testedButtonTop,
                                      centerX: view.center.x)
+            testedButton.isHidden = false
+            testedButton.text.isHidden = false
+            testedButton.subtext?.isHidden = false
         } else {
+            testedButton.isHidden = true
+            testedButton.text.isHidden = true
+            testedButton.subtext?.isHidden = true
             spreadButton.drawBetween(parentVC: self,
                                      top: mainText.frame.maxY,
                                      bottom: screenHeight - self.view.safeAreaInsets.bottom,
