@@ -17,62 +17,60 @@ class Home: BaseViewController {
     var testedButton = Button(text: "Tested for COVID-19?",
                               subtext: "Share your result anonymously to help keep your community stay safe.")
     var infoBanner = InfoBanner(text: "You may have been in contact with COVID-19")
-    var notificationsObserver: NSObjectProtocol?
 
     var observer: NSObjectProtocol?
+    var bluetoothPermission: BluetoothPermission?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // prevent removal of permissions by accident after allowing them
-        self.notificationsObserver = NotificationCenter.default.addObserver(
-            forName: UIApplication.didBecomeActiveNotification,
-            object: nil, queue: OperationQueue.main
-        ) { [weak self] _ in
-            self?.forceNotificationsEnabled()
-        }
-        self.forceNotificationsEnabled()
-    }
         self.observer = NotificationCenter.default.addObserver(
             forName: UIApplication.didBecomeActiveNotification,
             object: nil, queue: OperationQueue.main
         ) { [weak self] _ in
+            self?.forceNotificationsEnabled()
             self?.checkBluetoothPermission()
         }
+        self.forceNotificationsEnabled()
         self.checkBluetoothPermission()
     }
 
     func checkBluetoothPermission() {
-        BluetoothPermission.sharedInstance.checkPermission({
-            // nothing to do
-            print("Bluetooth is still enabled")
-        }, { [weak self] in
-            // can also change the home page to visually inform the user that bluetooth is not enabled
-            let bluetoothSettingsAlert = UIAlertController(
-                title: NSLocalizedString("Bluetooth Required", comment: ""),
-                message: "Please turn on Bluetooth in Settings", preferredStyle: .alert
-            )
-            bluetoothSettingsAlert.addAction(
-                UIAlertAction(
-                    title: NSLocalizedString("Open Settings", comment: ""),
-                    style: .default,
-                    handler: { _ in
-                        if let url = URL(string: UIApplication.openSettingsURLString) {
-                            UIApplication.shared.open(url)
-                        }
-                    }
+        self.bluetoothPermission = BluetoothPermission { [weak self] (result) in
+            switch result {
+            case .success:
+                // nothing to do
+                print("Bluetooth is still enabled")
+            case .failure:
+                // can also change the home page to visually inform the user that bluetooth is not enabled
+                let bluetoothSettingsAlert = UIAlertController(
+                    title: NSLocalizedString("Bluetooth Required", comment: ""),
+                    message: "Please turn on Bluetooth in Settings", preferredStyle: .alert
                 )
-            )
-            self?.present(bluetoothSettingsAlert, animated: true)
-        })
+                bluetoothSettingsAlert.addAction(
+                    UIAlertAction(
+                        title: NSLocalizedString("Open Settings", comment: ""),
+                        style: .default,
+                        handler: { _ in
+                            if let url = URL(string: UIApplication.openSettingsURLString) {
+                                UIApplication.shared.open(url)
+                            }
+                        }
+                    )
+                )
+                self?.present(bluetoothSettingsAlert, animated: true)
+            }
+        }
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         drawScreen()
     }
+
     @objc func test() {
-         performSegue(withIdentifier: "test", sender: self)
+        self.performSegue(withIdentifier: "test", sender: self)
     }
+
     @objc func forceNotificationsEnabled() {
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             guard settings.authorizationStatus != .authorized else { return }

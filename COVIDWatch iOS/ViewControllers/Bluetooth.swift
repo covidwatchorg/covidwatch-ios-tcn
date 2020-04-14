@@ -16,6 +16,8 @@ class Bluetooth: BaseViewController {
     var button = Button(text: "Allow Bluetooth", subtext: "This is required for the app to work.")
 
     var buttonRecognizer: UITapGestureRecognizer?
+    var bluetoothPermission: BluetoothPermission?
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
@@ -46,34 +48,37 @@ class Bluetooth: BaseViewController {
     @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             self.buttonRecognizer?.isEnabled = false // disable double tap
-            BluetoothPermission.sharedInstance.checkPermission({ [weak self] in
-                self?.buttonRecognizer?.isEnabled = true
+            self.bluetoothPermission = BluetoothPermission { [weak self] (result) in
+                switch result {
+                case .success:
+                    self?.buttonRecognizer?.isEnabled = true
 
-                if UserDefaults.standard.isContactEventLoggingEnabled == false {
-                    UserDefaults.standard.isContactEventLoggingEnabled = true
-                }
-                self?.performSegue(withIdentifier: "BluetoothToNotifications", sender: self)
-            }, {
-                self.buttonRecognizer?.isEnabled = true
+                    if UserDefaults.standard.isContactEventLoggingEnabled == false {
+                        UserDefaults.standard.isContactEventLoggingEnabled = true
+                    }
+                    self?.performSegue(withIdentifier: "BluetoothToNotifications", sender: self)
+                case .failure:
+                    self?.buttonRecognizer?.isEnabled = true
 
-                let bluetoothSettingsAlert = UIAlertController(
-                    title: NSLocalizedString("Bluetooth Required", comment: ""),
-                    message: "Please turn on Bluetooth in Settings", preferredStyle: .alert
-                )
-                bluetoothSettingsAlert.addAction(
-                    UIAlertAction(
-                        title: NSLocalizedString("Open Settings", comment: ""),
-                        style: .default,
-                        handler: { _ in
-                            if let url = URL(string: UIApplication.openSettingsURLString) {
-                                UIApplication.shared.open(url)
-                            }
-                        }
+                    let bluetoothSettingsAlert = UIAlertController(
+                        title: NSLocalizedString("Bluetooth Required", comment: ""),
+                        message: "Please turn on Bluetooth in Settings", preferredStyle: .alert
                     )
-                )
-                self.present(bluetoothSettingsAlert, animated: true)
-                print("Please go into settings and enable Bluetooth")
-            })
+                    bluetoothSettingsAlert.addAction(
+                        UIAlertAction(
+                            title: NSLocalizedString("Open Settings", comment: ""),
+                            style: .default,
+                            handler: { _ in
+                                if let url = URL(string: UIApplication.openSettingsURLString) {
+                                    UIApplication.shared.open(url)
+                                }
+                            }
+                        )
+                    )
+                    self?.present(bluetoothSettingsAlert, animated: true)
+                    print("Please go into settings and enable Bluetooth")
+                }
+            }
         }
     }
 
