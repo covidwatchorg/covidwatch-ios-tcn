@@ -15,8 +15,14 @@ class Bluetooth: BaseViewController {
     var mainText = MainText(text: "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
     var button = Button(text: "Allow Bluetooth", subtext: "This is required for the app to work.")
 
+    var buttonRecognizer: UITapGestureRecognizer?
+    var bluetoothPermission: BluetoothPermission?
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+//        Hide the Menu hamburger
+        self.header.hasMenu = false
+
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
         img.frame.size.width = 312 * figmaToiOSHorizontalScalingFactor
@@ -34,19 +40,48 @@ class Bluetooth: BaseViewController {
                        originY: img.frame.maxY + 20 * figmaToiOSVerticalScalingFactor)
 
         mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
-
-        self.button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
+        self.buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.nextScreen))
+        if let buttonRecognizer = self.buttonRecognizer {
+            self.button.addGestureRecognizer(buttonRecognizer)
+        }
         let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
         button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
     }
 
     @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            if UserDefaults.standard.isContactEventLoggingEnabled == false {
-                UserDefaults.standard.isContactEventLoggingEnabled = true
+            self.buttonRecognizer?.isEnabled = false // disable double tap
+            self.bluetoothPermission = BluetoothPermission { [weak self] (result) in
+                switch result {
+                case .success:
+                    self?.buttonRecognizer?.isEnabled = true
 
+                    if UserDefaults.standard.isContactEventLoggingEnabled == false {
+                        UserDefaults.standard.isContactEventLoggingEnabled = true
+                    }
+                    self?.performSegue(withIdentifier: "BluetoothToNotifications", sender: self)
+                case .failure:
+                    self?.buttonRecognizer?.isEnabled = true
+
+                    let bluetoothSettingsAlert = UIAlertController(
+                        title: NSLocalizedString("Bluetooth Required", comment: ""),
+                        message: "Please turn on Bluetooth in Settings", preferredStyle: .alert
+                    )
+                    bluetoothSettingsAlert.addAction(
+                        UIAlertAction(
+                            title: NSLocalizedString("Open Settings", comment: ""),
+                            style: .default,
+                            handler: { _ in
+                                if let url = URL(string: UIApplication.openSettingsURLString) {
+                                    UIApplication.shared.open(url)
+                                }
+                            }
+                        )
+                    )
+                    self?.present(bluetoothSettingsAlert, animated: true)
+                    print("Please go into settings and enable Bluetooth")
+                }
             }
-            performSegue(withIdentifier: "BluetoothToNotifications", sender: self)
         }
     }
 
