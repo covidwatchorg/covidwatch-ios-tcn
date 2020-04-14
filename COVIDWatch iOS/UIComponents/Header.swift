@@ -39,7 +39,7 @@ class Header: UIView {
         drawLogo(parentVC: parentVC)
         drawMenuIcon(parentVC: parentVC)
     }
-    
+
     private func drawLogo(parentVC: UIViewController) {
         logo.frame.size.width = 35
         logo.frame.size.height = 35
