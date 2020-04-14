@@ -14,6 +14,7 @@ class MenuItem: UIView {
     var linkImg: UIImageView?
     private var _onClick: () -> Void = {return}
 
+    // swiftlint:disable:next function_body_length
     func draw(parentVC: UIViewController, width: CGFloat, centerX: CGFloat, centerY: CGFloat) {
         menuItem1.isUserInteractionEnabled = true
         menuItem1text.isUserInteractionEnabled = true
@@ -74,22 +75,9 @@ class MenuItem: UIView {
     func toggleShow() {
         menuItem1.isHidden = !menuItem1.isHidden
         menuItem1text.isHidden = !menuItem1text.isHidden
-//        menuItem1.removeFromSuperview()
-//        menuItem1.superview?.addSubview(menuItem1)
-//        menuItem1.superview?.addSubview(menuItem1)
-//        menuItem1text.superview?.addSubview(menuItem1text)
-//        print(menuItem1.superview)
-//        menuItem1.superview?.bringSubviewToFront(menuItem1)
-//        menuItem1.layer.zPosition = 1000
-//        menuItem1text.superview?.bringSubviewToFront(menuItem1text)
-//        menuItem1text.layer.zPosition = 1000
         if let linkImg = self.linkImg {
-//            linkImg.superview?.bringSubviewToFront(linkImg)
-//            linkImg.layer.zPosition = 1000
             linkImg.isHidden = !linkImg.isHidden
-//            linkImg.superview?.addSubview(linkImg)
         }
-        
     }
 
     @objc func onClick() {

@@ -38,7 +38,6 @@ class Header: UIView {
         self.frame.origin.y = parentVC.view.safeAreaInsets.top
         drawLogo(parentVC: parentVC)
         drawMenuIcon(parentVC: parentVC)
-        menu.draw(parentVC: parentVC)
     }
     
     private func drawLogo(parentVC: UIViewController) {
