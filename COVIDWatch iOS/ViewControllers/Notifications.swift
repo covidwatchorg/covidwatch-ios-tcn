@@ -25,6 +25,8 @@ class Notifications: BaseViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        //        Hide the Menu hamburger
+        self.header.hasMenu = false
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
 //        Ratio is Figma image width to Figma screen width
