@@ -9,7 +9,7 @@
 import UIKit
 
 class Menu: UIView {
-    var xIcon = UIView()
+    var xIcon = UIImageView(image: UIImage(named: "icon-close"))
     var menuItems: [MenuItem] = [
         MenuItem(text: "How does this work?", addLinkImg: false),
         MenuItem(text: "CDC Health Guidlines", addLinkImg: true),
@@ -39,12 +39,12 @@ class Menu: UIView {
     }
 
     private func drawXIcon(parentVC: UIViewController) {
-        xIcon.backgroundColor = UIColor(patternImage: UIImage(named: "x-icon")!)
-        xIcon.frame.size.width = 28
-        xIcon.frame.size.height = 28
+        xIcon.frame.size.width = 23
+        xIcon.frame.size.height = 23
         xIcon.center.x = 0.9 * screenWidth
         xIcon.center.y = (screenHeight * 0.1)/2 + parentVC.view.safeAreaInsets.top
         xIcon.isHidden = true
+        xIcon.isUserInteractionEnabled = true
         xIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
         xIcon.layer.zPosition = 1
         parentVC.view.addSubview(xIcon)
