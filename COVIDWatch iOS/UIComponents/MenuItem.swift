@@ -58,9 +58,9 @@ class MenuItem: UIView {
         linkImg?.center.y = menuItem1.center.y
         linkImg?.frame.origin.x = menuItem1.frame.maxX - linkImg!.frame.size.width
         linkImg?.isHidden = true
-        linkImg?.layer.zPosition = 1
         menuItem1text.isHidden = true
         menuItem1.isHidden = true
+        linkImg?.layer.zPosition = 1
         menuItem1text.layer.zPosition = 1
         menuItem1.layer.zPosition = 1
 
