@@ -22,4 +22,10 @@ class BaseViewController: UIViewController {
 //        ViewController life cycle.
         header.draw(parentVC: self)
     }
+
+    // Call this function at the end of child's viewDidLayoutSubviews() to draw the menu
+    // with the items on top of everything else.
+    func drawMenuOnTop() {
+        header.menu.draw(parentVC: self)
+    }
 }
