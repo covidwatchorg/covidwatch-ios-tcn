@@ -19,6 +19,7 @@ class Home: BaseViewController {
     var infoBanner = InfoBanner(text: "You may have been in contact with COVID-19")
     var lastTestedDateObserver: NSKeyValueObservation?
     var didUserMakeContactWithSickUserObserver: NSKeyValueObservation?
+    var notificationsObserver: NSObjectProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +36,48 @@ class Home: BaseViewController {
             changeHandler: { (_, _) in
             self.drawScreen()
         })
+      
+      // prevent removal of permissions by accident after allowing them
+        self.notificationsObserver = NotificationCenter.default.addObserver(
+            forName: UIApplication.didBecomeActiveNotification,
+            object: nil, queue: OperationQueue.main
+        ) { [weak self] _ in
+            self?.forceNotificationsEnabled()
+        }
+        self.forceNotificationsEnabled()
     }
-
+  
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         drawScreen()
     }
     @objc func test() {
         performSegue(withIdentifier: "test", sender: self)
+    }
+    @objc func forceNotificationsEnabled() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            guard settings.authorizationStatus != .authorized else { return }
+            let notificationsSettingsAlert = UIAlertController(
+                title: NSLocalizedString("Notifications Required", comment: ""),
+                message: "Please turn on Notifications in Settings", preferredStyle: .alert
+            )
+            notificationsSettingsAlert.addAction(
+                UIAlertAction(
+                    title: NSLocalizedString("Open Settings", comment: ""),
+                    style: .default,
+                    handler: { _ in
+                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                )
+            )
+            DispatchQueue.main.async {
+                self.present(notificationsSettingsAlert, animated: true)
+            }
+            print("Please go into settings and enable Notifications")
+
+        }
     }
 
     @objc func share() {
