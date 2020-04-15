@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="height" constant="24" id="pcw-Zt-Wck"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have you tested positive for COVID-19?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfF-Fq-Hud">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have you tested positive for COVID-19?" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfF-Fq-Hud">
                                 <rect key="frame" x="24" y="154" width="366" height="59"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="24"/>
                                 <color key="textColor" red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
@@ -146,7 +146,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YY3-NH-PMz" userLabel="showOnPositive">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When did your symptoms start?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvz-TU-Z3Y">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When did your symptoms start?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvz-TU-Z3Y">
                                                 <rect key="frame" x="20" y="0.0" width="374" height="22"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -251,20 +251,20 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="SR1-bp-EKy">
-                                <rect key="frame" x="0.0" y="489.5" width="414" height="372.5"/>
+                                <rect key="frame" x="0.0" y="488.5" width="414" height="373.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72l-12-QOt" userLabel="reportView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="116.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="117.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2Y-1o-k4k">
-                                                <rect key="frame" x="24" y="0.0" width="366" height="41"/>
+                                                <rect key="frame" x="24" y="0.0" width="366" height="34"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <state key="normal" title="Report">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking &quot;Report&quot;, you acknowledge, understand and further agree to our Privacy Policy and Terms &amp; Conditions." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Be7-sm-fsh">
-                                                <rect key="frame" x="24" y="65" width="366" height="51.5"/>
+                                                <rect key="frame" x="24" y="58" width="366" height="51.5"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                                 <color key="textColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -278,11 +278,11 @@
                                             <constraint firstItem="B2Y-1o-k4k" firstAttribute="top" secondItem="72l-12-QOt" secondAttribute="top" id="hej-Rg-5gc"/>
                                             <constraint firstAttribute="trailing" secondItem="Be7-sm-fsh" secondAttribute="trailing" constant="24" id="og9-Xm-NEr"/>
                                             <constraint firstItem="B2Y-1o-k4k" firstAttribute="leading" secondItem="72l-12-QOt" secondAttribute="leading" constant="24" id="seY-6t-jVg"/>
-                                            <constraint firstAttribute="bottom" secondItem="Be7-sm-fsh" secondAttribute="bottom" id="zKU-dg-QSt"/>
+                                            <constraint firstAttribute="bottom" secondItem="Be7-sm-fsh" secondAttribute="bottom" constant="8" id="zKU-dg-QSt"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01c-Rd-hlQ" userLabel="pickDateView">
-                                        <rect key="frame" x="0.0" y="116.5" width="414" height="256"/>
+                                        <rect key="frame" x="0.0" y="117.5" width="414" height="256"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyl-5i-4gt">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -360,19 +360,26 @@
                     <connections>
                         <outlet property="close" destination="vFp-7c-ud3" id="lK6-dl-q0U"/>
                         <outlet property="continueButton" destination="XZ7-Y8-iV9" id="Q0i-xw-c3q"/>
+                        <outlet property="continueTopSpace" destination="ejy-Et-KRa" id="dFu-aN-wPk"/>
                         <outlet property="dateCheckmark" destination="S7K-ow-0ZV" id="drb-Li-L3l"/>
                         <outlet property="dateLabel" destination="Mb2-AY-fWP" id="tbm-ia-cqX"/>
                         <outlet property="datePicker" destination="FjT-Sy-Did" id="g53-bw-f2i"/>
+                        <outlet property="dateTopSpace" destination="RTt-ve-2ZQ" id="rjs-5X-AZc"/>
                         <outlet property="dateView" destination="OfA-Lg-p3t" id="tZ4-Xj-pwd"/>
+                        <outlet property="detailsTopSpace" destination="TOJ-LS-9NH" id="KqU-ft-b6S"/>
                         <outlet property="negativeCheckmark" destination="H0n-Su-nMM" id="6eg-Gj-o2g"/>
+                        <outlet property="negativeTopSpace" destination="rKE-YK-hlQ" id="M1r-kE-uEt"/>
                         <outlet property="negativeView" destination="EDc-mH-TBU" id="G4L-cR-yDS"/>
                         <outlet property="pickDateView" destination="01c-Rd-hlQ" id="Tgk-YU-ILn"/>
                         <outlet property="positiveCheckmark" destination="qeE-By-EMU" id="SWX-vV-aG4"/>
+                        <outlet property="positiveTopSpace" destination="H2L-D6-jOv" id="sqM-fT-jzY"/>
                         <outlet property="positiveView" destination="qgx-Dc-gGK" id="kQ5-6x-2UC"/>
                         <outlet property="reportButton" destination="B2Y-1o-k4k" id="uZQ-XJ-XX6"/>
+                        <outlet property="reportTopSpace" destination="4V7-cL-Yb7" id="n6c-ys-7yd"/>
                         <outlet property="reportView" destination="72l-12-QOt" id="uz4-Wh-QTv"/>
                         <outlet property="showOnNegativeView" destination="uRK-Ag-ZRW" id="FHb-Ws-zja"/>
                         <outlet property="showOnPositiveView" destination="YY3-NH-PMz" id="gJU-0S-skQ"/>
+                        <outlet property="titleTopSpace" destination="43V-XL-Air" id="QVb-m1-yoR"/>
                         <segue destination="jwJ-fK-v8e" kind="presentation" identifier="thanks" modalPresentationStyle="fullScreen" id="jNo-oj-FAp"/>
                         <segue destination="1bH-ks-gge" kind="presentation" identifier="testToHome" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="j8C-A6-hgC"/>
                     </connections>
