@@ -10,9 +10,9 @@ import Foundation
 
 func isDWithinXDaysOfToday(D: Date, X: Int) -> Bool {
     let calendar = Calendar.current
-    let today = calendar.startOfDay(for: Date())
+    let now = Date()
 
-    let components = calendar.dateComponents([.day], from: D, to: today)
+    let components = calendar.dateComponents([.day], from: D, to: now)
     if let numDays = components.day {
         if numDays <= X {
             return true

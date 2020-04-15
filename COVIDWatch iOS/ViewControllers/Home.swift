@@ -22,24 +22,25 @@ class Home: BaseViewController {
     var isUserSickObserver: NSKeyValueObservation?
     var observer: NSObjectProtocol?
     var bluetoothPermission: BluetoothPermission?
+    let globalState = UserDefaults.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        testLastSubmittedDateObserver = UserDefaults.shared.observe(
+        testLastSubmittedDateObserver = globalState.observe(
             \.testLastSubmittedDate,
             options: [.initial, .new],
             changeHandler: { (_, _) in
             self.drawScreen()
         })
 
-        mostRecentExposureDateObserver = UserDefaults.shared.observe(
+        mostRecentExposureDateObserver = globalState.observe(
             \.mostRecentExposureDate,
             options: [],
             changeHandler: { (_, _) in
             self.drawScreen()
         })
 
-        isUserSickObserver = UserDefaults.shared.observe(
+        isUserSickObserver = globalState.observe(
             \.isUserSick,
             options: [],
             changeHandler: { (_, _) in
@@ -153,7 +154,6 @@ class Home: BaseViewController {
     }
     // swiftlint:disable:next function_body_length
     private func drawScreen() {
-        let globalState = UserDefaults.shared
 //        optionally draw the info banner and determine the coordinate for the top of the image
         var imgTop: CGFloat
         if globalState.isUserAtRiskForCovid || globalState.isUserSick {
@@ -172,7 +172,7 @@ class Home: BaseViewController {
 //        determine image size
         img.frame.size.width = 253 * figmaToiOSHorizontalScalingFactor
         img.frame.size.height = 259 * figmaToiOSVerticalScalingFactor
-        if UserDefaults.shared.isFirstTimeUser && screenHeight <= 667 {
+        if globalState.isFirstTimeUser && screenHeight <= 667 {
             img.frame.size.width /= 1.5
             img.frame.size.height /= 1.5
         }
@@ -181,14 +181,14 @@ class Home: BaseViewController {
         self.view.addSubview(img)
 
         var mainTextTop: CGFloat
-        if UserDefaults.shared.isFirstTimeUser {
+        if globalState.isFirstTimeUser {
             largeText.isHidden = false
             largeText.text = "You're all set!"
             largeText.draw(parentVC: self,
             centerX: view.center.x,
             originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
             mainTextTop = largeText.frame.maxY
-        } else if !UserDefaults.shared.isUserAtRiskForCovid {
+        } else if !globalState.isUserAtRiskForCovid {
             largeText.isHidden = false
             largeText.text = "Welcome Back!"
             largeText.draw(parentVC: self,
@@ -202,11 +202,11 @@ class Home: BaseViewController {
         }
 
 //        draw mainText with respect to largeText or img or not at all
-        if UserDefaults.shared.isFirstTimeUser {
+        if globalState.isFirstTimeUser {
             // swiftlint:disable:next line_length
             mainText.text = "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
-        } else if !UserDefaults.shared.isUserAtRiskForCovid {
+        } else if !globalState.isUserAtRiskForCovid {
             // swiftlint:disable:next line_length
             mainText.text = "Covid Watch has not detected exposure to COVID-19. Share the app with family and friends to help your community stay safe."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
@@ -217,7 +217,7 @@ class Home: BaseViewController {
             mainText.textAlignment = .center
         }
 
-        if UserDefaults.shared.isUserAtRiskForCovid || screenHeight <= 568 {
+        if globalState.isUserAtRiskForCovid || screenHeight <= 568 {
 //            Necessary to fit on screen
             spreadButton.subtext?.removeFromSuperview()
             spreadButton.subtext = nil
@@ -231,7 +231,7 @@ class Home: BaseViewController {
 //        spreadButton drawn below because its position depends on whether testedButton is drawn
         spreadButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.share)))
 
-        if UserDefaults.shared.isEligibleToSubmitTest {
+        if globalState.isEligibleToSubmitTest {
             self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
             let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
             testedButton.draw(parentVC: self, centerX: view.center.x, originY: testedButtonTop)
@@ -256,7 +256,7 @@ class Home: BaseViewController {
                                      centerX: view.center.x)
         }
 
-        UserDefaults.shared.isFirstTimeUser = false
+        globalState.isFirstTimeUser = false
 
     }
 
