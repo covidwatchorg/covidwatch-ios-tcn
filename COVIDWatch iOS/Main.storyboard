@@ -46,7 +46,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Discovered RPIs" id="uu8-DF-5Zq">
-                        <barButtonItem key="leftBarButtonItem" title="Self-report" id="Vv3-eZ-nlF">
+                        <barButtonItem key="leftBarButtonItem" title="Self-report" image="icloud.and.arrow.up" catalog="system" id="Vv3-eZ-nlF">
                             <connections>
                                 <action selector="handleTapUploadButton:" destination="Vxd-Mb-2bC" id="W6v-vn-f0N"/>
                             </connections>
@@ -60,7 +60,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKI-e2-X3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <barButtonItem title="Clear" id="VDf-9o-ho1">
+                <barButtonItem title="Clear" image="trash" catalog="system" id="VDf-9o-ho1">
                     <connections>
                         <action selector="handleTapClearButton:" destination="Vxd-Mb-2bC" id="0Wc-Fw-d7C"/>
                     </connections>
@@ -98,4 +98,8 @@
         </scene>
     </scenes>
     <color key="tintColor" red="0.19607843137254902" green="0.3529411764705882" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+    <resources>
+        <image name="icloud.and.arrow.up" catalog="system" width="128" height="106"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+    </resources>
 </document>
