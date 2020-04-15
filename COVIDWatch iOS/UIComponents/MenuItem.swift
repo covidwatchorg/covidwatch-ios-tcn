@@ -54,11 +54,13 @@ class MenuItem: UIView {
         menuItem1text.center = menuItem1.center
         menuItem1text.layer.zPosition = 1
         menuItem1.addLine(position: .bottom, color: UIColor(hexString: "CCCCCC"), width: 0.5)
-        linkImg?.frame.size.height = menuItem1text.frame.size.height
-        linkImg?.frame.size.width = linkImg!.frame.size.height
-        linkImg?.center.y = menuItem1.center.y
-        linkImg?.frame.origin.x = menuItem1.frame.maxX - linkImg!.frame.size.width
-        linkImg?.isHidden = true
+        if let linkImg = linkImg {
+            linkImg.frame.size.height = menuItem1text.frame.size.height
+            linkImg.frame.size.width = linkImg.frame.size.height
+            linkImg.center.y = menuItem1.center.y
+            linkImg.frame.origin.x = menuItem1.frame.maxX - linkImg.frame.size.width
+            linkImg.isHidden = true
+        }
         menuItem1text.isHidden = true
         menuItem1.isHidden = true
         linkImg?.layer.zPosition = 1

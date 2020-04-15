@@ -12,5 +12,9 @@ identifier_name:
   excluded:
     - id
 
+enabled_rules:
+  - force_unwrapping
+
 disabled_rules:
   - implicit_getter
+  - trailing_whitespace

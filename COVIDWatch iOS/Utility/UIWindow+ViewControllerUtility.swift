@@ -9,8 +9,8 @@ extension UIApplication {
 
     private func topViewController(_ inWindow: UIWindow?) -> UIViewController? {
         if var viewController = inWindow?.rootViewController {
-            while viewController.presentedViewController != nil {
-                viewController = viewController.presentedViewController!
+            while let presented = viewController.presentedViewController {
+                viewController = presented
             }
             return viewController
         }

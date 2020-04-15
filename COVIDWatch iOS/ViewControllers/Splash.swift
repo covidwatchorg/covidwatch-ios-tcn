@@ -50,20 +50,21 @@ class Splash: UIViewController {
         descriptionText.font = UIFont(name: "Montserrat-Medium", size: 22)
         descriptionText.textAlignment = .center
         descriptionText.backgroundColor = .clear
-
-        let height = NSLayoutConstraint(
-            item: self.startButton!,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: nil,
-            attribute: .notAnAttribute,
-            multiplier: 1,
-            constant: (58.0/321.0) * contentMaxWidth
-        )
-        startButton.addConstraint(height)
-        startButton.layer.cornerRadius = 10
-        startButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 24)
-        startButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
+        if let startButton = self.startButton {
+            let height = NSLayoutConstraint(
+                item: startButton,
+                attribute: .height,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: (58.0/321.0) * contentMaxWidth
+            )
+            startButton.addConstraint(height)
+            startButton.layer.cornerRadius = 10
+            startButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 24)
+            startButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
+        }
 
         if checkIfStartedOnboarding() {
             DispatchQueue.main.async {
