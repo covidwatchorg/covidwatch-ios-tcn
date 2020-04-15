@@ -14,6 +14,17 @@ class Splash: UIViewController {
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var startButton: UIButton!
 
+    // this happens if bluetooth is changed during onboarding and the user
+    // gets bounced back to the start of onboarding when reloading the app
+    static let onboardingStartedKey = "onboardingStarted"
+    func checkIfStartedOnboarding() -> Bool {
+        // defaults to false
+        return UserDefaults.standard.bool(forKey: Splash.onboardingStartedKey)
+    }
+    func setOnboardingStarted() {
+        UserDefaults.standard.set(true, forKey: Splash.onboardingStartedKey)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,13 +63,28 @@ class Splash: UIViewController {
         startButton.addConstraint(height)
         startButton.layer.cornerRadius = 10
         startButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 24)
+        startButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
 
+        if checkIfStartedOnboarding() {
+            DispatchQueue.main.async {
+                self.goToBluetoothNoAnimation()
+            }
+        }
     }
 
     @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            performSegue(withIdentifier: "SplashToBluetooth", sender: self)
+            self.setOnboardingStarted()
+            self.goToBluetooth()
         }
+    }
+
+    func goToBluetooth() {
+        self.performSegue(withIdentifier: "SplashToBluetooth", sender: self)
+    }
+
+    func goToBluetoothNoAnimation() {
+        self.performSegue(withIdentifier: "SplashToBluetoothQuick", sender: self)
     }
 
     /*
