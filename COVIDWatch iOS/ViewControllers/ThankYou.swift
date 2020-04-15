@@ -27,7 +27,10 @@ class ThankYou: UIViewController {
 
         self.scalingFactor = CGFloat(screenHeight) / CGFloat(896)
         var fontScalingFactor = CGFloat(1.0)
-        if screenHeight <= 736.0 { fontScalingFactor = scalingFactor! }
+        if screenHeight <= 736.0,
+            let scalingFactor = scalingFactor {
+            fontScalingFactor = scalingFactor
+        }
         print("ScreenHeight = \(screenHeight)")
         thankyouLbl.text =  "Thank you for helping your community."
         thankyouLbl.textColor = UIColor(red: 0.345, green: 0.345, blue: 0.345, alpha: 1)
