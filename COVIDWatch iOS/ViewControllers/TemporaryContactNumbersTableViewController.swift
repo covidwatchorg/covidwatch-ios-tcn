@@ -22,7 +22,6 @@ class TemporaryContactNumbersTableViewController: UITableViewController, NSFetch
         super.viewDidLoad()
         self.initFetchedResultsController()
         self.configureIsTemporaryContactLoggingObservationEnabled()
-        self.configureClearButton()
         self.tableView.refreshControl = UIRefreshControl()
         self.tableView.refreshControl?.addTarget(self, action: #selector(refreshSignedReports), for: .valueChanged)
     }
@@ -50,6 +49,7 @@ class TemporaryContactNumbersTableViewController: UITableViewController, NSFetch
                 self.fetchedResultsController?.delegate = self
                 try self.fetchedResultsController?.performFetch()
                 self.tableView.reloadData()
+                self.configureClearButton()
             }
             catch {
                 os_log("Fetched results controller perform fetch failed: %@", log: .app, type: .error, error as CVarArg)
