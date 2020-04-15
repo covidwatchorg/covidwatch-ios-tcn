@@ -58,6 +58,7 @@
 		2E1FDC1824393C5A000D8D67 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0624393C59000D8D67 /* Montserrat-SemiBoldItalic.ttf */; };
 		2E1FDC1924393C5A000D8D67 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */; };
 		2E1FDC1B24394425000D8D67 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDC1A24394424000D8D67 /* Notifications.swift */; };
+		2E80CAE72446B87700F5272E /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
 		2EBF8725243BC275003278E6 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8724243BC275003278E6 /* Header.swift */; };
 		2EBF8727243BC7F8003278E6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8726243BC7F8003278E6 /* BaseViewController.swift */; };
 		2EBF8729243BCFA1003278E6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */; };
@@ -160,6 +161,7 @@
 		2E1FDC0624393C59000D8D67 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
 		2E1FDC1A24394424000D8D67 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsWithinXDaysOfToday.swift; sourceTree = "<group>"; };
 		2EBF8724243BC275003278E6 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		2EBF8726243BC7F8003278E6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */,
 				2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */,
 				E24BC322244545CB00819EF0 /* NotificationPermission.swift */,
+				2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */,
 				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,
 				2EBF872B243BEAFA003278E6 /* LargeText.swift in Sources */,
+				2E80CAE72446B87700F5272E /* IsWithinXDaysOfToday.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

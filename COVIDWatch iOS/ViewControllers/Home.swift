@@ -17,22 +17,30 @@ class Home: BaseViewController {
     var testedButton = Button(text: "Tested for COVID-19?",
                               subtext: "Share your result anonymously to help keep your community stay safe.")
     var infoBanner = InfoBanner(text: "You may have been in contact with COVID-19")
-    var lastTestedDateObserver: NSKeyValueObservation?
-    var didUserMakeContactWithSickUserObserver: NSKeyValueObservation?
+    var testLastSubmittedDateObserver: NSKeyValueObservation?
+    var mostRecentExposureDateObserver: NSKeyValueObservation?
+    var isUserSickObserver: NSKeyValueObservation?
     var observer: NSObjectProtocol?
     var bluetoothPermission: BluetoothPermission?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        lastTestedDateObserver = UserDefaults.shared.observe(
-            \.lastTestedDate,
+        testLastSubmittedDateObserver = UserDefaults.shared.observe(
+            \.testLastSubmittedDate,
             options: [.initial, .new],
             changeHandler: { (_, _) in
             self.drawScreen()
         })
 
-        didUserMakeContactWithSickUserObserver = UserDefaults.shared.observe(
-            \.didUserMakeContactWithSickUser,
+        mostRecentExposureDateObserver = UserDefaults.shared.observe(
+            \.mostRecentExposureDate,
+            options: [],
+            changeHandler: { (_, _) in
+            self.drawScreen()
+        })
+
+        isUserSickObserver = UserDefaults.shared.observe(
+            \.isUserSick,
             options: [],
             changeHandler: { (_, _) in
             self.drawScreen()
@@ -145,10 +153,16 @@ class Home: BaseViewController {
     }
     // swiftlint:disable:next function_body_length
     private func drawScreen() {
+        let globalState = UserDefaults.shared
 //        optionally draw the info banner and determine the coordinate for the top of the image
         var imgTop: CGFloat
-        if UserDefaults.shared.didUserMakeContactWithSickUser {
+        if globalState.isUserAtRiskForCovid || globalState.isUserSick {
             infoBanner.isHidden = false
+            if globalState.isUserSick {
+                infoBanner.text = "You reported that you tested positive for COVID-19"
+            } else {
+                infoBanner.text = "You may have been in contact with COVID-19"
+            }
             infoBanner.draw(parentVC: self, centerX: view.center.x, originY: header.frame.maxY)
             imgTop = infoBanner.frame.maxY + 21.0 * figmaToiOSVerticalScalingFactor
         } else {
@@ -174,7 +188,7 @@ class Home: BaseViewController {
             centerX: view.center.x,
             originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
             mainTextTop = largeText.frame.maxY
-        } else if !UserDefaults.shared.didUserMakeContactWithSickUser {
+        } else if !UserDefaults.shared.isUserAtRiskForCovid {
             largeText.isHidden = false
             largeText.text = "Welcome Back!"
             largeText.draw(parentVC: self,
@@ -192,7 +206,7 @@ class Home: BaseViewController {
             // swiftlint:disable:next line_length
             mainText.text = "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
-        } else if !UserDefaults.shared.didUserMakeContactWithSickUser {
+        } else if !UserDefaults.shared.isUserAtRiskForCovid {
             // swiftlint:disable:next line_length
             mainText.text = "Covid Watch has not detected exposure to COVID-19. Share the app with family and friends to help your community stay safe."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
@@ -203,7 +217,7 @@ class Home: BaseViewController {
             mainText.textAlignment = .center
         }
 
-        if UserDefaults.shared.didUserMakeContactWithSickUser || screenHeight <= 568 {
+        if UserDefaults.shared.isUserAtRiskForCovid || screenHeight <= 568 {
 //            Necessary to fit on screen
             spreadButton.subtext?.removeFromSuperview()
             spreadButton.subtext = nil
@@ -215,21 +229,9 @@ class Home: BaseViewController {
             spreadButton = Button(text: "Share the app", subtext: "It works best when everyone uses it.")
         }
 //        spreadButton drawn below because its position depends on whether testedButton is drawn
-
-        let calendar = Calendar.current
-
-        var hasBeenTestedInLast14Days = false
-        if let lastTestedDate = UserDefaults.shared.lastTestedDate {
-            let date1 = calendar.startOfDay(for: lastTestedDate)
-            let date2 = calendar.startOfDay(for: Date())
-
-            let components = calendar.dateComponents([.day], from: date1, to: date2)
-            if let numDays = components.day {
-                hasBeenTestedInLast14Days = numDays <= 14 ? true : false
-            }
-        }
         spreadButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.share)))
-        if !hasBeenTestedInLast14Days {
+        
+        if UserDefaults.shared.isEligibleToSubmitTest {
             self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
             let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
             testedButton.draw(parentVC: self, centerX: view.center.x, originY: testedButtonTop)

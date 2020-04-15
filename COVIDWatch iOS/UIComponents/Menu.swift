@@ -8,6 +8,8 @@
 
 import UIKit
 
+let MANUAL_STATE_TEST = true
+
 class Menu: UIView {
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))
     var menuItems: [MenuItem] = [
@@ -104,6 +106,47 @@ class Menu: UIView {
 
     init() {
         super.init(frame: CGRect())
+        
+        if MANUAL_STATE_TEST {
+            self.menuItems.removeAll()
+            let globalState = UserDefaults.shared
+            let now = Date()
+            let threeDaysAgo = Calendar.current.date(byAdding: .day, value: -3, to: now)
+            let thirtyDaysAgo = Calendar.current.date(byAdding: .day, value: -30, to: now)
+            self.menuItems.append(contentsOf: [
+                MenuItem(text: "mostRecentExposure-30d", addLinkImg: false, onClick: {
+                    globalState.mostRecentExposureDate = thirtyDaysAgo
+                    print("Set mostRecentExposureDate to 30 days ago")
+                }),
+                MenuItem(text: "mostRecentExposure-3d", addLinkImg: false, onClick: {
+                    globalState.mostRecentExposureDate = threeDaysAgo
+                    print("Set mostRecentExposureDate to 3 days ago")
+                }),
+                MenuItem(text: "mostRecentExposure-nil", addLinkImg: false, onClick: {
+                    globalState.mostRecentExposureDate = nil
+                    print("Set mostRecentExposureDate to nil")
+                }),
+                MenuItem(text: "testLastSubmittedDate-30d", addLinkImg: false, onClick: {
+                    globalState.testLastSubmittedDate = thirtyDaysAgo
+                    print("Set testLastSubmittedDate to 30 days ago")
+                }),
+                MenuItem(text: "testLastSubmittedDate-3d", addLinkImg: false, onClick: {
+                    globalState.testLastSubmittedDate = threeDaysAgo
+                    print("Set testLastSubmittedDate to 3 days ago")
+                }),
+                MenuItem(text: "testLastSubmittedDate-nil", addLinkImg: false, onClick: {
+                    globalState.testLastSubmittedDate = nil
+                    print("Set testLastSubmittedDate to nil")
+                }),
+                MenuItem(text: "Toggle isUserSick", addLinkImg: false, onClick: {
+                    globalState.isUserSick = !globalState.isUserSick
+                    print("isUserSick set to \(globalState.isUserSick)")
+                    // Enforce that global state is realistic
+                    globalState.testLastSubmittedDate = nil
+                    print("Set testLastSubmittedDate to nil")
+                }),
+            ])
+        }
     }
 
     required init?(coder: NSCoder) {
