@@ -22,7 +22,7 @@ class Confirm: UIViewController {
     @IBOutlet var slideTopSpace: NSLayoutConstraint!
 
     public var testedDate: Date = Date()
-    var ogSlideButtonPosition: CGPoint? = CGPoint.zero
+    var ogSlideButtonPosition: CGPoint = CGPoint.zero
     var slideStartPosition: CGFloat = 0.0
     var slideEndPosition: CGFloat = 0.0
     var slideCurrentPosition: CGFloat = 0.0
@@ -52,33 +52,33 @@ class Confirm: UIViewController {
     }
 
     @objc func onSlide(gesture: UIPanGestureRecognizer) {
-        if gesture.state == .began {
-            ogSlideButtonPosition = gesture.view?.center
-        }
-        if gesture.state == .began || gesture.state == .changed {
-            let translation = gesture.translation(in: slideView)
-            if let xPos = gesture.view?.center.x,
-                let yPos = gesture.view?.center.y,
-                let gView = gesture.view {
-                let viewFrame1 = slideView.convert(gView.frame, from: slideButton)
-                let currentLeftPos = viewFrame1.minX + translation.x
+        if let gView = gesture.view,
+            let xPos = gesture.view?.center.x,
+            let yPos = gesture.view?.center.y {
+
+            if gesture.state == .began {
+                ogSlideButtonPosition = gView.center
+            }
+            if gesture.state == .began || gesture.state == .changed {
+                let translation = gesture.translation(in: slideView)
+                let viewFrame = slideView.convert(gView.frame, from: slideButton)
+                let currentLeftPos = viewFrame.minX + translation.x
                 slideCurrentPosition = xPos + translation.x + (btnWidth / 2.0)
-                slideToConfirmText.alpha = 1.0 - 2 * (slideCurrentPosition / slideEndPosition)
-                if currentLeftPos > slideStartPosition && slideCurrentPosition < slideEndPosition {
+                let slideDistance = (slideCurrentPosition - ogSlideButtonPosition.x)
+                let totalSlideDistance = screenWidth - btnWidth - 94
+                slideToConfirmText.alpha = 1.0 - 2 * (slideDistance / totalSlideDistance)
+                if currentLeftPos > slideStartPosition && slideDistance < totalSlideDistance {
                     gesture.view?.center = CGPoint(x: xPos + translation.x, y: yPos)
                     gesture.setTranslation(CGPoint.zero, in: slideView)
-                }
-                if slideCurrentPosition >= slideEndPosition {
+                } else if slideDistance >= totalSlideDistance {
                     onConfirm()
                 }
             }
-        }
-        if gesture.state == .ended {
-            if let pos = ogSlideButtonPosition {
-                gesture.view?.center = pos
+            if gesture.state == .ended {
+                gesture.view?.center = ogSlideButtonPosition
                 gesture.setTranslation(CGPoint.zero, in: slideView)
+                slideToConfirmText.alpha = 1.0
             }
-            slideToConfirmText.alpha = 1.0
         }
     }
 
