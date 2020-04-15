@@ -106,7 +106,7 @@ class Menu: UIView {
 
     init() {
         super.init(frame: CGRect())
-        
+
         if MANUAL_STATE_TEST {
             self.menuItems.removeAll()
             let globalState = UserDefaults.shared
@@ -144,7 +144,7 @@ class Menu: UIView {
                     // Enforce that global state is realistic
                     globalState.testLastSubmittedDate = nil
                     print("Set testLastSubmittedDate to nil")
-                }),
+                })
             ])
         }
     }

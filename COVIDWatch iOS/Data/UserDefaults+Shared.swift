@@ -32,8 +32,6 @@ extension UserDefaults {
         }
     }
 
-    
-
     @objc dynamic public var isContactEventLoggingEnabled: Bool {
         get {
             return bool(forKey: Key.isContactEventLoggingEnabled)

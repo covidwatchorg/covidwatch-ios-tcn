@@ -230,7 +230,7 @@ class Home: BaseViewController {
         }
 //        spreadButton drawn below because its position depends on whether testedButton is drawn
         spreadButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.share)))
-        
+
         if UserDefaults.shared.isEligibleToSubmitTest {
             self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
             let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
