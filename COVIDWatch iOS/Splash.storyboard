@@ -61,7 +61,7 @@
                                     <color key="titleColor" red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5SZ-V2-tjU" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="43K-C0-WVH"/>
+                                    <segue destination="5SZ-V2-tjU" kind="presentation" identifier="SplashToBluetooth" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="CQO-fQ-U6I"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -88,11 +88,12 @@
                         <outlet property="descriptionText" destination="csG-s4-Jdl" id="F2p-bC-cdn"/>
                         <outlet property="startButton" destination="kBx-Na-snW" id="kyG-YS-FE6"/>
                         <outlet property="titleText" destination="v3d-b4-wRM" id="ijt-8h-sbw"/>
+                        <segue destination="5SZ-V2-tjU" kind="presentation" identifier="SplashToBluetoothQuick" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="ejU-kS-iIw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgw-X2-MXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1628" y="-735"/>
+            <point key="canvasLocation" x="-2658" y="-790"/>
         </scene>
         <!--Bluetooth-->
         <scene sceneID="8tf-by-WAm">
@@ -102,11 +103,14 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPL-Qo-6pc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1071" y="-735"/>
+            <point key="canvasLocation" x="-1941" y="-867"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ejU-kS-iIw"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="family-superhero" width="209" height="206"/>
-        <image name="logo-cw-white" width="101" height="100"/>
+        <image name="logo-cw-white" width="304" height="304"/>
     </resources>
 </document>

@@ -127,15 +127,21 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     func initPickerDates() {
         let calendar = Calendar.current
         var endDate = Date()
-        let startDate = calendar.date(byAdding: .day, value: -13, to: endDate)!
-
+        
+        guard let startDate = calendar.date(byAdding: .day, value: -13, to: endDate) else {
+            print("\(#function): Error Creating date")
+            return
+        }
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
 
         while startDate <= endDate {
             pickerData.append(dateFormatter.string(from: endDate))
-            endDate = calendar.date(byAdding: .day, value: -1, to: endDate)!
+            if let date = calendar.date(byAdding: .day, value: -1, to: endDate) {
+                endDate = date
+            }
         }
     }
 
@@ -228,9 +234,9 @@ extension Test {
         super.updateViewConstraints()
     }
 
-    func getButtonHeight(view: Any!) -> NSLayoutConstraint {
+    func getButtonHeight(view: UIView) -> NSLayoutConstraint {
         return NSLayoutConstraint(
-            item: view!,
+            item: view,
             attribute: .height,
             relatedBy: .equal,
             toItem: nil,

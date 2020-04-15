@@ -98,15 +98,19 @@ extension Confirm {
         cancelTopSpace.constant = (15.0/321.0) * contentMaxWidth
         detailTopSpace.constant = (5.0/321.0) * contentMaxWidth
 
-        slideView.addConstraint(getButtonHeight(view: slideView))
-        cancelButton.addConstraint(getButtonHeight(view: cancelButton))
+        if let slideView = self.slideView {
+            slideView.addConstraint(getButtonHeight(view: slideView))
+        }
+        if let cancelButton = self.cancelButton {
+            cancelButton.addConstraint(getButtonHeight(view: cancelButton))
+        }
 
         super.updateViewConstraints()
     }
 
-    func getButtonHeight(view: Any!) -> NSLayoutConstraint {
+    func getButtonHeight(view: Any) -> NSLayoutConstraint {
         return NSLayoutConstraint(
-            item: view!,
+            item: view,
             attribute: .height,
             relatedBy: .equal,
             toItem: nil,

@@ -14,6 +14,17 @@ class Splash: UIViewController {
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var startButton: UIButton!
 
+    // this happens if bluetooth is changed during onboarding and the user
+    // gets bounced back to the start of onboarding when reloading the app
+    static let onboardingStartedKey = "onboardingStarted"
+    func checkIfStartedOnboarding() -> Bool {
+        // defaults to false
+        return UserDefaults.standard.bool(forKey: Splash.onboardingStartedKey)
+    }
+    func setOnboardingStarted() {
+        UserDefaults.standard.set(true, forKey: Splash.onboardingStartedKey)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,26 +50,42 @@ class Splash: UIViewController {
         descriptionText.font = UIFont(name: "Montserrat-Medium", size: 22)
         descriptionText.textAlignment = .center
         descriptionText.backgroundColor = .clear
+        if let startButton = self.startButton {
+            let height = NSLayoutConstraint(
+                item: startButton,
+                attribute: .height,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: (58.0/321.0) * contentMaxWidth
+            )
+            startButton.addConstraint(height)
+            startButton.layer.cornerRadius = 10
+            startButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 24)
+            startButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
+        }
 
-        let height = NSLayoutConstraint(
-            item: self.startButton!,
-            attribute: .height,
-            relatedBy: .equal,
-            toItem: nil,
-            attribute: .notAnAttribute,
-            multiplier: 1,
-            constant: (58.0/321.0) * contentMaxWidth
-        )
-        startButton.addConstraint(height)
-        startButton.layer.cornerRadius = 10
-        startButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 24)
-
+        if checkIfStartedOnboarding() {
+            DispatchQueue.main.async {
+                self.goToBluetoothNoAnimation()
+            }
+        }
     }
 
     @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            performSegue(withIdentifier: "SplashToBluetooth", sender: self)
+            self.setOnboardingStarted()
+            self.goToBluetooth()
         }
+    }
+
+    func goToBluetooth() {
+        self.performSegue(withIdentifier: "SplashToBluetooth", sender: self)
+    }
+
+    func goToBluetoothNoAnimation() {
+        self.performSegue(withIdentifier: "SplashToBluetoothQuick", sender: self)
     }
 
     /*

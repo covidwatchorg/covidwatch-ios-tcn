@@ -1,0 +1,5 @@
+app_identifier("org.covidwatch.tags.ios") # The bundle identifier of your app
+apple_id 'jeffctown@gmail.com'
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
