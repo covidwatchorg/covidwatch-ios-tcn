@@ -111,9 +111,7 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     @objc func submitPositive() {
-        UserDefaults.shared.isUserSick = true
-        UserDefaults.shared.lastTestedDate = Date()
-        performSegue(withIdentifier: "testToHome", sender: self)
+        performSegue(withIdentifier: "confirmTest", sender: self)
     }
 
     @objc func pickDate() {
@@ -130,7 +128,7 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         let calendar = Calendar.current
         var endDate = Date()
         
-        guard let startDate = calendar.date(byAdding: .day, value: -13, to: endDate) else {
+        guard let startDate = calendar.date(byAdding: .day, value: -30, to: endDate) else {
             print("\(#function): Error Creating date")
             return
         }
@@ -175,6 +173,21 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         showOnNegativeView.isHidden = true
     }
 
+    // MARK: - Pass testedDate to Confirm
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "confirmTest" {
+            if let confirmVC = segue.destination as? Confirm {
+                if let dateString = dateLabel.text {
+                    let df = DateFormatter()
+                    if let date = df.date(from: dateString) {
+                        confirmVC.testedDate = date
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - PickerView functions
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

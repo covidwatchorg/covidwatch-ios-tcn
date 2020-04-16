@@ -72,13 +72,17 @@
 		2EFE630C2440E9EA00D00305 /* InfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE630B2440E9EA00D00305 /* InfoBanner.swift */; };
 		60A44B4E244402A500A8154B /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A44B4D244402A500A8154B /* Entry.swift */; };
 		60A44B502444046A00A8154B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A44B4F2444046A00A8154B /* Main.storyboard */; };
+		60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
+		60BD14FC2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
+		60BD14FD2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
+		60BD14FF244685620009D7E0 /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
+		60BD1500244685620009D7E0 /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
+		60BD1501244685620009D7E0 /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
 		60EF50F12440E624006CDD76 /* Bluetooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F02440E624006CDD76 /* Bluetooth.storyboard */; };
 		60EF50F32440FAA4006CDD76 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F22440FAA4006CDD76 /* Notifications.storyboard */; };
 		60EF50F72440FAE0006CDD76 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Home.storyboard */; };
 		60EF50F92440FAF3006CDD76 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F82440FAF3006CDD76 /* Test.storyboard */; };
-		60EF50FB2440FAFC006CDD76 /* Thankyou.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50FA2440FAFC006CDD76 /* Thankyou.storyboard */; };
 		B1D85F9E809BCC12318E2223 /* Pods_COVIDWatch_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */; };
-		E1A7016D243D448F001FF6F0 /* ThankYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7016A243D448F001FF6F0 /* ThankYou.swift */; };
 		E1C729FF243DE30900D30118 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C729FE243DE30900D30118 /* Test.swift */; };
 		E24BC323244545CB00819EF0 /* NotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BC322244545CB00819EF0 /* NotificationPermission.swift */; };
 		E2B451A924443FE900E17888 /* BluetoothPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B451A824443FE900E17888 /* BluetoothPermission.swift */; };
@@ -177,11 +181,12 @@
 		3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; sourceTree = "<group>"; };
 		60A44B4D244402A500A8154B /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		60A44B4F2444046A00A8154B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		60BD14FA2446854F0009D7E0 /* Confirm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Confirm.swift; sourceTree = "<group>"; };
+		60BD14FE244685620009D7E0 /* Confirm.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Confirm.storyboard; sourceTree = "<group>"; };
 		60EF50F02440E624006CDD76 /* Bluetooth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Bluetooth.storyboard; sourceTree = "<group>"; };
 		60EF50F22440FAA4006CDD76 /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		60EF50F62440FAE0006CDD76 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		60EF50F82440FAF3006CDD76 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
-		60EF50FA2440FAFC006CDD76 /* Thankyou.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Thankyou.storyboard; sourceTree = "<group>"; };
 		64576CBB2D573736A801A228 /* Pods-COVIDWatch iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS/Pods-COVIDWatch iOS.release.xcconfig"; sourceTree = "<group>"; };
 		68229525C3FC0E16F5BEA5CD /* Pods-COVID-19 Risk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk.release.xcconfig"; sourceTree = "<group>"; };
 		797D91CDEEC20C267ED17AE4 /* Pods-COVIDWatch iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOSTests.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOSTests/Pods-COVIDWatch iOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,7 +197,6 @@
 		A40ADD9EFD1AE21913D43EB7 /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS-COVIDWatch iOSUITests/Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A5B373FB19305537F2E1D4A1 /* Pods-COVID-19 Risk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk.debug.xcconfig"; sourceTree = "<group>"; };
 		B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1A7016A243D448F001FF6F0 /* ThankYou.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThankYou.swift; sourceTree = "<group>"; };
 		E1C729FE243DE30900D30118 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		E24BC322244545CB00819EF0 /* NotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermission.swift; sourceTree = "<group>"; };
 		E2B451A824443FE900E17888 /* BluetoothPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothPermission.swift; sourceTree = "<group>"; };
@@ -246,8 +250,8 @@
 				2E1FDC1A24394424000D8D67 /* Notifications.swift */,
 				2EFE6303243F990900D00305 /* Home.swift */,
 				60A44B4D244402A500A8154B /* Entry.swift */,
+				60BD14FA2446854F0009D7E0 /* Confirm.swift */,
 				E1C729FE243DE30900D30118 /* Test.swift */,
-				E1A7016A243D448F001FF6F0 /* ThankYou.swift */,
 				2EBF8726243BC7F8003278E6 /* BaseViewController.swift */,
 			);
 			path = ViewControllers;
@@ -334,8 +338,8 @@
 				60A44B4F2444046A00A8154B /* Main.storyboard */,
 				60EF50F62440FAE0006CDD76 /* Home.storyboard */,
 				60EF50F82440FAF3006CDD76 /* Test.storyboard */,
-				60EF50FA2440FAFC006CDD76 /* Thankyou.storyboard */,
 				60EF50F22440FAA4006CDD76 /* Notifications.storyboard */,
+				60BD14FE244685620009D7E0 /* Confirm.storyboard */,
 				60EF50F02440E624006CDD76 /* Bluetooth.storyboard */,
 				2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */,
 				2DFDC5B324190AB900B108F8 /* Info.plist */,
@@ -560,7 +564,6 @@
 				2E1FDC0E24393C5A000D8D67 /* Montserrat-Thin.ttf in Resources */,
 				2E1FDC0C24393C5A000D8D67 /* Montserrat-MediumItalic.ttf in Resources */,
 				60A44B502444046A00A8154B /* Main.storyboard in Resources */,
-				60EF50FB2440FAFC006CDD76 /* Thankyou.storyboard in Resources */,
 				2E1FDC1624393C5A000D8D67 /* Montserrat-SemiBold.ttf in Resources */,
 				2E1FDC1224393C5A000D8D67 /* Montserrat-BlackItalic.ttf in Resources */,
 				2E1FDC1024393C5A000D8D67 /* Montserrat-BoldItalic.ttf in Resources */,
@@ -578,6 +581,7 @@
 				2E1FDC0A24393C5A000D8D67 /* Montserrat-Italic.ttf in Resources */,
 				60EF50F12440E624006CDD76 /* Bluetooth.storyboard in Resources */,
 				2DFDC5AF24190AB900B108F8 /* Preview Assets.xcassets in Resources */,
+				60BD14FF244685620009D7E0 /* Confirm.storyboard in Resources */,
 				2E1FDC1124393C5A000D8D67 /* Montserrat-Bold.ttf in Resources */,
 				2DFDC5AC24190AB900B108F8 /* Assets.xcassets in Resources */,
 				60EF50F72440FAE0006CDD76 /* Home.storyboard in Resources */,
@@ -592,6 +596,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60BD1500244685620009D7E0 /* Confirm.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +604,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60BD1501244685620009D7E0 /* Confirm.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,12 +770,12 @@
 				2D1F0FE3241AD0E100356B3A /* LocalContactEventsUploader.swift in Sources */,
 				2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */,
 				2EBF8735243CE60E003278E6 /* Menu.swift in Sources */,
-				E1A7016D243D448F001FF6F0 /* ThankYou.swift in Sources */,
 				2EFE6308243FB54F00D00305 /* UIResponderExtension.swift in Sources */,
 				E24BC323244545CB00819EF0 /* NotificationPermission.swift in Sources */,
 				2EFE6304243F990900D00305 /* Home.swift in Sources */,
 				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */,
 				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,
+				60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */,
 				2EBF872B243BEAFA003278E6 /* LargeText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,6 +784,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60BD14FC2446854F0009D7E0 /* Confirm.swift in Sources */,
 				2DFDC5BD24190ABA00B108F8 /* COVIDWatch_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -786,6 +793,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60BD14FD2446854F0009D7E0 /* Confirm.swift in Sources */,
 				2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
