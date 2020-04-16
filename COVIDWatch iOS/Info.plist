@@ -29,10 +29,14 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LocalIP</key>
+	<string>192.168.176.131</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>Allow access to Bluetooth to enable privacy-preserving contact tracing.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Allow access to Bluetooth to enable privacy-preserving contact tracing.</string>
+	<key>SchemeName</key>
+	<string>covidwatch-ios-dev</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
