@@ -85,9 +85,10 @@ class Splash: UIViewController {
     }
     
     private func setupAccessibilityAndLocalization() {
-        titleText.accessibilityLabel = AccessibilityIdentifier.TitleText.rawValue
-        descriptionText.accessibilityLabel = AccessibilityIdentifier.DescriptionText.rawValue
-        startButton.accessibilityLabel = AccessibilityIdentifier.StartButton.rawValue
+        titleText.accessibilityIdentifier = AccessibilityIdentifier.TitleText.rawValue
+        descriptionText.accessibilityIdentifier = AccessibilityIdentifier.DescriptionText.rawValue
+        startButton.accessibilityIdentifier = AccessibilityIdentifier.StartButton.rawValue
+        startButton.accessibilityLabel = AccessibilityLabel.startButton
     }
     
     func goToBluetooth() {

@@ -36,7 +36,7 @@
 		2DFDC5AF24190AB900B108F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5AE24190AB900B108F8 /* Preview Assets.xcassets */; };
 		2DFDC5B224190AB900B108F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */; };
 		2DFDC5BD24190ABA00B108F8 /* COVIDWatch_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */; };
-		2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */; };
+		2DFDC5C824190ABA00B108F8 /* TestSplashPageUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* TestSplashPageUI.swift */; };
 		2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E5243D05260084F8ED /* MenuItem.swift */; };
 		2E1F86F02448F80000957EBA /* COVIDWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */; };
 		2E1F86F12448F83400957EBA /* COVIDWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */; };
@@ -100,6 +100,7 @@
 		60EF50F72440FAE0006CDD76 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Home.storyboard */; };
 		60EF50F92440FAF3006CDD76 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F82440FAF3006CDD76 /* Test.storyboard */; };
 		B1D85F9E809BCC12318E2223 /* Pods_COVIDWatch_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */; };
+		BC1C1B9E24491365009CD349 /* TestBluetoothPageUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C1B9D24491365009CD349 /* TestBluetoothPageUI.swift */; };
 		BC6B4CB72448BB08003FB3F9 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */; };
 		BC6B4CBA2448BC50003FB3F9 /* AccessibilityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB92448BC50003FB3F9 /* AccessibilityLabel.swift */; };
 		BC9AE5492448DEB70050DE1E /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */; };
@@ -244,7 +245,7 @@
 		2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDWatch_iOSTests.swift; sourceTree = "<group>"; };
 		2DFDC5BE24190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DFDC5C324190ABA00B108F8 /* COVIDWatch iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COVIDWatch iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDWatch_iOSUITests.swift; sourceTree = "<group>"; };
+		2DFDC5C724190ABA00B108F8 /* TestSplashPageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSplashPageUI.swift; sourceTree = "<group>"; };
 		2DFDC5C924190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E0E86E5243D05260084F8ED /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		2E1FDBF22439275E000D8D67 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
@@ -299,6 +300,7 @@
 		A40ADD9EFD1AE21913D43EB7 /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS-COVIDWatch iOSUITests/Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A5B373FB19305537F2E1D4A1 /* Pods-COVID-19 Risk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk.debug.xcconfig"; sourceTree = "<group>"; };
 		B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC1C1B9D24491365009CD349 /* TestBluetoothPageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBluetoothPageUI.swift; sourceTree = "<group>"; };
 		BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		BC6B4CB92448BC50003FB3F9 /* AccessibilityLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityLabel.swift; sourceTree = "<group>"; };
 		E1C729FE243DE30900D30118 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
@@ -477,7 +479,8 @@
 		2DFDC5C624190ABA00B108F8 /* COVIDWatch iOSUITests */ = {
 			isa = PBXGroup;
 			children = (
-				2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */,
+				2DFDC5C724190ABA00B108F8 /* TestSplashPageUI.swift */,
+				BC1C1B9D24491365009CD349 /* TestBluetoothPageUI.swift */,
 				2DFDC5C924190ABA00B108F8 /* Info.plist */,
 			);
 			path = "COVIDWatch iOSUITests";
@@ -974,9 +977,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E1F86F02448F80000957EBA /* COVIDWatch.xcdatamodeld in Sources */,
-				2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */,
+				2DFDC5C824190ABA00B108F8 /* TestSplashPageUI.swift in Sources */,
 				BC9AE5722448DEBF0050DE1E /* AccessibilityIdentifier.swift in Sources */,
 				BC9AE5732448DEBF0050DE1E /* AccessibilityLabel.swift in Sources */,
+				BC1C1B9E24491365009CD349 /* TestBluetoothPageUI.swift in Sources */,
 				BC9AE5742448DEBF0050DE1E /* AppDelegate.swift in Sources */,
 				BC9AE5752448DEBF0050DE1E /* AppDelegate+BackgroundFetch.swift in Sources */,
 				BC9AE5762448DEBF0050DE1E /* AppDelegate+BackgroundTasks.swift in Sources */,
@@ -1081,6 +1085,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DISABLE_DIAMOND_PROBLEM_DIAGNOSTIC = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1141,6 +1146,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DISABLE_DIAMOND_PROBLEM_DIAGNOSTIC = 1;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

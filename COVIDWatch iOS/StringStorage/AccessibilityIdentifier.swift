@@ -15,7 +15,15 @@ These will not be read to the user so don't need to be localized.
 
 enum AccessibilityIdentifier: String {
     case
+    
+    // MARK: Splash page
     TitleText = "Title",
     StartButton = "Start",
-    DescriptionText = "Description"
+    DescriptionText = "Description",
+    
+    // MARK: Bluetooth page
+    LargeText = "a",
+    MainText = "b",
+    AllowButton = "c"
+    
 }
