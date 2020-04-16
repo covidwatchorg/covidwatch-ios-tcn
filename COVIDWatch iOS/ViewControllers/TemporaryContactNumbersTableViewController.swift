@@ -28,7 +28,7 @@ class TemporaryContactNumbersTableViewController: UITableViewController, NSFetch
     
     @objc private func refreshSignedReports(_ sender: Any) {
         (UIApplication.shared.delegate as? AppDelegate)?.fetchSignedReports(completionHandler: { (result) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.refreshControl?.endRefreshing()
             }            
         })
@@ -56,13 +56,9 @@ class TemporaryContactNumbersTableViewController: UITableViewController, NSFetch
             }
         }
     }
-    
-    @IBOutlet weak var clearBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var startBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var stopBarButtonItem: UIBarButtonItem!
-    
+        
     private func configureClearButton() {
-        self.clearBarButtonItem.isEnabled = (self.fetchedResultsController?.fetchedObjects?.count ?? 0) > 0
+//        self.clearBarButtonItem.isEnabled = (self.fetchedResultsController?.fetchedObjects?.count ?? 0) > 0
     }
     
     @IBAction func handleTapClearButton(_ sender: UIBarButtonItem) {
@@ -114,15 +110,15 @@ class TemporaryContactNumbersTableViewController: UITableViewController, NSFetch
     }
     
     private func configureBarButtonItems(animated: Bool = false) {
-        var items = [UIBarButtonItem]()
-        if self.isTemporaryContactLoggingEnabled {
-            items.append(stopBarButtonItem)
-        }
-        else {
-            items.append(startBarButtonItem)
-        }
-        items.append(clearBarButtonItem)
-        self.navigationItem.setRightBarButtonItems(items, animated: animated)
+//        var items = [UIBarButtonItem]()
+//        if self.isTemporaryContactLoggingEnabled {
+//            items.append(stopBarButtonItem)
+//        }
+//        else {
+//            items.append(startBarButtonItem)
+//        }
+//        items.append(clearBarButtonItem)
+//        self.navigationItem.setRightBarButtonItems(items, animated: animated)
     }
             
     private func configureIsTemporaryContactLoggingObservationEnabled() {

@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Discovered RPIs-->
+        <!--Discovered TCNs-->
         <scene sceneID="4Yb-kV-CrU">
             <objects>
                 <tableViewController id="Vxd-Mb-2bC" customClass="TemporaryContactNumbersTableViewController" customModule="COVID_Watch" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,36 +45,16 @@
                             <outlet property="delegate" destination="Vxd-Mb-2bC" id="Tdp-X9-Gau"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Discovered RPIs" id="uu8-DF-5Zq">
-                        <barButtonItem key="leftBarButtonItem" title="Self-report" image="icloud.and.arrow.up" catalog="system" id="Vv3-eZ-nlF">
+                    <navigationItem key="navigationItem" title="Discovered TCNs" id="uu8-DF-5Zq">
+                        <barButtonItem key="rightBarButtonItem" title="Self-report" image="icloud.and.arrow.up" catalog="system" id="Vv3-eZ-nlF">
                             <connections>
                                 <action selector="handleTapUploadButton:" destination="Vxd-Mb-2bC" id="W6v-vn-f0N"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="clearBarButtonItem" destination="VDf-9o-ho1" id="jNe-dm-92i"/>
-                        <outlet property="startBarButtonItem" destination="gjD-zw-Baw" id="W0n-4Q-lfd"/>
-                        <outlet property="stopBarButtonItem" destination="jj5-ay-Zd4" id="Uaz-T8-9aU"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKI-e2-X3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <barButtonItem title="Clear" image="trash" catalog="system" id="VDf-9o-ho1">
-                    <connections>
-                        <action selector="handleTapClearButton:" destination="Vxd-Mb-2bC" id="0Wc-Fw-d7C"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem title="Stop" id="jj5-ay-Zd4">
-                    <connections>
-                        <action selector="handleTapStopButton:" destination="Vxd-Mb-2bC" id="913-7p-KCs"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem title="Start" id="gjD-zw-Baw">
-                    <connections>
-                        <action selector="handleTapStartButton:" destination="Vxd-Mb-2bC" id="t4b-Yh-xcr"/>
-                    </connections>
-                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="1679.7101449275362" y="-358.25892857142856"/>
         </scene>
@@ -100,6 +80,5 @@
     <color key="tintColor" red="0.19607843137254902" green="0.3529411764705882" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <image name="icloud.and.arrow.up" catalog="system" width="128" height="106"/>
-        <image name="trash" catalog="system" width="121" height="128"/>
     </resources>
 </document>
