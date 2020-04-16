@@ -26,6 +26,7 @@ class COVIDWatchUITests: XCTestCase {
         // Testing splash page has proper existing items
         
         let app = XCUIApplication()
+        app.launch()
         
         XCTAssertEqual(app.staticTexts[AccessibilityIdentifier.TitleText.rawValue].label, "COVID WATCH")
         XCTAssertEqual(app.staticTexts[AccessibilityIdentifier.DescriptionText.rawValue].label, "Help your community stay safe, anonymously.")
