@@ -67,7 +67,10 @@ extension AppDelegate {
                     
             }, tcnFinder: { (data) in
                 
-                self.logFoundTemporaryContactNumber(with: data)
+                // TODO: Check comparison with previous TCN also
+                if data != self.currentTemporaryContactKey.temporaryContactNumber.bytes {
+                    self.logFoundTemporaryContactNumber(with: data)
+                }
                 
             }, errorHandler: { (error) in
                 // TODO: Handle errors, like user not giving permission to access Bluetooth, etc.
