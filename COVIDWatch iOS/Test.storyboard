@@ -380,7 +380,7 @@
                         <outlet property="showOnNegativeView" destination="uRK-Ag-ZRW" id="FHb-Ws-zja"/>
                         <outlet property="showOnPositiveView" destination="YY3-NH-PMz" id="gJU-0S-skQ"/>
                         <outlet property="titleTopSpace" destination="43V-XL-Air" id="QVb-m1-yoR"/>
-                        <segue destination="jwJ-fK-v8e" kind="presentation" identifier="thanks" modalPresentationStyle="fullScreen" id="jNo-oj-FAp"/>
+                        <segue destination="jwJ-fK-v8e" kind="presentation" identifier="confirmTest" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="jNo-oj-FAp"/>
                         <segue destination="1bH-ks-gge" kind="presentation" identifier="testToHome" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="j8C-A6-hgC"/>
                     </connections>
                 </viewController>
@@ -388,10 +388,10 @@
             </objects>
             <point key="canvasLocation" x="182.60869565217394" y="108.48214285714285"/>
         </scene>
-        <!--Thankyou-->
+        <!--Confirm-->
         <scene sceneID="jsa-Yh-v41">
             <objects>
-                <viewControllerPlaceholder storyboardName="Thankyou" id="jwJ-fK-v8e" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Confirm" id="jwJ-fK-v8e" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zqe-bf-dho" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="787" y="-33"/>

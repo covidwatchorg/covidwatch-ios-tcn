@@ -69,8 +69,8 @@ class Button: UIView {
         self.subtext?.frame.size.height = self.subtext?.contentSize.height ?? 0
         self.subtext?.center.x = self.text.center.x
         self.subtext?.frame.origin.y = self.frame.maxY
-        if self.subtext != nil {
-            parentVC.view.addSubview(self.subtext!)
+        if let subtext = self.subtext {
+            parentVC.view.addSubview(subtext)
         }
         self.subtext?.isSelectable = false
     }

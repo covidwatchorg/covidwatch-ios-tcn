@@ -111,9 +111,7 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     @objc func submitPositive() {
-        UserDefaults.shared.isUserSick = true
-        UserDefaults.shared.testLastSubmittedDate = Date()
-        performSegue(withIdentifier: "testToHome", sender: self)
+        performSegue(withIdentifier: "confirmTest", sender: self)
     }
 
     @objc func pickDate() {
@@ -129,15 +127,21 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     func initPickerDates() {
         let calendar = Calendar.current
         var endDate = Date()
-        let startDate = calendar.date(byAdding: .day, value: -13, to: endDate)!
-
+        
+        guard let startDate = calendar.date(byAdding: .day, value: -30, to: endDate) else {
+            print("\(#function): Error Creating date")
+            return
+        }
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
 
         while startDate <= endDate {
             pickerData.append(dateFormatter.string(from: endDate))
-            endDate = calendar.date(byAdding: .day, value: -1, to: endDate)!
+            if let date = calendar.date(byAdding: .day, value: -1, to: endDate) {
+                endDate = date
+            }
         }
     }
 
@@ -169,6 +173,21 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         showOnNegativeView.isHidden = true
     }
 
+    // MARK: - Pass testedDate to Confirm
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "confirmTest" {
+            if let confirmVC = segue.destination as? Confirm {
+                if let dateString = dateLabel.text {
+                    let df = DateFormatter()
+                    if let date = df.date(from: dateString) {
+                        confirmVC.testedDate = date
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - PickerView functions
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -215,9 +234,9 @@ extension Test {
         super.updateViewConstraints()
     }
 
-    func getButtonHeight(view: Any!) -> NSLayoutConstraint {
+    func getButtonHeight(view: UIView) -> NSLayoutConstraint {
         return NSLayoutConstraint(
-            item: view!,
+            item: view,
             attribute: .height,
             relatedBy: .equal,
             toItem: nil,
