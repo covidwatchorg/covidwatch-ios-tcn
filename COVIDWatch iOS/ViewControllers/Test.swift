@@ -128,7 +128,7 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         let calendar = Calendar.current
         var endDate = Date()
         
-        guard let startDate = calendar.date(byAdding: .day, value: -13, to: endDate) else {
+        guard let startDate = calendar.date(byAdding: .day, value: -30, to: endDate) else {
             print("\(#function): Error Creating date")
             return
         }
