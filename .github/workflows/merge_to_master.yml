@@ -1,0 +1,21 @@
+name: merge_to_master
+
+on:
+  # Merge dev into master every day at midnight GMT
+  schedule:
+    - cron:  '0 0 * * *'
+
+jobs:
+  merge_to_master:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: master
+    - name: Merge Dev into Master
+      run: |
+        git checkout dev 
+        git pull
+        git checkout master
+        git merge dev
+        git push origin master
