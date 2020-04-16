@@ -22,13 +22,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var signedReportsUploader: SignedReportsUploader?
     var currentUserExposureNotifier: CurrentUserExposureNotifier?
-    
+
+    static func getFirestore() -> Firestore {
+        if getAppScheme() == .development {
+            if let f = FirebaseApp.app() {
+                // override the firestore host to use the local emulator
+                let firestore = Firestore.firestore(app: f)
+                let settings = FirestoreSettings()
+                settings.host = getLocalFirebaseHost()
+                settings.isSSLEnabled = false
+                firestore.settings = settings
+                return firestore
+            }
+        }
+        return Firestore.firestore()
+    }
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FirebaseApp.configure()
-
         let appScheme = getAppScheme()
         let apiUrl = getAPIUrl(appScheme)
+
+        FirebaseApp.configure()
+
         print("Starting app with: \(appScheme) and API Url: \(apiUrl)")
 
         window?.tintColor = UIColor(red: 50.0/255.0, green: 90.0/255.0, blue: 169.0/255.0, alpha: 1.0)

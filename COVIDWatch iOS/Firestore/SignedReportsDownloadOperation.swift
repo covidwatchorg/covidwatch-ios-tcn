@@ -13,6 +13,8 @@ class SignedReportsDownloadOperation: Operation {
     
     public var querySnapshot: QuerySnapshot?
     public var error: Error?
+
+    private var db: Firestore = AppDelegate.getFirestore()
     
     init(sinceDate: Date) {
         self.sinceDate = sinceDate
@@ -22,7 +24,7 @@ class SignedReportsDownloadOperation: Operation {
     override func main() {
         let semaphore = DispatchSemaphore(value: 0)
         os_log("Downloading signed reports...", log: .app)
-        Firestore.firestore().collection(Firestore.Collections.signedReports)
+        self.db.collection(Firestore.Collections.signedReports)
             .whereField(Firestore.Fields.timestamp, isGreaterThan: Timestamp(date: self.sinceDate))
             // TODO: isAuthenticatedByHealthOrganization can only be written by an authenticated user
             // .whereField(Firestore.Fields.isAuthenticatedByHealthOrganization, isEqualTo: true)

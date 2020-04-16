@@ -13,7 +13,7 @@ open class SignedReportsUploader: NSObject, NSFetchedResultsControllerDelegate {
     
     private var fetchedResultsController: NSFetchedResultsController<SignedReport>
     
-    private let db = Firestore.firestore()
+    private var db: Firestore = AppDelegate.getFirestore()
     
     override init() {
         let managedObjectContext = PersistentContainer.shared.viewContext
@@ -23,6 +23,7 @@ open class SignedReportsUploader: NSObject, NSFetchedResultsControllerDelegate {
         request.predicate = NSPredicate(format: "uploadState == %d", UploadState.notUploaded.rawValue)
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         super.init()
+
         self.fetchedResultsController.delegate = self
         do {
             try self.fetchedResultsController.performFetch()
@@ -48,6 +49,7 @@ open class SignedReportsUploader: NSObject, NSFetchedResultsControllerDelegate {
             
             os_log("Uploading signed report (%@)...", log: .app, signatureBytesBase64EncodedString)
             signedReport.uploadState = UploadState.uploading.rawValue
+
             self.db.collection(Firestore.Collections.signedReports).addDocument(data: [
                 Firestore.Fields.temporaryContactKeyBytes : signedReport.temporaryContactKeyBytes ?? Data(),
                 Firestore.Fields.endIndex : signedReport.endIndex,
@@ -62,6 +64,7 @@ open class SignedReportsUploader: NSObject, NSFetchedResultsControllerDelegate {
                 defer {
                     try? self.fetchedResultsController.managedObjectContext.save()
                 }
+                
                 if let error = error {
                     // TODO: Handle retry
                     os_log("Uploading signed report (%@) failed: %@", log: .app, type: .error, signatureBytesBase64EncodedString, error as CVarArg)
