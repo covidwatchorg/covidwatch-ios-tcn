@@ -40,6 +40,24 @@
 		2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E5243D05260084F8ED /* MenuItem.swift */; };
 		2E1F86F02448F80000957EBA /* COVIDWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */; };
 		2E1F86F12448F83400957EBA /* COVIDWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */; };
+		2E1F86F32448FCE100957EBA /* BerkananFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 2E1F86F22448FCE100957EBA /* BerkananFoundation */; };
+		2E1F86F52448FCEC00957EBA /* BerkananFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 2E1F86F42448FCEC00957EBA /* BerkananFoundation */; };
+		2E1F86FE2448FE8C00957EBA /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5C540E241CB51C00DB2520 /* Splash.storyboard */; };
+		2E1F86FF2448FE8C00957EBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A44B4F2444046A00A8154B /* Main.storyboard */; };
+		2E1F87002448FE8C00957EBA /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Home.storyboard */; };
+		2E1F87012448FE8C00957EBA /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F82440FAF3006CDD76 /* Test.storyboard */; };
+		2E1F87022448FE8C00957EBA /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F22440FAA4006CDD76 /* Notifications.storyboard */; };
+		2E1F87032448FE8C00957EBA /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
+		2E1F87042448FE8C00957EBA /* Bluetooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F02440E624006CDD76 /* Bluetooth.storyboard */; };
+		2E1F87052448FE8C00957EBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */; };
+		2E1F87062448FE9800957EBA /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5C540E241CB51C00DB2520 /* Splash.storyboard */; };
+		2E1F87072448FE9800957EBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A44B4F2444046A00A8154B /* Main.storyboard */; };
+		2E1F87082448FE9800957EBA /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Home.storyboard */; };
+		2E1F87092448FE9800957EBA /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F82440FAF3006CDD76 /* Test.storyboard */; };
+		2E1F870A2448FE9800957EBA /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F22440FAA4006CDD76 /* Notifications.storyboard */; };
+		2E1F870B2448FE9800957EBA /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
+		2E1F870C2448FE9800957EBA /* Bluetooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F02440E624006CDD76 /* Bluetooth.storyboard */; };
+		2E1F870D2448FE9800957EBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */; };
 		2E1FDBF32439275E000D8D67 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash.swift */; };
 		2E1FDBF5243929F4000D8D67 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */; };
 		2E1FDC0824393C5A000D8D67 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF624393C53000D8D67 /* Montserrat-ThinItalic.ttf */; };
@@ -77,8 +95,6 @@
 		60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
 		60BD14FC2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
 		60BD14FF244685620009D7E0 /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
-		60BD1500244685620009D7E0 /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
-		60BD1501244685620009D7E0 /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
 		60EF50F12440E624006CDD76 /* Bluetooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F02440E624006CDD76 /* Bluetooth.storyboard */; };
 		60EF50F32440FAA4006CDD76 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F22440FAA4006CDD76 /* Notifications.storyboard */; };
 		60EF50F72440FAE0006CDD76 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Home.storyboard */; };
@@ -306,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00999A0AECE2E1E4E9ACA1C6 /* Pods_COVIDWatch_iOSTests.framework in Frameworks */,
+				2E1F86F32448FCE100957EBA /* BerkananFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F59A36E1AD0F8E40375BE630 /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework in Frameworks */,
+				2E1F86F52448FCEC00957EBA /* BerkananFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +601,9 @@
 				2DFDC5BA24190ABA00B108F8 /* PBXTargetDependency */,
 			);
 			name = "COVIDWatch iOSTests";
+			packageProductDependencies = (
+				2E1F86F22448FCE100957EBA /* BerkananFoundation */,
+			);
 			productName = "COVID-19 RiskTests";
 			productReference = 2DFDC5B824190ABA00B108F8 /* COVIDWatch iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -603,6 +624,9 @@
 				2DFDC5C524190ABA00B108F8 /* PBXTargetDependency */,
 			);
 			name = "COVIDWatch iOSUITests";
+			packageProductDependencies = (
+				2E1F86F42448FCEC00957EBA /* BerkananFoundation */,
+			);
 			productName = "COVID-19 RiskUITests";
 			productReference = 2DFDC5C324190ABA00B108F8 /* COVIDWatch iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -694,7 +718,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60BD1500244685620009D7E0 /* Confirm.storyboard in Resources */,
+				2E1F86FE2448FE8C00957EBA /* Splash.storyboard in Resources */,
+				2E1F86FF2448FE8C00957EBA /* Main.storyboard in Resources */,
+				2E1F87002448FE8C00957EBA /* Home.storyboard in Resources */,
+				2E1F87012448FE8C00957EBA /* Test.storyboard in Resources */,
+				2E1F87022448FE8C00957EBA /* Notifications.storyboard in Resources */,
+				2E1F87032448FE8C00957EBA /* Confirm.storyboard in Resources */,
+				2E1F87042448FE8C00957EBA /* Bluetooth.storyboard in Resources */,
+				2E1F87052448FE8C00957EBA /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,7 +733,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60BD1501244685620009D7E0 /* Confirm.storyboard in Resources */,
+				2E1F87062448FE9800957EBA /* Splash.storyboard in Resources */,
+				2E1F87072448FE9800957EBA /* Main.storyboard in Resources */,
+				2E1F87082448FE9800957EBA /* Home.storyboard in Resources */,
+				2E1F87092448FE9800957EBA /* Test.storyboard in Resources */,
+				2E1F870A2448FE9800957EBA /* Notifications.storyboard in Resources */,
+				2E1F870B2448FE9800957EBA /* Confirm.storyboard in Resources */,
+				2E1F870C2448FE9800957EBA /* Bluetooth.storyboard in Resources */,
+				2E1F870D2448FE9800957EBA /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1183,7 +1221,7 @@
 				DEVELOPMENT_TEAM = S647QX78WZ;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "COVIDWatch iOSTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1207,7 +1245,7 @@
 				DEVELOPMENT_TEAM = S647QX78WZ;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "COVIDWatch iOSTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1230,7 +1268,7 @@
 				DEVELOPMENT_TEAM = S647QX78WZ;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "COVIDWatch iOSUITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1253,7 +1291,7 @@
 				DEVELOPMENT_TEAM = S647QX78WZ;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "COVIDWatch iOSUITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1321,6 +1359,16 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		2DB09A3F241A098F0049CD2A /* BerkananFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2DB09A3E241A098F0049CD2A /* XCRemoteSwiftPackageReference "BerkananFoundation" */;
+			productName = BerkananFoundation;
+		};
+		2E1F86F22448FCE100957EBA /* BerkananFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2DB09A3E241A098F0049CD2A /* XCRemoteSwiftPackageReference "BerkananFoundation" */;
+			productName = BerkananFoundation;
+		};
+		2E1F86F42448FCEC00957EBA /* BerkananFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2DB09A3E241A098F0049CD2A /* XCRemoteSwiftPackageReference "BerkananFoundation" */;
 			productName = BerkananFoundation;
