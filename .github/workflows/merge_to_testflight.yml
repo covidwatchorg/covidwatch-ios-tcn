@@ -1,4 +1,4 @@
-name: merge_to_master
+name: merge_to_testflight
 
 on:
   # Merge dev into master every day at midnight GMT
@@ -11,11 +11,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: master
-    - name: Merge Dev into Master
+        ref: testflight
+    - name: Merge Dev into testflight
       run: |
         git checkout dev 
         git pull
-        git checkout master
+        git checkout testflight
         git merge dev
-        git push origin master
+        git push origin testflight
