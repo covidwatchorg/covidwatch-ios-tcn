@@ -38,6 +38,8 @@
 		2DFDC5BD24190ABA00B108F8 /* COVIDWatch_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */; };
 		2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* COVIDWatch_iOSUITests.swift */; };
 		2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E5243D05260084F8ED /* MenuItem.swift */; };
+		2E1F86F02448F80000957EBA /* COVIDWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */; };
+		2E1F86F12448F83400957EBA /* COVIDWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */; };
 		2E1FDBF32439275E000D8D67 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash.swift */; };
 		2E1FDBF5243929F4000D8D67 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */; };
 		2E1FDC0824393C5A000D8D67 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF624393C53000D8D67 /* Montserrat-ThinItalic.ttf */; };
@@ -882,6 +884,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E1F86F12448F83400957EBA /* COVIDWatch.xcdatamodeld in Sources */,
 				2DFDC5BD24190ABA00B108F8 /* COVIDWatch_iOSTests.swift in Sources */,
 				BC9AE5492448DEB70050DE1E /* AccessibilityIdentifier.swift in Sources */,
 				BC9AE54A2448DEB70050DE1E /* AccessibilityLabel.swift in Sources */,
@@ -932,6 +935,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E1F86F02448F80000957EBA /* COVIDWatch.xcdatamodeld in Sources */,
 				2DFDC5C824190ABA00B108F8 /* COVIDWatch_iOSUITests.swift in Sources */,
 				BC9AE5722448DEBF0050DE1E /* AccessibilityIdentifier.swift in Sources */,
 				BC9AE5732448DEBF0050DE1E /* AccessibilityLabel.swift in Sources */,
@@ -1177,8 +1181,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S647QX78WZ;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "COVIDWatch iOSTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1200,8 +1205,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S647QX78WZ;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "COVIDWatch iOSTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1222,7 +1228,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S647QX78WZ;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "COVIDWatch iOSUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1243,7 +1251,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S647QX78WZ;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "COVIDWatch iOSUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
