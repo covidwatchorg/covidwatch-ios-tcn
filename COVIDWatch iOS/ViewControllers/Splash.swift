@@ -50,6 +50,10 @@ class Splash: UIViewController {
         descriptionText.font = UIFont(name: "Montserrat-Medium", size: 22)
         descriptionText.textAlignment = .center
         descriptionText.backgroundColor = .clear
+        
+        // accessibility identifiers
+        setupAccessibilityAndLocalization()
+        
         if let startButton = self.startButton {
             let height = NSLayoutConstraint(
                 item: startButton,
@@ -79,7 +83,13 @@ class Splash: UIViewController {
             self.goToBluetooth()
         }
     }
-
+    
+    private func setupAccessibilityAndLocalization() {
+        titleText.accessibilityLabel = AccessibilityIdentifier.TitleText.rawValue
+        descriptionText.accessibilityLabel = AccessibilityIdentifier.DescriptionText.rawValue
+        startButton.accessibilityLabel = AccessibilityIdentifier.StartButton.rawValue
+    }
+    
     func goToBluetooth() {
         self.performSegue(withIdentifier: "SplashToBluetooth", sender: self)
     }

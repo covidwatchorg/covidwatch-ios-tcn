@@ -4,7 +4,7 @@
 //
 
 import XCTest
-@testable import COVIDWatch
+//@testable import COVIDWatch
 
 class COVIDWatchTests: XCTestCase {
 
@@ -26,6 +26,7 @@ class COVIDWatchTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+        
     }
 
 }
