@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xIW-yl-ZHW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,7 +46,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Discovered TCNs" id="uu8-DF-5Zq">
-                        <barButtonItem key="rightBarButtonItem" title="Self-report" image="icloud.and.arrow.up" catalog="system" id="Vv3-eZ-nlF">
+                        <barButtonItem key="leftBarButtonItem" title="Download Reports" image="icloud.and.arrow.down" catalog="system" id="eGL-5w-V0o">
+                            <connections>
+                                <action selector="handleTapDownloadButton:" destination="Vxd-Mb-2bC" id="oJ8-EA-Unz"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Upload Self-report" image="icloud.and.arrow.up" catalog="system" id="Vv3-eZ-nlF">
                             <connections>
                                 <action selector="handleTapUploadButton:" destination="Vxd-Mb-2bC" id="W6v-vn-f0N"/>
                             </connections>
@@ -79,6 +84,7 @@
     </scenes>
     <color key="tintColor" red="0.19607843137254902" green="0.3529411764705882" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
+        <image name="icloud.and.arrow.down" catalog="system" width="128" height="112"/>
         <image name="icloud.and.arrow.up" catalog="system" width="128" height="106"/>
     </resources>
 </document>

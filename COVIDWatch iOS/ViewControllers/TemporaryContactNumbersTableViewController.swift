@@ -98,6 +98,19 @@ class TemporaryContactNumbersTableViewController: UITableViewController, NSFetch
         UserDefaults.standard.setValue(false, forKey: UserDefaults.Key.isTemporaryContactNumberLoggingEnabled)
     }
     
+    @IBAction func handleTapDownloadButton(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: NSLocalizedString("Download self-reports from the cloud?", comment: ""), message: "", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { _ in
+            ()
+        }))
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Download", comment: ""), style: .default, handler: { _ in
+            (UIApplication.shared.delegate as? AppDelegate)?.fetchSignedReports(completionHandler: { (result) in
+                ()
+            })
+        }))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func handleTapUploadButton(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: NSLocalizedString("Upload self-report to the cloud?", comment: ""), message: "", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { _ in
