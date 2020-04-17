@@ -8,7 +8,7 @@
 
 import UIKit
 
-let MANUAL_STATE_TEST = false
+let MANUAL_STATE_TEST = true
 
 class Menu: UIView {
     var parentVC: UIViewController?

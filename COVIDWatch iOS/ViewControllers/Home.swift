@@ -159,9 +159,9 @@ class Home: BaseViewController {
         if globalState.isUserAtRiskForCovid || globalState.isUserSick {
             infoBanner.isHidden = false
             if globalState.isUserSick {
-                infoBanner.text = "You reported that you tested positive for COVID-19"
+                infoBanner.text?.text = "You reported that you tested positive for COVID-19"
             } else {
-                infoBanner.text = "You may have been in contact with COVID-19"
+                infoBanner.text?.text = "You may have been in contact with COVID-19"
             }
             infoBanner.draw(parentVC: self, centerX: view.center.x, originY: header?.frame.maxY ?? 0)
             imgTop = infoBanner.frame.maxY + 21.0 * figmaToiOSVerticalScalingFactor
@@ -188,7 +188,7 @@ class Home: BaseViewController {
             centerX: view.center.x,
             originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
             mainTextTop = largeText.frame.maxY
-        } else if !globalState.isUserAtRiskForCovid {
+        } else if !globalState.isUserAtRiskForCovid && !globalState.isUserSick {
             largeText.isHidden = false
             largeText.text = "Welcome Back!"
             largeText.draw(parentVC: self,
@@ -206,7 +206,7 @@ class Home: BaseViewController {
             // swiftlint:disable:next line_length
             mainText.text = "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)
-        } else if !globalState.isUserAtRiskForCovid {
+        } else if !globalState.isUserAtRiskForCovid && !globalState.isUserSick {
             // swiftlint:disable:next line_length
             mainText.text = "Covid Watch has not detected exposure to COVID-19. Share the app with family and friends to help your community stay safe."
             mainText.draw(parentVC: self, centerX: view.center.x, originY: mainTextTop)

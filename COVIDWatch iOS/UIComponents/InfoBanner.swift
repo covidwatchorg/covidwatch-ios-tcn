@@ -8,37 +8,43 @@
 
 import UIKit
 
-class InfoBanner: UITextView {
+class InfoBanner: UIView {
+    var text: UITextView?
     init(text: String) {
-        super.init(frame: CGRect(), textContainer: nil)
-        self.text = text
+        super.init(frame: CGRect())
+        
+        self.frame.size.width = screenWidth
+        self.frame.size.height = 100 * figmaToiOSVerticalScalingFactor
+        self.backgroundColor = UIColor.Secondary.Tangerine
+
+        self.text = UITextView()
         var fontSize: CGFloat = 18
         if screenHeight <= 568 {
             fontSize = 14
         } else if screenHeight <= 667 {
             fontSize = 16
         }
-        self.font = UIFont(name: "Montserrat-Bold", size: fontSize)
-        self.textColor = .white
-        self.frame.size.width = screenWidth
-        self.frame.size.height = 130 * figmaToiOSVerticalScalingFactor
-        self.isEditable = false
-        self.backgroundColor = UIColor.Secondary.Tangerine
-        self.isSelectable = false
-        let verticalInset = 44   * figmaToiOSVerticalScalingFactor
-        let horizontalInset = 43 * figmaToiOSHorizontalScalingFactor
-        self.textContainerInset = UIEdgeInsets(
-            top: verticalInset,
-            left: horizontalInset,
-            bottom: verticalInset,
-            right: horizontalInset
-        )
+        if let selfText = self.text {
+            selfText.text = text
+            selfText.font = UIFont(name: "Montserrat-Bold", size: fontSize)
+            selfText.textColor = .white
+            selfText.isEditable = false
+            selfText.isSelectable = false
+            selfText.frame.size.width = 290 * figmaToiOSHorizontalScalingFactor
+            selfText.frame.size.height = selfText.contentSize.height
+            selfText.backgroundColor = .clear
+        }
     }
 
     func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {
         self.center.x = centerX
         self.frame.origin.y = originY
+        self.text?.center.x = self.center.x
+        self.text?.center.y = self.center.y
         parentVC.view.addSubview(self)
+        if let selfText = self.text {
+            parentVC.view.addSubview(selfText)
+        }
     }
 
     required init?(coder: NSCoder) {
