@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var isUserSickObservation: NSKeyValueObservation?
 
     var localContactEventsUploader: LocalContactEventsUploader?
-    var currentUserExposureNotifier: CurrentUserExposureNotifier?
 
     // swiftlint:disable:next function_body_length
     func application(
@@ -42,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.requestUserNotificationAuthorization(provisional: true)
             self.configureIsCurrentUserSickObserver()
             self.localContactEventsUploader = LocalContactEventsUploader()
-            self.currentUserExposureNotifier = CurrentUserExposureNotifier()
             self.bluetoothController = BluetoothController()
             self.configureIsContactEventLoggingEnabledObserver()
         }

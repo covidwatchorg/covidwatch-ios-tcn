@@ -106,7 +106,7 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     @objc func submitNegative() {
-        UserDefaults.shared.lastTestedDate = Date()
+        UserDefaults.shared.testLastSubmittedDate = Date()
         performSegue(withIdentifier: "testToHome", sender: self)
     }
 

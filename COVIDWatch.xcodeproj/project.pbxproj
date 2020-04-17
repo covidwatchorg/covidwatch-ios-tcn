@@ -22,7 +22,6 @@
 		2DB09A40241A098F0049CD2A /* BerkananFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 2DB09A3F241A098F0049CD2A /* BerkananFoundation */; };
 		2DC231E6241B886C00216404 /* Firestore+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E5241B886C00216404 /* Firestore+Constants.swift */; };
 		2DC231E8241B914200216404 /* CoreData+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E7241B914200216404 /* CoreData+Additions.swift */; };
-		2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */; };
 		2DC231EC241BA17B00216404 /* UIViewController+ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */; };
 		2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */; };
 		2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6439B2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift */; };
@@ -59,6 +58,7 @@
 		2E1FDC1824393C5A000D8D67 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0624393C59000D8D67 /* Montserrat-SemiBoldItalic.ttf */; };
 		2E1FDC1924393C5A000D8D67 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */; };
 		2E1FDC1B24394425000D8D67 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDC1A24394424000D8D67 /* Notifications.swift */; };
+		2E80CAE72446B87700F5272E /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
 		2EBF8725243BC275003278E6 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8724243BC275003278E6 /* Header.swift */; };
 		2EBF8727243BC7F8003278E6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8726243BC7F8003278E6 /* BaseViewController.swift */; };
 		2EBF8729243BCFA1003278E6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */; };
@@ -123,7 +123,6 @@
 		2DB09A3C2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BluetoothService+CoreBluetooth.swift"; sourceTree = "<group>"; };
 		2DC231E5241B886C00216404 /* Firestore+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Constants.swift"; sourceTree = "<group>"; };
 		2DC231E7241B914200216404 /* CoreData+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Additions.swift"; sourceTree = "<group>"; };
-		2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserExposureNotifier.swift; sourceTree = "<group>"; };
 		2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorPresenting.swift"; sourceTree = "<group>"; };
 		2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UserNotificationCenter.swift"; sourceTree = "<group>"; };
 		2DC6439B2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySnapshotProcessingOperation.swift; sourceTree = "<group>"; };
@@ -166,6 +165,7 @@
 		2E1FDC0624393C59000D8D67 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
 		2E1FDC1A24394424000D8D67 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsWithinXDaysOfToday.swift; sourceTree = "<group>"; };
 		2EBF8724243BC275003278E6 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		2EBF8726243BC7F8003278E6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -293,6 +293,7 @@
 				2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */,
 				2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */,
 				E24BC322244545CB00819EF0 /* NotificationPermission.swift */,
+				2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -326,7 +327,6 @@
 				2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */,
 				2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */,
 				2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */,
-				2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */,
 				2DC231E4241B885500216404 /* Firestore */,
 				2DB09A37241965FF0049CD2A /* Bluetooth */,
 				2DDEBF61241A39EE005BE9A8 /* Utility */,
@@ -752,7 +752,6 @@
 				2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */,
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
 				60A44B4E244402A500A8154B /* Entry.swift in Sources */,
-				2DC231EA241B949300216404 /* CurrentUserExposureNotifier.swift in Sources */,
 				2EF61C392436F82D003046A4 /* UIColorExtension.swift in Sources */,
 				2EBF8725243BC275003278E6 /* Header.swift in Sources */,
 				E2B451A924443FE900E17888 /* BluetoothPermission.swift in Sources */,
@@ -777,6 +776,7 @@
 				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,
 				60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */,
 				2EBF872B243BEAFA003278E6 /* LargeText.swift in Sources */,
+				2E80CAE72446B87700F5272E /* IsWithinXDaysOfToday.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

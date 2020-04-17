@@ -21,10 +21,18 @@ class InfoBanner: UITextView {
         self.font = UIFont(name: "Montserrat-Bold", size: fontSize)
         self.textColor = .white
         self.frame.size.width = screenWidth
-        self.frame.size.height = 100 * figmaToiOSVerticalScalingFactor
+        self.frame.size.height = 130 * figmaToiOSVerticalScalingFactor
         self.isEditable = false
         self.backgroundColor = UIColor.Secondary.Tangerine
         self.isSelectable = false
+        let verticalInset = 44   * figmaToiOSVerticalScalingFactor
+        let horizontalInset = 43 * figmaToiOSHorizontalScalingFactor
+        self.textContainerInset = UIEdgeInsets(
+            top: verticalInset,
+            left: horizontalInset,
+            bottom: verticalInset,
+            right: horizontalInset
+        )
     }
 
     func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {
