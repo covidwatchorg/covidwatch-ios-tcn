@@ -10,16 +10,14 @@ extension UserDefaults {
 
     public struct Key {
         public static let isUserSick = "isUserSick"
-        public static let didUserMakeContactWithSickUser = "didUserMakeContactWithSickUser"
-        public static let wasCurrentUserNotifiedOfExposure = "wasCurrentUserNotifiedOfExposure"
+        public static let mostRecentExposureDate = "mostRecentExposureDate"
         public static let isContactEventLoggingEnabled = "isContactEventLoggingEnabled"
         public static let lastContactEventsDownloadDate = "lastContactEventsDownloadDate"
         public static let isFirstTimeUser = "isFirstTimeUser"
-        public static let lastTestedDate = "lastTestedDate"
+        public static let testLastSubmittedDate = "testLastSubmittedDate"
 
         public static let registration: [String: Any] = [
             isUserSick: false,
-            wasCurrentUserNotifiedOfExposure: false,
             isContactEventLoggingEnabled: false,
             isFirstTimeUser: true
         ]
@@ -31,24 +29,6 @@ extension UserDefaults {
         }
         set {
             setValue(newValue, forKey: Key.isUserSick)
-        }
-    }
-
-    @objc dynamic public var didUserMakeContactWithSickUser: Bool {
-        get {
-            return bool(forKey: Key.didUserMakeContactWithSickUser)
-        }
-        set {
-            setValue(newValue, forKey: Key.didUserMakeContactWithSickUser)
-        }
-    }
-
-    @objc dynamic public var wasCurrentUserNotifiedOfExposure: Bool {
-        get {
-            return bool(forKey: Key.wasCurrentUserNotifiedOfExposure)
-        }
-        set {
-            setValue(newValue, forKey: Key.wasCurrentUserNotifiedOfExposure)
         }
     }
 
@@ -79,13 +59,44 @@ extension UserDefaults {
         }
     }
 
-    @objc dynamic public var lastTestedDate: Date? {
+    @objc dynamic public var testLastSubmittedDate: Date? {
         get {
-            return object(forKey: Key.lastTestedDate) as? Date
+            return object(forKey: Key.testLastSubmittedDate) as? Date
         }
         set {
-            setValue(newValue, forKey: Key.lastTestedDate)
+            setValue(newValue, forKey: Key.testLastSubmittedDate)
         }
     }
 
+//    most recent date we've detected that this user was in contact with a reportedly sick user
+    @objc dynamic public var mostRecentExposureDate: Date? {
+        get {
+            return object(forKey: Key.mostRecentExposureDate) as? Date
+        }
+        set {
+            setValue(newValue, forKey: Key.mostRecentExposureDate)
+        }
+    }
+
+//    Helper function for determining whether user is at risk for COVID
+//    NOTE: Do not watch this property. Watch mostRecentExposureDate and use this in the callback
+    public var isUserAtRiskForCovid: Bool {
+        get {
+            if let mostRecentExposureDate = UserDefaults.shared.mostRecentExposureDate {
+                return isDWithinXDaysOfToday(D: mostRecentExposureDate, X: 14)
+            }
+            return false
+        }
+    }
+
+//    Helper function for determining whether user is eligible to submit (another) test
+//    NOTE: Do not watch this property. Watch testLastSubmittedDate and use this in the callback
+    public var isEligibleToSubmitTest: Bool {
+        get {
+            if let testLastSubmittedDate = UserDefaults.shared.testLastSubmittedDate {
+                return !isDWithinXDaysOfToday(D: testLastSubmittedDate, X: 14)
+            }
+            return true
+        }
+    }
 }

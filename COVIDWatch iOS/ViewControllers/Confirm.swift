@@ -84,7 +84,7 @@ class Confirm: UIViewController {
 
     func onConfirm() {
         UserDefaults.shared.isUserSick = true
-        UserDefaults.shared.lastTestedDate = Date()
+        UserDefaults.shared.testLastSubmittedDate = Date()
         performSegue(withIdentifier: "confirmToHome", sender: self)
     }
 }
