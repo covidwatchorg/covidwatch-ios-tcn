@@ -163,11 +163,11 @@ class Home: BaseViewController {
             } else {
                 infoBanner.text = "You may have been in contact with COVID-19"
             }
-            infoBanner.draw(parentVC: self, centerX: view.center.x, originY: header.frame.maxY)
+            infoBanner.draw(parentVC: self, centerX: view.center.x, originY: header?.frame.maxY ?? 0)
             imgTop = infoBanner.frame.maxY + 21.0 * figmaToiOSVerticalScalingFactor
         } else {
             infoBanner.isHidden = true
-            imgTop = header.frame.maxY
+            imgTop = header?.frame.maxY ?? 0
         }
 //        determine image size
         img.frame.size.width = 253 * figmaToiOSHorizontalScalingFactor

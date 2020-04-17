@@ -21,7 +21,7 @@ class Bluetooth: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 //        Hide the Menu hamburger
-        self.header.hasMenu = false
+        self.header?.hasMenu = false
 
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
@@ -32,7 +32,9 @@ class Bluetooth: BaseViewController {
             img.frame.size.height /= 1.5
         }
         img.center.x = view.center.x
-        img.frame.origin.y = header.frame.minY + (119.0 * figmaToiOSVerticalScalingFactor)
+        if let headerMinY = header?.frame.minY {
+            img.frame.origin.y = headerMinY + (119.0 * figmaToiOSVerticalScalingFactor)
+        }
         view.addSubview(img)
 
         largeText.draw(parentVC: self,

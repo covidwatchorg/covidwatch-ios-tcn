@@ -26,7 +26,7 @@ class Notifications: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         //        Hide the Menu hamburger
-        self.header.hasMenu = false
+        self.header?.hasMenu = false
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
 //        Ratio is Figma image width to Figma screen width
@@ -37,7 +37,7 @@ class Notifications: BaseViewController {
             img.frame.size.height /= 1.5
         }
         img.center.x = view.center.x
-        img.frame.origin.y = header.frame.minY + (146.0 * figmaToiOSVerticalScalingFactor)
+        img.frame.origin.y = (header?.frame.minY ?? 0) + (146.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
 
         let imgToLargeTextGap = 40.0 * figmaToiOSVerticalScalingFactor
