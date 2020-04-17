@@ -958,9 +958,9 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		2D63900C243E39BD00EA97FA /* XCRemoteSwiftPackageReference "tcn-client-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/TCNCoalition/tcn-client-ios";
+			repositoryURL = "https://github.com/madhavajay/tcn-client-ios";
 			requirement = {
-				branch = master;
+				branch = swift-version;
 				kind = branch;
 			};
 		};
