@@ -125,7 +125,7 @@ class Menu: UIView {
                     print("Clicked Privacy Policy") // Dummy function for now
                 })
             ])
-            
+
         } else {
             let globalState = UserDefaults.shared
             let now = Date()

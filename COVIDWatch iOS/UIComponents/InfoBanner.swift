@@ -12,7 +12,7 @@ class InfoBanner: UIView {
     var text: UITextView?
     init(text: String) {
         super.init(frame: CGRect())
-        
+
         self.frame.size.width = screenWidth
         self.frame.size.height = 100 * figmaToiOSVerticalScalingFactor
         self.backgroundColor = UIColor.Secondary.Tangerine
