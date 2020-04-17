@@ -41,6 +41,9 @@ class Button: UIView {
         self.subtext?.backgroundColor = .clear
         self.subtext?.textAlignment = .center
         self.subtext?.isEditable = false
+        // accessibility
+        self.text.accessibilityIdentifier = AccessibilityIdentifier.ButtonText.rawValue
+        self.subtext?.accessibilityIdentifier = AccessibilityIdentifier.SubText.rawValue
     }
 
 //    Call this after you set where you want to place your button in the parentVC

@@ -22,8 +22,13 @@ enum AccessibilityIdentifier: String {
     DescriptionText = "Description",
     
     // MARK: Bluetooth page
-    LargeText = "a",
-    MainText = "b",
-    AllowButton = "c"
+    LargeText = "large-text",
+    MainText = "main-text",
+    AllowButton = "allow-button",
+    
+    // MARK: UI Elements
+    Content = "content",
+    SubText = "sub-text",
+    ButtonText = "button-text"
     
 }

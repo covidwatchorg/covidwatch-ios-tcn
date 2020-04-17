@@ -8,38 +8,31 @@
 
 import XCTest
 
-class TestBluetoothPageUI: XCTestCase {
+class Test02: XCTestCase {
+    var app: XCUIApplication!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app = XCUIApplication()
+        app.launch()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        app.terminate()
     }
 
-    func testBluetoothPage() throws {
-        
-        // Navigate to Bluetooth Page
-        XCUIApplication().buttons[AccessibilityLabel.startButton].tap()
-        
-        let app = XCUIApplication()
-        let textViewsQuery = app.textViews
-        XCTAssertEqual(textViewsQuery.staticTexts[AccessibilityIdentifier.LargeText.rawValue].label, "Privately Connect")
-        XCTAssertEqual(textViewsQuery.staticTexts[AccessibilityIdentifier.MainText.rawValue].label,
-                       "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
+    func testBluetoothPage() {
+        app.buttons["Start"].tap()
 
-        //app.staticTexts["Allow Bluetooth"].tap()
-        
-        
+        let btConnectTitle = app.textViews["large-text"]
+        let btDescription = app.textViews["main-text"]
+        let btButtonSubtext = app.textViews["sub-text"]
+        let btButton = app/*@START_MENU_TOKEN@*/.otherElements["allow-button"]/*[[".otherElements[\"Allow Bluetooth\"]",".otherElements[\"allow-button\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+
+        XCTAssertTrue(btConnectTitle.exists)
+        XCTAssertTrue(btDescription.exists)
+        XCTAssertTrue(btButton.exists)
+        XCTAssertTrue(btButtonSubtext.exists)
     }
 
 }

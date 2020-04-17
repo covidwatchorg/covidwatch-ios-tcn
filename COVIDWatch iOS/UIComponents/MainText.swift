@@ -25,6 +25,8 @@ class MainText: UITextView {
         self.isEditable = false
         self.backgroundColor = .clear
         self.isSelectable = false
+        // accessibility
+        self.accessibilityIdentifier = AccessibilityIdentifier.Content.rawValue
     }
 
     func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {

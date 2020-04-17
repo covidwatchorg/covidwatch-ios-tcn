@@ -90,6 +90,8 @@
 		2EFE6304243F990900D00305 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6303243F990900D00305 /* Home.swift */; };
 		2EFE6308243FB54F00D00305 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */; };
 		2EFE630C2440E9EA00D00305 /* InfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE630B2440E9EA00D00305 /* InfoBanner.swift */; };
+		6013AE2C244A740400F02CCF /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
+		6013AE2D244A740400F02CCF /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
 		60A44B4E244402A500A8154B /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A44B4D244402A500A8154B /* Entry.swift */; };
 		60A44B502444046A00A8154B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A44B4F2444046A00A8154B /* Main.storyboard */; };
 		60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
@@ -143,7 +145,6 @@
 		BC9AE56C2448DEB70050DE1E /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8734243CE60E003278E6 /* Menu.swift */; };
 		BC9AE56D2448DEB70050DE1E /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E5243D05260084F8ED /* MenuItem.swift */; };
 		BC9AE56E2448DEB70050DE1E /* InfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE630B2440E9EA00D00305 /* InfoBanner.swift */; };
-		BC9AE56F2448DEB70050DE1E /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
 		BC9AE5702448DEB70050DE1E /* CoreData+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E7241B914200216404 /* CoreData+Additions.swift */; };
 		BC9AE5712448DEB70050DE1E /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */; };
 		BC9AE5722448DEBF0050DE1E /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */; };
@@ -185,7 +186,6 @@
 		BC9AE5962448DEC00050DE1E /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8734243CE60E003278E6 /* Menu.swift */; };
 		BC9AE5972448DEC00050DE1E /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E5243D05260084F8ED /* MenuItem.swift */; };
 		BC9AE5982448DEC00050DE1E /* InfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE630B2440E9EA00D00305 /* InfoBanner.swift */; };
-		BC9AE5992448DEC00050DE1E /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
 		BC9AE59A2448DEC00050DE1E /* CoreData+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E7241B914200216404 /* CoreData+Additions.swift */; };
 		BC9AE59B2448DEC00050DE1E /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */; };
 		E1C729FF243DE30900D30118 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C729FE243DE30900D30118 /* Test.swift */; };
@@ -949,6 +949,7 @@
 				BC9AE55A2448DEB70050DE1E /* UIWindow+ViewControllerUtility.swift in Sources */,
 				60C7A942244A4DDA0033A13D /* IsWithinXDaysOfToday.swift in Sources */,
 				BC9AE55B2448DEB70050DE1E /* UIViewController+ErrorPresenting.swift in Sources */,
+				6013AE2D244A740400F02CCF /* UserDefaults+Shared.swift in Sources */,
 				BC9AE55C2448DEB70050DE1E /* Array+Chunked.swift in Sources */,
 				BC9AE55D2448DEB70050DE1E /* UIColorExtension.swift in Sources */,
 				BC9AE55E2448DEB70050DE1E /* UIViewExtension.swift in Sources */,
@@ -969,7 +970,6 @@
 				BC9AE56C2448DEB70050DE1E /* Menu.swift in Sources */,
 				BC9AE56D2448DEB70050DE1E /* MenuItem.swift in Sources */,
 				BC9AE56E2448DEB70050DE1E /* InfoBanner.swift in Sources */,
-				BC9AE56F2448DEB70050DE1E /* UserDefaults+Shared.swift in Sources */,
 				BC9AE5702448DEB70050DE1E /* CoreData+Additions.swift in Sources */,
 				BC9AE5712448DEB70050DE1E /* PersistentContainer.swift in Sources */,
 			);
@@ -1018,11 +1018,11 @@
 				BC9AE5932448DEC00050DE1E /* LargeText.swift in Sources */,
 				60C7A943244A4DDB0033A13D /* IsWithinXDaysOfToday.swift in Sources */,
 				BC9AE5942448DEC00050DE1E /* MainText.swift in Sources */,
+				6013AE2C244A740400F02CCF /* UserDefaults+Shared.swift in Sources */,
 				BC9AE5952448DEC00050DE1E /* Button.swift in Sources */,
 				BC9AE5962448DEC00050DE1E /* Menu.swift in Sources */,
 				BC9AE5972448DEC00050DE1E /* MenuItem.swift in Sources */,
 				BC9AE5982448DEC00050DE1E /* InfoBanner.swift in Sources */,
-				BC9AE5992448DEC00050DE1E /* UserDefaults+Shared.swift in Sources */,
 				BC9AE59A2448DEC00050DE1E /* CoreData+Additions.swift in Sources */,
 				BC9AE59B2448DEC00050DE1E /* PersistentContainer.swift in Sources */,
 			);
