@@ -26,12 +26,12 @@ class Menu: UIView {
     private func drawMenuBackground() {
         self.frame.size.width = 0.8 * screenWidth
         self.frame.size.height = screenHeight
-        self.frame.origin.x = screenWidth - self.frame.size.width
+        self.frame.origin.x = screenWidth - self.frame.size.width + 1000
         if let parentVC = self.parentVC {
             self.frame.origin.y = parentVC.view.safeAreaInsets.top
         }
         self.backgroundColor = .white
-        self.isHidden = true
+        self.isHidden = false
         self.layer.zPosition = 1
         parentVC?.view.addSubview(self)
     }
@@ -73,7 +73,7 @@ class Menu: UIView {
     private func drawBottomText() {
         bottomWaterMark.frame.size.width = screenWidth - 82.0 * figmaToiOSHorizontalScalingFactor
         bottomWaterMark.frame.size.height = (61.0/300.0) * bottomWaterMark.frame.size.width
-        bottomWaterMark.center.x = self.center.x
+        bottomWaterMark.center.x = self.center.x + 1000
         bottomWaterMark.center.y = screenHeight - (69.5 * figmaToiOSVerticalScalingFactor)
         bottomWaterMark.isHidden = true
         bottomWaterMark.layer.zPosition = 1
@@ -81,12 +81,41 @@ class Menu: UIView {
     }
 
     @objc func toggleMenu() {
-        self.isHidden = !self.isHidden
+        //self.isHidden = !self.isHidden
         xIcon.isHidden = !xIcon.isHidden
         for menuItem in menuItems {
             menuItem.toggleShow()
-        }
+           
+        
         bottomWaterMark.isHidden = !bottomWaterMark.isHidden
+            if  xIcon.isHidden == true {
+                                                           
+                                        UIView.animate(withDuration: 1.0,
+                                                             delay: 0.0,
+                                                                        options: [],
+                                                                        animations: { [weak self] in
+                                                                         if let controller = self {
+                                                                          controller.frame.origin.x =  1000
+                                                                            controller.bottomWaterMark.frame.origin.x =  1000
+                                                                           
+                                                                         }
+                                                             }, completion: nil)
+                                    }
+                                      if  xIcon.isHidden == false {
+                                     UIView.animate(withDuration: 1.0,
+                                                          delay: 0.0,
+                                                                     options: [],
+                                                                     animations: { [weak self] in
+                                                                      if let controller = self {
+                                                                       controller.frame.origin.x = controller.screenWidth - controller.frame.size.width
+                                                                        controller.bottomWaterMark.center.x = controller.center.x
+                                                                   
+                                                                      }
+                                                          }, completion: nil)
+                               
+                            }
+                                }
+                   
     }
 
     // swiftlint:disable:next function_body_length

@@ -77,6 +77,31 @@ class MenuItem: UIView {
     func toggleShow() {
         menuItem1.isHidden = !menuItem1.isHidden
         menuItem1text.isHidden = !menuItem1text.isHidden
+        
+        if  menuItem1.isHidden == true {
+            UIView.animate(withDuration: 1.0,
+            delay: 0.0,
+                       options: [],
+                       animations: { [weak self] in
+                        if let controller = self {
+                            controller.menuItem1.frame.origin.x =  1000
+                              controller.menuItem1text.frame.origin.x =  1000
+                             controller.linkImg?.frame.origin.x = controller.menuItem1text.frame.origin.x + 1200
+                        }
+            }, completion: nil)
+            }
+         if  menuItem1.isHidden == false {
+        UIView.animate(withDuration: 1.0,
+                                        delay: 0.0,
+                                                   options: [],
+                                                   animations: { [weak self] in
+                                                    if let controller = self {
+                                                        controller.menuItem1.frame.origin.x =  100
+                                                          controller.menuItem1text.frame.origin.x =  100
+                                                         controller.linkImg?.frame.origin.x = controller.menuItem1text.frame.origin.x + 220
+                                                    }
+                                        }, completion: nil)
+            }
         if let linkImg = self.linkImg {
             linkImg.isHidden = !linkImg.isHidden
         }
