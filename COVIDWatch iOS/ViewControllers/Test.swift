@@ -69,11 +69,11 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
         negativeView.layer.borderWidth = 2.0
         negativeView.layer.cornerRadius = 10
-        negativeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.testedNegative)))
+        negativeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.userTestedNegative)))
 
         positiveView.layer.borderWidth = 2.0
         positiveView.layer.cornerRadius = 10
-        positiveView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.testedPositive)))
+        positiveView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.userTestedPositive)))
 
         dateView.layer.borderWidth = 2.0
         dateView.layer.cornerRadius = 10
@@ -97,11 +97,11 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
 
-    @objc func testedNegative() {
+    @objc func userTestedNegative() {
         testStatus = .negative
     }
 
-    @objc func testedPositive() {
+    @objc func userTestedPositive() {
         testStatus = .positive
     }
 

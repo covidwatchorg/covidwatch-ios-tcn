@@ -62,7 +62,7 @@ class Home: BaseViewController {
         super.drawMenuOnTop()
     }
 
-    @objc func test() {
+    @objc func goToTest() {
         self.performSegue(withIdentifier: "test", sender: self)
     }
 
@@ -232,7 +232,7 @@ class Home: BaseViewController {
         spreadButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.share)))
 
         if globalState.isEligibleToSubmitTest {
-            self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
+            self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.goToTest)))
             let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
             testedButton.draw(parentVC: self, centerX: view.center.x, originY: testedButtonTop)
             testedButton.backgroundColor = .clear

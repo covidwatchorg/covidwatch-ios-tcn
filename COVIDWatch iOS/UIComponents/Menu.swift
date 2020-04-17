@@ -8,7 +8,7 @@
 
 import UIKit
 
-let MANUAL_STATE_TEST = true
+let MANUAL_STATE_TEST = Thread.current.isRunningXCTest
 
 class Menu: UIView {
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))

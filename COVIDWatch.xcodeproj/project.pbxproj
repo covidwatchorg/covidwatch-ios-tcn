@@ -95,6 +95,8 @@
 		60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
 		60BD14FC2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
 		60BD14FF244685620009D7E0 /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
+		60C7A942244A4DDA0033A13D /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
+		60C7A943244A4DDB0033A13D /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
 		60EF50F12440E624006CDD76 /* Bluetooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F02440E624006CDD76 /* Bluetooth.storyboard */; };
 		60EF50F32440FAA4006CDD76 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F22440FAA4006CDD76 /* Notifications.storyboard */; };
 		60EF50F72440FAE0006CDD76 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Home.storyboard */; };
@@ -109,7 +111,7 @@
 		BC9AE54C2448DEB70050DE1E /* AppDelegate+BackgroundFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */; };
 		BC9AE54D2448DEB70050DE1E /* AppDelegate+BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */; };
 		BC9AE54E2448DEB70050DE1E /* AppDelegate+UserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */; };
-		BC9AE54F2448DEB70050DE1E /* CurrentUserExposureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */; };
+		BC9AE54F2448DEB70050DE1E /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BC9AE5502448DEB70050DE1E /* Firestore+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E5241B886C00216404 /* Firestore+Constants.swift */; };
 		BC9AE5512448DEB70050DE1E /* FirestoreOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */; };
 		BC9AE5522448DEB70050DE1E /* LocalContactEventsUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */; };
@@ -150,7 +152,7 @@
 		BC9AE5752448DEBF0050DE1E /* AppDelegate+BackgroundFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */; };
 		BC9AE5762448DEBF0050DE1E /* AppDelegate+BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */; };
 		BC9AE5772448DEBF0050DE1E /* AppDelegate+UserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */; };
-		BC9AE5782448DEBF0050DE1E /* CurrentUserExposureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E9241B949300216404 /* CurrentUserExposureNotifier.swift */; };
+		BC9AE5782448DEBF0050DE1E /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BC9AE5792448DEBF0050DE1E /* Firestore+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E5241B886C00216404 /* Firestore+Constants.swift */; };
 		BC9AE57A2448DEBF0050DE1E /* FirestoreOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */; };
 		BC9AE57B2448DEBF0050DE1E /* LocalContactEventsUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F0FE2241AD0E000356B3A /* LocalContactEventsUploader.swift */; };
@@ -933,7 +935,7 @@
 				BC9AE54C2448DEB70050DE1E /* AppDelegate+BackgroundFetch.swift in Sources */,
 				BC9AE54D2448DEB70050DE1E /* AppDelegate+BackgroundTasks.swift in Sources */,
 				BC9AE54E2448DEB70050DE1E /* AppDelegate+UserNotificationCenter.swift in Sources */,
-				BC9AE54F2448DEB70050DE1E /* CurrentUserExposureNotifier.swift in Sources */,
+				BC9AE54F2448DEB70050DE1E /* (null) in Sources */,
 				BC9AE5502448DEB70050DE1E /* Firestore+Constants.swift in Sources */,
 				BC9AE5512448DEB70050DE1E /* FirestoreOperations.swift in Sources */,
 				BC9AE5522448DEB70050DE1E /* LocalContactEventsUploader.swift in Sources */,
@@ -945,6 +947,7 @@
 				BC9AE5582448DEB70050DE1E /* BluetoothController+ContactEvent.swift in Sources */,
 				BC9AE5592448DEB70050DE1E /* BluetoothPermission.swift in Sources */,
 				BC9AE55A2448DEB70050DE1E /* UIWindow+ViewControllerUtility.swift in Sources */,
+				60C7A942244A4DDA0033A13D /* IsWithinXDaysOfToday.swift in Sources */,
 				BC9AE55B2448DEB70050DE1E /* UIViewController+ErrorPresenting.swift in Sources */,
 				BC9AE55C2448DEB70050DE1E /* Array+Chunked.swift in Sources */,
 				BC9AE55D2448DEB70050DE1E /* UIColorExtension.swift in Sources */,
@@ -985,7 +988,7 @@
 				BC9AE5752448DEBF0050DE1E /* AppDelegate+BackgroundFetch.swift in Sources */,
 				BC9AE5762448DEBF0050DE1E /* AppDelegate+BackgroundTasks.swift in Sources */,
 				BC9AE5772448DEBF0050DE1E /* AppDelegate+UserNotificationCenter.swift in Sources */,
-				BC9AE5782448DEBF0050DE1E /* CurrentUserExposureNotifier.swift in Sources */,
+				BC9AE5782448DEBF0050DE1E /* (null) in Sources */,
 				BC9AE5792448DEBF0050DE1E /* Firestore+Constants.swift in Sources */,
 				BC9AE57A2448DEBF0050DE1E /* FirestoreOperations.swift in Sources */,
 				BC9AE57B2448DEBF0050DE1E /* LocalContactEventsUploader.swift in Sources */,
@@ -1013,6 +1016,7 @@
 				BC9AE5912448DEBF0050DE1E /* BaseViewController.swift in Sources */,
 				BC9AE5922448DEC00050DE1E /* Header.swift in Sources */,
 				BC9AE5932448DEC00050DE1E /* LargeText.swift in Sources */,
+				60C7A943244A4DDB0033A13D /* IsWithinXDaysOfToday.swift in Sources */,
 				BC9AE5942448DEC00050DE1E /* MainText.swift in Sources */,
 				BC9AE5952448DEC00050DE1E /* Button.swift in Sources */,
 				BC9AE5962448DEC00050DE1E /* Menu.swift in Sources */,
