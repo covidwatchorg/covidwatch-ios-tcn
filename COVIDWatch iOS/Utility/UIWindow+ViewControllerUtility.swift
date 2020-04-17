@@ -6,25 +6,25 @@
 import UIKit
 
 extension UIApplication {
-    
+
     private func topViewController(_ inWindow: UIWindow?) -> UIViewController? {
         if var viewController = inWindow?.rootViewController {
-            while viewController.presentedViewController != nil {
-                viewController = viewController.presentedViewController!
+            while let presented = viewController.presentedViewController {
+                viewController = presented
             }
             return viewController
         }
         return nil
     }
-    
+
     var topViewController: UIViewController? {
         #if AppExtension
             return nil
         #else
-            return topViewController(keyWindow)
+            return topViewController(windows.first)
         #endif
     }
-    
+
     var visibleViewControllers: [UIViewController]? {
         #if AppExtension
             return nil
@@ -35,20 +35,20 @@ extension UIApplication {
             return nil
         #endif
     }
-    
+
 }
 
 extension UIViewController {
-    
+
     var visibleViewControllers: [UIViewController] {
-        
+
         // Special case when self is navigation controller
         if let navigationController = self as? UINavigationController {
             if let lastViewController = navigationController.viewControllers.last {
                 return [lastViewController]
             }
         }
-        
+
         // Recursion part
         if children.count > 0 {
             var result = [UIViewController]()
@@ -57,8 +57,8 @@ extension UIViewController {
             }
             return result
         }
-        
+
         return [self]
     }
-    
+
 }

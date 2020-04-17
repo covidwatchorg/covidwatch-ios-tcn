@@ -3,68 +3,100 @@
 //
 
 import Foundation
-import TCNClient
-import CryptoKit
 
-extension UserDefaults {        
-    
+extension UserDefaults {
+
     public static let shared: UserDefaults = .standard
-    
-    public struct Key {
-        public static let isCurrentUserSick = "isCurrentUserSick"
-        public static let wasCurrentUserNotifiedOfExposure = "wasCurrentUserNotifiedOfExposure"
-        public static let isTemporaryContactNumberLoggingEnabled = "isTemporaryContactNumberLoggingEnabled"
-        public static let lastFetchDate = "lastFetchDate"
-        
-        // TemporaryContactKey
-        public static let currentTemporaryContactKeyIndex = "currentTemporaryContactKeyIndex"
-        public static let currentTemporaryContactKeyReportVerificationPublicKeyBytes = "currentTemporaryContactKeyReportVerificationPublicKeyBytes"
-        public static let currentTemporaryContactKeyBytes = "currentTemporaryContactKeyBytes"
 
-        
-        public static let registration: [String : Any] = [
-            isCurrentUserSick: false,
-            wasCurrentUserNotifiedOfExposure: false,
-            isTemporaryContactNumberLoggingEnabled: true,
+    public struct Key {
+        public static let isUserSick = "isUserSick"
+        public static let mostRecentExposureDate = "mostRecentExposureDate"
+        public static let isContactEventLoggingEnabled = "isContactEventLoggingEnabled"
+        public static let lastContactEventsDownloadDate = "lastContactEventsDownloadDate"
+        public static let isFirstTimeUser = "isFirstTimeUser"
+        public static let testLastSubmittedDate = "testLastSubmittedDate"
+
+        public static let registration: [String: Any] = [
+            isUserSick: false,
+            isContactEventLoggingEnabled: false,
+            isFirstTimeUser: true
         ]
     }
-    
-    @objc dynamic public var isCurrentUserSick: Bool {
-        return bool(forKey: Key.isCurrentUserSick)
-    }
-    
-    @objc dynamic public var wasCurrentUserNotifiedOfExposure: Bool {
-        return bool(forKey: Key.wasCurrentUserNotifiedOfExposure)
-    }
-    
-    @objc dynamic public var isTemporaryContactNumberLoggingEnabled: Bool {
-        return bool(forKey: Key.isTemporaryContactNumberLoggingEnabled)
-    }
-    
-    @objc dynamic public var lastFetchDate: Date? {
-        return object(forKey: Key.lastFetchDate) as? Date
-    }
-    
-    public var currentTemporaryContactKey: TemporaryContactKey? {
+
+    @objc dynamic public var isUserSick: Bool {
         get {
-            if let index = UserDefaults.shared.object(forKey: UserDefaults.Key.currentTemporaryContactKeyIndex) as? UInt16,
-                let reportVerificationPublicKeyBytes = UserDefaults.shared.object(forKey: UserDefaults.Key.currentTemporaryContactKeyReportVerificationPublicKeyBytes) as? Data,
-                let temporaryContactKeyBytes = UserDefaults.shared.object(forKey: UserDefaults.Key.currentTemporaryContactKeyBytes) as? Data {
-                
-                return TemporaryContactKey(
-                    index: index,
-                    reportVerificationPublicKeyBytes: reportVerificationPublicKeyBytes,
-                    bytes: temporaryContactKeyBytes
-                )
-            }
-            
-            return nil
+            return bool(forKey: Key.isUserSick)
         }
         set {
-            setValue(newValue?.index, forKey: UserDefaults.Key.currentTemporaryContactKeyIndex)
-            setValue(newValue?.reportVerificationPublicKeyBytes, forKey: UserDefaults.Key.currentTemporaryContactKeyReportVerificationPublicKeyBytes)
-            setValue(newValue?.bytes, forKey: UserDefaults.Key.currentTemporaryContactKeyBytes)
+            setValue(newValue, forKey: Key.isUserSick)
         }
     }
-    
+
+    @objc dynamic public var isContactEventLoggingEnabled: Bool {
+        get {
+            return bool(forKey: Key.isContactEventLoggingEnabled)
+        }
+        set {
+            setValue(newValue, forKey: Key.isContactEventLoggingEnabled)
+        }
+    }
+
+    @objc dynamic public var lastContactEventsDownloadDate: Date? {
+        get {
+            return object(forKey: Key.lastContactEventsDownloadDate) as? Date
+        }
+        set {
+            setValue(newValue, forKey: Key.lastContactEventsDownloadDate)
+        }
+    }
+
+    @objc dynamic public var isFirstTimeUser: Bool {
+        get {
+            return bool(forKey: Key.isFirstTimeUser)
+        }
+        set {
+            setValue(newValue, forKey: Key.isFirstTimeUser)
+        }
+    }
+
+    @objc dynamic public var testLastSubmittedDate: Date? {
+        get {
+            return object(forKey: Key.testLastSubmittedDate) as? Date
+        }
+        set {
+            setValue(newValue, forKey: Key.testLastSubmittedDate)
+        }
+    }
+
+//    most recent date we've detected that this user was in contact with a reportedly sick user
+    @objc dynamic public var mostRecentExposureDate: Date? {
+        get {
+            return object(forKey: Key.mostRecentExposureDate) as? Date
+        }
+        set {
+            setValue(newValue, forKey: Key.mostRecentExposureDate)
+        }
+    }
+
+//    Helper function for determining whether user is at risk for COVID
+//    NOTE: Do not watch this property. Watch mostRecentExposureDate and use this in the callback
+    public var isUserAtRiskForCovid: Bool {
+        get {
+            if let mostRecentExposureDate = UserDefaults.shared.mostRecentExposureDate {
+                return isDWithinXDaysOfToday(D: mostRecentExposureDate, X: 14)
+            }
+            return false
+        }
+    }
+
+//    Helper function for determining whether user is eligible to submit (another) test
+//    NOTE: Do not watch this property. Watch testLastSubmittedDate and use this in the callback
+    public var isEligibleToSubmitTest: Bool {
+        get {
+            if let testLastSubmittedDate = UserDefaults.shared.testLastSubmittedDate {
+                return !isDWithinXDaysOfToday(D: testLastSubmittedDate, X: 14)
+            }
+            return true
+        }
+    }
 }

@@ -1,90 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xIW-yl-ZHW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gPW-0G-VTj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Discovered TCNs-->
-        <scene sceneID="4Yb-kV-CrU">
+        <!--Entry-->
+        <scene sceneID="DoQ-7l-WaB">
             <objects>
-                <tableViewController id="Vxd-Mb-2bC" customClass="TemporaryContactNumbersTableViewController" customModule="COVID_Watch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VmW-Cj-iyY">
+                <viewController id="gPW-0G-VTj" customClass="Entry" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J8Z-WI-mPo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TemporaryContactRow" textLabel="Thx-k8-b5i" detailTextLabel="BRP-26-4pc" style="IBUITableViewCellStyleSubtitle" id="X7u-1H-FHD">
-                                <rect key="frame" x="0.0" y="28" width="414" height="58.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X7u-1H-FHD" id="ZZM-aS-zXA">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="58.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Thx-k8-b5i">
-                                            <rect key="frame" x="20" y="8" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="BRP-26-4pc">
-                                            <rect key="frame" x="20" y="31.5" width="47" height="16"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Vxd-Mb-2bC" id="xsT-zu-HuQ"/>
-                            <outlet property="delegate" destination="Vxd-Mb-2bC" id="Tdp-X9-Gau"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Discovered TCNs" id="uu8-DF-5Zq">
-                        <barButtonItem key="leftBarButtonItem" title="Download Reports" image="icloud.and.arrow.down" catalog="system" id="eGL-5w-V0o">
-                            <connections>
-                                <action selector="handleTapDownloadButton:" destination="Vxd-Mb-2bC" id="oJ8-EA-Unz"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Upload Self-report" image="icloud.and.arrow.up" catalog="system" id="Vv3-eZ-nlF">
-                            <connections>
-                                <action selector="handleTapUploadButton:" destination="Vxd-Mb-2bC" id="W6v-vn-f0N"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FKI-e2-X3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1679.7101449275362" y="-358.25892857142856"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="hsy-yR-063">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xIW-yl-ZHW" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tbi-dS-Zy9">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                        <viewLayoutGuide key="safeArea" id="4Rt-1T-tUo"/>
+                    </view>
                     <connections>
-                        <segue destination="Vxd-Mb-2bC" kind="relationship" relationship="rootViewController" id="FMo-KD-VIJ"/>
+                        <segue destination="mem-Ho-Zp7" kind="presentation" identifier="goToHome" animates="NO" modalPresentationStyle="fullScreen" id="uVm-vj-tjE"/>
+                        <segue destination="DWc-w8-K3F" kind="presentation" identifier="goToOnboarding" animates="NO" modalPresentationStyle="fullScreen" id="Pc8-se-CSJ"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QBM-tE-Drr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vQu-Mr-eaM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="769.56521739130437" y="-358.25892857142856"/>
+            <point key="canvasLocation" x="4" y="75"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="HGP-L4-SMi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="mem-Ho-Zp7" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jZ6-Wz-f69" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="42"/>
+        </scene>
+        <!--Splash-->
+        <scene sceneID="7bK-6S-5j6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Splash" id="DWc-w8-K3F" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C80-Ao-Lrs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="699" y="145"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.19607843137254902" green="0.3529411764705882" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
-    <resources>
-        <image name="icloud.and.arrow.down" catalog="system" width="128" height="112"/>
-        <image name="icloud.and.arrow.up" catalog="system" width="128" height="106"/>
-    </resources>
 </document>
