@@ -86,7 +86,6 @@ class Menu: UIView {
         for menuItem in menuItems {
             menuItem.toggleShow()
            
-        
         bottomWaterMark.isHidden = !bottomWaterMark.isHidden
             if  xIcon.isHidden == true {
                                                            
@@ -97,7 +96,6 @@ class Menu: UIView {
                                                                          if let controller = self {
                                                                           controller.frame.origin.x =  1000
                                                                             controller.bottomWaterMark.frame.origin.x =  1000
-                                                                           
                                                                          }
                                                              }, completion: nil)
                                     }
@@ -108,8 +106,7 @@ class Menu: UIView {
                                                                      animations: { [weak self] in
                                                                       if let controller = self {
                                                                        controller.frame.origin.x = controller.screenWidth - controller.frame.size.width
-                                                                        controller.bottomWaterMark.center.x = controller.center.x
-                                                                   
+                                                                        controller.bottomWaterMark.center.x = controller.center.x 
                                                                       }
                                                           }, completion: nil)
                                
