@@ -11,7 +11,7 @@ import UIKit
 let MANUAL_STATE_TEST = true
 
 class Menu: UIView {
-    var parentVC: UIViewController?
+    weak var parentVC: BaseViewController?
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))
     var menuItems: [MenuItem] = []
     var bottomWaterMark = UIImageView(image: UIImage(named: "collab-with-stanford"))
@@ -90,7 +90,7 @@ class Menu: UIView {
     }
 
     // swiftlint:disable:next function_body_length
-    init(_ parentVC: UIViewController) {
+    init(_ parentVC: BaseViewController) {
         self.parentVC = parentVC
         super.init(frame: CGRect())
         if !MANUAL_STATE_TEST {
