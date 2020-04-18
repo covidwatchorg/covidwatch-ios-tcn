@@ -8,66 +8,49 @@
 
 import UIKit
 
-let MANUAL_STATE_TEST = true
+let MANUAL_STATE_TEST = false
 
 class Menu: UIView {
+    weak var parentVC: BaseViewController?
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))
-    var menuItems: [MenuItem] = [
-        MenuItem(text: "Settings", addLinkImg: false, onClick: {
-            print("Clicked Settings") // Dummy function for now
-        }),
-        MenuItem(text: "Test Results", addLinkImg: false, onClick: {
-            print("Clicked Test Results") // Dummy function for now
-        }),
-        MenuItem(text: "How does this work?", addLinkImg: true, onClick: {
-            print("Clicked How does this work?") // Dummy function for now
-        }),
-        MenuItem(text: "Covid Watch Website", addLinkImg: true, onClick: {
-            print("Clicked Covid Watch Website") // Dummy function for now
-        }),
-        MenuItem(text: "Health Guidlines", addLinkImg: true, onClick: {
-            print("Clicked Health Guidlines") // Dummy function for now
-        }),
-        MenuItem(text: "Terms of Use", addLinkImg: true, onClick: {
-            print("Clicked Terms of Use") // Dummy function for now
-        }),
-        MenuItem(text: "Privacy Policy", addLinkImg: true, onClick: {
-            print("Clicked Privacy Policy") // Dummy function for now
-        })
-    ]
+    var menuItems: [MenuItem] = []
     var bottomWaterMark = UIImageView(image: UIImage(named: "collab-with-stanford"))
 
-    func draw(parentVC: UIViewController) {
-        drawMenuBackground(parentVC: parentVC)
-        drawXIcon(parentVC: parentVC)
-        drawMenuItems(parentVC: parentVC)
-        drawBottomText(parentVC: parentVC)
+    func draw() {
+        drawMenuBackground()
+        drawXIcon()
+        drawMenuItems()
+        drawBottomText()
     }
 
-    private func drawMenuBackground(parentVC: UIViewController) {
+    private func drawMenuBackground() {
         self.frame.size.width = 0.8 * screenWidth
         self.frame.size.height = screenHeight
         self.frame.origin.x = screenWidth - self.frame.size.width
-        self.frame.origin.y = parentVC.view.safeAreaInsets.top
+        if let parentVC = self.parentVC {
+            self.frame.origin.y = parentVC.view.safeAreaInsets.top
+        }
         self.backgroundColor = .white
         self.isHidden = true
         self.layer.zPosition = 1
-        parentVC.view.addSubview(self)
+        parentVC?.view.addSubview(self)
     }
 
-    private func drawXIcon(parentVC: UIViewController) {
+    private func drawXIcon() {
         xIcon.frame.size.width = 23
         xIcon.frame.size.height = 23
         xIcon.center.x = 0.9 * screenWidth
-        xIcon.center.y = (screenHeight * 0.1)/2 + parentVC.view.safeAreaInsets.top
+        if let parentVC = self.parentVC {
+            xIcon.center.y = (screenHeight * 0.1)/2 + parentVC.view.safeAreaInsets.top
+        }
         xIcon.isHidden = true
         xIcon.isUserInteractionEnabled = true
         xIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
         xIcon.layer.zPosition = 1
-        parentVC.view.addSubview(xIcon)
+        parentVC?.view.addSubview(xIcon)
     }
 
-    private func drawMenuItems(parentVC: UIViewController) {
+    private func drawMenuItems() {
         let menuItemWidth = (3.0/3.75) * self.frame.size.width
         let firstItemYValue = 160.0 * figmaToiOSVerticalScalingFactor
         let menuItemYGap = 58.0 * figmaToiOSVerticalScalingFactor
@@ -81,18 +64,20 @@ class Menu: UIView {
                 yCenter = lastYCenter + menuItemYGap
             }
             lastYCenter = yCenter
-            item.draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: yCenter)
+            if let parentVC = self.parentVC {
+                item.draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: yCenter)
+            }
         }
     }
 
-    private func drawBottomText(parentVC: UIViewController) {
+    private func drawBottomText() {
         bottomWaterMark.frame.size.width = screenWidth - 82.0 * figmaToiOSHorizontalScalingFactor
         bottomWaterMark.frame.size.height = (61.0/300.0) * bottomWaterMark.frame.size.width
         bottomWaterMark.center.x = self.center.x
         bottomWaterMark.center.y = screenHeight - (69.5 * figmaToiOSVerticalScalingFactor)
         bottomWaterMark.isHidden = true
         bottomWaterMark.layer.zPosition = 1
-        parentVC.view.addSubview(bottomWaterMark)
+        parentVC?.view.addSubview(bottomWaterMark)
     }
 
     @objc func toggleMenu() {
@@ -104,11 +89,44 @@ class Menu: UIView {
         bottomWaterMark.isHidden = !bottomWaterMark.isHidden
     }
 
-    init() {
+    // swiftlint:disable:next function_body_length
+    init(_ parentVC: BaseViewController) {
+        self.parentVC = parentVC
         super.init(frame: CGRect())
-
-        if MANUAL_STATE_TEST {
-            self.menuItems.removeAll()
+        if !MANUAL_STATE_TEST {
+            self.menuItems.append(contentsOf: [
+                MenuItem(text: "Settings", addLinkImg: true, onClick: {
+                    if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(settingsURL)
+                    }
+                }),
+                MenuItem(text: "Test Results", addLinkImg: false, onClick: {
+                    if let parentVC = self.parentVC {
+                        parentVC.performSegue(withIdentifier: "test", sender: parentVC)
+                    }
+                }),
+                MenuItem(text: "How does this work?", addLinkImg: true, onClick: {
+                    print("Clicked How does this work?") // Dummy function for now
+                }),
+                MenuItem(text: "Covid Watch Website", addLinkImg: true, onClick: {
+                    if let url = URL(string: "https://www.covid-watch.org/") {
+                        UIApplication.shared.open(url)
+                    }
+                }),
+                MenuItem(text: "Health Guidlines", addLinkImg: true, onClick: {
+                    if let url = URL(string: "https://www.cdc.gov/coronavirus/2019-nCoV/index.html") {
+                        UIApplication.shared.open(url)
+                    }
+                }),
+                MenuItem(text: "Terms of Use", addLinkImg: true, onClick: {
+                    print("Clicked Terms of Use") // Dummy function for now
+                }),
+                MenuItem(text: "Privacy Policy", addLinkImg: true, onClick: {
+                    print("Clicked Privacy Policy") // Dummy function for now
+                })
+            ])
+            
+        } else {
             let globalState = UserDefaults.shared
             let now = Date()
             let threeDaysAgo = Calendar.current.date(byAdding: .day, value: -3, to: now)

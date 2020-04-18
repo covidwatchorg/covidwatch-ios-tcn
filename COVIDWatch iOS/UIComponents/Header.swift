@@ -9,9 +9,10 @@
 import UIKit
 
 class Header: UIView {
+    weak var parentVC: BaseViewController?
     var logo = UIImageView(image: UIImage(named: "logo-cw-color"))
     var menuIcon = UIImageView(image: UIImage(named: "menu-icon"))
-    var menu = Menu()
+    var menu: Menu?
     private var _hasMenu: Bool = true
     var hasMenu: Bool {
         get {
@@ -28,7 +29,9 @@ class Header: UIView {
         }
     }
 
-    init() {
+    init(_ parentVC: BaseViewController) {
+        self.parentVC = parentVC
+        self.menu = Menu(parentVC)
         super.init(frame: CGRect())
         self.frame.size.width = screenWidth
         self.frame.size.height = screenHeight * 0.1
@@ -63,7 +66,7 @@ class Header: UIView {
     }
 
     @objc func toggleMenu() {
-        menu.toggleMenu()
+        self.menu?.toggleMenu()
     }
 
     required init?(coder: NSCoder) {
