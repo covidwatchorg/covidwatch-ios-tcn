@@ -11,17 +11,19 @@ enum UploadState: Int16 {
     case uploaded
 }
 
-extension Thread {
+extension ProcessInfo {
   var isRunningXCTest: Bool {
-    for key in self.threadDictionary.allKeys {
-      guard let keyAsString = key as? String else {
-        continue
-      }
-    
-      if keyAsString.split(separator: ".").contains("xctest") {
-        return true
-      }
-    }
-    return false
+    return self.arguments.contains("XCTest")
   }
+}
+
+extension String {
+    var bool: Bool {
+        switch self.lowercased() {
+        case "true", "t", "yes", "y", "1":
+            return true
+        default:
+            return false
+        }
+    }
 }

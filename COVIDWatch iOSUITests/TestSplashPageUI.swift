@@ -11,6 +11,8 @@ class Test01: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchArguments.append("XCTest")
+        app.launchEnvironment["isFirstTimeUser"] = "true"
         app.launch()
     }
 
