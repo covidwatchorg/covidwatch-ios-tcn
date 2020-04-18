@@ -81,8 +81,8 @@
 		60EF50F72440FAE0006CDD76 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Home.storyboard */; };
 		60EF50F92440FAF3006CDD76 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F82440FAF3006CDD76 /* Test.storyboard */; };
 		B1D85F9E809BCC12318E2223 /* Pods_COVIDWatch_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */; };
-		E14D9356244B847E0045F991 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14D9354244B847E0045F991 /* Menu.swift */; };
-		E14D9357244B847E0045F991 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14D9355244B847E0045F991 /* MenuItem.swift */; };
+		E14D935D244B93F90045F991 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14D935C244B93F90045F991 /* Menu.swift */; };
+		E14D935F244B94090045F991 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14D935E244B94090045F991 /* MenuItem.swift */; };
 		E1C729FF243DE30900D30118 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C729FE243DE30900D30118 /* Test.swift */; };
 		E24BC323244545CB00819EF0 /* NotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BC322244545CB00819EF0 /* NotificationPermission.swift */; };
 		E2B451A924443FE900E17888 /* BluetoothPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B451A824443FE900E17888 /* BluetoothPermission.swift */; };
@@ -195,8 +195,8 @@
 		A40ADD9EFD1AE21913D43EB7 /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS-COVIDWatch iOSUITests/Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A5B373FB19305537F2E1D4A1 /* Pods-COVID-19 Risk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk.debug.xcconfig"; sourceTree = "<group>"; };
 		B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E14D9354244B847E0045F991 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = "../../../../../../Volumes/Elements/covidwatch-ios/COVIDWatch iOS/UIComponents/Menu.swift"; sourceTree = "<group>"; };
-		E14D9355244B847E0045F991 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = "../../../../../../Volumes/Elements/covidwatch-ios/COVIDWatch iOS/UIComponents/MenuItem.swift"; sourceTree = "<group>"; };
+		E14D935C244B93F90045F991 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		E14D935E244B94090045F991 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		E1C729FE243DE30900D30118 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		E24BC322244545CB00819EF0 /* NotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermission.swift; sourceTree = "<group>"; };
 		E2B451A824443FE900E17888 /* BluetoothPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothPermission.swift; sourceTree = "<group>"; };
@@ -407,9 +407,9 @@
 				2EBF8724243BC275003278E6 /* Header.swift */,
 				2EBF872A243BEAFA003278E6 /* LargeText.swift */,
 				2EBF872E243BF41E003278E6 /* MainText.swift */,
-				E14D9354244B847E0045F991 /* Menu.swift */,
-				E14D9355244B847E0045F991 /* MenuItem.swift */,
 				2EBF8730243C09F1003278E6 /* Button.swift */,
+				E14D935C244B93F90045F991 /* Menu.swift */,
+				E14D935E244B94090045F991 /* MenuItem.swift */,
 				2EFE630B2440E9EA00D00305 /* InfoBanner.swift */,
 			);
 			path = UIComponents;
@@ -736,7 +736,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E14D9357244B847E0045F991 /* MenuItem.swift in Sources */,
 				2E1FDBF5243929F4000D8D67 /* Bluetooth.swift in Sources */,
 				2DB09A3D2419873A0049CD2A /* BluetoothService+CoreBluetooth.swift in Sources */,
 				2D8496F924321A7C00C71BD1 /* FirestoreOperations.swift in Sources */,
@@ -746,6 +745,7 @@
 				2DFDC5A324190AB800B108F8 /* AppDelegate.swift in Sources */,
 				2D6655AE242BF9A300B462E0 /* BluetoothController+ContactEvent.swift in Sources */,
 				2DC231E6241B886C00216404 /* Firestore+Constants.swift in Sources */,
+				E14D935F244B94090045F991 /* MenuItem.swift in Sources */,
 				2E1FDBF32439275E000D8D67 /* Splash.swift in Sources */,
 				2EBF8731243C09F1003278E6 /* Button.swift in Sources */,
 				2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */,
@@ -771,7 +771,7 @@
 				2EFE6308243FB54F00D00305 /* UIResponderExtension.swift in Sources */,
 				E24BC323244545CB00819EF0 /* NotificationPermission.swift in Sources */,
 				2EFE6304243F990900D00305 /* Home.swift in Sources */,
-				E14D9356244B847E0045F991 /* Menu.swift in Sources */,
+				E14D935D244B93F90045F991 /* Menu.swift in Sources */,
 				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */,
 				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,
 				60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */,
@@ -944,11 +944,11 @@
 			baseConfigurationReference = A236DDAE6CBC8116CEEE63D5 /* Pods-COVIDWatch iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2020.04.14.1027;
 				DEVELOPMENT_ASSET_PATHS = "\"COVIDWatch iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = S647QX78WZ;
+				DEVELOPMENT_TEAM = MC27HKM86M;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "COVIDWatch iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -958,7 +958,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios;
 				PRODUCT_NAME = "Tags!";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development org.covidwatch.tags.ios";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -969,11 +969,11 @@
 			baseConfigurationReference = 64576CBB2D573736A801A228 /* Pods-COVIDWatch iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2020.04.14.1027;
 				DEVELOPMENT_ASSET_PATHS = "\"COVIDWatch iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = S647QX78WZ;
+				DEVELOPMENT_TEAM = MC27HKM86M;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "COVIDWatch iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -983,7 +983,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios;
 				PRODUCT_NAME = "Tags!";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore org.covidwatch.tags.ios";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -996,7 +996,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S647QX78WZ;
+				DEVELOPMENT_TEAM = MC27HKM86M;
 				INFOPLIST_FILE = "COVIDWatch iOSTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1019,7 +1019,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S647QX78WZ;
+				DEVELOPMENT_TEAM = MC27HKM86M;
 				INFOPLIST_FILE = "COVIDWatch iOSTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1041,7 +1041,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S647QX78WZ;
+				DEVELOPMENT_TEAM = MC27HKM86M;
 				INFOPLIST_FILE = "COVIDWatch iOSUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1062,7 +1062,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S647QX78WZ;
+				DEVELOPMENT_TEAM = MC27HKM86M;
 				INFOPLIST_FILE = "COVIDWatch iOSUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

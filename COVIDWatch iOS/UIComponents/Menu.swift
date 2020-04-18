@@ -2,13 +2,12 @@
 //  Menu.swift
 //  COVIDWatch iOS
 //
-//  Created by Isaiah Becker-Mayer on 4/7/20.
+//  Created by Andreas Ink on 4/18/20.
 //  Copyright © 2020 IZE. All rights reserved.
 //
-
 import UIKit
 
-let MANUAL_STATE_TEST = true
+let MANUAL_STATE_TEST = false
 
 class Menu: UIView {
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))
@@ -47,10 +46,10 @@ class Menu: UIView {
     private func drawMenuBackground(parentVC: UIViewController) {
         self.frame.size.width = 0.8 * screenWidth
         self.frame.size.height = screenHeight
-        self.frame.origin.x = screenWidth - self.frame.size.width
+        self.frame.origin.x = screenWidth - self.frame.size.width + 1000
         self.frame.origin.y = parentVC.view.safeAreaInsets.top
         self.backgroundColor = .white
-        self.isHidden = true
+        self.isHidden = false
         self.layer.zPosition = 1
         parentVC.view.addSubview(self)
     }
@@ -58,9 +57,9 @@ class Menu: UIView {
     private func drawXIcon(parentVC: UIViewController) {
         xIcon.frame.size.width = 23
         xIcon.frame.size.height = 23
-        xIcon.center.x = 0.9 * screenWidth
+        xIcon.center.x = 0.9 * screenWidth + 1000
         xIcon.center.y = (screenHeight * 0.1)/2 + parentVC.view.safeAreaInsets.top
-        xIcon.isHidden = true
+        xIcon.isHidden = false
         xIcon.isUserInteractionEnabled = true
         xIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
         xIcon.layer.zPosition = 1
@@ -96,12 +95,40 @@ class Menu: UIView {
     }
 
     @objc func toggleMenu() {
-        self.isHidden = !self.isHidden
-        xIcon.isHidden = !xIcon.isHidden
-        for menuItem in menuItems {
-            menuItem.toggleShow()
-        }
         bottomWaterMark.isHidden = !bottomWaterMark.isHidden
+      //xIcon.isHidden = !xIcon.isHidden
+          if  bottomWaterMark.isHidden == true {
+                                          
+                       UIView.animate(withDuration: 1.0,
+                                            delay: 0.0,
+                                                       options: [],
+                                                       animations: { [weak self] in
+                                                        if let controller = self {
+                                                            // swiftlint:disable:next line_length
+                                                           controller.frame.origin.x =  controller.screenWidth - controller.frame.size.width + 1000
+                                                            // swiftlint:disable:next line_length
+                                                            controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth + 1000
+                                                          
+                                                        }
+                                            }, completion: nil)
+                   }
+                     if  bottomWaterMark.isHidden == false {
+                    UIView.animate(withDuration: 1.0,
+                                         delay: 0.0,
+                                                    options: [],
+                                                    animations: { [weak self] in
+                                                     if let controller = self {
+                                                        // swiftlint:disable:next line_length
+                                                        controller.frame.origin.x =  controller.screenWidth - controller.frame.size.width
+                                                        controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth
+            
+                                                     }
+                                         }, completion: nil)
+              
+           }
+            for menuItem in menuItems {
+      menuItem.toggleShow()
+                }
     }
 
     init() {
