@@ -9,7 +9,7 @@
 import UIKit
 
 class Header: UIView {
-    var parentVC: BaseViewController?
+    weak var parentVC: BaseViewController?
     var logo = UIImageView(image: UIImage(named: "logo-cw-color"))
     var menuIcon = UIImageView(image: UIImage(named: "menu-icon"))
     var menu: Menu?
