@@ -16,7 +16,7 @@ class Home: BaseViewController {
     var spreadButton = Button(text: "Share the app", subtext: "It works best when everyone uses it.")
     var testedButton = Button(text: "Tested for COVID-19?",
                               subtext: "Share your result anonymously to help keep your community stay safe.")
-    var infoBanner = InfoBanner(text: "You may have been in contact with COVID-19")
+    var infoBanner: InfoBanner?
     var testLastSubmittedDateObserver: NSKeyValueObservation?
     var mostRecentExposureDateObserver: NSKeyValueObservation?
     var isUserSickObserver: NSKeyValueObservation?
@@ -25,6 +25,9 @@ class Home: BaseViewController {
     let globalState = UserDefaults.shared
 
     override func viewDidLoad() {
+        infoBanner = InfoBanner(text: "You may have been in contact with COVID-19", onClick: {
+            self.performSegue(withIdentifier: "test", sender: self)
+        })
         super.viewDidLoad()
         testLastSubmittedDateObserver = globalState.observe(
             \.testLastSubmittedDate,
@@ -155,19 +158,23 @@ class Home: BaseViewController {
     // swiftlint:disable:next function_body_length
     private func drawScreen() {
 //        optionally draw the info banner and determine the coordinate for the top of the image
-        var imgTop: CGFloat
-        if globalState.isUserAtRiskForCovid || globalState.isUserSick {
-            infoBanner.isHidden = false
-            if globalState.isUserSick {
-                infoBanner.text?.text = "You reported that you tested positive for COVID-19"
+        var imgTop: CGFloat = 0
+        if let infoBanner = self.infoBanner {
+            if globalState.isUserAtRiskForCovid || globalState.isUserSick {
+                infoBanner.isHidden = false
+                if globalState.isUserSick {
+                    infoBanner.isInteractive = false
+                    infoBanner.text?.text = "You reported that you tested positive for COVID-19"
+                } else {
+                    infoBanner.isInteractive = true
+                    infoBanner.text?.text = "You may have been in contact with COVID-19"
+                }
+                infoBanner.draw(parentVC: self, centerX: view.center.x, originY: header?.frame.maxY ?? 0)
+                imgTop = infoBanner.frame.maxY + 21.0 * figmaToiOSVerticalScalingFactor
             } else {
-                infoBanner.text?.text = "You may have been in contact with COVID-19"
+                infoBanner.isHidden = true
+                imgTop = header?.frame.maxY ?? 0
             }
-            infoBanner.draw(parentVC: self, centerX: view.center.x, originY: header?.frame.maxY ?? 0)
-            imgTop = infoBanner.frame.maxY + 21.0 * figmaToiOSVerticalScalingFactor
-        } else {
-            infoBanner.isHidden = true
-            imgTop = header?.frame.maxY ?? 0
         }
 //        determine image size
         img.frame.size.width = 253 * figmaToiOSHorizontalScalingFactor
