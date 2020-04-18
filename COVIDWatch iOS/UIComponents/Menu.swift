@@ -8,7 +8,7 @@
 
 import UIKit
 
-let MANUAL_STATE_TEST = false
+let MANUAL_STATE_TEST = true
 
 class Menu: UIView {
     weak var parentVC: BaseViewController?
@@ -125,7 +125,7 @@ class Menu: UIView {
                     print("Clicked Privacy Policy") // Dummy function for now
                 })
             ])
-            
+
         } else {
             let globalState = UserDefaults.shared
             let now = Date()
