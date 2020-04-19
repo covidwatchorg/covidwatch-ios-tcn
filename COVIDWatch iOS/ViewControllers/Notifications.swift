@@ -10,9 +10,9 @@ import UIKit
 
 class Notifications: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-standing-01-blue-4"))
-    var largeText: LargeText?
-    var mainText: MainText?
-    var button: Button?
+    var largeText: LargeText!
+    var mainText: MainText!
+    var button: Button!
     var buttonRecognizer: UITapGestureRecognizer?
 
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class Notifications: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         //        Hide the Menu hamburger
-        self.header?.hasMenu = false
+        self.header.hasMenu = false
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
 //        Ratio is Figma image width to Figma screen width
@@ -40,21 +40,21 @@ class Notifications: BaseViewController {
             img.frame.size.height /= 1.5
         }
         img.center.x = view.center.x
-        img.frame.origin.y = (header?.frame.minY ?? 0) + (146.0 * figmaToiOSVerticalScalingFactor)
+        img.frame.origin.y = header.frame.minY + (146.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
 
         let imgToLargeTextGap = 40.0 * figmaToiOSVerticalScalingFactor
-        largeText?.draw(centerX: view.center.x, originY: img.frame.maxY + imgToLargeTextGap)
+        largeText.draw(centerX: view.center.x, originY: img.frame.maxY + imgToLargeTextGap)
 
-        mainText?.draw(centerX: view.center.x, originY: largeText?.frame.maxY ?? 0)
+        mainText.draw(centerX: view.center.x, originY: largeText.frame.maxY)
 
         self.buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.nextScreen))
         if let buttonRecognizer = self.buttonRecognizer {
-            self.button?.addGestureRecognizer(buttonRecognizer)
+            self.button.addGestureRecognizer(buttonRecognizer)
         }
 
         let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
-        button?.draw(centerX: view.center.x, originY: buttonTop)
+        button.draw(centerX: view.center.x, originY: buttonTop)
     }
 
     @objc func nextScreenIfNotificationsEnabled() {

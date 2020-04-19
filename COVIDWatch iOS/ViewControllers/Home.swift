@@ -10,11 +10,11 @@ import UIKit
 
 class Home: BaseViewController {
     var img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
-    var largeText: LargeText?
-    var mainText: MainText?
-    var spreadButton: Button?
-    var testedButton: Button?
-    var infoBanner: InfoBanner?
+    var largeText: LargeText!
+    var mainText: MainText!
+    var spreadButton: Button!
+    var testedButton: Button!
+    var infoBanner: InfoBanner!
     var testLastSubmittedDateObserver: NSKeyValueObservation?
     var mostRecentExposureDateObserver: NSKeyValueObservation?
     var isUserSickObserver: NSKeyValueObservation?
@@ -165,19 +165,19 @@ class Home: BaseViewController {
         //        optionally draw the info banner and determine the coordinate for the top of the image
         var imgTop: CGFloat = 0
         if globalState.isUserAtRiskForCovid || globalState.isUserSick {
-            infoBanner?.isHidden = false
+            infoBanner.isHidden = false
             if globalState.isUserSick {
-                infoBanner?.isInteractive = false
-                infoBanner?.text.text = "You reported that you tested positive for COVID-19"
+                infoBanner.isInteractive = false
+                infoBanner.text.text = "You reported that you tested positive for COVID-19"
             } else {
-                infoBanner?.isInteractive = true
-                infoBanner?.text.text = "You may have been in contact with COVID-19"
+                infoBanner.isInteractive = true
+                infoBanner.text.text = "You may have been in contact with COVID-19"
             }
-            infoBanner?.draw(centerX: view.center.x, originY: header?.frame.maxY ?? 0)
-            imgTop = (infoBanner?.frame.maxY ?? 0) + 21.0 * figmaToiOSVerticalScalingFactor
+            infoBanner.draw(centerX: view.center.x, originY: header.frame.maxY)
+            imgTop = infoBanner.frame.maxY + 21.0 * figmaToiOSVerticalScalingFactor
         } else {
-            infoBanner?.isHidden = true
-            imgTop = header?.frame.maxY ?? 0
+            infoBanner.isHidden = true
+            imgTop = header.frame.maxY
         }
         //        determine image size
         img.frame.size.width = 253 * figmaToiOSHorizontalScalingFactor
@@ -192,72 +192,72 @@ class Home: BaseViewController {
         
         var mainTextTop: CGFloat
         if globalState.isFirstTimeUser {
-            largeText?.isHidden = false
-            largeText?.text = "You're all set!"
-            largeText?.draw(centerX: view.center.x,
+            largeText.isHidden = false
+            largeText.text = "You're all set!"
+            largeText.draw(centerX: view.center.x,
                             originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
-            mainTextTop = largeText?.frame.maxY ?? 0
+            mainTextTop = largeText.frame.maxY
         } else if !globalState.isUserAtRiskForCovid && !globalState.isUserSick {
-            largeText?.isHidden = false
-            largeText?.text = "Welcome Back!"
-            largeText?.draw(centerX: view.center.x,
+            largeText.isHidden = false
+            largeText.text = "Welcome Back!"
+            largeText.draw(centerX: view.center.x,
                             originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
-            mainTextTop = largeText?.frame.maxY ?? 0
+            mainTextTop = largeText.frame.maxY
         } else {
             //            userState.hasBeenInContact
-            largeText?.isHidden = true
+            largeText.isHidden = true
             mainTextTop = img.frame.maxY + 25.0 * figmaToiOSVerticalScalingFactor
         }
         
         //        draw mainText with respect to largeText or img or not at all
         if globalState.isFirstTimeUser {
             // swiftlint:disable:next line_length
-            mainText?.text = "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."
-            mainText?.draw(centerX: view.center.x, originY: mainTextTop)
+            mainText.text = "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."
+            mainText.draw(centerX: view.center.x, originY: mainTextTop)
         } else if !globalState.isUserAtRiskForCovid && !globalState.isUserSick {
             // swiftlint:disable:next line_length
-            mainText?.text = "Covid Watch has not detected exposure to COVID-19. Share the app with family and friends to help your community stay safe."
-            mainText?.draw(centerX: view.center.x, originY: mainTextTop)
+            mainText.text = "Covid Watch has not detected exposure to COVID-19. Share the app with family and friends to help your community stay safe."
+            mainText.draw(centerX: view.center.x, originY: mainTextTop)
         } else {
             //            userState.hasBeenInContact
-            mainText?.text = "Thank you for helping your community stay safe, anonymously."
-            mainText?.draw(centerX: view.center.x, originY: mainTextTop)
-            mainText?.textAlignment = .center
+            mainText.text = "Thank you for helping your community stay safe, anonymously."
+            mainText.draw(centerX: view.center.x, originY: mainTextTop)
+            mainText.textAlignment = .center
         }
         
         if globalState.isUserAtRiskForCovid || screenHeight <= 568 {
             //            Necessary to fit on screen
-            spreadButton?.subtext?.removeFromSuperview()
-            spreadButton?.subtext = nil
+            spreadButton.subtext?.removeFromSuperview()
+            spreadButton.subtext = nil
         } else {
             //            Clunky, but easier than messing with button internals
-            spreadButton?.text.removeFromSuperview()
-            spreadButton?.subtext?.removeFromSuperview()
-            spreadButton?.removeFromSuperview()
+            spreadButton.text.removeFromSuperview()
+            spreadButton.subtext?.removeFromSuperview()
+            spreadButton.removeFromSuperview()
             spreadButton = Button(self, text: "Share the app", subtext: "It works best when everyone uses it.")
         }
         //        spreadButton drawn below because its position depends on whether testedButton is drawn
-        spreadButton?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.share)))
+        spreadButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.share)))
         
         if globalState.isEligibleToSubmitTest {
-            self.testedButton?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
+            self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
             let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
-            testedButton?.draw(centerX: view.center.x, originY: testedButtonTop)
-            testedButton?.backgroundColor = .clear
-            testedButton?.layer.borderWidth = 1
-            testedButton?.layer.borderColor = UIColor.Secondary.LightGray.cgColor
-            testedButton?.text.textColor = UIColor.Primary.Gray
-            spreadButton?.drawBetween(top: mainText?.frame.maxY ?? 0,
+            testedButton.draw(centerX: view.center.x, originY: testedButtonTop)
+            testedButton.backgroundColor = .clear
+            testedButton.layer.borderWidth = 1
+            testedButton.layer.borderColor = UIColor.Secondary.LightGray.cgColor
+            testedButton.text.textColor = UIColor.Primary.Gray
+            spreadButton.drawBetween(top: mainText.frame.maxY,
                                       bottom: testedButtonTop,
                                       centerX: view.center.x)
-            testedButton?.isHidden = false
-            testedButton?.text.isHidden = false
-            testedButton?.subtext?.isHidden = false
+            testedButton.isHidden = false
+            testedButton.text.isHidden = false
+            testedButton.subtext?.isHidden = false
         } else {
-            testedButton?.isHidden = true
-            testedButton?.text.isHidden = true
-            testedButton?.subtext?.isHidden = true
-            spreadButton?.drawBetween(top: mainText?.frame.maxY ?? 0,
+            testedButton.isHidden = true
+            testedButton.text.isHidden = true
+            testedButton.subtext?.isHidden = true
+            spreadButton.drawBetween(top: mainText.frame.maxY,
                                       bottom: screenHeight - self.view.safeAreaInsets.bottom,
                                       centerX: view.center.x)
         }

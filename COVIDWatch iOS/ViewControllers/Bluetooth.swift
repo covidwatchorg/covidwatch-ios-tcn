@@ -10,9 +10,9 @@ import UIKit
 
 class Bluetooth: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-group-blue-2"))
-    var largeText: LargeText?
-    var mainText: MainText?
-    var button: Button?
+    var largeText: LargeText!
+    var mainText: MainText!
+    var button: Button!
     var buttonRecognizer: UITapGestureRecognizer?
     var bluetoothPermission: BluetoothPermission?
     
@@ -27,7 +27,7 @@ class Bluetooth: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 //        Hide the Menu hamburger
-        self.header?.hasMenu = false
+        self.header.hasMenu = false
 
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
@@ -38,21 +38,19 @@ class Bluetooth: BaseViewController {
             img.frame.size.height /= 1.5
         }
         img.center.x = view.center.x
-        if let headerMinY = header?.frame.minY {
-            img.frame.origin.y = headerMinY + (119.0 * figmaToiOSVerticalScalingFactor)
-        }
+        img.frame.origin.y = header.frame.minY + (119.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
 
-        largeText?.draw(centerX: view.center.x,
+        largeText.draw(centerX: view.center.x,
                        originY: img.frame.maxY + 20 * figmaToiOSVerticalScalingFactor)
 
-        mainText?.draw(centerX: view.center.x, originY: largeText?.frame.maxY ?? 0)
+        mainText.draw(centerX: view.center.x, originY: largeText.frame.maxY)
         self.buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.nextScreen))
         if let buttonRecognizer = self.buttonRecognizer {
-            self.button?.addGestureRecognizer(buttonRecognizer)
+            self.button.addGestureRecognizer(buttonRecognizer)
         }
         let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
-        button?.draw(centerX: view.center.x, originY: buttonTop)
+        button.draw(centerX: view.center.x, originY: buttonTop)
     }
 
     @objc func nextScreen(sender: UITapGestureRecognizer) {
