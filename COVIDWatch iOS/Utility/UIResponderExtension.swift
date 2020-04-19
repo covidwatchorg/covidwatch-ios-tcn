@@ -45,4 +45,19 @@ extension UIResponder {
             return 321.0 * figmaToiOSHorizontalScalingFactor
         }
     }
+    var mainLogoWidth: CGFloat {
+        get {
+            return 264.0 * figmaToiOSHorizontalScalingFactor
+        }
+    }
+    var mainLogoHeight: CGFloat {
+        get {
+            return 164.0 * figmaToiOSVerticalScalingFactor
+        }
+    }
+    var buttonHeight: CGFloat {
+        get {
+            return 58.0 * figmaToiOSVerticalScalingFactor
+        }
+    }
 }
