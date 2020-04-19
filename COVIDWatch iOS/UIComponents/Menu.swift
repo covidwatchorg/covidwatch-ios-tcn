@@ -86,7 +86,6 @@ class Menu: UIView {
         bottomWaterMark.isHidden = !bottomWaterMark.isHidden
         //xIcon.isHidden = !xIcon.isHidden
         if  bottomWaterMark.isHidden == true {
-            
             UIView.animate(withDuration: 1.0,
                            delay: 0.0,
                            options: [],
@@ -98,7 +97,6 @@ class Menu: UIView {
                                 controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth + 1000
                                 // swiftlint:disable:next line_length
                                 controller.bottomWaterMark.frame.origin.x = controller.center.x + 1000
-                                
                             }
                 }, completion: nil)
         }
