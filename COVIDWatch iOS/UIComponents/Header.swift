@@ -37,22 +37,22 @@ class Header: UIView {
         self.frame.size.height = screenHeight * 0.1
     }
 
-    func draw(parentVC: UIViewController) {
-        self.frame.origin.y = parentVC.view.safeAreaInsets.top
-        drawLogo(parentVC: parentVC)
-        drawMenuIcon(parentVC: parentVC)
+    func draw() {
+        self.frame.origin.y = parentVC?.view.safeAreaInsets.top ?? 0
+        drawLogo()
+        drawMenuIcon()
     }
 
-    private func drawLogo(parentVC: UIViewController) {
+    private func drawLogo() {
         logo.frame.size.width = 35
         logo.frame.size.height = 35
 //        line up logo with the rest of the left hand content
         logo.frame.origin.x = (screenWidth - contentMaxWidth) / 2
         logo.center.y = self.frame.midY
-        parentVC.view.addSubview(logo)
+        parentVC?.view.addSubview(logo)
     }
 
-    private func drawMenuIcon(parentVC: UIViewController) {
+    private func drawMenuIcon() {
         menuIcon.frame.size.width = 36
         menuIcon.frame.size.height = 25
 //        line up menu icon with the rest of the right hand content
@@ -61,8 +61,8 @@ class Header: UIView {
         menuIcon.center.y = self.frame.midY
         menuIcon.isUserInteractionEnabled = true
         menuIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
-        parentVC.view.addSubview(menuIcon)
-        parentVC.view.bringSubviewToFront(menuIcon)
+        parentVC?.view.addSubview(menuIcon)
+        parentVC?.view.bringSubviewToFront(menuIcon)
     }
 
     @objc func toggleMenu() {

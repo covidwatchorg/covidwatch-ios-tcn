@@ -21,7 +21,7 @@ class BaseViewController: UIViewController {
 //        Header must be drawn here instead of viewDidLoad(), because it makes use
 //        of view.safeAreaInsets.top which isn't filled out until this point in the
 //        ViewController life cycle.
-        self.header?.draw(parentVC: self)
+        self.header?.draw()
     }
 
     // Call this function at the end of child's viewDidLayoutSubviews() to draw the menu

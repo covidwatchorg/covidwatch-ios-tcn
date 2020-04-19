@@ -10,9 +10,8 @@ import UIKit
 
 class Bluetooth: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-group-blue-2"))
-    var largeText = LargeText(text: "Privately Connect")
-    //swiftlint:disable:next line_length
-    var mainText = MainText(text: "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
+    var largeText: LargeText?
+    var mainText: MainText?
     var button: Button?
     var buttonRecognizer: UITapGestureRecognizer?
     var bluetoothPermission: BluetoothPermission?
@@ -20,6 +19,9 @@ class Bluetooth: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.button = Button(self, text: "Allow Bluetooth", subtext: "This is required for the app to work.")
+        //swiftlint:disable:next line_length
+        self.mainText = MainText(self, text: "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
+        self.largeText = LargeText(self, text: "Privately Connect")
     }
     
     override func viewDidLayoutSubviews() {
@@ -41,11 +43,10 @@ class Bluetooth: BaseViewController {
         }
         view.addSubview(img)
 
-        largeText.draw(parentVC: self,
-                       centerX: view.center.x,
+        largeText?.draw(centerX: view.center.x,
                        originY: img.frame.maxY + 20 * figmaToiOSVerticalScalingFactor)
 
-        mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
+        mainText?.draw(centerX: view.center.x, originY: largeText?.frame.maxY ?? 0)
         self.buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.nextScreen))
         if let buttonRecognizer = self.buttonRecognizer {
             self.button?.addGestureRecognizer(buttonRecognizer)

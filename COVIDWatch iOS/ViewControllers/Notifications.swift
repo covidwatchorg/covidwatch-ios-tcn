@@ -10,15 +10,17 @@ import UIKit
 
 class Notifications: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-standing-01-blue-4"))
-    var largeText = LargeText(text: "Recieve Alerts")
-    //swiftlint:disable:next line_length
-    var mainText = MainText(text: "Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19.")
+    var largeText: LargeText?
+    var mainText: MainText?
     var button: Button?
     var buttonRecognizer: UITapGestureRecognizer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        button = Button(self, text: "Allow Notifications", subtext: nil)
+        self.button = Button(self, text: "Allow Notifications", subtext: nil)
+        //swiftlint:disable:next line_length
+        self.mainText = MainText(self, text: "Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19.")
+        self.largeText = LargeText(self, text: "Recieve Alerts")
         NotificationCenter.default.addObserver(
             self, selector: #selector(nextScreenIfNotificationsEnabled),
             name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -42,9 +44,9 @@ class Notifications: BaseViewController {
         view.addSubview(img)
 
         let imgToLargeTextGap = 40.0 * figmaToiOSVerticalScalingFactor
-        largeText.draw(parentVC: self, centerX: view.center.x, originY: img.frame.maxY + imgToLargeTextGap)
+        largeText?.draw(centerX: view.center.x, originY: img.frame.maxY + imgToLargeTextGap)
 
-        mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
+        mainText?.draw(centerX: view.center.x, originY: largeText?.frame.maxY ?? 0)
 
         self.buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.nextScreen))
         if let buttonRecognizer = self.buttonRecognizer {
