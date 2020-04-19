@@ -73,7 +73,7 @@ class Menu: UIView {
     private func drawBottomText() {
         bottomWaterMark.frame.size.width = screenWidth - 82.0 * figmaToiOSHorizontalScalingFactor
         bottomWaterMark.frame.size.height = (61.0/300.0) * bottomWaterMark.frame.size.width
-        bottomWaterMark.center.x = self.center.x
+        bottomWaterMark.center.x = self.center.x + 1000
         bottomWaterMark.center.y = screenHeight - (69.5 * figmaToiOSVerticalScalingFactor)
         bottomWaterMark.isHidden = true
         bottomWaterMark.layer.zPosition = 1
@@ -96,6 +96,8 @@ class Menu: UIView {
                                                              controller.frame.origin.x =  controller.screenWidth - controller.frame.size.width + 1000
                                                               // swiftlint:disable:next line_length
                                                               controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth + 1000
+                                                             // swiftlint:disable:next line_length
+                                                             controller.bottomWaterMark.frame.origin.x = controller.center.x + 1000
                                                             
                                                           }
                                               }, completion: nil)
@@ -109,13 +111,14 @@ class Menu: UIView {
                                                           // swiftlint:disable:next line_length
                                                           controller.frame.origin.x =  controller.screenWidth - controller.frame.size.width
                                                           controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth
+                                                         
+                                                        controller.bottomWaterMark.center.x = controller.center.x
               
                                                        }
                                            }, completion: nil)
                 
              }
-    
-             
+     
       }
 
     // swiftlint:disable:next function_body_length
