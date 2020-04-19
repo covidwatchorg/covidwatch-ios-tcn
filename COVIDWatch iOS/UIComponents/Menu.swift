@@ -15,14 +15,14 @@ class Menu: UIView {
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))
     var menuItems: [MenuItem] = []
     var bottomWaterMark = UIImageView(image: UIImage(named: "collab-with-stanford"))
-
+    
     func draw() {
         drawMenuBackground()
         drawXIcon()
         drawMenuItems()
         drawBottomText()
     }
-
+    
     private func drawMenuBackground() {
         self.frame.size.width = 0.8 * screenWidth
         self.frame.size.height = screenHeight
@@ -35,7 +35,7 @@ class Menu: UIView {
         self.layer.zPosition = 1
         parentVC?.view.addSubview(self)
     }
-
+    
     private func drawXIcon() {
         xIcon.frame.size.width = 23
         xIcon.frame.size.height = 23
@@ -49,12 +49,12 @@ class Menu: UIView {
         xIcon.layer.zPosition = 1
         parentVC?.view.addSubview(xIcon)
     }
-
+    
     private func drawMenuItems() {
         let menuItemWidth = (3.0/3.75) * self.frame.size.width
         let firstItemYValue = 160.0 * figmaToiOSVerticalScalingFactor
         let menuItemYGap = 58.0 * figmaToiOSVerticalScalingFactor
-
+        
         var lastYCenter: CGFloat = 0.0
         for (index, item) in self.menuItems.enumerated() {
             var yCenter: CGFloat
@@ -69,7 +69,7 @@ class Menu: UIView {
             }
         }
     }
-
+    
     private func drawBottomText() {
         bottomWaterMark.frame.size.width = screenWidth - 82.0 * figmaToiOSHorizontalScalingFactor
         bottomWaterMark.frame.size.height = (61.0/300.0) * bottomWaterMark.frame.size.width
@@ -81,46 +81,46 @@ class Menu: UIView {
     }
     @objc func toggleMenu() {
         for menuItem in menuItems {
-               menuItem.toggleShow()
-                         }
-          bottomWaterMark.isHidden = !bottomWaterMark.isHidden
+            menuItem.toggleShow()
+        }
+        bottomWaterMark.isHidden = !bottomWaterMark.isHidden
         //xIcon.isHidden = !xIcon.isHidden
-            if  bottomWaterMark.isHidden == true {
-                                            
-                         UIView.animate(withDuration: 1.0,
-                                              delay: 0.0,
-                                                         options: [],
-                                                         animations: { [weak self] in
-                                                          if let controller = self {
-                                                              // swiftlint:disable:next line_length
-                                                             controller.frame.origin.x =  controller.screenWidth - controller.frame.size.width + 1000
-                                                              // swiftlint:disable:next line_length
-                                                              controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth + 1000
-                                                             // swiftlint:disable:next line_length
-                                                             controller.bottomWaterMark.frame.origin.x = controller.center.x + 1000
-                                                            
-                                                          }
-                                              }, completion: nil)
-                     }
-                       if  bottomWaterMark.isHidden == false {
-                      UIView.animate(withDuration: 1.0,
-                                           delay: 0.0,
-                                                      options: [],
-                                                      animations: { [weak self] in
-                                                       if let controller = self {
-                                                          // swiftlint:disable:next line_length
-                                                          controller.frame.origin.x =  controller.screenWidth - controller.frame.size.width
-                                                          controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth
-                                                         
-                                                        controller.bottomWaterMark.center.x = controller.center.x
-              
-                                                       }
-                                           }, completion: nil)
-                
-             }
-     
-      }
-
+        if  bottomWaterMark.isHidden == true {
+            
+            UIView.animate(withDuration: 1.0,
+                           delay: 0.0,
+                           options: [],
+                           animations: { [weak self] in
+                            if let controller = self {
+                                // swiftlint:disable:next line_length
+                                controller.frame.origin.x =  controller.screenWidth - controller.frame.size.width + 1000
+                                // swiftlint:disable:next line_length
+                                controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth + 1000
+                                // swiftlint:disable:next line_length
+                                controller.bottomWaterMark.frame.origin.x = controller.center.x + 1000
+                                
+                            }
+                }, completion: nil)
+        }
+        if  bottomWaterMark.isHidden == false {
+            UIView.animate(withDuration: 1.0,
+                           delay: 0.0,
+                           options: [],
+                           animations: { [weak self] in
+                            if let controller = self {
+                                // swiftlint:disable:next line_length
+                                controller.frame.origin.x =  controller.screenWidth - controller.frame.size.width
+                                controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth
+                                
+                                controller.bottomWaterMark.center.x = controller.center.x
+                                
+                            }
+                }, completion: nil)
+            
+        }
+        
+    }
+    
     // swiftlint:disable:next function_body_length
     init(_ parentVC: BaseViewController) {
         self.parentVC = parentVC
@@ -157,7 +157,7 @@ class Menu: UIView {
                     print("Clicked Privacy Policy") // Dummy function for now
                 })
             ])
-
+            
         } else {
             let globalState = UserDefaults.shared
             let now = Date()
@@ -198,7 +198,7 @@ class Menu: UIView {
             ])
         }
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
