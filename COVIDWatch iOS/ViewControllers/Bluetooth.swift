@@ -13,11 +13,15 @@ class Bluetooth: BaseViewController {
     var largeText = LargeText(text: "Privately Connect")
     //swiftlint:disable:next line_length
     var mainText = MainText(text: "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
-    var button = Button(text: "Allow Bluetooth", subtext: "This is required for the app to work.")
-
+    var button: Button?
     var buttonRecognizer: UITapGestureRecognizer?
     var bluetoothPermission: BluetoothPermission?
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.button = Button(self, text: "Allow Bluetooth", subtext: "This is required for the app to work.")
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 //        Hide the Menu hamburger
@@ -44,10 +48,10 @@ class Bluetooth: BaseViewController {
         mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
         self.buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.nextScreen))
         if let buttonRecognizer = self.buttonRecognizer {
-            self.button.addGestureRecognizer(buttonRecognizer)
+            self.button?.addGestureRecognizer(buttonRecognizer)
         }
         let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
-        button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
+        button?.draw(centerX: view.center.x, originY: buttonTop)
     }
 
     @objc func nextScreen(sender: UITapGestureRecognizer) {

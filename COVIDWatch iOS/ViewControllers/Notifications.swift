@@ -13,11 +13,12 @@ class Notifications: BaseViewController {
     var largeText = LargeText(text: "Recieve Alerts")
     //swiftlint:disable:next line_length
     var mainText = MainText(text: "Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19.")
-    var button = Button(text: "Allow Notifications")
+    var button: Button?
     var buttonRecognizer: UITapGestureRecognizer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        button = Button(self, text: "Allow Notifications", subtext: nil)
         NotificationCenter.default.addObserver(
             self, selector: #selector(nextScreenIfNotificationsEnabled),
             name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -47,11 +48,11 @@ class Notifications: BaseViewController {
 
         self.buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.nextScreen))
         if let buttonRecognizer = self.buttonRecognizer {
-            self.button.addGestureRecognizer(buttonRecognizer)
+            self.button?.addGestureRecognizer(buttonRecognizer)
         }
 
         let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
-        button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
+        button?.draw(centerX: view.center.x, originY: buttonTop)
     }
 
     @objc func nextScreenIfNotificationsEnabled() {
@@ -101,15 +102,4 @@ class Notifications: BaseViewController {
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
