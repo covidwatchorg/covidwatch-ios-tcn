@@ -9,7 +9,7 @@
 import UIKit
 
 class InfoBanner: UIView {
-    weak var parentVC: BaseViewController?
+    weak var parentVC: BaseViewController!
     var text = UITextView()
     var isInteractive: Bool = false
     let exclamationCircle = UIImageView(image: UIImage(named: "exclamation-circle"))
@@ -94,10 +94,10 @@ class InfoBanner: UIView {
             self.buttonArrow.isHidden = true
         }
         
-        parentVC?.view.addSubview(self)
-        parentVC?.view.addSubview(text)
-        parentVC?.view.addSubview(self.exclamationCircle)
-        parentVC?.view.addSubview(self.buttonArrow)
+        parentVC.view.addSubview(self)
+        parentVC.view.addSubview(text)
+        parentVC.view.addSubview(self.exclamationCircle)
+        parentVC.view.addSubview(self.buttonArrow)
     }
     
     required init?(coder: NSCoder) {

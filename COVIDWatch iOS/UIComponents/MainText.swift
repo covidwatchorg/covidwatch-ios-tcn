@@ -9,7 +9,7 @@
 import UIKit
 
 class MainText: UITextView {
-    weak var parentVC: BaseViewController?
+    weak var parentVC: BaseViewController!
     
     init(_ parentVC: BaseViewController, text: String) {
         self.parentVC = parentVC
@@ -35,7 +35,7 @@ class MainText: UITextView {
         self.frame.size.height = self.contentSize.height
         self.center.x = centerX
         self.frame.origin.y = originY
-        parentVC?.view.addSubview(self)
+        parentVC.view.addSubview(self)
     }
 
     required init?(coder: NSCoder) {

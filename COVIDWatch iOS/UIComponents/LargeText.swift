@@ -9,7 +9,7 @@
 import UIKit
 
 class LargeText: UITextView {
-    weak var parentVC: BaseViewController?
+    weak var parentVC: BaseViewController!
     init(_ parentVC: BaseViewController, text: String) {
         self.parentVC = parentVC
         super.init(frame: CGRect(), textContainer: nil)
@@ -32,13 +32,13 @@ class LargeText: UITextView {
     func draw(centerX: CGFloat, centerY: CGFloat) {
         self.center.x = centerX
         self.center.y = centerY
-        parentVC?.view.addSubview(self)
+        parentVC.view.addSubview(self)
     }
 
     func draw(centerX: CGFloat, originY: CGFloat) {
         self.center.x = centerX
         self.frame.origin.y = originY
-        parentVC?.view.addSubview(self)
+        parentVC.view.addSubview(self)
     }
 
     required init?(coder: NSCoder) {

@@ -9,7 +9,7 @@
 import UIKit
 
 class Button: UIView {
-    weak var parentVC: BaseViewController?
+    weak var parentVC: BaseViewController!
     var text = UILabel()
     var subtext: UITextView?
 
@@ -49,14 +49,14 @@ class Button: UIView {
     func draw(centerX: CGFloat, centerY: CGFloat) {
         self.center.x = centerX
         self.center.y = centerY
-        parentVC?.view.addSubview(self)
+        parentVC.view.addSubview(self)
         drawText()
     }
 
     func draw(centerX: CGFloat, originY: CGFloat) {
         self.center.x = centerX
         self.frame.origin.y = originY
-        parentVC?.view.addSubview(self)
+        parentVC.view.addSubview(self)
         drawText()
     }
 
@@ -64,13 +64,13 @@ class Button: UIView {
 //        Call after the button's container has been laid out in parent ViewController
         self.text.sizeToFit()
         self.text.center = self.center
-        parentVC?.view.addSubview(self.text)
+        parentVC.view.addSubview(self.text)
         self.subtext?.frame.size.width = contentMaxWidth
         self.subtext?.frame.size.height = self.subtext?.contentSize.height ?? 0
         self.subtext?.center.x = self.text.center.x
         self.subtext?.frame.origin.y = self.frame.maxY
         if let subtext = self.subtext {
-            parentVC?.view.addSubview(subtext)
+            parentVC.view.addSubview(subtext)
         }
         self.subtext?.isSelectable = false
     }

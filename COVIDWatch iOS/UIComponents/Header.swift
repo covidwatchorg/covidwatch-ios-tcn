@@ -9,7 +9,7 @@
 import UIKit
 
 class Header: UIView {
-    weak var parentVC: BaseViewController?
+    weak var parentVC: BaseViewController!
     var logo = UIImageView(image: UIImage(named: "logo-cw-color"))
     var menuIcon = UIImageView(image: UIImage(named: "menu-icon"))
     var menu: Menu?
@@ -38,7 +38,7 @@ class Header: UIView {
     }
 
     func draw() {
-        self.frame.origin.y = parentVC?.view.safeAreaInsets.top ?? 0
+        self.frame.origin.y = parentVC.view.safeAreaInsets.top
         drawLogo()
         drawMenuIcon()
     }
@@ -49,7 +49,7 @@ class Header: UIView {
 //        line up logo with the rest of the left hand content
         logo.frame.origin.x = (screenWidth - contentMaxWidth) / 2
         logo.center.y = self.frame.midY
-        parentVC?.view.addSubview(logo)
+        parentVC.view.addSubview(logo)
     }
 
     private func drawMenuIcon() {
@@ -61,8 +61,8 @@ class Header: UIView {
         menuIcon.center.y = self.frame.midY
         menuIcon.isUserInteractionEnabled = true
         menuIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
-        parentVC?.view.addSubview(menuIcon)
-        parentVC?.view.bringSubviewToFront(menuIcon)
+        parentVC.view.addSubview(menuIcon)
+        parentVC.view.bringSubviewToFront(menuIcon)
     }
 
     @objc func toggleMenu() {

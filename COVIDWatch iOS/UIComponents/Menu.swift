@@ -11,7 +11,7 @@ import UIKit
 let MANUAL_STATE_TEST = true
 
 class Menu: UIView {
-    weak var parentVC: BaseViewController?
+    weak var parentVC: BaseViewController!
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))
     var menuItems: [MenuItem] = []
     var bottomWaterMark = UIImageView(image: UIImage(named: "collab-with-stanford"))
@@ -33,7 +33,7 @@ class Menu: UIView {
         self.backgroundColor = .white
         self.isHidden = true
         self.layer.zPosition = 1
-        parentVC?.view.addSubview(self)
+        parentVC.view.addSubview(self)
     }
 
     private func drawXIcon() {
@@ -47,7 +47,7 @@ class Menu: UIView {
         xIcon.isUserInteractionEnabled = true
         xIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
         xIcon.layer.zPosition = 1
-        parentVC?.view.addSubview(xIcon)
+        parentVC.view.addSubview(xIcon)
     }
 
     private func drawMenuItems() {
@@ -75,7 +75,7 @@ class Menu: UIView {
         bottomWaterMark.center.y = screenHeight - (69.5 * figmaToiOSVerticalScalingFactor)
         bottomWaterMark.isHidden = true
         bottomWaterMark.layer.zPosition = 1
-        parentVC?.view.addSubview(bottomWaterMark)
+        parentVC.view.addSubview(bottomWaterMark)
     }
 
     @objc func toggleMenu() {

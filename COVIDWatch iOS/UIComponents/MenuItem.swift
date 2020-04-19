@@ -9,7 +9,7 @@
 import UIKit
 
 class MenuItem: UIView {
-    weak var parentVC: BaseViewController?
+    weak var parentVC: BaseViewController!
     let text = UILabel()
     var linkImg: UIImageView?
     private var _onClick: () -> Void = {return}
@@ -67,10 +67,10 @@ class MenuItem: UIView {
         text.layer.zPosition = 1
         self.layer.zPosition = 1
         
-        parentVC?.view.addSubview(self)
-        parentVC?.view.addSubview(text)
+        parentVC.view.addSubview(self)
+        parentVC.view.addSubview(text)
         if let linkImg = self.linkImg {
-            parentVC?.view.addSubview(linkImg)
+            parentVC.view.addSubview(linkImg)
         }
     }
     
