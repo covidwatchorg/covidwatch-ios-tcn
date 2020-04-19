@@ -73,15 +73,41 @@ class MenuItem: UIView {
             parentVC.view.addSubview(linkImg)
         }
     }
-
     func toggleShow() {
-        menuItem1.isHidden = !menuItem1.isHidden
-        menuItem1text.isHidden = !menuItem1text.isHidden
-        if let linkImg = self.linkImg {
-            linkImg.isHidden = !linkImg.isHidden
+           menuItem1.isHidden = !menuItem1.isHidden
+           menuItem1text.isHidden = !menuItem1text.isHidden
+           
+           if let linkImg = self.linkImg {
+               linkImg.isHidden = !linkImg.isHidden
         }
-    }
-
+               if  menuItem1.isHidden == true {
+                   UIView.animate(withDuration: 1.0,
+                   delay: 0.0,
+                              options: [],
+                              animations: { [weak self] in
+                               if let controller = self {
+                                   controller.menuItem1.frame.origin.x =  1000
+                                     controller.menuItem1text.frame.origin.x =  1000
+                                   
+                                    controller.linkImg?.frame.origin.x = controller.menuItem1text.frame.origin.x + 1200
+                               }
+                   }, completion: nil)
+                   }
+                if  menuItem1.isHidden == false {
+               UIView.animate(withDuration: 1.0,
+                                               delay: 0.0,
+                                                          options: [],
+                                                          animations: { [weak self] in
+                                                           if let controller = self {
+                                                               controller.menuItem1.frame.origin.x =  100
+                                                                 controller.menuItem1text.frame.origin.x =  100
+                                                               // swiftlint:disable:next line_length
+                                                                controller.linkImg?.frame.origin.x = controller.menuItem1text.frame.origin.x + 220
+                                                           }
+                                               }, completion: nil)
+                   }
+           
+       }
     @objc func onClick() {
         self._onClick()
     }
