@@ -64,9 +64,7 @@ class Menu: UIView {
                 yCenter = lastYCenter + menuItemYGap
             }
             lastYCenter = yCenter
-            if let parentVC = self.parentVC {
-                item.draw(parentVC: parentVC, width: menuItemWidth, centerX: self.center.x, centerY: yCenter)
-            }
+            item.draw(width: menuItemWidth, centerX: self.center.x, centerY: yCenter)
         }
     }
 
@@ -95,33 +93,33 @@ class Menu: UIView {
         super.init(frame: CGRect())
         if !MANUAL_STATE_TEST {
             self.menuItems.append(contentsOf: [
-                MenuItem(text: "Settings", addLinkImg: true, onClick: {
+                MenuItem(parentVC, text: "Settings", addLinkImg: true, onClick: {
                     if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
                         UIApplication.shared.open(settingsURL)
                     }
                 }),
-                MenuItem(text: "Test Results", addLinkImg: false, onClick: {
+                MenuItem(parentVC, text: "Test Results", addLinkImg: false, onClick: {
                     if let parentVC = self.parentVC {
                         parentVC.performSegue(withIdentifier: "test", sender: parentVC)
                     }
                 }),
-                MenuItem(text: "How does this work?", addLinkImg: true, onClick: {
+                MenuItem(parentVC, text: "How does this work?", addLinkImg: true, onClick: {
                     print("Clicked How does this work?") // Dummy function for now
                 }),
-                MenuItem(text: "Covid Watch Website", addLinkImg: true, onClick: {
+                MenuItem(parentVC, text: "Covid Watch Website", addLinkImg: true, onClick: {
                     if let url = URL(string: "https://www.covid-watch.org/") {
                         UIApplication.shared.open(url)
                     }
                 }),
-                MenuItem(text: "Health Guidlines", addLinkImg: true, onClick: {
+                MenuItem(parentVC, text: "Health Guidlines", addLinkImg: true, onClick: {
                     if let url = URL(string: "https://www.cdc.gov/coronavirus/2019-nCoV/index.html") {
                         UIApplication.shared.open(url)
                     }
                 }),
-                MenuItem(text: "Terms of Use", addLinkImg: true, onClick: {
+                MenuItem(parentVC, text: "Terms of Use", addLinkImg: true, onClick: {
                     print("Clicked Terms of Use") // Dummy function for now
                 }),
-                MenuItem(text: "Privacy Policy", addLinkImg: true, onClick: {
+                MenuItem(parentVC, text: "Privacy Policy", addLinkImg: true, onClick: {
                     print("Clicked Privacy Policy") // Dummy function for now
                 })
             ])
@@ -132,31 +130,31 @@ class Menu: UIView {
             let threeDaysAgo = Calendar.current.date(byAdding: .day, value: -3, to: now)
             let thirtyDaysAgo = Calendar.current.date(byAdding: .day, value: -30, to: now)
             self.menuItems.append(contentsOf: [
-                MenuItem(text: "mostRecentExposure-30d", addLinkImg: false, onClick: {
+                MenuItem(parentVC, text: "mostRecentExposure-30d", addLinkImg: false, onClick: {
                     globalState.mostRecentExposureDate = thirtyDaysAgo
                     print("Set mostRecentExposureDate to 30 days ago")
                 }),
-                MenuItem(text: "mostRecentExposure-3d", addLinkImg: false, onClick: {
+                MenuItem(parentVC, text: "mostRecentExposure-3d", addLinkImg: false, onClick: {
                     globalState.mostRecentExposureDate = threeDaysAgo
                     print("Set mostRecentExposureDate to 3 days ago")
                 }),
-                MenuItem(text: "mostRecentExposure-nil", addLinkImg: false, onClick: {
+                MenuItem(parentVC, text: "mostRecentExposure-nil", addLinkImg: false, onClick: {
                     globalState.mostRecentExposureDate = nil
                     print("Set mostRecentExposureDate to nil")
                 }),
-                MenuItem(text: "testLastSubmittedDate-30d", addLinkImg: false, onClick: {
+                MenuItem(parentVC, text: "testLastSubmittedDate-30d", addLinkImg: false, onClick: {
                     globalState.testLastSubmittedDate = thirtyDaysAgo
                     print("Set testLastSubmittedDate to 30 days ago")
                 }),
-                MenuItem(text: "testLastSubmittedDate-3d", addLinkImg: false, onClick: {
+                MenuItem(parentVC, text: "testLastSubmittedDate-3d", addLinkImg: false, onClick: {
                     globalState.testLastSubmittedDate = threeDaysAgo
                     print("Set testLastSubmittedDate to 3 days ago")
                 }),
-                MenuItem(text: "testLastSubmittedDate-nil", addLinkImg: false, onClick: {
+                MenuItem(parentVC, text: "testLastSubmittedDate-nil", addLinkImg: false, onClick: {
                     globalState.testLastSubmittedDate = nil
                     print("Set testLastSubmittedDate to nil")
                 }),
-                MenuItem(text: "Toggle isUserSick", addLinkImg: false, onClick: {
+                MenuItem(parentVC, text: "Toggle isUserSick", addLinkImg: false, onClick: {
                     globalState.isUserSick = !globalState.isUserSick
                     print("isUserSick set to \(globalState.isUserSick)")
                     // Enforce that global state is realistic

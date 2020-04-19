@@ -25,7 +25,7 @@ class Home: BaseViewController {
     let globalState = UserDefaults.shared
 
     override func viewDidLoad() {
-        infoBanner = InfoBanner(text: "You may have been in contact with COVID-19", onClick: {
+        infoBanner = InfoBanner(self, text: "You may have been in contact with COVID-19", onClick: {
             self.performSegue(withIdentifier: "test", sender: self)
         })
         super.viewDidLoad()
@@ -164,12 +164,12 @@ class Home: BaseViewController {
                 infoBanner.isHidden = false
                 if globalState.isUserSick {
                     infoBanner.isInteractive = false
-                    infoBanner.text?.text = "You reported that you tested positive for COVID-19"
+                    infoBanner.text.text = "You reported that you tested positive for COVID-19"
                 } else {
                     infoBanner.isInteractive = true
-                    infoBanner.text?.text = "You may have been in contact with COVID-19"
+                    infoBanner.text.text = "You may have been in contact with COVID-19"
                 }
-                infoBanner.draw(parentVC: self, centerX: view.center.x, originY: header?.frame.maxY ?? 0)
+                infoBanner.draw(centerX: view.center.x, originY: header?.frame.maxY ?? 0)
                 imgTop = infoBanner.frame.maxY + 21.0 * figmaToiOSVerticalScalingFactor
             } else {
                 infoBanner.isHidden = true
