@@ -52,6 +52,15 @@ class Notifications: BaseViewController {
 
         let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
         button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
+        // accessibility
+        setupAccessibilityAndLocalization()
+    }
+
+    private func setupAccessibilityAndLocalization() {
+        largeText.accessibilityIdentifier = AccessibilityIdentifier.LargeText.rawValue
+        mainText.accessibilityIdentifier = AccessibilityIdentifier.MainText.rawValue
+        button.accessibilityIdentifier = AccessibilityIdentifier.AllowButton.rawValue
+        button.accessibilityLabel = AccessibilityLabel.allowButton
     }
 
     @objc func nextScreenIfNotificationsEnabled() {
