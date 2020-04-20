@@ -67,14 +67,14 @@ class InfoBanner: UIView {
     func draw(centerX: CGFloat, originY: CGFloat) {
         self.center.x = centerX
         self.frame.origin.y = originY
-        text.center.x = self.center.x
-        text.center.y = self.center.y
         if isInteractive {
             text.frame.size.width = 250 * figmaToiOSHorizontalScalingFactor
         } else {
             text.frame.size.width = 290 * figmaToiOSHorizontalScalingFactor
         }
         text.frame.size.height = text.contentSize.height
+        text.center.x = self.center.x
+        text.center.y = self.center.y
         text.backgroundColor = .clear
         if isInteractive {
             self.exclamationCircle.isHidden = false
@@ -95,7 +95,7 @@ class InfoBanner: UIView {
         }
         
         parentVC.view.addSubview(self)
-        parentVC.view.addSubview(text)
+        parentVC.view.addSubview(self.text)
         parentVC.view.addSubview(self.exclamationCircle)
         parentVC.view.addSubview(self.buttonArrow)
     }
