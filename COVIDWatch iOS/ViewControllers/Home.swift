@@ -36,7 +36,7 @@ class Home: BaseViewController {
         
         testLastSubmittedDateObserver = globalState.observe(
             \.testLastSubmittedDate,
-            options: [.initial, .new],
+            options: [],
             changeHandler: { (_, _) in
                 self.drawScreen()
         })
