@@ -84,35 +84,28 @@ class Menu: UIView {
             menuItem.toggleShow()
         }
         bottomWaterMark.isHidden = !bottomWaterMark.isHidden
-        //xIcon.isHidden = !xIcon.isHidden
         if  bottomWaterMark.isHidden == true {
-            UIView.animate(withDuration: 1.0,
-                           delay: 0.0,
-                           options: [],
-                           animations: { [weak self] in
-                            if let controller = self {
-                                // swiftlint:disable:next line_length
-                                controller.frame.origin.x =  controller.screenWidth - controller.frame.size.width + 1000
-                                // swiftlint:disable:next line_length
-                                controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth + 1000
-                                // swiftlint:disable:next line_length
-                                controller.bottomWaterMark.frame.origin.x = controller.center.x + 1000
-                            }
+            UIView.animate(
+                withDuration: 1.0, delay: 0.0, options: [],
+                animations: { [weak self] in
+                    if let controller = self {
+                        controller.frame.origin.x =  controller.screenWidth - controller.frame.size.width + 1000
+                        controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth + 1000
+                        controller.bottomWaterMark.frame.origin.x = controller.center.x + 1000
+                    }
                 }, completion: nil)
         }
         if  bottomWaterMark.isHidden == false {
-            UIView.animate(withDuration: 1.0,
-                           delay: 0.0,
-                           options: [],
-                           animations: { [weak self] in
-                            if let controller = self {
-                                // swiftlint:disable:next line_length
-                                controller.frame.origin.x =  controller.screenWidth - controller.frame.size.width
-                                controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth
-                                
-                                controller.bottomWaterMark.center.x = controller.center.x
-                                
-                            }
+            UIView.animate(
+                withDuration: 1.0, delay: 0.0, options: [],
+                animations: { [weak self] in
+                    if let controller = self {
+                        controller.frame.origin.x =  controller.screenWidth - controller.frame.size.width
+                        controller.xIcon.frame.origin.x = 0.9 * controller.screenWidth
+                        
+                        controller.bottomWaterMark.center.x = controller.center.x
+                        
+                    }
                 }, completion: nil)
             
         }
