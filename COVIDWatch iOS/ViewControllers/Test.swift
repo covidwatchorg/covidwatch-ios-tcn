@@ -30,14 +30,26 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var reportView: UIView!
     @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var close: UIImageView!
+
     @IBOutlet var reportTopSpace: NSLayoutConstraint!
+    @IBOutlet var reportDetailTopSpace: NSLayoutConstraint!
     @IBOutlet var continueTopSpace: NSLayoutConstraint!
     @IBOutlet var dateTopSpace: NSLayoutConstraint!
     @IBOutlet var detailsTopSpace: NSLayoutConstraint!
     @IBOutlet var negativeTopSpace: NSLayoutConstraint!
     @IBOutlet var positiveTopSpace: NSLayoutConstraint!
     @IBOutlet var titleTopSpace: NSLayoutConstraint!
-
+    @IBOutlet var titleWidth: NSLayoutConstraint!
+    @IBOutlet var negativeWidth: NSLayoutConstraint!
+    @IBOutlet var negativeHeight: NSLayoutConstraint!
+    @IBOutlet var positiveWidth: NSLayoutConstraint!
+    @IBOutlet var positiveHeight: NSLayoutConstraint!
+    @IBOutlet var dateWidth: NSLayoutConstraint!
+    @IBOutlet var dateHeight: NSLayoutConstraint!
+    @IBOutlet var reportWidth: NSLayoutConstraint!
+    @IBOutlet var reportHeight: NSLayoutConstraint!
+    @IBOutlet var reportDetailWidth: NSLayoutConstraint!
+    
     var step = 0
     var pickerData: [String] = [String]()
     var testStatus: TestStatus = .unknown {
@@ -215,21 +227,31 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 // MARK: - Layout Constraints
 extension Test {
     override func updateViewConstraints() {
-        negativeView.addConstraint(getButtonHeight(view: negativeView))
-        positiveView.addConstraint(getButtonHeight(view: positiveView))
         dateView.addConstraint(getButtonHeight(view: dateView))
         continueButton.addConstraint(getButtonHeight(view: continueButton))
         reportButton.addConstraint(getButtonHeight(view: reportButton))
 
+        titleWidth.constant = contentMaxWidth
         titleTopSpace.constant = (30.0/321.0) * contentMaxWidth
         detailsTopSpace.constant = (30.0/321.0) * contentMaxWidth
+        reportTopSpace.constant = (30.0/321.0) * contentMaxWidth
 
         negativeTopSpace.constant = (15.0/321.0) * contentMaxWidth
         dateTopSpace.constant = (15.0/321.0) * contentMaxWidth
         continueTopSpace.constant = (15.0/321.0) * contentMaxWidth
 
-        reportTopSpace.constant = (5.0/321.0) * contentMaxWidth
-        positiveTopSpace.constant = (5.0/321.0) * contentMaxWidth
+        positiveTopSpace.constant = (10.0/321.0) * contentMaxWidth
+        reportDetailTopSpace.constant = (10.0/321.0) * contentMaxWidth
+        
+        negativeHeight.constant = (58.0/321.0) * contentMaxWidth
+        positiveHeight.constant = (58.0/321.0) * contentMaxWidth
+        dateHeight.constant = (58.0/321.0) * contentMaxWidth
+        reportHeight.constant = (58.0/321.0) * contentMaxWidth
+        negativeWidth.constant = contentMaxWidth
+        positiveWidth.constant = contentMaxWidth
+        dateWidth.constant = contentMaxWidth
+        reportWidth.constant = contentMaxWidth
+        reportDetailWidth.constant = contentMaxWidth
 
         super.updateViewConstraints()
     }
@@ -243,6 +265,18 @@ extension Test {
             attribute: .notAnAttribute,
             multiplier: 1,
             constant: (58.0/321.0) * contentMaxWidth
+        )
+    }
+
+    func getButtonWidth(view: UIView) -> NSLayoutConstraint {
+        return NSLayoutConstraint(
+            item: view,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: nil,
+            attribute: .notAnAttribute,
+            multiplier: 1,
+            constant: contentMaxWidth
         )
     }
 }
