@@ -48,7 +48,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="472"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Fo-id-yVG" userLabel="Content View">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="472"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have you tested positive for COVID-19?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfF-Fq-Hud">
                                                         <rect key="frame" x="24" y="0.0" width="366" height="59"/>
@@ -76,7 +76,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="phi-0d-EAa" secondAttribute="trailing" constant="8" id="6hS-ln-s6h"/>
                                                             <constraint firstItem="phi-0d-EAa" firstAttribute="centerY" secondItem="EDc-mH-TBU" secondAttribute="centerY" id="Rwe-OG-X4z"/>
@@ -103,7 +103,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="DY8-Za-Yhg" secondAttribute="trailing" constant="8" id="53k-fS-JQ8"/>
                                                             <constraint firstAttribute="width" constant="366" id="imA-0H-r5f"/>
@@ -153,7 +153,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="OfA-Lg-p3t" secondAttribute="bottom" id="8J4-MG-iqq"/>
                                                                     <constraint firstItem="OfA-Lg-p3t" firstAttribute="top" secondItem="rvz-TU-Z3Y" secondAttribute="bottom" constant="40" id="RTt-ve-2ZQ"/>
@@ -178,9 +178,12 @@
                                                                         <state key="normal" title="Continue">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="continueButtonPressed:" destination="Pcd-hq-wYJ" eventType="touchUpInside" id="G10-28-VEg"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="YWj-9b-cfg" secondAttribute="trailing" constant="24" id="5Te-0O-kN6"/>
                                                                     <constraint firstItem="YWj-9b-cfg" firstAttribute="leading" secondItem="uRK-Ag-ZRW" secondAttribute="leading" constant="24" id="8ar-3c-Rl9"/>
@@ -210,6 +213,9 @@
                                                                 <state key="normal" title="Report">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="reportButtonPressed:" destination="Pcd-hq-wYJ" eventType="touchUpInside" id="eNC-Hi-L6E"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking &quot;Report&quot;, you acknowledge, understand and further agree to our Privacy Policy and Terms &amp; Conditions." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Be7-sm-fsh">
                                                                 <rect key="frame" x="24" y="61" width="366" height="51.5"/>
@@ -221,7 +227,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="B2Y-1o-k4k" firstAttribute="top" secondItem="72l-12-QOt" secondAttribute="top" id="6CG-ao-HBW"/>
                                                             <constraint firstItem="B2Y-1o-k4k" firstAttribute="centerX" secondItem="72l-12-QOt" secondAttribute="centerX" id="IXI-uA-JYf"/>
@@ -231,29 +237,30 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="8Qj-55-SsC" firstAttribute="top" secondItem="qgx-Dc-gGK" secondAttribute="bottom" constant="30" id="2Df-dS-JTG"/>
                                                     <constraint firstAttribute="trailing" secondItem="8Qj-55-SsC" secondAttribute="trailing" id="D17-38-qZd"/>
                                                     <constraint firstItem="qgx-Dc-gGK" firstAttribute="top" secondItem="EDc-mH-TBU" secondAttribute="bottom" constant="16" id="SUD-EA-6Ls"/>
+                                                    <constraint firstItem="72l-12-QOt" firstAttribute="top" secondItem="8Qj-55-SsC" secondAttribute="bottom" constant="30" id="ULr-Lx-WTv"/>
                                                     <constraint firstItem="72l-12-QOt" firstAttribute="leading" secondItem="1Fo-id-yVG" secondAttribute="leading" id="URG-Rq-9C0"/>
                                                     <constraint firstItem="8Qj-55-SsC" firstAttribute="leading" secondItem="1Fo-id-yVG" secondAttribute="leading" id="aEv-UX-FrB"/>
                                                     <constraint firstItem="qgx-Dc-gGK" firstAttribute="centerX" secondItem="1Fo-id-yVG" secondAttribute="centerX" id="b6x-Gj-s2u"/>
                                                     <constraint firstAttribute="trailing" secondItem="72l-12-QOt" secondAttribute="trailing" id="btB-WA-tsZ"/>
                                                     <constraint firstItem="EDc-mH-TBU" firstAttribute="top" secondItem="LfF-Fq-Hud" secondAttribute="bottom" constant="30" id="dka-i9-ynK"/>
                                                     <constraint firstItem="LfF-Fq-Hud" firstAttribute="top" secondItem="1Fo-id-yVG" secondAttribute="top" id="gBH-o7-8sF"/>
+                                                    <constraint firstAttribute="height" constant="700" id="vfA-wR-ji5"/>
                                                     <constraint firstItem="LfF-Fq-Hud" firstAttribute="centerX" secondItem="1Fo-id-yVG" secondAttribute="centerX" id="vqi-ik-fFe"/>
                                                     <constraint firstItem="EDc-mH-TBU" firstAttribute="centerX" secondItem="1Fo-id-yVG" secondAttribute="centerX" id="w5v-uV-14a"/>
-                                                    <constraint firstItem="72l-12-QOt" firstAttribute="top" secondItem="8Qj-55-SsC" secondAttribute="bottom" constant="30" id="z8M-zb-Bjq"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="1Fo-id-yVG" firstAttribute="centerY" secondItem="cbY-oQ-Hvz" secondAttribute="centerY" id="5Nf-pI-Wr0"/>
                                             <constraint firstAttribute="trailing" secondItem="1Fo-id-yVG" secondAttribute="trailing" id="Ts9-3n-4wf"/>
                                             <constraint firstItem="1Fo-id-yVG" firstAttribute="centerX" secondItem="cbY-oQ-Hvz" secondAttribute="centerX" id="VPQ-dk-ORk"/>
                                             <constraint firstItem="1Fo-id-yVG" firstAttribute="leading" secondItem="cbY-oQ-Hvz" secondAttribute="leading" id="cWE-gb-eOk"/>
-                                            <constraint firstAttribute="bottom" secondItem="1Fo-id-yVG" secondAttribute="bottom" id="ki6-E4-RGw"/>
+                                            <constraint firstItem="TT9-gR-ZV9" firstAttribute="bottom" secondItem="1Fo-id-yVG" secondAttribute="bottom" id="ki6-E4-RGw"/>
                                             <constraint firstItem="1Fo-id-yVG" firstAttribute="top" secondItem="cbY-oQ-Hvz" secondAttribute="top" id="yG6-dv-s9c"/>
                                         </constraints>
                                         <viewLayoutGuide key="contentLayoutGuide" id="TT9-gR-ZV9"/>
@@ -299,6 +306,15 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="01c-Rd-hlQ" secondAttribute="bottom" id="ChE-ho-1to"/>
+                                    <constraint firstItem="01c-Rd-hlQ" firstAttribute="top" secondItem="cbY-oQ-Hvz" secondAttribute="bottom" id="NaO-hD-V1M"/>
+                                    <constraint firstItem="cbY-oQ-Hvz" firstAttribute="top" secondItem="OMK-bu-oos" secondAttribute="top" id="P4z-Bs-1FU"/>
+                                    <constraint firstAttribute="trailing" secondItem="cbY-oQ-Hvz" secondAttribute="trailing" id="Ycl-UX-aih"/>
+                                    <constraint firstAttribute="trailing" secondItem="01c-Rd-hlQ" secondAttribute="trailing" id="cba-wt-tk7"/>
+                                    <constraint firstItem="cbY-oQ-Hvz" firstAttribute="leading" secondItem="OMK-bu-oos" secondAttribute="leading" id="lsA-oX-vcI"/>
+                                    <constraint firstItem="01c-Rd-hlQ" firstAttribute="leading" secondItem="OMK-bu-oos" secondAttribute="leading" id="woZ-gr-UOG"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -316,6 +332,7 @@
                     </view>
                     <connections>
                         <outlet property="close" destination="vFp-7c-ud3" id="lK6-dl-q0U"/>
+                        <outlet property="contentViewHeight" destination="vfA-wR-ji5" id="PSh-mV-8Wd"/>
                         <outlet property="continueButton" destination="XZ7-Y8-iV9" id="Q0i-xw-c3q"/>
                         <outlet property="continueTopSpace" destination="ejy-Et-KRa" id="dFu-aN-wPk"/>
                         <outlet property="dateCheckmark" destination="UJk-fZ-uCs" id="4lr-Qo-mqc"/>
@@ -341,7 +358,7 @@
                         <outlet property="reportDetailTopSpace" destination="TrT-Eo-1Y5" id="7OZ-rQ-ENE"/>
                         <outlet property="reportDetailWidth" destination="CdL-qu-hIK" id="8N3-gy-Jlt"/>
                         <outlet property="reportHeight" destination="zIR-RX-lnX" id="BXr-7k-JSs"/>
-                        <outlet property="reportTopSpace" destination="z8M-zb-Bjq" id="lvt-TY-cEK"/>
+                        <outlet property="reportTopSpace" destination="ULr-Lx-WTv" id="Oqc-Ws-eAA"/>
                         <outlet property="reportView" destination="72l-12-QOt" id="uz4-Wh-QTv"/>
                         <outlet property="reportWidth" destination="4Hu-ji-IAJ" id="QjU-qG-X2I"/>
                         <outlet property="showOnNegativeView" destination="uRK-Ag-ZRW" id="FHb-Ws-zja"/>

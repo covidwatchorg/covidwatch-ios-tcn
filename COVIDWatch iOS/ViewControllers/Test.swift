@@ -49,7 +49,8 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet var reportWidth: NSLayoutConstraint!
     @IBOutlet var reportHeight: NSLayoutConstraint!
     @IBOutlet var reportDetailWidth: NSLayoutConstraint!
-    
+    @IBOutlet var contentViewHeight: NSLayoutConstraint!
+
     var step = 0
     var pickerData: [String] = [String]()
     var testStatus: TestStatus = .unknown {
@@ -94,11 +95,9 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
         continueButton.layer.cornerRadius = 10
         continueButton.layer.backgroundColor = UIColor.Primary.Bluejay.cgColor
-        continueButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(submitNegative)))
 
         reportButton.layer.cornerRadius = 10
         reportButton.layer.backgroundColor = UIColor.Primary.Bluejay.cgColor
-        reportButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(submitPositive)))
         reportView.isHidden = true
 
         // initialize PickerView dates
@@ -117,12 +116,12 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         testStatus = .positive
     }
 
-    @objc func submitNegative() {
+    @IBAction func continueButtonPressed(_ sender: Any) {
         UserDefaults.shared.testLastSubmittedDate = Date()
         performSegue(withIdentifier: "testToHome", sender: self)
     }
 
-    @objc func submitPositive() {
+    @IBAction func reportButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "confirmTest", sender: self)
     }
 
@@ -134,6 +133,7 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         reportView.isHidden = true
         dateCheckmark.isHidden = true
         pickDateView.isHidden = false
+        self.updateViewConstraints()
     }
 
     func initPickerDates() {
@@ -177,6 +177,7 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         showOnPositiveView.isHidden = true
         reportView.isHidden = true
         pickDateView.isHidden = true
+        self.updateViewConstraints()
     }
 
     func uncheckNegative() {
@@ -221,11 +222,13 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         dateCheckmark.isHidden = false
         pickDateView.isHidden = true
         reportView.isHidden = false
+        self.updateViewConstraints()
     }
 }
 
 // MARK: - Layout Constraints
 extension Test {
+
     override func updateViewConstraints() {
         dateView.addConstraint(getButtonHeight(view: dateView))
         continueButton.addConstraint(getButtonHeight(view: continueButton))
@@ -252,6 +255,11 @@ extension Test {
         dateWidth.constant = contentMaxWidth
         reportWidth.constant = contentMaxWidth
         reportDetailWidth.constant = contentMaxWidth
+
+        let scrollContentFullHeight = screenHeight - 60 - ((30.0/321.0) * contentMaxWidth)
+        let finalScrollContentHeight = (pickDateView.isHidden) ?
+            scrollContentFullHeight : scrollContentFullHeight - 128.0
+        contentViewHeight.constant = finalScrollContentHeight
 
         super.updateViewConstraints()
     }
