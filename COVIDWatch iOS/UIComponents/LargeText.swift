@@ -9,7 +9,9 @@
 import UIKit
 
 class LargeText: UITextView {
-    init(text: String) {
+    weak var parentVC: BaseViewController!
+    init(_ parentVC: BaseViewController, text: String) {
+        self.parentVC = parentVC
         super.init(frame: CGRect(), textContainer: nil)
         self.text = text
         var fontSize: CGFloat = 36
@@ -27,13 +29,13 @@ class LargeText: UITextView {
         self.isSelectable = false
     }
 
-    func draw(parentVC: UIViewController, centerX: CGFloat, centerY: CGFloat) {
+    func draw(centerX: CGFloat, centerY: CGFloat) {
         self.center.x = centerX
         self.center.y = centerY
         parentVC.view.addSubview(self)
     }
 
-    func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {
+    func draw(centerX: CGFloat, originY: CGFloat) {
         self.center.x = centerX
         self.frame.origin.y = originY
         parentVC.view.addSubview(self)

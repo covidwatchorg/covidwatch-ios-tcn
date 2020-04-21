@@ -9,7 +9,7 @@
 import UIKit
 
 class Header: UIView {
-    weak var parentVC: BaseViewController?
+    weak var parentVC: BaseViewController!
     var logo = UIImageView(image: UIImage(named: "logo-cw-color"))
     var menuIcon = UIImageView(image: UIImage(named: "menu-icon"))
     var menu: Menu?
@@ -37,13 +37,13 @@ class Header: UIView {
         self.frame.size.height = screenHeight * 0.1
     }
 
-    func draw(parentVC: UIViewController) {
+    func draw() {
         self.frame.origin.y = parentVC.view.safeAreaInsets.top
-        drawLogo(parentVC: parentVC)
-        drawMenuIcon(parentVC: parentVC)
+        drawLogo()
+        drawMenuIcon()
     }
 
-    private func drawLogo(parentVC: UIViewController) {
+    private func drawLogo() {
         logo.frame.size.width = 35
         logo.frame.size.height = 35
 //        line up logo with the rest of the left hand content
@@ -52,7 +52,7 @@ class Header: UIView {
         parentVC.view.addSubview(logo)
     }
 
-    private func drawMenuIcon(parentVC: UIViewController) {
+    private func drawMenuIcon() {
         menuIcon.frame.size.width = 36
         menuIcon.frame.size.height = 25
 //        line up menu icon with the rest of the right hand content
