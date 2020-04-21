@@ -16,8 +16,8 @@ These will  be read to the user so must be localized.
 enum AccessibilityLabel {
     
     // MARK: Splash page
-    static let startButton = NSLocalizedString("Start", comment:"Accessibility for start button")
+    static let startButton = NSLocalizedString("Start", comment: "Accessibility for start button")
     
     // MARK: Bluetooth page
-    static let allowButton = NSLocalizedString("Allow Bluetooth", comment:"Accessibility for allow bluetooth button")
+    static let allowButton = NSLocalizedString("Allow Bluetooth", comment: "Accessibility for allow bluetooth button")
 }
