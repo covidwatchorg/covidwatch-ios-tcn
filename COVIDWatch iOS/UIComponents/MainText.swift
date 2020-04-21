@@ -9,7 +9,10 @@
 import UIKit
 
 class MainText: UITextView {
-    init(text: String) {
+    weak var parentVC: BaseViewController!
+    
+    init(_ parentVC: BaseViewController, text: String) {
+        self.parentVC = parentVC
         super.init(frame: CGRect(), textContainer: nil)
         self.text = text
         var fontSize: CGFloat = 18
@@ -29,7 +32,7 @@ class MainText: UITextView {
         self.accessibilityIdentifier = AccessibilityIdentifier.Content.rawValue
     }
 
-    func draw(parentVC: UIViewController, centerX: CGFloat, originY: CGFloat) {
+    func draw(centerX: CGFloat, originY: CGFloat) {
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = self.contentSize.height
         self.center.x = centerX

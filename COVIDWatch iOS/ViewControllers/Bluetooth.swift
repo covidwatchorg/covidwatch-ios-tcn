@@ -10,14 +10,20 @@ import UIKit
 
 class Bluetooth: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-group-blue-2"))
-    var largeText = LargeText(text: "Privately Connect")
-    //swiftlint:disable:next line_length
-    var mainText = MainText(text: "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
-    var button = Button(text: "Allow Bluetooth", subtext: "This is required for the app to work.")
-
+    var largeText: LargeText!
+    var mainText: MainText!
+    var button: Button!
     var buttonRecognizer: UITapGestureRecognizer?
     var bluetoothPermission: BluetoothPermission?
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.button = Button(self, text: "Allow Bluetooth", subtext: "This is required for the app to work.")
+        //swiftlint:disable:next line_length
+        self.mainText = MainText(self, text: "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
+        self.largeText = LargeText(self, text: "Privately Connect")
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 //        Hide the Menu hamburger
@@ -35,18 +41,16 @@ class Bluetooth: BaseViewController {
         img.frame.origin.y = header.frame.minY + (119.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
 
-        largeText.draw(parentVC: self,
-                       centerX: view.center.x,
+        largeText.draw(centerX: view.center.x,
                        originY: img.frame.maxY + 20 * figmaToiOSVerticalScalingFactor)
 
-        mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
+        mainText.draw(centerX: view.center.x, originY: largeText.frame.maxY)
         self.buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.nextScreen))
         if let buttonRecognizer = self.buttonRecognizer {
             self.button.addGestureRecognizer(buttonRecognizer)
         }
         let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
-        button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
-        
+        button.draw(centerX: view.center.x, originY: buttonTop)
         setupAccessibilityAndLocalization()
     }
     
@@ -93,15 +97,4 @@ class Bluetooth: BaseViewController {
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

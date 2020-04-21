@@ -10,14 +10,17 @@ import UIKit
 
 class Notifications: BaseViewController {
     var img = UIImageView(image: UIImage(named: "people-standing-01-blue-4"))
-    var largeText = LargeText(text: "Recieve Alerts")
-    //swiftlint:disable:next line_length
-    var mainText = MainText(text: "Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19.")
-    var button = Button(text: "Allow Notifications")
+    var largeText: LargeText!
+    var mainText: MainText!
+    var button: Button!
     var buttonRecognizer: UITapGestureRecognizer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.button = Button(self, text: "Allow Notifications", subtext: nil)
+        //swiftlint:disable:next line_length
+        self.mainText = MainText(self, text: "Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19.")
+        self.largeText = LargeText(self, text: "Recieve Alerts")
         NotificationCenter.default.addObserver(
             self, selector: #selector(nextScreenIfNotificationsEnabled),
             name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -41,9 +44,9 @@ class Notifications: BaseViewController {
         view.addSubview(img)
 
         let imgToLargeTextGap = 40.0 * figmaToiOSVerticalScalingFactor
-        largeText.draw(parentVC: self, centerX: view.center.x, originY: img.frame.maxY + imgToLargeTextGap)
+        largeText.draw(centerX: view.center.x, originY: img.frame.maxY + imgToLargeTextGap)
 
-        mainText.draw(parentVC: self, centerX: view.center.x, originY: largeText.frame.maxY)
+        mainText.draw(centerX: view.center.x, originY: largeText.frame.maxY)
 
         self.buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.nextScreen))
         if let buttonRecognizer = self.buttonRecognizer {
@@ -51,7 +54,8 @@ class Notifications: BaseViewController {
         }
 
         let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
-        button.draw(parentVC: self, centerX: view.center.x, originY: buttonTop)
+        let centerX = view.center.x
+        self.button.draw(centerX: view.center.x, originY: buttonTop)
         // accessibility
         setupAccessibilityAndLocalization()
     }
@@ -110,15 +114,4 @@ class Notifications: BaseViewController {
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
