@@ -11,7 +11,8 @@ import XCTest
 class Test02: XCTestCase {
     var app: XCUIApplication!
 
-    override func setUpWithError() throws {
+    override func setUp() {
+        super.setUp()
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("XCTest")
@@ -19,12 +20,15 @@ class Test02: XCTestCase {
         app.launch()
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         app.terminate()
+        super.tearDown()
     }
 
     func testBluetoothPage() {
         app.buttons["Start"].tap()
+
+        XCUIApplication().staticTexts["Share the app"].tap()
 
         let btConnectTitle = app.textViews["large-text"]
         let btDescription = app.textViews["main-text"]

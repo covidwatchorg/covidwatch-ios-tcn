@@ -11,7 +11,8 @@ import XCTest
 class Test03: XCTestCase {
     var app: XCUIApplication!
 
-    override func setUpWithError() throws {
+    override func setUp() {
+        super.setUp()
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments.append("XCTest")
@@ -19,8 +20,9 @@ class Test03: XCTestCase {
         app.launch()
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         app.terminate()
+        super.tearDown()
     }
 
     func testNotificationPage() {

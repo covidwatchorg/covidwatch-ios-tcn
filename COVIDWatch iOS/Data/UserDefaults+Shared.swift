@@ -52,11 +52,11 @@ extension UserDefaults {
 
     @objc dynamic public var isFirstTimeUser: Bool {
         get {
-            if ProcessInfo().isRunningXCTest {
-                if let override = ProcessInfo().environment["isFirstTimeUser"] {
-                    return override.bool
+            if let override = ProcessInfo.processInfo.environment["isFirstTimeUser"] {
+                print(override)
+                print(override.bool)
+                return override.bool
                 }
-            }
             return bool(forKey: Key.isFirstTimeUser)
         }
         set {
