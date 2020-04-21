@@ -37,7 +37,7 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet var negativeTopSpace: NSLayoutConstraint!
     @IBOutlet var positiveTopSpace: NSLayoutConstraint!
     @IBOutlet var titleTopSpace: NSLayoutConstraint!
-
+    
     var step = 0
     var pickerData: [String] = [String]()
     var testStatus: TestStatus = .unknown {
@@ -55,65 +55,73 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         testStatus = .unknown
         close.isUserInteractionEnabled = true
         close.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goBackHome)))
-
+        
         dateCheckmark.isHidden = true
         datePicker.delegate = self
         datePicker.inputView?.backgroundColor = UIColor.Primary.White
         pickDateView.isHidden = true
-
+        
         negativeView.layer.borderWidth = 2.0
         negativeView.layer.cornerRadius = 10
-        negativeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.userTestedNegative)))
-
+        negativeView.addGestureRecognizer(
+            UITapGestureRecognizer(
+                target: self, action: #selector(self.userTestedNegative)
+            )
+        )
+        
         positiveView.layer.borderWidth = 2.0
         positiveView.layer.cornerRadius = 10
-        positiveView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.userTestedPositive)))
-
+        positiveView.addGestureRecognizer(
+            UITapGestureRecognizer(
+                target: self, action: #selector(self.userTestedPositive)
+            )
+        )
+        
         dateView.layer.borderWidth = 2.0
         dateView.layer.cornerRadius = 10
         dateView.layer.borderColor = UIColor.Secondary.LightGray.cgColor
         dateView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.pickDate)))
-
+        
         continueButton.layer.cornerRadius = 10
         continueButton.layer.backgroundColor = UIColor.Primary.Bluejay.cgColor
         continueButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(submitNegative)))
-
+        
         reportButton.layer.cornerRadius = 10
         reportButton.layer.backgroundColor = UIColor.Primary.Bluejay.cgColor
         reportButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(submitPositive)))
         reportView.isHidden = true
-
+        
         // initialize PickerView dates
         self.initPickerDates()
     }
-
+    
     @objc func goBackHome() {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     @objc func userTestedNegative() {
         testStatus = .negative
     }
-
+    
     @objc func userTestedPositive() {
         testStatus = .positive
     }
-
+    
     @objc func submitNegative() {
         UserDefaults.shared.testLastSubmittedDate = Date()
         performSegue(withIdentifier: "testToHome", sender: self)
     }
-
+    
     @objc func submitPositive() {
         performSegue(withIdentifier: "confirmTest", sender: self)
     }
-
+    
     @objc func pickDate() {
         dateView.layer.borderColor = UIColor.Secondary.LightGray.cgColor
         if dateLabel.text == "Select Date" {
@@ -123,20 +131,20 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         dateCheckmark.isHidden = true
         pickDateView.isHidden = false
     }
-
+    
     func initPickerDates() {
         let calendar = Calendar.current
         var endDate = Date()
-
+        
         guard let startDate = calendar.date(byAdding: .day, value: -30, to: endDate) else {
             print("\(#function): Error Creating date")
             return
         }
-
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
-
+        
         while startDate <= endDate {
             pickerData.append(dateFormatter.string(from: endDate))
             if let date = calendar.date(byAdding: .day, value: -1, to: endDate) {
@@ -144,7 +152,7 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
             }
         }
     }
-
+    
     func checkPositive() {
         dateView.addConstraint(getButtonHeight(view: dateView))
         positiveView.layer.borderColor = UIColor.Primary.Bluejay.cgColor
@@ -152,13 +160,13 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         showOnPositiveView.isHidden = false
         reportView.isHidden = dateCheckmark.isHidden
     }
-
+    
     func checkNegative() {
         negativeView.layer.borderColor = UIColor.Primary.Bluejay.cgColor
         negativeCheckmark.isHidden = false
         showOnNegativeView.isHidden = false
     }
-
+    
     func uncheckPositive() {
         positiveView.layer.borderColor = UIColor.Primary.Gray.cgColor
         positiveCheckmark.isHidden = true
@@ -166,13 +174,13 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         reportView.isHidden = true
         pickDateView.isHidden = true
     }
-
+    
     func uncheckNegative() {
         negativeView.layer.borderColor = UIColor.Primary.Gray.cgColor
         negativeCheckmark.isHidden = true
         showOnNegativeView.isHidden = true
     }
-
+    
     // MARK: - Pass testedDate to Confirm
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "confirmTest" {
@@ -186,24 +194,24 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
             }
         }
     }
-
+    
     // MARK: - PickerView functions
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         dateLabel.text = pickerData[row]
     }
-
+    
     @IBAction func onPickDate(_ sender: Any) {
         dateView.layer.borderColor = UIColor.Primary.Bluejay.cgColor
         dateCheckmark.isHidden = false
@@ -220,20 +228,20 @@ extension Test {
         dateView.addConstraint(getButtonHeight(view: dateView))
         continueButton.addConstraint(getButtonHeight(view: continueButton))
         reportButton.addConstraint(getButtonHeight(view: reportButton))
-
+        
         titleTopSpace.constant = (30.0/321.0) * contentMaxWidth
         detailsTopSpace.constant = (30.0/321.0) * contentMaxWidth
-
+        
         negativeTopSpace.constant = (15.0/321.0) * contentMaxWidth
         dateTopSpace.constant = (15.0/321.0) * contentMaxWidth
         continueTopSpace.constant = (15.0/321.0) * contentMaxWidth
-
+        
         reportTopSpace.constant = (5.0/321.0) * contentMaxWidth
         positiveTopSpace.constant = (5.0/321.0) * contentMaxWidth
-
+        
         super.updateViewConstraints()
     }
-
+    
     func getButtonHeight(view: UIView) -> NSLayoutConstraint {
         return NSLayoutConstraint(
             item: view,

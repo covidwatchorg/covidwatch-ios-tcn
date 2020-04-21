@@ -240,7 +240,11 @@ class Home: BaseViewController {
         spreadButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.share)))
         
         if globalState.isEligibleToSubmitTest {
-            self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.goToTest)))
+            self.testedButton.addGestureRecognizer(
+                UITapGestureRecognizer(
+                    target: self, action: #selector(self.goToTest)
+                )
+            )
             let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
             testedButton.draw(centerX: view.center.x, originY: testedButtonTop)
             testedButton.backgroundColor = .clear
