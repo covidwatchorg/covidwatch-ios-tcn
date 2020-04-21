@@ -127,12 +127,12 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     func initPickerDates() {
         let calendar = Calendar.current
         var endDate = Date()
-        
+
         guard let startDate = calendar.date(byAdding: .day, value: -30, to: endDate) else {
             print("\(#function): Error Creating date")
             return
         }
-        
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
