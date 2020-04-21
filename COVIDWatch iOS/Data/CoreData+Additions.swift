@@ -11,12 +11,6 @@ enum UploadState: Int16 {
     case uploaded
 }
 
-extension ProcessInfo {
-  var isRunningXCTest: Bool {
-    return self.arguments.contains("XCTest")
-  }
-}
-
 extension String {
     var bool: Bool {
         switch self.lowercased() {

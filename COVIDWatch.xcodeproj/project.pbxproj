@@ -35,7 +35,6 @@
 		2DFDC5AF24190AB900B108F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5AE24190AB900B108F8 /* Preview Assets.xcassets */; };
 		2DFDC5B224190AB900B108F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFDC5B024190AB900B108F8 /* LaunchScreen.storyboard */; };
 		2DFDC5BD24190ABA00B108F8 /* COVIDWatch_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */; };
-		2DFDC5C824190ABA00B108F8 /* TestSplashPageUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5C724190ABA00B108F8 /* TestSplashPageUI.swift */; };
 		2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E5243D05260084F8ED /* MenuItem.swift */; };
 		2E1F86F02448F80000957EBA /* COVIDWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */; };
 		2E1F86F12448F83400957EBA /* COVIDWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A624190AB800B108F8 /* COVIDWatch.xcdatamodeld */; };
@@ -78,6 +77,7 @@
 		2E1FDC1824393C5A000D8D67 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0624393C59000D8D67 /* Montserrat-SemiBoldItalic.ttf */; };
 		2E1FDC1924393C5A000D8D67 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */; };
 		2E1FDC1B24394425000D8D67 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDC1A24394424000D8D67 /* Notifications.swift */; };
+		2E48145C244F6E020025EA9B /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48145B244F6E020025EA9B /* Springboard.swift */; };
 		2E80CAE72446B87700F5272E /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
 		2EBF8725243BC275003278E6 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8724243BC275003278E6 /* Header.swift */; };
 		2EBF8727243BC7F8003278E6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8726243BC7F8003278E6 /* BaseViewController.swift */; };
@@ -90,9 +90,9 @@
 		2EFE6304243F990900D00305 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6303243F990900D00305 /* Home.swift */; };
 		2EFE6308243FB54F00D00305 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */; };
 		2EFE630C2440E9EA00D00305 /* InfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE630B2440E9EA00D00305 /* InfoBanner.swift */; };
+		2EFE68E3244E8F7F003D1E48 /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE68E2244E8F7F003D1E48 /* OnboardingFlow.swift */; };
 		6013AE2C244A740400F02CCF /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
 		6013AE2D244A740400F02CCF /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
-		6013AE2F244BBF2000F02CCF /* TestNotificationPageUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6013AE2E244BBF2000F02CCF /* TestNotificationPageUI.swift */; };
 		60A44B4E244402A500A8154B /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A44B4D244402A500A8154B /* Entry.swift */; };
 		60A44B502444046A00A8154B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A44B4F2444046A00A8154B /* Main.storyboard */; };
 		60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
@@ -105,7 +105,6 @@
 		60EF50F72440FAE0006CDD76 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Home.storyboard */; };
 		60EF50F92440FAF3006CDD76 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F82440FAF3006CDD76 /* Test.storyboard */; };
 		B1D85F9E809BCC12318E2223 /* Pods_COVIDWatch_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067227CBFA80D8CE4D90B6F6 /* Pods_COVIDWatch_iOS.framework */; };
-		BC1C1B9E24491365009CD349 /* TestBluetoothPageUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1C1B9D24491365009CD349 /* TestBluetoothPageUI.swift */; };
 		BC6B4CB72448BB08003FB3F9 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */; };
 		BC6B4CBA2448BC50003FB3F9 /* AccessibilityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB92448BC50003FB3F9 /* AccessibilityLabel.swift */; };
 		BC9AE5492448DEB70050DE1E /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */; };
@@ -247,7 +246,6 @@
 		2DFDC5BC24190ABA00B108F8 /* COVIDWatch_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDWatch_iOSTests.swift; sourceTree = "<group>"; };
 		2DFDC5BE24190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DFDC5C324190ABA00B108F8 /* COVIDWatch iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COVIDWatch iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DFDC5C724190ABA00B108F8 /* TestSplashPageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSplashPageUI.swift; sourceTree = "<group>"; };
 		2DFDC5C924190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E0E86E5243D05260084F8ED /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		2E1FDBF22439275E000D8D67 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
@@ -271,6 +269,7 @@
 		2E1FDC0624393C59000D8D67 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
 		2E1FDC1A24394424000D8D67 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		2E48145B244F6E020025EA9B /* Springboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Springboard.swift; sourceTree = "<group>"; };
 		2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsWithinXDaysOfToday.swift; sourceTree = "<group>"; };
 		2EBF8724243BC275003278E6 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		2EBF8726243BC7F8003278E6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -283,9 +282,9 @@
 		2EFE6303243F990900D00305 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		2EFE630B2440E9EA00D00305 /* InfoBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBanner.swift; sourceTree = "<group>"; };
+		2EFE68E2244E8F7F003D1E48 /* OnboardingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlow.swift; sourceTree = "<group>"; };
 		328891014B90A28E0C90E061 /* Pods-COVID-19 RiskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 RiskTests.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 RiskTests/Pods-COVID-19 RiskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; sourceTree = "<group>"; };
-		6013AE2E244BBF2000F02CCF /* TestNotificationPageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNotificationPageUI.swift; sourceTree = "<group>"; };
 		60A44B4D244402A500A8154B /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		60A44B4F2444046A00A8154B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		60BD14FA2446854F0009D7E0 /* Confirm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Confirm.swift; sourceTree = "<group>"; };
@@ -304,7 +303,6 @@
 		A40ADD9EFD1AE21913D43EB7 /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS-COVIDWatch iOSUITests/Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A5B373FB19305537F2E1D4A1 /* Pods-COVID-19 Risk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk.debug.xcconfig"; sourceTree = "<group>"; };
 		B100AAFD7EDE7205A094091D /* Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVIDWatch_iOS_COVIDWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC1C1B9D24491365009CD349 /* TestBluetoothPageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBluetoothPageUI.swift; sourceTree = "<group>"; };
 		BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		BC6B4CB92448BC50003FB3F9 /* AccessibilityLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityLabel.swift; sourceTree = "<group>"; };
 		E1C729FE243DE30900D30118 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
@@ -483,9 +481,8 @@
 		2DFDC5C624190ABA00B108F8 /* COVIDWatch iOSUITests */ = {
 			isa = PBXGroup;
 			children = (
-				2DFDC5C724190ABA00B108F8 /* TestSplashPageUI.swift */,
-				BC1C1B9D24491365009CD349 /* TestBluetoothPageUI.swift */,
-				6013AE2E244BBF2000F02CCF /* TestNotificationPageUI.swift */,
+				2EFE68E2244E8F7F003D1E48 /* OnboardingFlow.swift */,
+				2E48145B244F6E020025EA9B /* Springboard.swift */,
 				2DFDC5C924190ABA00B108F8 /* Info.plist */,
 			);
 			path = "COVIDWatch iOSUITests";
@@ -983,10 +980,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E1F86F02448F80000957EBA /* COVIDWatch.xcdatamodeld in Sources */,
-				2DFDC5C824190ABA00B108F8 /* TestSplashPageUI.swift in Sources */,
 				BC9AE5722448DEBF0050DE1E /* AccessibilityIdentifier.swift in Sources */,
 				BC9AE5732448DEBF0050DE1E /* AccessibilityLabel.swift in Sources */,
-				BC1C1B9E24491365009CD349 /* TestBluetoothPageUI.swift in Sources */,
 				BC9AE5742448DEBF0050DE1E /* AppDelegate.swift in Sources */,
 				BC9AE5752448DEBF0050DE1E /* AppDelegate+BackgroundFetch.swift in Sources */,
 				BC9AE5762448DEBF0050DE1E /* AppDelegate+BackgroundTasks.swift in Sources */,
@@ -1016,7 +1011,6 @@
 				BC9AE58E2448DEBF0050DE1E /* Entry.swift in Sources */,
 				BC9AE58F2448DEBF0050DE1E /* Confirm.swift in Sources */,
 				BC9AE5902448DEBF0050DE1E /* Test.swift in Sources */,
-				6013AE2F244BBF2000F02CCF /* TestNotificationPageUI.swift in Sources */,
 				BC9AE5912448DEBF0050DE1E /* BaseViewController.swift in Sources */,
 				BC9AE5922448DEC00050DE1E /* Header.swift in Sources */,
 				BC9AE5932448DEC00050DE1E /* LargeText.swift in Sources */,
@@ -1024,7 +1018,9 @@
 				BC9AE5942448DEC00050DE1E /* MainText.swift in Sources */,
 				6013AE2C244A740400F02CCF /* UserDefaults+Shared.swift in Sources */,
 				BC9AE5952448DEC00050DE1E /* Button.swift in Sources */,
+				2EFE68E3244E8F7F003D1E48 /* OnboardingFlow.swift in Sources */,
 				BC9AE5962448DEC00050DE1E /* Menu.swift in Sources */,
+				2E48145C244F6E020025EA9B /* Springboard.swift in Sources */,
 				BC9AE5972448DEC00050DE1E /* MenuItem.swift in Sources */,
 				BC9AE5982448DEC00050DE1E /* InfoBanner.swift in Sources */,
 				BC9AE59A2448DEC00050DE1E /* CoreData+Additions.swift in Sources */,

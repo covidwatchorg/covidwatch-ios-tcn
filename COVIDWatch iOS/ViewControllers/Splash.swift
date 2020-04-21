@@ -71,10 +71,8 @@ class Splash: UIViewController {
         }
 
         if checkIfStartedOnboarding() {
-            if !(ProcessInfo.processInfo.environment["isSplashTest"]?.bool ?? false) {
-                DispatchQueue.main.async {
-                    self.goToBluetoothNoAnimation()
-                }
+            DispatchQueue.main.async {
+                self.goToBluetoothNoAnimation()
             }
         }
     }

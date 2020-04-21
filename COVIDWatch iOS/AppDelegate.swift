@@ -36,16 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ) // iOS 12 or earlier
         }
         let actionsAfterLoading = {
-            if !ProcessInfo().isRunningXCTest {
-                UserDefaults.standard.register(defaults: UserDefaults.Key.registration)
-            } else {
-                var reg = UserDefaults.Key.registration
-                for (key, val) in ProcessInfo().environment {
-                    reg[key] = val.bool
-                }
-                print(reg)
-                UserDefaults.standard.register(defaults: reg)
-            }
+            UserDefaults.standard.register(defaults: UserDefaults.Key.registration)
             self.configureCurrentUserNotificationCenter()
             self.requestUserNotificationAuthorization(provisional: true)
             self.configureIsCurrentUserSickObserver()

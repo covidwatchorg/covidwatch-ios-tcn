@@ -54,7 +54,6 @@ class Notifications: BaseViewController {
         }
 
         let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
-        let centerX = view.center.x
         self.button.draw(centerX: view.center.x, originY: buttonTop)
         // accessibility
         setupAccessibilityAndLocalization()
