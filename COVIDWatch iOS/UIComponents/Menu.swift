@@ -15,8 +15,9 @@ class Menu: UIView {
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))
     var menuItems: [MenuItem] = []
     var bottomWaterMark = UIImageView(image: UIImage(named: "collab-with-stanford"))
-    
+   
     func draw() {
+
         drawMenuBackground()
         drawXIcon()
         drawMenuItems()
@@ -24,6 +25,7 @@ class Menu: UIView {
     }
     
     private func drawMenuBackground() {
+       
         self.frame.size.width = 0.8 * screenWidth
         self.frame.size.height = screenHeight
         self.frame.origin.x = screenWidth - self.frame.size.width + 1000
@@ -80,11 +82,14 @@ class Menu: UIView {
         parentVC?.view.addSubview(bottomWaterMark)
     }
     @objc func toggleMenu() {
+       NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil)
+        
         for menuItem in menuItems {
             menuItem.toggleShow()
         }
         bottomWaterMark.isHidden = !bottomWaterMark.isHidden
         if  bottomWaterMark.isHidden == true {
+             
             UIView.animate(
                 withDuration: 1.0, delay: 0.0, options: [],
                 animations: { [weak self] in
@@ -96,7 +101,9 @@ class Menu: UIView {
                 }, completion: nil)
         }
         if  bottomWaterMark.isHidden == false {
+
             UIView.animate(
+                
                 withDuration: 1.0, delay: 0.0, options: [],
                 animations: { [weak self] in
                     if let controller = self {

@@ -16,6 +16,8 @@ class Home: BaseViewController {
     var spreadButton = Button(text: "Share the app", subtext: "It works best when everyone uses it.")
     var testedButton = Button(text: "Tested for COVID-19?",
                               subtext: "Share your result anonymously to help keep your community stay safe.")
+      var shade = UIView()
+    weak var parentVC: BaseViewController?
     var infoBanner: InfoBanner?
     var testLastSubmittedDateObserver: NSKeyValueObservation?
     var mostRecentExposureDateObserver: NSKeyValueObservation?
@@ -25,10 +27,12 @@ class Home: BaseViewController {
     let globalState = UserDefaults.shared
 
     override func viewDidLoad() {
+
         infoBanner = InfoBanner(text: "You may have been in contact with COVID-19", onClick: {
             self.performSegue(withIdentifier: "test", sender: self)
         })
         super.viewDidLoad()
+      
         testLastSubmittedDateObserver = globalState.observe(
             \.testLastSubmittedDate,
             options: [.initial, .new],
@@ -57,13 +61,38 @@ class Home: BaseViewController {
             self?.checkNotificationPersmission()
         }
         self.checkNotificationPersmission()
+        
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         drawScreen()
+        self.view.addSubview(shade)
+                shade.backgroundColor = .black
+                shade.frame.size.width = screenWidth
+                 shade.frame.size.height = screenHeight
+              shade.alpha = 0.0
         super.drawMenuOnTop()
+ // swiftlint:disable:next line_length
+      NotificationCenter.default.addObserver(self, selector: #selector(self.fade), name: NSNotification.Name(rawValue: "notificationName"), object: nil)
     }
+        // handle notification
+        @objc func fade(_ notification: NSNotification) {
+
+                     UIView.animate(
+                         withDuration: 1.0, delay: 0.0, options: [],
+                         animations: { [weak self] in
+                             if let controller = self {
+                                if controller.shade.alpha == 0.0 {
+                                    controller.shade.alpha = 0.6
+                                 } else {
+                                  
+                                    controller.shade.alpha = 0
+                                 }
+                             }
+                         }, completion: nil)
+
+        }
 
     @objc func test() {
         self.performSegue(withIdentifier: "test", sender: self)
@@ -74,7 +103,7 @@ class Home: BaseViewController {
         case bluetooth
         case notifications
     }
-
+    
     func checkNotificationPersmission(_ requiredPermissions: [AuthorizedPermissions] = []) {
         var morePermissions = requiredPermissions
         _ = NotificationPermission { [weak self] (result) in
@@ -266,5 +295,4 @@ class Home: BaseViewController {
         globalState.isFirstTimeUser = false
 
     }
-
 }
