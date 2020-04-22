@@ -15,6 +15,7 @@ jobs:
         fetch-depth: 0
     - name: Merge Dev into Master
       run: |
+        git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules origin +refs/heads/dev
         git checkout dev 
         git pull
         git checkout master
