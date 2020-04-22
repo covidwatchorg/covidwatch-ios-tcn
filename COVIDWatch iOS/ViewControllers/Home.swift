@@ -9,7 +9,7 @@
 import UIKit
 
 class Home: BaseViewController {
-    var img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
+    var img = UIImageView(image: UIImage(named: "family"))
     var largeText: LargeText!
     var mainText: MainText!
     var spreadButton: Button!
@@ -180,33 +180,30 @@ class Home: BaseViewController {
             imgTop = header.frame.maxY
         }
         //        determine image size
-        img.frame.size.width = 253 * figmaToiOSHorizontalScalingFactor
-        img.frame.size.height = 259 * figmaToiOSVerticalScalingFactor
-        if globalState.isFirstTimeUser && screenHeight <= 667 {
-            img.frame.size.width /= 1.5
-            img.frame.size.height /= 1.5
-        }
+        img.frame.size.height = 280.0 * figmaToiOSVerticalScalingFactor
+        img.frame.size.width = (1487.0/1175.0) * img.frame.size.height
         img.center.x = view.center.x - 5 * figmaToiOSHorizontalScalingFactor
         img.frame.origin.y = imgTop
         self.view.addSubview(img)
         
+        let largeTextTop = img.frame.maxY + (10.0 * figmaToiOSVerticalScalingFactor)
         var mainTextTop: CGFloat
         if globalState.isFirstTimeUser {
             largeText.isHidden = false
             largeText.text = "You're all set!"
             largeText.draw(centerX: view.center.x,
-                            originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
+                            originY: largeTextTop)
             mainTextTop = largeText.frame.maxY
         } else if !globalState.isUserAtRiskForCovid && !globalState.isUserSick {
             largeText.isHidden = false
             largeText.text = "Welcome Back!"
             largeText.draw(centerX: view.center.x,
-                            originY: img.frame.maxY + (22.0 * figmaToiOSVerticalScalingFactor))
+                            originY: largeTextTop)
             mainTextTop = largeText.frame.maxY
         } else {
             //            userState.hasBeenInContact
             largeText.isHidden = true
-            mainTextTop = img.frame.maxY + 25.0 * figmaToiOSVerticalScalingFactor
+            mainTextTop = img.frame.maxY
         }
         
         //        draw mainText with respect to largeText or img or not at all
@@ -219,13 +216,11 @@ class Home: BaseViewController {
             mainText.text = "Covid Watch has not detected exposure to COVID-19. Share the app with family and friends to help your community stay safe."
             mainText.draw(centerX: view.center.x, originY: mainTextTop)
         } else {
-            //            userState.hasBeenInContact
             mainText.text = "Thank you for helping your community stay safe, anonymously."
             mainText.draw(centerX: view.center.x, originY: mainTextTop)
-            mainText.textAlignment = .center
         }
         
-        if globalState.isUserAtRiskForCovid || screenHeight <= 568 {
+        if globalState.isUserAtRiskForCovid || screenHeight <= 667 {
             //            Necessary to fit on screen
             spreadButton.subtext?.removeFromSuperview()
             spreadButton.subtext = nil

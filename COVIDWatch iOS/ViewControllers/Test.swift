@@ -30,13 +30,25 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var reportView: UIView!
     @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var close: UIImageView!
-    @IBOutlet var reportTopSpace: NSLayoutConstraint!
+
+    @IBOutlet var reportDetailTopSpace: NSLayoutConstraint!
     @IBOutlet var continueTopSpace: NSLayoutConstraint!
     @IBOutlet var dateTopSpace: NSLayoutConstraint!
     @IBOutlet var detailsTopSpace: NSLayoutConstraint!
     @IBOutlet var negativeTopSpace: NSLayoutConstraint!
     @IBOutlet var positiveTopSpace: NSLayoutConstraint!
     @IBOutlet var titleTopSpace: NSLayoutConstraint!
+    @IBOutlet var titleWidth: NSLayoutConstraint!
+    @IBOutlet var negativeWidth: NSLayoutConstraint!
+    @IBOutlet var negativeHeight: NSLayoutConstraint!
+    @IBOutlet var positiveWidth: NSLayoutConstraint!
+    @IBOutlet var positiveHeight: NSLayoutConstraint!
+    @IBOutlet var dateWidth: NSLayoutConstraint!
+    @IBOutlet var dateHeight: NSLayoutConstraint!
+    @IBOutlet var reportWidth: NSLayoutConstraint!
+    @IBOutlet var reportHeight: NSLayoutConstraint!
+    @IBOutlet var reportDetailWidth: NSLayoutConstraint!
+    @IBOutlet var scrollViewBottom: NSLayoutConstraint!
 
     var step = 0
     var pickerData: [String] = [String]()
@@ -82,11 +94,9 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
         continueButton.layer.cornerRadius = 10
         continueButton.layer.backgroundColor = UIColor.Primary.Bluejay.cgColor
-        continueButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(submitNegative)))
 
         reportButton.layer.cornerRadius = 10
         reportButton.layer.backgroundColor = UIColor.Primary.Bluejay.cgColor
-        reportButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(submitPositive)))
         reportView.isHidden = true
 
         // initialize PickerView dates
@@ -105,12 +115,12 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         testStatus = .positive
     }
 
-    @objc func submitNegative() {
+    @IBAction func continueButtonPressed(_ sender: Any) {
         UserDefaults.shared.testLastSubmittedDate = Date()
         performSegue(withIdentifier: "testToHome", sender: self)
     }
 
-    @objc func submitPositive() {
+    @IBAction func reportButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "confirmTest", sender: self)
     }
 
@@ -122,6 +132,7 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         reportView.isHidden = true
         dateCheckmark.isHidden = true
         pickDateView.isHidden = false
+        self.updateViewConstraints()
     }
 
     func initPickerDates() {
@@ -165,6 +176,7 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         showOnPositiveView.isHidden = true
         reportView.isHidden = true
         pickDateView.isHidden = true
+        self.updateViewConstraints()
     }
 
     func uncheckNegative() {
@@ -209,18 +221,19 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         dateCheckmark.isHidden = false
         pickDateView.isHidden = true
         reportView.isHidden = false
+        self.updateViewConstraints()
     }
 }
 
 // MARK: - Layout Constraints
 extension Test {
+
     override func updateViewConstraints() {
-        negativeView.addConstraint(getButtonHeight(view: negativeView))
-        positiveView.addConstraint(getButtonHeight(view: positiveView))
         dateView.addConstraint(getButtonHeight(view: dateView))
         continueButton.addConstraint(getButtonHeight(view: continueButton))
         reportButton.addConstraint(getButtonHeight(view: reportButton))
 
+        titleWidth.constant = contentMaxWidth
         titleTopSpace.constant = (30.0/321.0) * contentMaxWidth
         detailsTopSpace.constant = (30.0/321.0) * contentMaxWidth
 
@@ -228,8 +241,22 @@ extension Test {
         dateTopSpace.constant = (15.0/321.0) * contentMaxWidth
         continueTopSpace.constant = (15.0/321.0) * contentMaxWidth
 
-        reportTopSpace.constant = (5.0/321.0) * contentMaxWidth
-        positiveTopSpace.constant = (5.0/321.0) * contentMaxWidth
+        positiveTopSpace.constant = (10.0/321.0) * contentMaxWidth
+        reportDetailTopSpace.constant = (10.0/321.0) * contentMaxWidth
+        
+        negativeHeight.constant = (58.0/321.0) * contentMaxWidth
+        positiveHeight.constant = (58.0/321.0) * contentMaxWidth
+        dateHeight.constant = (58.0/321.0) * contentMaxWidth
+        reportHeight.constant = (58.0/321.0) * contentMaxWidth
+        negativeWidth.constant = contentMaxWidth
+        positiveWidth.constant = contentMaxWidth
+        dateWidth.constant = contentMaxWidth
+        reportWidth.constant = contentMaxWidth
+        reportDetailWidth.constant = contentMaxWidth
+
+        let bottomSpace: CGFloat = (pickDateView.isHidden) ? 0 :
+            pickDateView.bounds.size.height - reportView.bounds.size.height
+        scrollViewBottom.constant = bottomSpace
 
         super.updateViewConstraints()
     }
@@ -243,6 +270,18 @@ extension Test {
             attribute: .notAnAttribute,
             multiplier: 1,
             constant: (58.0/321.0) * contentMaxWidth
+        )
+    }
+
+    func getButtonWidth(view: UIView) -> NSLayoutConstraint {
+        return NSLayoutConstraint(
+            item: view,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: nil,
+            attribute: .notAnAttribute,
+            multiplier: 1,
+            constant: contentMaxWidth
         )
     }
 }

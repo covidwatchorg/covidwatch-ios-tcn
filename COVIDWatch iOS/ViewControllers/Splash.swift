@@ -10,7 +10,7 @@ import UIKit
 
 class Splash: UIViewController {
 
-    @IBOutlet weak var titleText: UILabel!
+    @IBOutlet var mainLogoImg: UIImageView!
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var startButton: UIButton!
 
@@ -30,8 +30,8 @@ class Splash: UIViewController {
 
         // background gradient
         self.view.backgroundColor = UIColor.clear
-        let colorTop = UIColor(red: 67.0 / 255.0, green: 196.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 44.0 / 255.0, green: 88.0 / 255.0, blue: 177.0 / 255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 67.0 / 255.0, green: 196.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0).cgColor
+        let colorTop = UIColor(red: 44.0 / 255.0, green: 88.0 / 255.0, blue: 177.0 / 255.0, alpha: 1.0).cgColor
 
         let mainGradient = CAGradientLayer()
         mainGradient.colors = [colorTop, colorBottom]
@@ -39,32 +39,16 @@ class Splash: UIViewController {
         mainGradient.frame = view.frame
         view.layer.insertSublayer(mainGradient, at: 0)
 
-        titleText.text =  "COVID WATCH"
-        titleText.textColor = .white
-        titleText.font = UIFont(name: "Montserrat-SemiBold", size: 24)
-        titleText.sizeToFit()
-
         // description text
         descriptionText.text = "Help your community stay safe, anonymously."
         descriptionText.textColor = .white
         descriptionText.font = UIFont(name: "Montserrat-Medium", size: 22)
         descriptionText.textAlignment = .center
         descriptionText.backgroundColor = .clear
-        if let startButton = self.startButton {
-            let height = NSLayoutConstraint(
-                item: startButton,
-                attribute: .height,
-                relatedBy: .equal,
-                toItem: nil,
-                attribute: .notAnAttribute,
-                multiplier: 1,
-                constant: (58.0/321.0) * contentMaxWidth
-            )
-            startButton.addConstraint(height)
-            startButton.layer.cornerRadius = 10
-            startButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 24)
-            startButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
-        }
+
+        startButton.layer.cornerRadius = 10
+        startButton.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 24)
+        startButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.nextScreen)))
 
         if checkIfStartedOnboarding() {
             DispatchQueue.main.async {
@@ -87,15 +71,80 @@ class Splash: UIViewController {
     func goToBluetoothNoAnimation() {
         self.performSegue(withIdentifier: "SplashToBluetoothQuick", sender: self)
     }
+}
 
-    /*
-    // MARK: - Navigation
-​
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+// MARK: - Layout Constraints
+extension Splash {
+    override func updateViewConstraints() {
+        mainLogoConstraints()
+        descriptionTextConstraints()
+        startButtonConstraints()
+
+        super.updateViewConstraints()
     }
-    */
 
+    func startButtonConstraints() {
+        if let startButton = self.startButton {
+            let height = NSLayoutConstraint(
+                item: startButton,
+                attribute: .height,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: buttonHeight
+            )
+            let width = NSLayoutConstraint(
+                item: startButton,
+                attribute: .width,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: contentMaxWidth
+            )
+            startButton.addConstraint(height)
+            startButton.addConstraint(width)
+        }
+    }
+
+    func descriptionTextConstraints() {
+        if let descriptionText = self.descriptionText {
+            let width = NSLayoutConstraint(
+                item: descriptionText,
+                attribute: .width,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: contentMaxWidth
+            )
+            descriptionText.addConstraint(width)
+        }
+    }
+
+    func mainLogoConstraints() {
+        if let mainLogoImg = self.mainLogoImg {
+            let width = NSLayoutConstraint(
+                item: mainLogoImg,
+                attribute: .width,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: mainLogoWidth
+            )
+            let height = NSLayoutConstraint(
+                item: mainLogoImg,
+                attribute: .height,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: mainLogoHeight
+            )
+            mainLogoImg.addConstraint(width)
+            mainLogoImg.addConstraint(height)
+        }
+    }
 }
