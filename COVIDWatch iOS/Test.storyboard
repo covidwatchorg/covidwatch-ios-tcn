@@ -349,6 +349,7 @@
                         <outlet property="reportHeight" destination="zIR-RX-lnX" id="BXr-7k-JSs"/>
                         <outlet property="reportView" destination="72l-12-QOt" id="uz4-Wh-QTv"/>
                         <outlet property="reportWidth" destination="4Hu-ji-IAJ" id="QjU-qG-X2I"/>
+                        <outlet property="scrollViewBottom" destination="dkL-wG-hsL" id="6wB-Hg-nuu"/>
                         <outlet property="showOnNegativeView" destination="uRK-Ag-ZRW" id="FHb-Ws-zja"/>
                         <outlet property="showOnPositiveView" destination="YY3-NH-PMz" id="gJU-0S-skQ"/>
                         <outlet property="titleTopSpace" destination="hpC-rh-r1B" id="yko-Rq-PfZ"/>

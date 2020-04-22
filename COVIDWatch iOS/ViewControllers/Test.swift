@@ -48,6 +48,7 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet var reportWidth: NSLayoutConstraint!
     @IBOutlet var reportHeight: NSLayoutConstraint!
     @IBOutlet var reportDetailWidth: NSLayoutConstraint!
+    @IBOutlet var scrollViewBottom: NSLayoutConstraint!
 
     var step = 0
     var pickerData: [String] = [String]()
@@ -252,6 +253,10 @@ extension Test {
         dateWidth.constant = contentMaxWidth
         reportWidth.constant = contentMaxWidth
         reportDetailWidth.constant = contentMaxWidth
+
+        let bottomSpace: CGFloat = (pickDateView.isHidden) ? 0 :
+            pickDateView.bounds.size.height - reportView.bounds.size.height
+        scrollViewBottom.constant = bottomSpace
 
         super.updateViewConstraints()
     }
