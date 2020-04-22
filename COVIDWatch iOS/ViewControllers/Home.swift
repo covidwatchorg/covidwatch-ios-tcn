@@ -9,7 +9,7 @@
 import UIKit
 
 class Home: BaseViewController {
-    var img = UIImageView(image: UIImage(named: "family"))
+    var img = UIImageView(image: UIImage(named: "Family"))
     var largeText: LargeText!
     var mainText: MainText!
     var spreadButton: Button!
