@@ -9,7 +9,7 @@
 import UIKit
 
 class Notifications: BaseViewController {
-    var img = UIImageView(image: UIImage(named: "people-standing-01-blue-4"))
+    var img = UIImageView(image: UIImage(named: "phone-alerts"))
     var largeText: LargeText!
     var mainText: MainText!
     var button: Button!
@@ -33,8 +33,8 @@ class Notifications: BaseViewController {
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
 //        Ratio is Figma image width to Figma screen width
-        img.frame.size.width = 358.0 * figmaToiOSHorizontalScalingFactor
-        img.frame.size.height = 252.0 * figmaToiOSVerticalScalingFactor
+        img.frame.size.width = 326.0 * figmaToiOSHorizontalScalingFactor
+        img.frame.size.height = 324.0 * figmaToiOSVerticalScalingFactor
         if screenHeight <= 667 {
             img.frame.size.width /= 1.5
             img.frame.size.height /= 1.5

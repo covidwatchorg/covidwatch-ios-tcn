@@ -9,7 +9,7 @@
 import UIKit
 
 class Home: BaseViewController {
-    var img = UIImageView(image: UIImage(named: "woman-hero-blue-2"))
+    var img = UIImageView(image: UIImage(named: "family"))
     var largeText: LargeText!
     var mainText: MainText!
     var spreadButton: Button!
@@ -180,8 +180,8 @@ class Home: BaseViewController {
             imgTop = header.frame.maxY
         }
         //        determine image size
-        img.frame.size.width = 253 * figmaToiOSHorizontalScalingFactor
-        img.frame.size.height = 259 * figmaToiOSVerticalScalingFactor
+        img.frame.size.width = 402 * figmaToiOSHorizontalScalingFactor
+        img.frame.size.height = 408 * figmaToiOSVerticalScalingFactor
         if globalState.isFirstTimeUser && screenHeight <= 667 {
             img.frame.size.width /= 1.5
             img.frame.size.height /= 1.5

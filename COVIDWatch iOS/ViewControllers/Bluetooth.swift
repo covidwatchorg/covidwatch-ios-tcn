@@ -9,7 +9,7 @@
 import UIKit
 
 class Bluetooth: BaseViewController {
-    var img = UIImageView(image: UIImage(named: "people-group-blue-2"))
+    var img = UIImageView(image: UIImage(named: "bluetooth-image"))
     var largeText: LargeText!
     var mainText: MainText!
     var button: Button!
