@@ -49,8 +49,16 @@ class Bluetooth: BaseViewController {
         }
         let buttonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
         button.draw(centerX: view.center.x, originY: buttonTop)
+        setupAccessibilityAndLocalization()
     }
-
+    
+    private func setupAccessibilityAndLocalization() {
+        largeText.accessibilityIdentifier = AccessibilityIdentifier.LargeText.rawValue
+        mainText.accessibilityIdentifier = AccessibilityIdentifier.MainText.rawValue
+        button.accessibilityIdentifier = AccessibilityIdentifier.AllowButton.rawValue
+        button.accessibilityLabel = AccessibilityLabel.allowButton
+    }
+    
     @objc func nextScreen(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             self.buttonRecognizer?.isEnabled = false // disable double tap

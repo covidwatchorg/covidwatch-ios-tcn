@@ -8,7 +8,9 @@
 
 import UIKit
 
-let MANUAL_STATE_TEST = true
+// swiftlint:disable:next todo
+// TODO: make MANUAL_STATE_TEST an environment variable
+let MANUAL_STATE_TEST = false
 
 class Menu: UIView {
     weak var parentVC: BaseViewController!

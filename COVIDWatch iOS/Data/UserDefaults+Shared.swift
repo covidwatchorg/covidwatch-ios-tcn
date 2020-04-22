@@ -52,6 +52,9 @@ extension UserDefaults {
 
     @objc dynamic public var isFirstTimeUser: Bool {
         get {
+            if let override = ProcessInfo.processInfo.environment["isFirstTimeUser"] {
+                return override.bool
+                }
             return bool(forKey: Key.isFirstTimeUser)
         }
         set {

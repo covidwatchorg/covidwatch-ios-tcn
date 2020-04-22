@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Vector.png",
+      "filename" : "phone-alerts.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "phone-alerts@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "phone-alerts@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

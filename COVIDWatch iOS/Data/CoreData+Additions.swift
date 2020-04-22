@@ -10,3 +10,14 @@ enum UploadState: Int16 {
     case uploading
     case uploaded
 }
+
+extension String {
+    var bool: Bool {
+        switch self.lowercased() {
+        case "true", "t", "yes", "y", "1":
+            return true
+        default:
+            return false
+        }
+    }
+}

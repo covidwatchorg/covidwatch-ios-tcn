@@ -9,7 +9,7 @@
 import UIKit
 
 class Home: BaseViewController {
-    var img = UIImageView(image: UIImage(named: "Family"))
+    var img = UIImageView(image: UIImage(named: "family"))
     var largeText: LargeText!
     var mainText: MainText!
     var spreadButton: Button!
@@ -70,7 +70,7 @@ class Home: BaseViewController {
         super.drawMenuOnTop()
     }
     
-    @objc func test() {
+    @objc func goToTest() {
         self.performSegue(withIdentifier: "test", sender: self)
     }
     
@@ -182,6 +182,10 @@ class Home: BaseViewController {
         //        determine image size
         img.frame.size.height = 280.0 * figmaToiOSVerticalScalingFactor
         img.frame.size.width = (1487.0/1175.0) * img.frame.size.height
+        if screenHeight <= 667 {
+            img.frame.size.width /= 1.2
+            img.frame.size.height /= 1.2
+        }
         img.center.x = view.center.x - 5 * figmaToiOSHorizontalScalingFactor
         img.frame.origin.y = imgTop
         self.view.addSubview(img)
@@ -219,23 +223,21 @@ class Home: BaseViewController {
             mainText.text = "Thank you for helping your community stay safe, anonymously."
             mainText.draw(centerX: view.center.x, originY: mainTextTop)
         }
-        
-        if globalState.isUserAtRiskForCovid || screenHeight <= 667 {
-            //            Necessary to fit on screen
-            spreadButton.subtext?.removeFromSuperview()
-            spreadButton.subtext = nil
-        } else {
-            //            Clunky, but easier than messing with button internals
-            spreadButton.text.removeFromSuperview()
-            spreadButton.subtext?.removeFromSuperview()
-            spreadButton.removeFromSuperview()
-            spreadButton = Button(self, text: "Share the app", subtext: "It works best when everyone uses it.")
-        }
+
+        //            Clunky, but easier than messing with button internals
+        spreadButton.text.removeFromSuperview()
+        spreadButton.subtext?.removeFromSuperview()
+        spreadButton.removeFromSuperview()
+        spreadButton = Button(self, text: "Share the app", subtext: "It works best when everyone uses it.")
         //        spreadButton drawn below because its position depends on whether testedButton is drawn
         spreadButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.share)))
         
         if globalState.isEligibleToSubmitTest {
-            self.testedButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.test)))
+            self.testedButton.addGestureRecognizer(
+                UITapGestureRecognizer(
+                    target: self, action: #selector(self.goToTest)
+                )
+            )
             let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
             testedButton.draw(centerX: view.center.x, originY: testedButtonTop)
             testedButton.backgroundColor = .clear
