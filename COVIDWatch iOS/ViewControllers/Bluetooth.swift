@@ -29,13 +29,11 @@ class Bluetooth: BaseViewController {
 //        Hide the Menu hamburger
         self.header.hasMenu = false
 
-        self.view.backgroundColor = UIColor(hexString: "FFFFFF")
-
-        img.frame.size.width = 312 * figmaToiOSHorizontalScalingFactor
         img.frame.size.height = 326.0 * figmaToiOSVerticalScalingFactor
+        img.frame.size.width = (312.0/326.0) * img.frame.size.height
         if screenHeight <= 667 {
-            img.frame.size.width /= 1.5
-            img.frame.size.height /= 1.5
+            img.frame.size.width /= 1.2
+            img.frame.size.height /= 1.2
         }
         img.center.x = view.center.x
         img.frame.origin.y = header.frame.minY + (119.0 * figmaToiOSVerticalScalingFactor)

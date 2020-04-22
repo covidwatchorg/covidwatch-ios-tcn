@@ -33,14 +33,15 @@ class Notifications: BaseViewController {
         self.view.backgroundColor = UIColor(hexString: "FFFFFF")
 
 //        Ratio is Figma image width to Figma screen width
-        img.frame.size.width = 326.0 * figmaToiOSHorizontalScalingFactor
+
         img.frame.size.height = 324.0 * figmaToiOSVerticalScalingFactor
+        img.frame.size.width = (326.0/324.0) * img.frame.size.height
         if screenHeight <= 667 {
-            img.frame.size.width /= 1.5
-            img.frame.size.height /= 1.5
+            img.frame.size.width /= 1.2
+            img.frame.size.height /= 1.2
         }
         img.center.x = view.center.x
-        img.frame.origin.y = header.frame.minY + (146.0 * figmaToiOSVerticalScalingFactor)
+        img.frame.origin.y = header.frame.minY + (106.0 * figmaToiOSVerticalScalingFactor)
         view.addSubview(img)
 
         let imgToLargeTextGap = 40.0 * figmaToiOSVerticalScalingFactor

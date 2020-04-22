@@ -220,7 +220,7 @@ class Home: BaseViewController {
             mainText.draw(centerX: view.center.x, originY: mainTextTop)
         }
         
-        if globalState.isUserAtRiskForCovid || screenHeight <= 568 {
+        if globalState.isUserAtRiskForCovid || screenHeight <= 667 {
             //            Necessary to fit on screen
             spreadButton.subtext?.removeFromSuperview()
             spreadButton.subtext = nil
