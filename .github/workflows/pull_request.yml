@@ -18,7 +18,7 @@ jobs:
     - name: Xcode Build
       run: |
         set -o pipefail
-        xcodebuild build -workspace COVIDWatch.xcworkspace -scheme 'COVIDWatch iOS' CODE_SIGNING_ALLOWED=NO | xcpretty
+        xcodebuild build -workspace COVIDWatch.xcworkspace -scheme 'covidwatch-ios-dev' CODE_SIGNING_ALLOWED=NO | xcpretty
 
   swiftlint:
     runs-on: macos-latest
