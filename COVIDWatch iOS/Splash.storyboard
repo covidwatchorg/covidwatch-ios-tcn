@@ -16,16 +16,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-cw-white" translatesAutoresizingMaskIntoConstraints="NO" id="btT-ps-Ijn">
-                                <rect key="frame" x="167" y="104" width="80" height="80"/>
+                                <rect key="frame" x="75" y="104" width="264" height="164"/>
                                 <accessibility key="accessibilityConfiguration" label="logo">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="9a4-ZB-JmS"/>
-                                    <constraint firstAttribute="width" constant="80" id="CYv-nr-OQ0"/>
+                                    <constraint firstAttribute="height" constant="164" id="9a4-ZB-JmS"/>
+                                    <constraint firstAttribute="width" constant="264" id="CYv-nr-OQ0"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COVID WATCH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3d-b4-wRM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="COVID WATCH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3d-b4-wRM">
                                 <rect key="frame" x="32" y="210" width="350" height="32"/>
                                 <accessibility key="accessibilityConfiguration" label="covidwatch"/>
                                 <constraints>
@@ -35,23 +35,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ayA-Zb-ImF">
-                                <rect key="frame" x="102.66666666666669" y="482" width="209" height="206"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="family-superhero" translatesAutoresizingMaskIntoConstraints="NO" id="FfY-15-nc7">
-                                        <rect key="frame" x="0.0" y="0.0" width="209" height="206"/>
-                                        <accessibility key="accessibilityConfiguration" label="superhero">
-                                            <bool key="isElement" value="YES"/>
-                                        </accessibility>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="206" id="7FU-9j-CC7"/>
-                                            <constraint firstAttribute="width" constant="209" id="m8X-FI-Gf5"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help your community stay safe, anonymously." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csG-s4-Jdl">
-                                <rect key="frame" x="28" y="704" width="358" height="64"/>
+                                <rect key="frame" x="32.333333333333343" y="704" width="349.33333333333326" height="64"/>
                                 <accessibility key="accessibilityConfiguration" label="splash-description"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Fdu-pm-dIE"/>
@@ -61,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBx-Na-snW">
-                                <rect key="frame" x="32" y="800" width="350" height="30"/>
+                                <rect key="frame" x="190" y="800" width="34" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" label="start-button"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -75,27 +60,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="csG-s4-Jdl" firstAttribute="top" secondItem="ayA-Zb-ImF" secondAttribute="bottom" constant="16" id="2u8-Cg-aro"/>
-                            <constraint firstItem="ayA-Zb-ImF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="v3d-b4-wRM" secondAttribute="bottom" constant="32" id="Gpr-xt-gZ7"/>
-                            <constraint firstItem="gDc-EV-Sln" firstAttribute="trailing" secondItem="csG-s4-Jdl" secondAttribute="trailing" constant="28" id="IZZ-mj-f94"/>
-                            <constraint firstItem="kBx-Na-snW" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="32" id="Jtt-fF-L60"/>
-                            <constraint firstItem="v3d-b4-wRM" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="32" id="M3f-h8-HA7"/>
+                            <constraint firstItem="csG-s4-Jdl" firstAttribute="centerX" secondItem="cgF-uO-z8W" secondAttribute="centerX" id="9fI-7I-d1U"/>
                             <constraint firstItem="gDc-EV-Sln" firstAttribute="bottom" secondItem="kBx-Na-snW" secondAttribute="bottom" constant="32" id="Nqp-NB-tpO"/>
                             <constraint firstItem="btT-ps-Ijn" firstAttribute="centerX" secondItem="cgF-uO-z8W" secondAttribute="centerX" id="R9T-ay-Cc2"/>
-                            <constraint firstItem="gDc-EV-Sln" firstAttribute="trailing" secondItem="kBx-Na-snW" secondAttribute="trailing" constant="32" id="Rmw-0D-2eL"/>
-                            <constraint firstItem="v3d-b4-wRM" firstAttribute="top" secondItem="btT-ps-Ijn" secondAttribute="bottom" constant="26" id="XHn-hW-9MD"/>
-                            <constraint firstItem="gDc-EV-Sln" firstAttribute="trailing" secondItem="v3d-b4-wRM" secondAttribute="trailing" constant="32" id="YNQ-fg-j7O"/>
                             <constraint firstItem="btT-ps-Ijn" firstAttribute="top" secondItem="gDc-EV-Sln" secondAttribute="top" constant="60" id="YYl-hQ-4vs"/>
-                            <constraint firstItem="csG-s4-Jdl" firstAttribute="leading" secondItem="gDc-EV-Sln" secondAttribute="leading" constant="28" id="kdh-JK-XzV"/>
-                            <constraint firstItem="ayA-Zb-ImF" firstAttribute="centerX" secondItem="cgF-uO-z8W" secondAttribute="centerX" id="l6C-nK-jDG"/>
+                            <constraint firstItem="kBx-Na-snW" firstAttribute="centerX" secondItem="cgF-uO-z8W" secondAttribute="centerX" id="mfu-1U-lUq"/>
                             <constraint firstItem="kBx-Na-snW" firstAttribute="top" secondItem="csG-s4-Jdl" secondAttribute="bottom" constant="32" id="qPC-c0-twa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gDc-EV-Sln"/>
                     </view>
                     <connections>
                         <outlet property="descriptionText" destination="csG-s4-Jdl" id="F2p-bC-cdn"/>
+                        <outlet property="mainLogoImg" destination="btT-ps-Ijn" id="riG-pd-Pw5"/>
                         <outlet property="startButton" destination="kBx-Na-snW" id="kyG-YS-FE6"/>
-                        <outlet property="titleText" destination="v3d-b4-wRM" id="ijt-8h-sbw"/>
+                        <outlet property="titleText" destination="v3d-b4-wRM" id="2Ts-ky-YGg"/>
                         <segue destination="5SZ-V2-tjU" kind="presentation" identifier="SplashToBluetoothQuick" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="ejU-kS-iIw"/>
                     </connections>
                 </viewController>
@@ -115,7 +93,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="family-superhero" width="209" height="206"/>
         <image name="logo-cw-white" width="304" height="304"/>
     </resources>
     <inferredMetricsTieBreakers>

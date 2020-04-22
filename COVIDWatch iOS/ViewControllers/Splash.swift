@@ -10,6 +10,7 @@ import UIKit
 
 class Splash: UIViewController {
 
+    @IBOutlet var mainLogoImg: UIImageView!
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var startButton: UIButton!
@@ -30,19 +31,14 @@ class Splash: UIViewController {
 
         // background gradient
         self.view.backgroundColor = UIColor.clear
-        let colorTop = UIColor(red: 67.0 / 255.0, green: 196.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 44.0 / 255.0, green: 88.0 / 255.0, blue: 177.0 / 255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 67.0 / 255.0, green: 196.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0).cgColor
+        let colorTop = UIColor(red: 44.0 / 255.0, green: 88.0 / 255.0, blue: 177.0 / 255.0, alpha: 1.0).cgColor
 
         let mainGradient = CAGradientLayer()
         mainGradient.colors = [colorTop, colorBottom]
         mainGradient.locations = [0.0, 1.0]
         mainGradient.frame = view.frame
         view.layer.insertSublayer(mainGradient, at: 0)
-
-        titleText.text =  "COVID WATCH"
-        titleText.textColor = .white
-        titleText.font = UIFont(name: "Montserrat-SemiBold", size: 24)
-        titleText.sizeToFit()
 
         // description text
         descriptionText.text = "Help your community stay safe, anonymously."
@@ -98,15 +94,80 @@ class Splash: UIViewController {
     func goToBluetoothNoAnimation() {
         self.performSegue(withIdentifier: "SplashToBluetoothQuick", sender: self)
     }
+}
 
-    /*
-    // MARK: - Navigation
-​
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+// MARK: - Layout Constraints
+extension Splash {
+    override func updateViewConstraints() {
+        mainLogoConstraints()
+        descriptionTextConstraints()
+        startButtonConstraints()
+
+        super.updateViewConstraints()
     }
-    */
 
+    func startButtonConstraints() {
+        if let startButton = self.startButton {
+            let height = NSLayoutConstraint(
+                item: startButton,
+                attribute: .height,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: buttonHeight
+            )
+            let width = NSLayoutConstraint(
+                item: startButton,
+                attribute: .width,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: contentMaxWidth
+            )
+            startButton.addConstraint(height)
+            startButton.addConstraint(width)
+        }
+    }
+
+    func descriptionTextConstraints() {
+        if let descriptionText = self.descriptionText {
+            let width = NSLayoutConstraint(
+                item: descriptionText,
+                attribute: .width,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: contentMaxWidth
+            )
+            descriptionText.addConstraint(width)
+        }
+    }
+
+    func mainLogoConstraints() {
+        if let mainLogoImg = self.mainLogoImg {
+            let width = NSLayoutConstraint(
+                item: mainLogoImg,
+                attribute: .width,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: mainLogoWidth
+            )
+            let height = NSLayoutConstraint(
+                item: mainLogoImg,
+                attribute: .height,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: mainLogoHeight
+            )
+            mainLogoImg.addConstraint(width)
+            mainLogoImg.addConstraint(height)
+        }
+    }
 }
