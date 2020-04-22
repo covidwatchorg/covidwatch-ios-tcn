@@ -17,7 +17,7 @@ enum AccessibilityIdentifier: String {
     case
     
     // MARK: Splash page
-    TitleText = "Title",
+    TitleLogo = "Title",
     StartButton = "Start",
     DescriptionText = "Description",
     

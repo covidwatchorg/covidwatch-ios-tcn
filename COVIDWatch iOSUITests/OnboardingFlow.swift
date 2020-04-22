@@ -31,10 +31,7 @@ class OnboardingFlow: XCTestCase {
         let app = XCUIApplication()
 
 //        Splash
-        let logoCwWhiteImage = app.images["logo-cw-white"]
-        XCTAssertTrue(logoCwWhiteImage.exists)
-        XCTAssertTrue(app.staticTexts["Title"].exists)
-        XCTAssertTrue(app/*@START_MENU_TOKEN@*/.images["family-superhero"]/*[[".images[\"superhero\"]",".images[\"family-superhero\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.exists)
+        XCTAssertTrue(app.images["Title"].exists)
         XCTAssertTrue(app/*@START_MENU_TOKEN@*/.staticTexts["Description"]/*[[".staticTexts[\"splash-description\"]",".staticTexts[\"Description\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.exists)
         app.buttons["Start"].tap()
         

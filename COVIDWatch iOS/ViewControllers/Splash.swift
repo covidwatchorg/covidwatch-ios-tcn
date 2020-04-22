@@ -11,7 +11,6 @@ import UIKit
 class Splash: UIViewController {
 
     @IBOutlet var mainLogoImg: UIImageView!
-    @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var startButton: UIButton!
 
@@ -81,7 +80,7 @@ class Splash: UIViewController {
     }
     
     private func setupAccessibilityAndLocalization() {
-        titleText.accessibilityIdentifier = AccessibilityIdentifier.TitleText.rawValue
+        mainLogoImg.accessibilityIdentifier = AccessibilityIdentifier.TitleLogo.rawValue
         descriptionText.accessibilityIdentifier = AccessibilityIdentifier.DescriptionText.rawValue
         startButton.accessibilityIdentifier = AccessibilityIdentifier.StartButton.rawValue
         startButton.accessibilityLabel = AccessibilityLabel.startButton
