@@ -31,7 +31,6 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var close: UIImageView!
 
-    @IBOutlet var reportTopSpace: NSLayoutConstraint!
     @IBOutlet var reportDetailTopSpace: NSLayoutConstraint!
     @IBOutlet var continueTopSpace: NSLayoutConstraint!
     @IBOutlet var dateTopSpace: NSLayoutConstraint!
@@ -49,7 +48,6 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet var reportWidth: NSLayoutConstraint!
     @IBOutlet var reportHeight: NSLayoutConstraint!
     @IBOutlet var reportDetailWidth: NSLayoutConstraint!
-    @IBOutlet var contentViewHeight: NSLayoutConstraint!
 
     var step = 0
     var pickerData: [String] = [String]()
@@ -237,7 +235,6 @@ extension Test {
         titleWidth.constant = contentMaxWidth
         titleTopSpace.constant = (30.0/321.0) * contentMaxWidth
         detailsTopSpace.constant = (30.0/321.0) * contentMaxWidth
-        reportTopSpace.constant = (30.0/321.0) * contentMaxWidth
 
         negativeTopSpace.constant = (15.0/321.0) * contentMaxWidth
         dateTopSpace.constant = (15.0/321.0) * contentMaxWidth
@@ -255,11 +252,6 @@ extension Test {
         dateWidth.constant = contentMaxWidth
         reportWidth.constant = contentMaxWidth
         reportDetailWidth.constant = contentMaxWidth
-
-        let scrollContentFullHeight = screenHeight - 60 - ((30.0/321.0) * contentMaxWidth)
-        let finalScrollContentHeight = (pickDateView.isHidden) ?
-            scrollContentFullHeight : scrollContentFullHeight - 128.0
-        contentViewHeight.constant = finalScrollContentHeight
 
         super.updateViewConstraints()
     }
