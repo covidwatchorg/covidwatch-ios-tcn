@@ -6,6 +6,10 @@ on:
   push:
     branches:
       - master
+  # Build nightly
+  schedule:
+    - cron:  '30 0 * * *'
+
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer

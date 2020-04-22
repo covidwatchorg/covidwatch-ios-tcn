@@ -23,6 +23,6 @@ platform :ios do
     number = sh('date "+%Y.%m.%d.%H.%M"')
     increment_build_number(xcodeproj: "COVIDWatch.xcodeproj", build_number: number)
     build_app(workspace: "COVIDWatch.xcworkspace", scheme: "COVIDWatch iOS")
-    testflight(apple_id: "1504929027", distribute_external: true, groups: ["Public Link"], changelog: "Daily Beta for " + Date.today.to_s)
+    testflight(apple_id: "1504929027", distribute_external: true, groups: ["Public Link"], changelog: "Daily Beta for " + Date.today.to_s, verbose: true)
   end
 end
