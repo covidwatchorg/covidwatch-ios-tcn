@@ -8,8 +8,6 @@
 
 import UIKit
 
-// swiftlint:disable:next todo
-
 class Menu: UIView {
     weak var parentVC: BaseViewController!
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))
