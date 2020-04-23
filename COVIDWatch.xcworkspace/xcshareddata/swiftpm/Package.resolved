@@ -2,12 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "BerkananFoundation",
-        "repositoryURL": "https://github.com/zssz/BerkananFoundation",
+        "package": "TCNClient",
+        "repositoryURL": "https://github.com/TCNCoalition/tcn-client-ios",
         "state": {
-          "branch": null,
-          "revision": "fdc3d368825be15810195113b4275970bdda6b3a",
-          "version": "1.0.0"
+          "branch": "develop",
+          "revision": "f3735e00e7c51fb8365561384e8fd7e2a656aeb6",
+          "version": null
         }
       }
     ]

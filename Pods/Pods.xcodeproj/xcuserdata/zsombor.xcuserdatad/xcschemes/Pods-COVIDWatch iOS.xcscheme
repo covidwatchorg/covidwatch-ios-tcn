@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "60D60FAF7E6D66ED85B7B2D7A2EC2E0A"
-               BuildableName = "Pods_COVIDWatch_iOS.framework"
-               BlueprintName = "Pods-COVIDWatch iOS"
+               BlueprintIdentifier = "58F186A8DF9279EDD4DBE2583329D0D9"
+               BuildableName = "Pods_CovidWatch_iOS.framework"
+               BlueprintName = "Pods-CovidWatch iOS"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

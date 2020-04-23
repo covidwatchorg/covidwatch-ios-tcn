@@ -1,5 +1,5 @@
-framework module Pods_COVIDWatch_iOSTests {
-  umbrella header "Pods-COVIDWatch iOSTests-umbrella.h"
+framework module Pods_CovidWatch_iOSTests {
+  umbrella header "Pods-CovidWatch iOSTests-umbrella.h"
 
   export *
   module * { export * }

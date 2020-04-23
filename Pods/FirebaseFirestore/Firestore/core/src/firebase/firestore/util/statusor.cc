@@ -15,6 +15,7 @@
  */
 
 #include "Firestore/core/src/firebase/firestore/util/statusor.h"
+
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 
 namespace firebase {
@@ -27,7 +28,7 @@ void Helper::HandleInvalidStatusCtorArg(Status* status) {
       "An OK status is not a valid constructor argument to StatusOr<T>";
   HARD_FAIL("%s", kMessage);
   // Fall back to Internal for non-debug builds
-  *status = Status(Error::Internal, kMessage);
+  *status = Status(Error::kInternal, kMessage);
 }
 
 void Helper::Crash(const Status& status) {

@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_COVIDWatch_iOSTests : NSObject
+@interface PodsDummy_Pods_CovidWatch_iOSTests : NSObject
 @end
-@implementation PodsDummy_Pods_COVIDWatch_iOSTests
+@implementation PodsDummy_Pods_CovidWatch_iOSTests
 @end

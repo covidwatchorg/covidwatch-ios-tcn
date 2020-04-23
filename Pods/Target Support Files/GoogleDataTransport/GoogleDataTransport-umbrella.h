@@ -21,6 +21,7 @@
 #import "GDTCORPrioritizer.h"
 #import "GDTCORReachability.h"
 #import "GDTCORRegistrar.h"
+#import "GDTCORStorageProtocol.h"
 #import "GDTCORTargets.h"
 #import "GDTCORTransport.h"
 #import "GDTCORUploader.h"

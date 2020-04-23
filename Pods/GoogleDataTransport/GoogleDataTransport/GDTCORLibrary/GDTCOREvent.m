@@ -19,11 +19,47 @@
 #import <GoogleDataTransport/GDTCORAssert.h>
 #import <GoogleDataTransport/GDTCORClock.h>
 #import <GoogleDataTransport/GDTCORConsoleLogger.h>
+#import <GoogleDataTransport/GDTCORPlatform.h>
 
 #import "GDTCORLibrary/Private/GDTCORDataFuture.h"
 #import "GDTCORLibrary/Private/GDTCOREvent_Private.h"
 
 @implementation GDTCOREvent
+
++ (NSNumber *)nextEventID {
+  static unsigned long long nextEventID = 0;
+  static NSString *counterPath;
+  static dispatch_queue_t eventIDQueue;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    eventIDQueue = dispatch_queue_create("com.google.GDTCOREventIDQueue", DISPATCH_QUEUE_SERIAL);
+    counterPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+    counterPath = [NSString stringWithFormat:@"%@/google-sdks-events/count", counterPath];
+    NSError *error;
+    NSString *countText = [NSString stringWithContentsOfFile:counterPath
+                                                    encoding:NSUTF8StringEncoding
+                                                       error:&error];
+    const char *countChars = [countText UTF8String];
+    unsigned long long count = 0ULL;
+    if (countChars) {
+      count = strtoull([countText UTF8String], NULL, 10);
+    }
+    nextEventID = error ? 0 : count;
+  });
+
+  __block NSNumber *result;
+  dispatch_sync(eventIDQueue, ^{
+    result = @(nextEventID);
+    nextEventID++;
+    NSError *error;
+    [[result stringValue] writeToFile:counterPath
+                           atomically:YES
+                             encoding:NSUTF8StringEncoding
+                                error:&error];
+    GDTCORAssert(error == nil, @"There was an error saving the new counter value to disk.");
+  });
+  return result;
+}
 
 - (nullable instancetype)initWithMappingID:(NSString *)mappingID target:(NSInteger)target {
   GDTCORAssert(mappingID.length > 0, @"Please give a valid mapping ID");
@@ -33,39 +69,43 @@
   }
   self = [super init];
   if (self) {
+    _eventID = [GDTCOREvent nextEventID];
     _mappingID = mappingID;
     _target = target;
     _qosTier = GDTCOREventQosDefault;
   }
-  GDTCORLogDebug("Event %@ created. mappingID: %@ target:%ld qos:%ld", self, _mappingID,
-                 (long)_target, (long)_qosTier);
+  GDTCORLogDebug(@"Event %@ created. mappingID: %@ target:%ld", self, mappingID, (long)target);
   return self;
 }
 
 - (instancetype)copy {
   GDTCOREvent *copy = [[GDTCOREvent alloc] initWithMappingID:_mappingID target:_target];
+  copy->_eventID = _eventID;
   copy.dataObject = _dataObject;
   copy.qosTier = _qosTier;
   copy.clockSnapshot = _clockSnapshot;
-  copy.customPrioritizationParams = _customPrioritizationParams;
-  copy->_fileURL = _fileURL;
-  GDTCORLogDebug("Copying event %@ to event %@", self, copy);
+  copy.customBytes = _customBytes;
+  copy->_GDTFilePath = _GDTFilePath;
+  GDTCORLogDebug(@"Copying event %@ to event %@", self, copy);
   return copy;
 }
 
 - (NSUInteger)hash {
   // This loses some precision, but it's probably fine.
+  NSUInteger eventIDHash = [_eventID hash];
   NSUInteger mappingIDHash = [_mappingID hash];
   NSUInteger timeHash = [_clockSnapshot hash];
   NSInteger dataObjectHash = [_dataObject hash];
-  NSUInteger fileURL = [_fileURL hash];
+  NSUInteger fileURL = [_GDTFilePath hash];
 
-  return mappingIDHash ^ _target ^ _qosTier ^ timeHash ^ dataObjectHash ^ fileURL;
+  return eventIDHash ^ mappingIDHash ^ _target ^ _qosTier ^ timeHash ^ dataObjectHash ^ fileURL;
 }
 
 - (BOOL)isEqual:(id)object {
   return [self hash] == [object hash];
 }
+
+#pragma mark - Property overrides
 
 - (void)setDataObject:(id<GDTCOREventDataObject>)dataObject {
   // If you're looking here because of a performance issue in -transportBytes slowing the assignment
@@ -76,27 +116,39 @@
   }
 }
 
-- (BOOL)writeToURL:(NSURL *)fileURL error:(NSError **)error {
+- (NSURL *)fileURL {
+  if (!_GDTFilePath) {
+    _GDTFilePath = [NSString stringWithFormat:@"event-%lu", (unsigned long)self.hash];
+  }
+  return [GDTCORRootDirectory() URLByAppendingPathComponent:_GDTFilePath];
+}
+
+#pragma mark - Private methods
+
+- (BOOL)writeToGDTPath:(NSString *)filePath error:(NSError **)error {
   NSData *dataTransportBytes = [_dataObject transportBytes];
   if (dataTransportBytes == nil) {
-    _fileURL = nil;
+    _GDTFilePath = nil;
     _dataObject = nil;
     return NO;
   }
+  NSURL *fileURL = [GDTCORRootDirectory() URLByAppendingPathComponent:filePath];
   BOOL writingSuccess = [dataTransportBytes writeToURL:fileURL
                                                options:NSDataWritingAtomic
                                                  error:error];
   if (!writingSuccess) {
     GDTCORLogError(GDTCORMCEFileWriteError, @"An event file could not be written: %@", fileURL);
-    _fileURL = nil;
     return NO;
   }
-  _fileURL = fileURL;
+  _GDTFilePath = filePath;
   _dataObject = nil;
   return YES;
 }
 
 #pragma mark - NSSecureCoding and NSCoding Protocols
+
+/** NSCoding key for eventID property. */
+static NSString *eventIDKey = @"_eventID";
 
 /** NSCoding key for mappingID property. */
 static NSString *mappingIDKey = @"_mappingID";
@@ -113,8 +165,8 @@ static NSString *clockSnapshotKey = @"_clockSnapshot";
 /** NSCoding key for fileURL property. */
 static NSString *fileURLKey = @"_fileURL";
 
-/** NSCoding key for customPrioritizationParams property. */
-static NSString *customPrioritizationParams = @"_customPrioritizationParams";
+/** NSCoding key for GDTFilePath property. */
+static NSString *kGDTFilePathKey = @"_GDTFilePath";
 
 /** NSCoding key for backwards compatibility of GDTCORStoredEvent mappingID property.*/
 static NSString *kStoredEventMappingIDKey = @"GDTCORStoredEventMappingIDKey";
@@ -131,10 +183,8 @@ static NSString *kStoredEventClockSnapshotKey = @"GDTCORStoredEventClockSnapshot
 /** NSCoding key for backwards compatibility of GDTCORStoredEvent dataFuture property.*/
 static NSString *kStoredEventDataFutureKey = @"GDTCORStoredEventDataFutureKey";
 
-/** NSCoding key for backwards compatibility of GDTCORStoredEvent customPrioritizationParams
- * property.*/
-static NSString *kStoredEventCustomPrioritizationParamsKey =
-    @"GDTCORStoredEventcustomPrioritizationParamsKey";
+/** NSCoding key for customData property. */
+static NSString *kCustomDataKey = @"GDTCOREventCustomDataKey";
 
 + (BOOL)supportsSecureCoding {
   return YES;
@@ -151,11 +201,19 @@ static NSString *kStoredEventCustomPrioritizationParamsKey =
   NSInteger target = [aDecoder decodeIntegerForKey:targetKey];
   self = [self initWithMappingID:mappingID target:target];
   if (self) {
+    _eventID = [aDecoder decodeObjectOfClass:[NSNumber class] forKey:eventIDKey];
+    if (_eventID == nil) {
+      _eventID = [GDTCOREvent nextEventID];
+    }
     _qosTier = [aDecoder decodeIntegerForKey:qosTierKey];
     _clockSnapshot = [aDecoder decodeObjectOfClass:[GDTCORClock class] forKey:clockSnapshotKey];
-    _fileURL = [aDecoder decodeObjectOfClass:[NSURL class] forKey:fileURLKey];
-    _customPrioritizationParams = [aDecoder decodeObjectOfClass:[NSDictionary class]
-                                                         forKey:customPrioritizationParams];
+    NSURL *fileURL = [aDecoder decodeObjectOfClass:[NSURL class] forKey:fileURLKey];
+    if (fileURL) {
+      _GDTFilePath = [fileURL lastPathComponent];
+    } else {
+      _GDTFilePath = [aDecoder decodeObjectOfClass:[NSString class] forKey:kGDTFilePathKey];
+    }
+    _customBytes = [aDecoder decodeObjectOfClass:[NSData class] forKey:kCustomDataKey];
   }
   return self;
 }
@@ -168,25 +226,32 @@ static NSString *kStoredEventCustomPrioritizationParamsKey =
                                              forKey:kStoredEventTargetKey] integerValue];
   self = [self initWithMappingID:mappingID target:target];
   if (self) {
+    _eventID = [aDecoder decodeObjectOfClass:[NSNumber class] forKey:eventIDKey];
+    if (_eventID == nil) {
+      _eventID = [GDTCOREvent nextEventID];
+    }
     _qosTier = [[aDecoder decodeObjectOfClass:[NSNumber class]
                                        forKey:kStoredEventQosTierKey] integerValue];
     _clockSnapshot = [aDecoder decodeObjectOfClass:[GDTCORClock class]
                                             forKey:kStoredEventClockSnapshotKey];
-    _fileURL = fileURL;
-    _customPrioritizationParams =
-        [aDecoder decodeObjectOfClass:[NSDictionary class]
-                               forKey:kStoredEventCustomPrioritizationParamsKey];
+    if (fileURL) {
+      _GDTFilePath = [fileURL lastPathComponent];
+    } else {
+      _GDTFilePath = [aDecoder decodeObjectOfClass:[NSString class] forKey:kGDTFilePathKey];
+    }
+    _customBytes = [aDecoder decodeObjectOfClass:[NSData class] forKey:kCustomDataKey];
   }
   return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
+  [aCoder encodeObject:_eventID forKey:eventIDKey];
   [aCoder encodeObject:_mappingID forKey:mappingIDKey];
   [aCoder encodeInteger:_target forKey:targetKey];
   [aCoder encodeInteger:_qosTier forKey:qosTierKey];
   [aCoder encodeObject:_clockSnapshot forKey:clockSnapshotKey];
-  [aCoder encodeObject:_fileURL forKey:fileURLKey];
-  [aCoder encodeObject:_customPrioritizationParams forKey:customPrioritizationParams];
+  [aCoder encodeObject:_GDTFilePath forKey:kGDTFilePathKey];
+  [aCoder encodeObject:_customBytes forKey:kCustomDataKey];
 }
 
 @end

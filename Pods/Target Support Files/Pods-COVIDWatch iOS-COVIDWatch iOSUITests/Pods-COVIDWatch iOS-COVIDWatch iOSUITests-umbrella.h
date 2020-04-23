@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_COVIDWatch_iOS_COVIDWatch_iOSUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_COVIDWatch_iOS_COVIDWatch_iOSUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_CovidWatch_iOS_CovidWatch_iOSUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_CovidWatch_iOS_CovidWatch_iOSUITestsVersionString[];
 

@@ -18,3 +18,4 @@ enabled_rules:
 disabled_rules:
   - implicit_getter
   - trailing_whitespace
+  - switch_case_alignment

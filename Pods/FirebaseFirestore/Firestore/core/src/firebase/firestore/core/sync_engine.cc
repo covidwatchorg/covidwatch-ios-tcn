@@ -72,9 +72,9 @@ const ListenSequenceNumber kIrrelevantSequenceNumber = -1;
 
 bool ErrorIsInteresting(const Status& error) {
   bool missing_index =
-      (error.code() == Error::FailedPrecondition &&
+      (error.code() == Error::kFailedPrecondition &&
        error.error_message().find("requires an index") != std::string::npos);
-  bool no_permission = (error.code() == Error::PermissionDenied);
+  bool no_permission = (error.code() == Error::kPermissionDenied);
   return missing_index || no_permission;
 }
 
@@ -135,8 +135,7 @@ ViewSnapshot SyncEngine::InitializeViewAndComputeSnapshot(const Query& query,
       view.ComputeDocumentChanges(query_result.documents().underlying_map());
   ViewChange view_change =
       view.ApplyChanges(view_doc_changes, synthesized_current_change);
-  HARD_ASSERT(view_change.limbo_changes().empty(),
-              "View returned limbo docs before target ack from the server.");
+  UpdateTrackedLimboDocuments(view_change.limbo_changes(), target_id);
 
   auto query_view =
       std::make_shared<QueryView>(query, target_id, std::move(view));
@@ -446,7 +445,7 @@ void SyncEngine::FailOutstandingPendingWriteCallbacks(
     const std::string& message) {
   for (const auto& entry : pending_writes_callbacks_) {
     for (const auto& callback : entry.second) {
-      callback(Status(Error::Cancelled, message));
+      callback(Status(Error::kCancelled, message));
     }
   }
 

@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
+#include "Firestore/core/src/firebase/firestore/core/transaction_runner.h"
+
 #include <utility>
 
-#include "Firestore/core/src/firebase/firestore/core/transaction_runner.h"
 #include "Firestore/core/src/firebase/firestore/remote/exponential_backoff.h"
 #include "absl/algorithm/container.h"
 
@@ -38,7 +39,7 @@ bool IsRetryableTransactionError(const util::Status& error) {
   // FAILED_PRECONDITION and non-matching document versions with ABORTED. These
   // errors should be retried.
   Error code = error.code();
-  return code == Error::Aborted || code == Error::FailedPrecondition ||
+  return code == Error::kAborted || code == Error::kFailedPrecondition ||
          !remote::Datastore::IsPermanentError(error);
 }
 }  // namespace
