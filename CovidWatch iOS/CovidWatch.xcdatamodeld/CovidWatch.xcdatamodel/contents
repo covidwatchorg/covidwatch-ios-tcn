@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="SignedReport" representedClassName="SignedReport" syncable="YES" codeGenerationType="class">
+        <attribute name="endIndex" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isProcessed" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="memoData" optional="YES" attributeType="Binary"/>
+        <attribute name="memoType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="reportVerificationPublicKeyBytes" attributeType="Binary"/>
+        <attribute name="signatureBytes" attributeType="Binary"/>
+        <attribute name="startIndex" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="temporaryContactKeyBytes" attributeType="Binary"/>
+        <attribute name="uploadState" optional="YES" attributeType="Integer 16" defaultValueString="2" usesScalarValueType="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="signatureBytes"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="TemporaryContactNumber" representedClassName="TemporaryContactNumber" syncable="YES" codeGenerationType="class">
+        <attribute name="bytes" attributeType="Binary"/>
+        <attribute name="closestEstimatedDistanceMeters" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <attribute name="foundDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastSeenDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="wasPotentiallyInfectious" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="bytes"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="SignedReport" positionX="0" positionY="0" width="128" height="178"/>
+        <element name="TemporaryContactNumber" positionX="0" positionY="0" width="128" height="118"/>
+    </elements>
+</model>
