@@ -26,6 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+
+        let appScheme = getAppScheme()
+        let apiUrl = getAPIUrl(appScheme)
+
+        print("Starting app with: \(appScheme) and API Url: \(apiUrl)")
+
         // Override point for customization after application launch.
         FirebaseApp.configure()
         if #available(iOS 13.0, *) {

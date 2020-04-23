@@ -29,10 +29,14 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LocalIP</key>
+	<string>10.0.0.33</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>This will allow &quot;COVID Watch&quot; to find and connect to Bluetooth accessories.  The app may also use Bluetooth to know when you&apos;re nearby.</string>
+	<string>This will allow "COVID Watch" to find and connect to Bluetooth accessories.  The app may also use Bluetooth to know when you're nearby.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>This will allow &quot;COVID Watch&quot; to find and connect to Bluetooth accessories.  The app may also use Bluetooth to know when you&apos;re nearby.</string>
+	<string>This will allow "COVID Watch" to find and connect to Bluetooth accessories.  The app may also use Bluetooth to know when you're nearby.</string>
+	<key>SchemeName</key>
+	<string>covidwatch-ios-dev</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Black.ttf</string>
@@ -83,8 +87,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -92,5 +94,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>
