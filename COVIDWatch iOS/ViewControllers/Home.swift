@@ -21,9 +21,10 @@ class Home: BaseViewController {
     var observer: NSObjectProtocol?
     var bluetoothPermission: BluetoothPermission?
     let globalState = UserDefaults.shared
-    
+    var shade = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.spreadButton = Button(self, text: "Share the app", subtext: "It works best when everyone uses it.")
         self.testedButton = Button(self, text: "Tested for COVID-19?",
                                    subtext: "Share your result anonymously to help keep your community stay safe.")
@@ -68,8 +69,33 @@ class Home: BaseViewController {
         super.viewDidLayoutSubviews()
         drawScreen()
         super.drawMenuOnTop()
+        self.view.addSubview(shade)
+                       shade.backgroundColor = .black
+                       shade.frame.size.width = screenWidth
+                        shade.frame.size.height = screenHeight
+                     shade.alpha = 0.0
+        
+        // swiftlint:disable:next line_length
+        NotificationCenter.default.addObserver(self, selector: #selector(self.fade), name: NSNotification.Name(rawValue: "notificationName"), object: nil)
     }
-    
+    @objc func fade(_ notification: NSNotification) {
+
+                      UIView.animate(
+                          withDuration: 0.1, delay: 0.0, options: [],
+                          animations: { [weak self] in
+                              if let controller = self {
+                                 if controller.shade.alpha == 0.0 {
+                                     controller.shade.alpha = 0.6
+                                     print(1)
+                                 }
+                                     if controller.shade.alpha == 0.6 {
+                                     controller.shade.alpha = 0
+                                     print(2)
+                                  }
+                              }
+                          }, completion: nil)
+
+         }
     @objc func goToTest() {
         self.performSegue(withIdentifier: "test", sender: self)
     }
