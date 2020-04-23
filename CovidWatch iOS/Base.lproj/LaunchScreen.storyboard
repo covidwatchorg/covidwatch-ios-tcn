@@ -15,14 +15,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-background" translatesAutoresizingMaskIntoConstraints="NO" id="BMu-5W-GZ8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-with-text" translatesAutoresizingMaskIntoConstraints="NO" id="vTK-sX-jRh">
-                                <rect key="frame" x="74.5" y="125" width="265" height="165"/>
+                                <rect key="frame" x="74.5" y="154" width="265" height="165"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vTK-sX-jRh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ACA-ee-QyT"/>
-                            <constraint firstItem="vTK-sX-jRh" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="125" id="kW9-dc-6te"/>
+                            <constraint firstAttribute="trailing" secondItem="BMu-5W-GZ8" secondAttribute="trailing" id="Qjn-UF-peZ"/>
+                            <constraint firstAttribute="bottom" secondItem="BMu-5W-GZ8" secondAttribute="bottom" id="cgP-eF-7gK"/>
+                            <constraint firstItem="vTK-sX-jRh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="kW9-dc-6te"/>
+                            <constraint firstItem="BMu-5W-GZ8" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="nNr-fb-UN5"/>
+                            <constraint firstItem="BMu-5W-GZ8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="x4X-jZ-4PC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -34,5 +41,6 @@
     </scenes>
     <resources>
         <image name="logo-with-text" width="265" height="165"/>
+        <image name="splash-background" width="375" height="812"/>
     </resources>
 </document>
