@@ -1,11 +1,9 @@
 name: upload_beta
 
 on:
-  # Trigger a TestFlight build on push,
-  # but only for the master branch
-  push:
-    branches:
-      - master
+  # Merge dev into master every day at midnight GMT
+  schedule:
+    - cron:  '0 0 * * *'
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
@@ -15,6 +13,8 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: dev
     - name: TestFlight Upload
       run: |
         gem install bundler:1.16.6
