@@ -27,3 +27,12 @@ jobs:
     - name: SwiftLint
       run: |
         ./Pods/SwiftLint/swiftlint --strict
+
+  test:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Tests
+      run: |
+        set -o pipefail
+        xcodebuild test -workspace COVIDWatch.xcworkspace -scheme 'covidwatch-ios-dev' CODE_SIGNING_ALLOWED=NO -destination "OS=latest,name=iPhone 11" | xcpretty
