@@ -11,6 +11,7 @@ import Foundation
 enum AppScheme {
     case production
     case development
+    case test
 }
 
 func getLocalIP() -> String {
@@ -50,6 +51,8 @@ func getAppScheme() -> AppScheme {
         switch schemeName {
         case "covidwatch-ios-prod":
             return .production
+        case "covidwatch-ios-test":
+            return .test
         default:
             return .development
         }

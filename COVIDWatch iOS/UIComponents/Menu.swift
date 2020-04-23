@@ -9,8 +9,6 @@
 import UIKit
 
 // swiftlint:disable:next todo
-// TODO: make MANUAL_STATE_TEST an environment variable
-let MANUAL_STATE_TEST = false
 
 class Menu: UIView {
     weak var parentVC: BaseViewController!
@@ -93,7 +91,45 @@ class Menu: UIView {
     init(_ parentVC: BaseViewController) {
         self.parentVC = parentVC
         super.init(frame: CGRect())
-        if !MANUAL_STATE_TEST {
+        if getAppScheme() == .test {
+           let globalState = UserDefaults.shared
+           let now = Date()
+           let threeDaysAgo = Calendar.current.date(byAdding: .day, value: -3, to: now)
+           let thirtyDaysAgo = Calendar.current.date(byAdding: .day, value: -30, to: now)
+           self.menuItems.append(contentsOf: [
+               MenuItem(parentVC, text: "mostRecentExposure-30d", addLinkImg: false, onClick: {
+                   globalState.mostRecentExposureDate = thirtyDaysAgo
+                   print("Set mostRecentExposureDate to 30 days ago")
+               }),
+               MenuItem(parentVC, text: "mostRecentExposure-3d", addLinkImg: false, onClick: {
+                   globalState.mostRecentExposureDate = threeDaysAgo
+                   print("Set mostRecentExposureDate to 3 days ago")
+               }),
+               MenuItem(parentVC, text: "mostRecentExposure-nil", addLinkImg: false, onClick: {
+                   globalState.mostRecentExposureDate = nil
+                   print("Set mostRecentExposureDate to nil")
+               }),
+               MenuItem(parentVC, text: "testLastSubmittedDate-30d", addLinkImg: false, onClick: {
+                   globalState.testLastSubmittedDate = thirtyDaysAgo
+                   print("Set testLastSubmittedDate to 30 days ago")
+               }),
+               MenuItem(parentVC, text: "testLastSubmittedDate-3d", addLinkImg: false, onClick: {
+                   globalState.testLastSubmittedDate = threeDaysAgo
+                   print("Set testLastSubmittedDate to 3 days ago")
+               }),
+               MenuItem(parentVC, text: "testLastSubmittedDate-nil", addLinkImg: false, onClick: {
+                   globalState.testLastSubmittedDate = nil
+                   print("Set testLastSubmittedDate to nil")
+               }),
+               MenuItem(parentVC, text: "Toggle isUserSick", addLinkImg: false, onClick: {
+                   globalState.isUserSick = !globalState.isUserSick
+                   print("isUserSick set to \(globalState.isUserSick)")
+                   // Enforce that global state is realistic
+                   globalState.testLastSubmittedDate = nil
+                   print("Set testLastSubmittedDate to nil")
+               })
+           ])
+        } else {
             self.menuItems.append(contentsOf: [
                 MenuItem(parentVC, text: "Settings", addLinkImg: true, onClick: {
                     if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
@@ -123,45 +159,6 @@ class Menu: UIView {
                 }),
                 MenuItem(parentVC, text: "Privacy Policy", addLinkImg: true, onClick: {
                     print("Clicked Privacy Policy") // Dummy function for now
-                })
-            ])
-
-        } else {
-            let globalState = UserDefaults.shared
-            let now = Date()
-            let threeDaysAgo = Calendar.current.date(byAdding: .day, value: -3, to: now)
-            let thirtyDaysAgo = Calendar.current.date(byAdding: .day, value: -30, to: now)
-            self.menuItems.append(contentsOf: [
-                MenuItem(parentVC, text: "mostRecentExposure-30d", addLinkImg: false, onClick: {
-                    globalState.mostRecentExposureDate = thirtyDaysAgo
-                    print("Set mostRecentExposureDate to 30 days ago")
-                }),
-                MenuItem(parentVC, text: "mostRecentExposure-3d", addLinkImg: false, onClick: {
-                    globalState.mostRecentExposureDate = threeDaysAgo
-                    print("Set mostRecentExposureDate to 3 days ago")
-                }),
-                MenuItem(parentVC, text: "mostRecentExposure-nil", addLinkImg: false, onClick: {
-                    globalState.mostRecentExposureDate = nil
-                    print("Set mostRecentExposureDate to nil")
-                }),
-                MenuItem(parentVC, text: "testLastSubmittedDate-30d", addLinkImg: false, onClick: {
-                    globalState.testLastSubmittedDate = thirtyDaysAgo
-                    print("Set testLastSubmittedDate to 30 days ago")
-                }),
-                MenuItem(parentVC, text: "testLastSubmittedDate-3d", addLinkImg: false, onClick: {
-                    globalState.testLastSubmittedDate = threeDaysAgo
-                    print("Set testLastSubmittedDate to 3 days ago")
-                }),
-                MenuItem(parentVC, text: "testLastSubmittedDate-nil", addLinkImg: false, onClick: {
-                    globalState.testLastSubmittedDate = nil
-                    print("Set testLastSubmittedDate to nil")
-                }),
-                MenuItem(parentVC, text: "Toggle isUserSick", addLinkImg: false, onClick: {
-                    globalState.isUserSick = !globalState.isUserSick
-                    print("isUserSick set to \(globalState.isUserSick)")
-                    // Enforce that global state is realistic
-                    globalState.testLastSubmittedDate = nil
-                    print("Set testLastSubmittedDate to nil")
                 })
             ])
         }
