@@ -1,21 +1,12 @@
 {
-  "images": [
+  "images" : [
     {
-      "idiom": "universal",
-      "filename": "family.png",
-      "scale": "1x"
-    }, {
-      "idiom": "universal",
-      "filename": "family@2x.png",
-      "scale": "2x"
-    }, {
-      "idiom": "universal",
-      "filename": "family@3x.png",
-      "scale": "3x"
+      "filename" : "Family.pdf",
+      "idiom" : "universal"
     }
   ],
-  "info": {
-    "version": 1,
-    "author": "xcode"
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
   }
 }
