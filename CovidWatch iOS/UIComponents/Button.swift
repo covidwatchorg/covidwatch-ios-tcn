@@ -97,7 +97,6 @@ class Button: UIButton {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.text.alpha = 0.5
-        self.alpha = 0.8
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -112,7 +111,6 @@ class Button: UIButton {
     
     private func touchesEndedOrCancelled() {
         self.text.alpha = 1.0
-        self.alpha = 1.0
     }
     
 }
