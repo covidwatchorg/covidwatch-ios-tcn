@@ -90,6 +90,12 @@
 		6006782A2450FC5D006DBD5D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
 		6013AE2C244A740400F02CCF /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
 		6013AE2D244A740400F02CCF /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
+		60808C3424524291007415FE /* HowItWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60808C3324524291007415FE /* HowItWorks.swift */; };
+		60808C3524524294007415FE /* HowItWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60808C3324524291007415FE /* HowItWorks.swift */; };
+		60808C3624524295007415FE /* HowItWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60808C3324524291007415FE /* HowItWorks.swift */; };
+		60808C38245242DF007415FE /* HowItWorks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60808C37245242DF007415FE /* HowItWorks.storyboard */; };
+		60808C39245242DF007415FE /* HowItWorks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60808C37245242DF007415FE /* HowItWorks.storyboard */; };
+		60808C3A245242DF007415FE /* HowItWorks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60808C37245242DF007415FE /* HowItWorks.storyboard */; };
 		60867C922450F70C0028AEE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60867C902450F70C0028AEE3 /* LaunchScreen.storyboard */; };
 		60867C932450F70C0028AEE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60867C902450F70C0028AEE3 /* LaunchScreen.storyboard */; };
 		60867C942450F70C0028AEE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60867C902450F70C0028AEE3 /* LaunchScreen.storyboard */; };
@@ -278,6 +284,8 @@
 		3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; sourceTree = "<group>"; };
 		57CE4FAE20E8C37783B13038 /* Pods-CovidWatch iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOSTests.release.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOSTests/Pods-CovidWatch iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		600678272450FC5D006DBD5D /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		60808C3324524291007415FE /* HowItWorks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowItWorks.swift; path = "COVIDWatch iOS/ViewControllers/HowItWorks.swift"; sourceTree = SOURCE_ROOT; };
+		60808C37245242DF007415FE /* HowItWorks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = HowItWorks.storyboard; path = "CovidWatch iOS/HowItWorks.storyboard"; sourceTree = SOURCE_ROOT; };
 		60867C912450F70C0028AEE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60A44B4D244402A500A8154B /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		60A44B4F2444046A00A8154B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -364,6 +372,7 @@
 			children = (
 				2E1FDBF22439275E000D8D67 /* Splash.swift */,
 				2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */,
+				60808C3324524291007415FE /* HowItWorks.swift */,
 				2E1FDC1A24394424000D8D67 /* Notifications.swift */,
 				2EFE6303243F990900D00305 /* Home.swift */,
 				60A44B4D244402A500A8154B /* Entry.swift */,
@@ -444,6 +453,7 @@
 				2D044469241A229E006B61E4 /* Data */,
 				2DFDC5AB24190AB900B108F8 /* Assets.xcassets */,
 				600678272450FC5D006DBD5D /* Splash.storyboard */,
+				60808C37245242DF007415FE /* HowItWorks.storyboard */,
 				60A44B4F2444046A00A8154B /* Main.storyboard */,
 				60EF50F62440FAE0006CDD76 /* Home.storyboard */,
 				60EF50F82440FAF3006CDD76 /* Test.storyboard */,
@@ -709,6 +719,7 @@
 				2DFDC5AF24190AB900B108F8 /* Preview Assets.xcassets in Resources */,
 				60BD14FF244685620009D7E0 /* Confirm.storyboard in Resources */,
 				2E1FDC1124393C5A000D8D67 /* Montserrat-Bold.ttf in Resources */,
+				60808C38245242DF007415FE /* HowItWorks.storyboard in Resources */,
 				2DFDC5AC24190AB900B108F8 /* Assets.xcassets in Resources */,
 				60EF50F72440FAE0006CDD76 /* Home.storyboard in Resources */,
 				2E1FDC1824393C5A000D8D67 /* Montserrat-SemiBoldItalic.ttf in Resources */,
@@ -730,6 +741,7 @@
 				2E1F87022448FE8C00957EBA /* Notifications.storyboard in Resources */,
 				2E1F87032448FE8C00957EBA /* Confirm.storyboard in Resources */,
 				2E1F87042448FE8C00957EBA /* Bluetooth.storyboard in Resources */,
+				60808C39245242DF007415FE /* HowItWorks.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,6 +757,7 @@
 				2E1F870A2448FE9800957EBA /* Notifications.storyboard in Resources */,
 				2E1F870B2448FE9800957EBA /* Confirm.storyboard in Resources */,
 				2E1F870C2448FE9800957EBA /* Bluetooth.storyboard in Resources */,
+				60808C3A245242DF007415FE /* HowItWorks.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -906,6 +919,7 @@
 				2EBF8731243C09F1003278E6 /* Button.swift in Sources */,
 				2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */,
 				2EBF8729243BCFA1003278E6 /* UIViewExtension.swift in Sources */,
+				60808C3424524291007415FE /* HowItWorks.swift in Sources */,
 				2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */,
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
 				60A44B4E244402A500A8154B /* Entry.swift in Sources */,
@@ -954,6 +968,7 @@
 				BC9AE54B2448DEB70050DE1E /* AppDelegate.swift in Sources */,
 				BC9AE54C2448DEB70050DE1E /* AppDelegate+BackgroundFetch.swift in Sources */,
 				BC9AE54D2448DEB70050DE1E /* AppDelegate+BackgroundTasks.swift in Sources */,
+				60808C3524524294007415FE /* HowItWorks.swift in Sources */,
 				BC9AE54E2448DEB70050DE1E /* AppDelegate+UserNotificationCenter.swift in Sources */,
 				BC9AE54F2448DEB70050DE1E /* (null) in Sources */,
 				BC9AE5502448DEB70050DE1E /* Firestore+Constants.swift in Sources */,
@@ -1021,6 +1036,7 @@
 				BC9AE5912448DEBF0050DE1E /* BaseViewController.swift in Sources */,
 				BC9AE5922448DEC00050DE1E /* Header.swift in Sources */,
 				BC9AE5932448DEC00050DE1E /* LargeText.swift in Sources */,
+				60808C3624524295007415FE /* HowItWorks.swift in Sources */,
 				60C7A943244A4DDB0033A13D /* IsWithinXDaysOfToday.swift in Sources */,
 				BC9AE5942448DEC00050DE1E /* MainText.swift in Sources */,
 				6013AE2C244A740400F02CCF /* UserDefaults+Shared.swift in Sources */,

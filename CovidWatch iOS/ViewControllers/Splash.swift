@@ -44,10 +44,6 @@ class Splash: UIViewController {
         startButton.accessibilityIdentifier = AccessibilityIdentifier.StartButton.rawValue
         startButton.accessibilityLabel = AccessibilityLabel.startButton
     }
-    
-    func goToBluetooth() {
-        self.performSegue(withIdentifier: "SplashToBluetooth", sender: self)
-    }
 
     func goToBluetoothNoAnimation() {
         self.performSegue(withIdentifier: "SplashToBluetoothQuick", sender: self)
