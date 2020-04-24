@@ -53,7 +53,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="5SZ-V2-tjU" kind="presentation" identifier="SplashToBluetooth" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="CQO-fQ-U6I"/>
+                                    <segue destination="Hxs-Le-QwN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="e28-Hy-JQr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -96,10 +96,15 @@
             </objects>
             <point key="canvasLocation" x="-1941" y="-867"/>
         </scene>
+        <!--HowItWorks-->
+        <scene sceneID="vKt-UW-FQk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HowItWorks" id="Hxs-Le-QwN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yqe-yF-eFB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1925" y="-722"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ejU-kS-iIw"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="logo-with-text" width="265" height="165"/>
         <image name="splash-background" width="375" height="812"/>
