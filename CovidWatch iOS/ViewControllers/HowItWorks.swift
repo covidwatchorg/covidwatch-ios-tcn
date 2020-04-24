@@ -32,8 +32,7 @@ class HowItWorks: UIViewController {
         if let page1 = self.page1,
             let page2 = self.page2,
             let page3 = self.page3,
-            let page4 = self.page4
-        {
+            let page4 = self.page4 {
             page1.layer.cornerRadius = 10
             page2.layer.cornerRadius = 10
             page3.layer.cornerRadius = 10

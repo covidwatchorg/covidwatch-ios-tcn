@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var isContactTracingEnabledObservation: NSKeyValueObservation?
     var isCurrentUserSickObservation: NSKeyValueObservation?
     
+    var currentUserExposureNotifier: CurrentUserExposureNotifier?
+    
     static func getFirestore() -> Firestore {
         if getAppScheme() == .development {
             if let f = FirebaseApp.app() {
@@ -66,6 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.requestUserNotificationAuthorization(provisional: true)
             self.configureIsCurrentUserSickObserver()
             self.signedReportsUploader = SignedReportsUploader()
+            self.currentUserExposureNotifier = CurrentUserExposureNotifier()
             self.configureContactTracingService()
             self.configureContactTracingEnabledObserver()
         }

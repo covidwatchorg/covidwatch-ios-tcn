@@ -16,6 +16,7 @@
 default_platform(:ios)
 
 platform :ios do
+
   desc "Push a new beta build to TestFlight"
   lane :beta do
     setup_ci(provider: "travis")
@@ -25,4 +26,18 @@ platform :ios do
     build_app(workspace: "COVIDWatch.xcworkspace", scheme: "covidwatch-ios-prod")
     testflight(apple_id: "1504929027", distribute_external: true, groups: ["Public Link"], changelog: "Daily Beta for " + Date.today.to_s)
   end
+
+  desc "Run UI and Unit Tests"
+  lane :tests do
+    run_tests(workspace: "COVIDWatch.xcworkspace",
+              devices: ["iPhone 11"],
+              reinstall_app: true,
+              scheme: "covidwatch-ios-test")
+  end
+
+  desc "Build Only"
+  lane :build do
+    build_app(workspace: "COVIDWatch.xcworkspace", scheme: "covidwatch-ios-dev", skip_codesigning: true, skip_archive: true)
+  end
+
 end

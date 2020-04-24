@@ -33,5 +33,5 @@ final class Springboard {
         if deleteButton.waitForExistence(timeout: 5) {
             deleteButton.tap()
         }
-    }
+    }    
 }

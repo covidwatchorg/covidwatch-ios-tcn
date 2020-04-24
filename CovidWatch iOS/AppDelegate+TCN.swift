@@ -63,6 +63,7 @@ extension AppDelegate {
                     
                     // Ratched the key so, we will get a new temporary contact
                     // number the next time
+                    // swiftlint:disable:next todo
                     // TODO: Handle the case when the ratcheting returns nil ->
                     // Update RAK.
                     if let newTemporaryContactKey = self.currentTemporaryContactKey.ratchet() {
@@ -83,6 +84,7 @@ extension AppDelegate {
                 }
                 
             }, errorHandler: { (_) in
+                // swiftlint:disable:next todo
                 // TODO: Handle errors, like user not giving permission to access Bluetooth, etc.
                 ()
             }

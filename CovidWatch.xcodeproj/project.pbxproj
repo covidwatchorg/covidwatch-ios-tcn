@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F9258FA245258E30025C1B0 /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE68E2244E8F7F003D1E48 /* OnboardingFlow.swift */; };
+		1F9258FB245258E60025C1B0 /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48145B244F6E020025EA9B /* Springboard.swift */; };
+		2D14F7BF2452D62B00C02C0D /* CurrentUserExposureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D14F7BE2452D62B00C02C0D /* CurrentUserExposureNotifier.swift */; };
 		2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30EFC2242268010063C211 /* Array+Chunked.swift */; };
 		2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
 		2D5D61BA2451F95B009F5AF1 /* CovidWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D61B82451F95A009F5AF1 /* CovidWatch.xcdatamodeld */; };
@@ -69,7 +72,6 @@
 		2E1FDC1824393C5A000D8D67 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0624393C59000D8D67 /* Montserrat-SemiBoldItalic.ttf */; };
 		2E1FDC1924393C5A000D8D67 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */; };
 		2E1FDC1B24394425000D8D67 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDC1A24394424000D8D67 /* Notifications.swift */; };
-		2E48145C244F6E020025EA9B /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48145B244F6E020025EA9B /* Springboard.swift */; };
 		2E48145E244FCCDD0025EA9B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48145D244FCCDD0025EA9B /* Environment.swift */; };
 		2E80CAE72446B87700F5272E /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
 		2EBF8725243BC275003278E6 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8724243BC275003278E6 /* Header.swift */; };
@@ -83,7 +85,6 @@
 		2EFE6304243F990900D00305 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6303243F990900D00305 /* Home.swift */; };
 		2EFE6308243FB54F00D00305 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */; };
 		2EFE630C2440E9EA00D00305 /* InfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE630B2440E9EA00D00305 /* InfoBanner.swift */; };
-		2EFE68E3244E8F7F003D1E48 /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE68E2244E8F7F003D1E48 /* OnboardingFlow.swift */; };
 		41D4C0CB1E94A11F76A92C4C /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A4B6F15733C6DCEA2D3B84 /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework */; };
 		600678282450FC5D006DBD5D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
 		600678292450FC5D006DBD5D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
@@ -102,10 +103,7 @@
 		60A44B4E244402A500A8154B /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A44B4D244402A500A8154B /* Entry.swift */; };
 		60A44B502444046A00A8154B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A44B4F2444046A00A8154B /* Main.storyboard */; };
 		60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
-		60BD14FC2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
 		60BD14FF244685620009D7E0 /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
-		60C7A942244A4DDA0033A13D /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
-		60C7A943244A4DDB0033A13D /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
 		60EF50F12440E624006CDD76 /* Bluetooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F02440E624006CDD76 /* Bluetooth.storyboard */; };
 		60EF50F32440FAA4006CDD76 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F22440FAA4006CDD76 /* Notifications.storyboard */; };
 		60EF50F72440FAE0006CDD76 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Home.storyboard */; };
@@ -114,75 +112,6 @@
 		A27A144749025F5702DEF897 /* Pods_CovidWatch_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9536319CF10BEAB26C74FAD2 /* Pods_CovidWatch_iOS.framework */; };
 		BC6B4CB72448BB08003FB3F9 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */; };
 		BC6B4CBA2448BC50003FB3F9 /* AccessibilityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB92448BC50003FB3F9 /* AccessibilityLabel.swift */; };
-		BC9AE5492448DEB70050DE1E /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */; };
-		BC9AE54A2448DEB70050DE1E /* AccessibilityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB92448BC50003FB3F9 /* AccessibilityLabel.swift */; };
-		BC9AE54B2448DEB70050DE1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A224190AB800B108F8 /* AppDelegate.swift */; };
-		BC9AE54C2448DEB70050DE1E /* AppDelegate+BackgroundFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */; };
-		BC9AE54D2448DEB70050DE1E /* AppDelegate+BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */; };
-		BC9AE54E2448DEB70050DE1E /* AppDelegate+UserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */; };
-		BC9AE54F2448DEB70050DE1E /* (null) in Sources */ = {isa = PBXBuildFile; };
-		BC9AE5502448DEB70050DE1E /* Firestore+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E5241B886C00216404 /* Firestore+Constants.swift */; };
-		BC9AE5512448DEB70050DE1E /* FirestoreOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */; };
-		BC9AE5542448DEB70050DE1E /* QuerySnapshotProcessingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6439B2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift */; };
-		BC9AE5592448DEB70050DE1E /* BluetoothPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B451A824443FE900E17888 /* BluetoothPermission.swift */; };
-		BC9AE55A2448DEB70050DE1E /* UIWindow+ViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */; };
-		BC9AE55B2448DEB70050DE1E /* UIViewController+ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */; };
-		BC9AE55C2448DEB70050DE1E /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30EFC2242268010063C211 /* Array+Chunked.swift */; };
-		BC9AE55D2448DEB70050DE1E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF61C382436F82D003046A4 /* UIColorExtension.swift */; };
-		BC9AE55E2448DEB70050DE1E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */; };
-		BC9AE55F2448DEB70050DE1E /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */; };
-		BC9AE5602448DEB70050DE1E /* NotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BC322244545CB00819EF0 /* NotificationPermission.swift */; };
-		BC9AE5612448DEB70050DE1E /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash.swift */; };
-		BC9AE5622448DEB70050DE1E /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */; };
-		BC9AE5632448DEB70050DE1E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDC1A24394424000D8D67 /* Notifications.swift */; };
-		BC9AE5642448DEB70050DE1E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6303243F990900D00305 /* Home.swift */; };
-		BC9AE5652448DEB70050DE1E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A44B4D244402A500A8154B /* Entry.swift */; };
-		BC9AE5662448DEB70050DE1E /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C729FE243DE30900D30118 /* Test.swift */; };
-		BC9AE5672448DEB70050DE1E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8726243BC7F8003278E6 /* BaseViewController.swift */; };
-		BC9AE5682448DEB70050DE1E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8724243BC275003278E6 /* Header.swift */; };
-		BC9AE5692448DEB70050DE1E /* LargeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF872A243BEAFA003278E6 /* LargeText.swift */; };
-		BC9AE56A2448DEB70050DE1E /* MainText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF872E243BF41E003278E6 /* MainText.swift */; };
-		BC9AE56B2448DEB70050DE1E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8730243C09F1003278E6 /* Button.swift */; };
-		BC9AE56C2448DEB70050DE1E /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8734243CE60E003278E6 /* Menu.swift */; };
-		BC9AE56D2448DEB70050DE1E /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E5243D05260084F8ED /* MenuItem.swift */; };
-		BC9AE56E2448DEB70050DE1E /* InfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE630B2440E9EA00D00305 /* InfoBanner.swift */; };
-		BC9AE5702448DEB70050DE1E /* CoreData+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E7241B914200216404 /* CoreData+Additions.swift */; };
-		BC9AE5712448DEB70050DE1E /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */; };
-		BC9AE5722448DEBF0050DE1E /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */; };
-		BC9AE5732448DEBF0050DE1E /* AccessibilityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB92448BC50003FB3F9 /* AccessibilityLabel.swift */; };
-		BC9AE5742448DEBF0050DE1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDC5A224190AB800B108F8 /* AppDelegate.swift */; };
-		BC9AE5752448DEBF0050DE1E /* AppDelegate+BackgroundFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D22430C503001C88EF /* AppDelegate+BackgroundFetch.swift */; };
-		BC9AE5762448DEBF0050DE1E /* AppDelegate+BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8F3D0243082F7001C88EF /* AppDelegate+BackgroundTasks.swift */; };
-		BC9AE5772448DEBF0050DE1E /* AppDelegate+UserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */; };
-		BC9AE5782448DEBF0050DE1E /* (null) in Sources */ = {isa = PBXBuildFile; };
-		BC9AE5792448DEBF0050DE1E /* Firestore+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E5241B886C00216404 /* Firestore+Constants.swift */; };
-		BC9AE57A2448DEBF0050DE1E /* FirestoreOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8496F824321A7C00C71BD1 /* FirestoreOperations.swift */; };
-		BC9AE57D2448DEBF0050DE1E /* QuerySnapshotProcessingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6439B2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift */; };
-		BC9AE5822448DEBF0050DE1E /* BluetoothPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B451A824443FE900E17888 /* BluetoothPermission.swift */; };
-		BC9AE5832448DEBF0050DE1E /* UIWindow+ViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */; };
-		BC9AE5842448DEBF0050DE1E /* UIViewController+ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */; };
-		BC9AE5852448DEBF0050DE1E /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30EFC2242268010063C211 /* Array+Chunked.swift */; };
-		BC9AE5862448DEBF0050DE1E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF61C382436F82D003046A4 /* UIColorExtension.swift */; };
-		BC9AE5872448DEBF0050DE1E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */; };
-		BC9AE5882448DEBF0050DE1E /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */; };
-		BC9AE5892448DEBF0050DE1E /* NotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BC322244545CB00819EF0 /* NotificationPermission.swift */; };
-		BC9AE58A2448DEBF0050DE1E /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash.swift */; };
-		BC9AE58B2448DEBF0050DE1E /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */; };
-		BC9AE58C2448DEBF0050DE1E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDC1A24394424000D8D67 /* Notifications.swift */; };
-		BC9AE58D2448DEBF0050DE1E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6303243F990900D00305 /* Home.swift */; };
-		BC9AE58E2448DEBF0050DE1E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A44B4D244402A500A8154B /* Entry.swift */; };
-		BC9AE58F2448DEBF0050DE1E /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
-		BC9AE5902448DEBF0050DE1E /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C729FE243DE30900D30118 /* Test.swift */; };
-		BC9AE5912448DEBF0050DE1E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8726243BC7F8003278E6 /* BaseViewController.swift */; };
-		BC9AE5922448DEC00050DE1E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8724243BC275003278E6 /* Header.swift */; };
-		BC9AE5932448DEC00050DE1E /* LargeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF872A243BEAFA003278E6 /* LargeText.swift */; };
-		BC9AE5942448DEC00050DE1E /* MainText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF872E243BF41E003278E6 /* MainText.swift */; };
-		BC9AE5952448DEC00050DE1E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8730243C09F1003278E6 /* Button.swift */; };
-		BC9AE5962448DEC00050DE1E /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8734243CE60E003278E6 /* Menu.swift */; };
-		BC9AE5972448DEC00050DE1E /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0E86E5243D05260084F8ED /* MenuItem.swift */; };
-		BC9AE5982448DEC00050DE1E /* InfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE630B2440E9EA00D00305 /* InfoBanner.swift */; };
-		BC9AE59A2448DEC00050DE1E /* CoreData+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC231E7241B914200216404 /* CoreData+Additions.swift */; };
-		BC9AE59B2448DEC00050DE1E /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDEBF5D241A3468005BE9A8 /* PersistentContainer.swift */; };
 		E1C729FF243DE30900D30118 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C729FE243DE30900D30118 /* Test.swift */; };
 		E24BC323244545CB00819EF0 /* NotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24BC322244545CB00819EF0 /* NotificationPermission.swift */; };
 		E2B451A924443FE900E17888 /* BluetoothPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B451A824443FE900E17888 /* BluetoothPermission.swift */; };
@@ -209,6 +138,7 @@
 		15EA13EF4743F7833F4E84E4 /* Pods-CovidWatch iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS.release.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS.release.xcconfig"; sourceTree = "<group>"; };
 		27A4B6F15733C6DCEA2D3B84 /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5565D9FFECCCC3FEE46F0C /* Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2D14F7BE2452D62B00C02C0D /* CurrentUserExposureNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUserExposureNotifier.swift; sourceTree = "<group>"; };
 		2D30EFC2242268010063C211 /* Array+Chunked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunked.swift"; sourceTree = "<group>"; };
 		2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Shared.swift"; sourceTree = "<group>"; };
 		2D5D61B92451F95B009F5AF1 /* CovidWatch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CovidWatch.xcdatamodel; sourceTree = "<group>"; };
@@ -445,6 +375,7 @@
 				2DC231ED241BA27800216404 /* AppDelegate+UserNotificationCenter.swift */,
 				2D667D812451AE3D0071C353 /* AppDelegate+TCN.swift */,
 				2D667D8A2451AEA20071C353 /* OSLog+Additions.swift */,
+				2D14F7BE2452D62B00C02C0D /* CurrentUserExposureNotifier.swift */,
 				2D667D832451AE610071C353 /* Crypto */,
 				2DC231E4241B885500216404 /* Firestore */,
 				2DDEBF61241A39EE005BE9A8 /* Utility */,
@@ -854,7 +785,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint --strict\n";
 		};
 		FC6303ED284885D616B54BE3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -951,6 +882,7 @@
 				BC6B4CB72448BB08003FB3F9 /* AccessibilityIdentifier.swift in Sources */,
 				2DF8F3D32430C503001C88EF /* AppDelegate+BackgroundFetch.swift in Sources */,
 				2DF8F3D1243082F7001C88EF /* AppDelegate+BackgroundTasks.swift in Sources */,
+				2D14F7BF2452D62B00C02C0D /* CurrentUserExposureNotifier.swift in Sources */,
 				60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */,
 				2EBF872B243BEAFA003278E6 /* LargeText.swift in Sources */,
 				2E80CAE72446B87700F5272E /* IsWithinXDaysOfToday.swift in Sources */,
@@ -1048,6 +980,8 @@
 				BC9AE5982448DEC00050DE1E /* InfoBanner.swift in Sources */,
 				BC9AE59A2448DEC00050DE1E /* CoreData+Additions.swift in Sources */,
 				BC9AE59B2448DEC00050DE1E /* PersistentContainer.swift in Sources */,
+				1F9258FA245258E30025C1B0 /* OnboardingFlow.swift in Sources */,
+				1F9258FB245258E60025C1B0 /* Springboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1255,7 +1189,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S647QX78WZ;
+				DEVELOPMENT_TEAM = CQRZ4E7K9U;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "CovidWatch iOSTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -1268,7 +1202,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tags!.app/Tags!";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Covid Watch.app/Covid Watch";
 			};
 			name = Debug;
 		};
@@ -1279,7 +1213,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S647QX78WZ;
+				DEVELOPMENT_TEAM = CQRZ4E7K9U;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "CovidWatch iOSTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -1292,7 +1226,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tags!.app/Tags!";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Covid Watch.app/Covid Watch";
 			};
 			name = Release;
 		};
@@ -1302,7 +1236,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S647QX78WZ;
+				DEVELOPMENT_TEAM = CQRZ4E7K9U;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "CovidWatch iOSUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -1325,7 +1259,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S647QX78WZ;
+				DEVELOPMENT_TEAM = CQRZ4E7K9U;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "CovidWatch iOSUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
