@@ -45,6 +45,14 @@ class OnboardingFlow: XCTestCase {
         XCTAssertTrue(mainTextTextView.staticTexts.element(matching: predicate).exists)
         XCTAssertTrue(app.textViews["sub-text"].staticTexts["This is required for the app to work."].exists)
         app/*@START_MENU_TOKEN@*/.staticTexts["button-text"]/*[[".staticTexts[\"Allow Bluetooth\"]",".staticTexts[\"button-text\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        var bluetoothAllowed = false
+        addUIInterruptionMonitor(withDescription: "“Covid Watch” Would Like to Use Bluetooth") { (alert) -> Bool in
+            alert.scrollViews.otherElements.buttons["OK"].tap()
+            bluetoothAllowed = true
+            return true
+        }
+        app.tap() // needed to trigger addUIInterruptionMonitor
+        XCTAssert(bluetoothAllowed)
         
 //        Notifications
 //        swiftlint:disable:next todo
@@ -59,7 +67,7 @@ class OnboardingFlow: XCTestCase {
             return true
         }
         app/*@START_MENU_TOKEN@*/.staticTexts["button-text"]/*[[".staticTexts[\"Allow Notifications\"]",".staticTexts[\"button-text\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.tap()
+        app.tap() // needed to trigger addUIInterruptionMonitor
         XCTAssert(alertPressed)
 
 //        Home
