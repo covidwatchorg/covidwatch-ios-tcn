@@ -17,15 +17,7 @@ jobs:
       - name: Xcode Build
         run: |
           set -o pipefail
-          xcodebuild build -workspace COVIDWatch.xcworkspace -scheme 'covidwatch-ios-dev' CODE_SIGNING_ALLOWED=NO | xcpretty
-
-  swiftlint:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: SwiftLint
-        run: |
-          ./Pods/SwiftLint/swiftlint --strict
+          bundle exec fastlane build
 
   test:
     runs-on: macos-latest
