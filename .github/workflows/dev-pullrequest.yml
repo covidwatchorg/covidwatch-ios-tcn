@@ -60,6 +60,15 @@ jobs:
           unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
           export PATH=$SONAR_SCANNER_HOME/bin:$PATH
           export SONAR_SCANNER_OPTS="-server"
+          echo "Path:"
+          echo $PATH
+          echo "ls $HOME/.sonar/"
+          ls $HOME/.sonar/
+          echo "ls $HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-macosx"
+          ls $HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-macosx
+          echo "$SONAR_SCANNER_HOME"
+          echo $SONAR_SCANNER_HOME
+
       - name: Run SonarQube
         env:
           PR_BRANCH: github.event.pull_request.head.ref
