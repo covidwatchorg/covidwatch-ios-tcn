@@ -66,8 +66,10 @@ jobs:
           ls $HOME/.sonar/
           echo "ls $HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-macosx"
           ls $HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-macosx
-          echo "$SONAR_SCANNER_HOME"
+          echo "SONAR_SCANNER_HOME"
           echo $SONAR_SCANNER_HOME
+          echo "ls SONAR_SCANNER_HOME/bin"
+          ls $SONAR_SCANNER_HOME/bin
 
       - name: Run SonarQube
         env:
