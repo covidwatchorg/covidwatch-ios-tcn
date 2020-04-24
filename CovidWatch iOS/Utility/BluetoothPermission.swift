@@ -27,11 +27,11 @@ class BluetoothPermission: NSObject, CBCentralManagerDelegate {
     var isAuthorized: Bool {
         if #available(iOS 13.1, *) {
             return CBCentralManager.authorization == .allowedAlways
-        }
-        if #available(iOS 13.0, *) {
+        } else if #available(iOS 13.0, *) {
             return self.centralManager.authorization == .allowedAlways
+        } else {
+            return CBPeripheralManager.authorizationStatus() == .authorized
         }
-        return CBPeripheralManager.authorizationStatus() == .authorized
     }
 
     func centralManagerDidUpdateState(_ central: CBCentralManager) {

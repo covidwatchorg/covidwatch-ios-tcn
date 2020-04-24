@@ -27,7 +27,7 @@ class QuerySnapshotProcessingOperation: Operation {
         guard !isCancelled else { return }
         self.markTCNsAsPotentiallyInfectious(from: addedDocuments)
     }
-    
+
     // swiftlint:disable:next function_body_length
     private func markTCNsAsPotentiallyInfectious(
         from queryDocumentSnapshots: [QueryDocumentSnapshot]

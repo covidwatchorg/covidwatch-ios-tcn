@@ -25,7 +25,7 @@ public class PersistentContainer: NSPersistentContainer {
     var loadCompletionHandlers = [((Error?) -> Void)]()
     
     private var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
-    
+
     // swiftlint:disable:next function_body_length
     public func load(_ completionHandler: @escaping (Error?) -> Void) {
         let container = self
