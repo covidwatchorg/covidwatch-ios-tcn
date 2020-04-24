@@ -76,6 +76,11 @@ jobs:
           PR_BRANCH: github.event.pull_request.head.ref
           SONARCLOUD_LOGIN_KEY: ${{ secrets.SONARCLOUD_LOGIN_KEY }}
         run: |
+          echo "Path:"
+          echo $PATH
+          echo "which sonar-scanner"
+          which sonar-scanner
+
           sonar-scanner \
           -Dsonar.organization=covid19risk \
           -Dsonar.projectKey=covid19risk_covidwatch-ios \
