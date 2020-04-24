@@ -26,3 +26,10 @@ platform :ios do
     testflight(apple_id: "1504929027", distribute_external: true, groups: ["Public Link"], changelog: "Daily Beta for " + Date.today.to_s)
   end
 end
+
+lane :tests do
+  run_tests(workspace: "COVIDWatch.xcworkspace",
+            devices: ["iPhone 11"],
+            reinstall_app: true,
+            scheme: "covidwatch-ios-test")
+end
