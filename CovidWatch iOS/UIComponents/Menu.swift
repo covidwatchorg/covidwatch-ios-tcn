@@ -13,12 +13,23 @@ class Menu: UIView {
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))
     var menuItems: [MenuItem] = []
     var bottomWaterMark = UIImageView(image: UIImage(named: "collab-with-stanford"))
+    var fullScreenOpaqueOverlay = UIView()
 
     func draw() {
+        drawFullScreenOpaqueOverlay()
         drawMenuBackground()
         drawXIcon()
         drawMenuItems()
         drawBottomText()
+    }
+    
+    private func drawFullScreenOpaqueOverlay() {
+        self.fullScreenOpaqueOverlay.frame.size.width = screenWidth
+        self.fullScreenOpaqueOverlay.frame.size.height = screenHeight
+        self.fullScreenOpaqueOverlay.frame.origin = CGPoint(x: 0, y: 0)
+        self.fullScreenOpaqueOverlay.backgroundColor = .black
+        self.fullScreenOpaqueOverlay.alpha = 0.0
+        parentVC.view.addSubview(self.fullScreenOpaqueOverlay)
     }
 
     private func drawMenuBackground() {
@@ -34,11 +45,10 @@ class Menu: UIView {
     private func drawXIcon() {
         xIcon.frame.size.width = 23
         xIcon.frame.size.height = 23
-        xIcon.center.x = 0.9 * screenWidth
+        xIcon.center.x = 0.9 * screenWidth + self.frame.size.width
         if let parentVC = self.parentVC {
             xIcon.center.y = (screenHeight * 0.1)/2 + parentVC.view.safeAreaInsets.top
         }
-        xIcon.isHidden = true
         xIcon.isUserInteractionEnabled = true
         xIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu)))
         xIcon.layer.zPosition = 1
@@ -59,7 +69,11 @@ class Menu: UIView {
                 yCenter = lastYCenter + menuItemYGap
             }
             lastYCenter = yCenter
-            item.draw(width: menuItemWidth, centerX: self.center.x, centerY: yCenter)
+            item.draw(
+                width: menuItemWidth,
+                centerX: self.center.x,
+                centerY: yCenter
+            )
         }
     }
 
@@ -68,22 +82,28 @@ class Menu: UIView {
         bottomWaterMark.frame.size.height = (61.0/300.0) * bottomWaterMark.frame.size.width
         bottomWaterMark.center.x = self.center.x
         bottomWaterMark.center.y = screenHeight - (69.5 * figmaToiOSVerticalScalingFactor)
-        bottomWaterMark.isHidden = true
         bottomWaterMark.layer.zPosition = 1
         parentVC.view.addSubview(bottomWaterMark)
     }
 
     @objc func toggleMenu() {
-        xIcon.isHidden = !xIcon.isHidden
-        for menuItem in menuItems {
-            menuItem.toggleShow()
-        }
-        bottomWaterMark.isHidden = !bottomWaterMark.isHidden
         UIView.animate(withDuration: 1) {
             if self.frame.origin.x == self.screenWidth {
-                self.frame.origin.x = self.screenWidth - self.frame.size.width
+                self.fullScreenOpaqueOverlay.alpha = 0.5
+                self.frame.origin.x -= self.frame.size.width
+                self.xIcon.frame.origin.x -= self.frame.size.width
+                for menuItem in self.menuItems {
+                    menuItem.translateXPosition(-self.frame.size.width)
+                }
+                self.bottomWaterMark.frame.origin.x -= self.frame.size.width
             } else {
-                self.frame.origin.x = self.screenWidth
+                self.fullScreenOpaqueOverlay.alpha = 0.0
+                self.frame.origin.x += self.frame.size.width
+                self.xIcon.frame.origin.x += self.frame.size.width
+                for menuItem in self.menuItems {
+                    menuItem.translateXPosition(self.frame.size.width)
+                }
+                self.bottomWaterMark.frame.origin.x += self.frame.size.width
             }
         }
     }
