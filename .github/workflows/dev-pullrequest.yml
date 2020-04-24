@@ -54,6 +54,7 @@ jobs:
           bundle exec fastlane tests
       - name: Install SonarCloud
         run: |
+          export SONAR_SCANNER_VERSION=4.2.0.1873
           curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-macosx.zip
           unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
       - name: Run SonarQube
