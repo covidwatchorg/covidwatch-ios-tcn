@@ -26,6 +26,13 @@ jobs:
         run: |
           gem install bundler:1.16.6
           bundle install
+          brew install sonar-scanner
       - name: Run Tests
         run: |
           bundle exec fastlane tests
+      - name: Run SonarQube
+        env:
+          PR_BRANCH: github.event.pull_request.head.ref
+          SONARCLOUD_LOGIN_KEY: ${{ secrets.SONARCLOUD_LOGIN_KEY }}
+        run: |
+          bundle exec fastlane run_sonar login: $SONARCLOUD_LOGIN_KEY, branch: $PR_BRANCH, key: $PULL_NUMBER

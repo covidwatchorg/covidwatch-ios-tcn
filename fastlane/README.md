@@ -31,6 +31,11 @@ Run UI and Unit Tests
 fastlane ios build
 ```
 Build Only
+### ios run_sonar
+```
+fastlane ios run_sonar
+```
+Sonar
 
 ----
 

@@ -40,4 +40,15 @@ platform :ios do
     build_app(workspace: "COVIDWatch.xcworkspace", scheme: "covidwatch-ios-dev", skip_codesigning: true, skip_archive: true)
   end
 
+  desc "Sonar"
+  lane :run_sonar do |options|
+    sonar(sonar_organization: "covid19risk",
+          project_key: "covid19risk_covidwatch-ios",
+          sources_path: ".",
+          sonar_url: "https://sonarcloud.io",
+          sonar_login: options[:login],
+          pull_request_branch: options[:branch],
+          pull_request_base: "dev",
+          pull_request_key: options[:key])
+  end
 end
