@@ -6,35 +6,34 @@ env:
   DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
 
 jobs:
-
   xcodebuild:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Install Dependencies
-      run: |
-        gem install bundler:1.16.6
-        bundle install
-    - name: Xcode Build
-      run: |
-        set -o pipefail
-        xcodebuild build -workspace COVIDWatch.xcworkspace -scheme 'covidwatch-ios-dev' CODE_SIGNING_ALLOWED=NO | xcpretty
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          gem install bundler:1.16.6
+          bundle install
+      - name: Xcode Build
+        run: |
+          set -o pipefail
+          xcodebuild build -workspace COVIDWatch.xcworkspace -scheme 'covidwatch-ios-dev' CODE_SIGNING_ALLOWED=NO | xcpretty
 
   swiftlint:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: SwiftLint
-      run: |
-        ./Pods/SwiftLint/swiftlint --strict
+      - uses: actions/checkout@v2
+      - name: SwiftLint
+        run: |
+          ./Pods/SwiftLint/swiftlint --strict
 
   test:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Run Tests
-      run: |
-        set -o pipefail
-        xcodebuild build-for-testing -workspace COVIDWatch.xcworkspace -scheme 'covidwatch-ios-dev' CODE_SIGNING_ALLOWED=NO | xcpretty
-        for i in 1 2 3 4 5; do xcodebuild test-without-building -workspace COVIDWatch.xcworkspace -scheme 'covidwatch-ios-dev' -destination 'OS=latest,name=iPhone 11' | xcpretty && break || sleep 15; done
-
+      - uses: actions/checkout@v2
+      - name: Run Tests
+        run: |
+          set -o pipefail
+          gem install bundler:1.16.6
+          bundle install
+          bundle exec fastlane tests

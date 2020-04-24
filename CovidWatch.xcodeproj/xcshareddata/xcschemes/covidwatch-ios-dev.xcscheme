@@ -51,7 +51,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;/usr/bin/xcrun simctl uninstall booted edu.stanford.covidwatch.ios&#10;">
+               scriptText = "/usr/bin/xcrun simctl uninstall booted edu.stanford.covidwatch.ios&#10;">
             </ActionContent>
          </ExecutionAction>
       </PreActions>

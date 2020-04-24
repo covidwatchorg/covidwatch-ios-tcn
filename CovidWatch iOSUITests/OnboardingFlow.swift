@@ -66,7 +66,7 @@ class OnboardingFlow: XCTestCase {
             app.tap() // needed to trigger addUIInterruptionMonitor
         #endif
 
-        XCTAssert(bluetoothAllowed)
+        waitAndCheck { bluetoothAllowed }
         
 //        Notifications
 //        swiftlint:disable:next todo
@@ -82,7 +82,8 @@ class OnboardingFlow: XCTestCase {
         }
         app/*@START_MENU_TOKEN@*/.staticTexts["button-text"]/*[[".staticTexts[\"Allow Notifications\"]",".staticTexts[\"button-text\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.tap() // needed to trigger addUIInterruptionMonitor
-        XCTAssert(alertPressed)
+
+        waitAndCheck { alertPressed }
 
 //        Home
 //        swiftlint:disable:next todo
@@ -95,4 +96,16 @@ class OnboardingFlow: XCTestCase {
         XCTAssertTrue(subTextTextViewsQuery.staticTexts["Share your result anonymously to help keep your community stay safe."].exists)
     }
 
+}
+
+extension XCTestCase {
+    func waitAndCheck(_ description: String = "", _ timeout: Double = 0.5, callback: () -> Bool) {
+        let exp = self.expectation(description: description)
+        let result = XCTWaiter.wait(for: [exp], timeout: timeout)
+        if result == XCTWaiter.Result.timedOut {
+            XCTAssertTrue(callback())
+        } else {
+            XCTFail("Timout wating \(timeout) for \(description)")
+        }
+    }
 }
