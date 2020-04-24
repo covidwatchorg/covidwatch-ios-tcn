@@ -181,7 +181,7 @@ class Home: BaseViewController {
         }
         //        determine image size
         img.frame.size.height = 280.0 * figmaToiOSVerticalScalingFactor
-        img.frame.size.width = (1487.0/1175.0) * img.frame.size.height
+        img.frame.size.width = (1350.0/1175.0) * img.frame.size.height
         if screenHeight <= 667 {
             img.frame.size.width /= 1.2
             img.frame.size.height /= 1.2
