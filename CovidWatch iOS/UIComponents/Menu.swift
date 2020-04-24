@@ -24,12 +24,9 @@ class Menu: UIView {
     private func drawMenuBackground() {
         self.frame.size.width = 0.8 * screenWidth
         self.frame.size.height = screenHeight
-        self.frame.origin.x = screenWidth - self.frame.size.width
-        if let parentVC = self.parentVC {
-            self.frame.origin.y = parentVC.view.safeAreaInsets.top
-        }
+        self.frame.origin.x = screenWidth
+        self.frame.origin.y = 0
         self.backgroundColor = .white
-        self.isHidden = true
         self.layer.zPosition = 1
         parentVC.view.addSubview(self)
     }
@@ -77,12 +74,18 @@ class Menu: UIView {
     }
 
     @objc func toggleMenu() {
-        self.isHidden = !self.isHidden
         xIcon.isHidden = !xIcon.isHidden
         for menuItem in menuItems {
             menuItem.toggleShow()
         }
         bottomWaterMark.isHidden = !bottomWaterMark.isHidden
+        UIView.animate(withDuration: 1) {
+            if self.frame.origin.x == self.screenWidth {
+                self.frame.origin.x = self.screenWidth - self.frame.size.width
+            } else {
+                self.frame.origin.x = self.screenWidth
+            }
+        }
     }
 
     // swiftlint:disable:next function_body_length
