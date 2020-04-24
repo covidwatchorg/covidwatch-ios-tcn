@@ -1,0 +1,63 @@
+name: dev Branch CI
+
+on:
+  push:
+    branches:
+      - dev
+        
+env:
+  DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
+
+jobs:
+  xcodebuild:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          gem install bundler:1.16.6
+          bundle install
+      - name: Xcode Build
+        run: |
+          set -o pipefail
+          xcodebuild build -workspace COVIDWatch.xcworkspace -scheme 'covidwatch-ios-dev' CODE_SIGNING_ALLOWED=NO | xcpretty
+  swiftlint:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: SwiftLint
+        run: |
+          ./Pods/SwiftLint/swiftlint --strict
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Fetch all branches
+        run: |
+            git fetch --prune --unshallow
+      - name: Run Tests
+        run: |
+          set -o pipefail
+          gem install bundler:1.16.6
+          bundle install
+          bundle exec fastlane tests
+      - name: Install SonarCloud
+        run: |
+          export SONAR_SCANNER_VERSION=4.2.0.1873
+          export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-macosx
+          curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-macosx.zip
+          unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
+          export PATH=$SONAR_SCANNER_HOME/bin:$PATH
+          export SONAR_SCANNER_OPTS="-server"
+      - name: Run SonarQube
+        env:
+          SONARCLOUD_LOGIN_KEY: ${{ secrets.SONARCLOUD_LOGIN_KEY }}
+        run: |
+          sonar-scanner \
+          -Dsonar.organization=covid19risk \
+          -Dsonar.projectKey=covid19risk_covidwatch-ios \
+          -Dsonar.sources=. \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=$SONARCLOUD_LOGIN_KEY \
+          -Dsonar.branch.name=dev
