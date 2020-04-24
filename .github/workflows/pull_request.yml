@@ -16,16 +16,16 @@ jobs:
           bundle install
       - name: Xcode Build
         run: |
-          set -o pipefail
           bundle exec fastlane build
 
   test:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run Tests
+      - name: Install Dependencies
         run: |
-          set -o pipefail
           gem install bundler:1.16.6
           bundle install
+      - name: Run Tests
+        run: |
           bundle exec fastlane tests
