@@ -8,6 +8,7 @@ import CoreData
 import os.log
 import TCNClient
 
+// swiftlint:disable:next todo
 // TODO: split this operation into an add to core data and a process signed reports operation
 class QuerySnapshotProcessingOperation: Operation {
     var querySnapshot: QuerySnapshot?
@@ -26,7 +27,8 @@ class QuerySnapshotProcessingOperation: Operation {
         guard !isCancelled else { return }
         self.markTCNsAsPotentiallyInfectious(from: addedDocuments)
     }
-    
+
+    // swiftlint:disable:next function_body_length
     private func markTCNsAsPotentiallyInfectious(
         from queryDocumentSnapshots: [QueryDocumentSnapshot]
     ) {
