@@ -42,6 +42,7 @@ open class SignedReportsUploader: NSObject, NSFetchedResultsControllerDelegate {
         self.uploadSignedReports(toUpload)
     }
     
+    // swiftlint:disable:next function_body_length
     private func uploadSignedReports(_ signedReports: [SignedReport]) {
         guard !signedReports.isEmpty else { return }
 
