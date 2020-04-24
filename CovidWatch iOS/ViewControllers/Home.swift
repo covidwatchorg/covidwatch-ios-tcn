@@ -240,10 +240,6 @@ class Home: BaseViewController {
             )
             let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
             testedButton.draw(centerX: view.center.x, originY: testedButtonTop)
-            testedButton.backgroundColor = .clear
-            testedButton.layer.borderWidth = 1
-            testedButton.layer.borderColor = UIColor.Secondary.LightGray.cgColor
-            testedButton.text.textColor = UIColor.Primary.Gray
             spreadButton.drawBetween(top: mainText.frame.maxY,
                                       bottom: testedButtonTop,
                                       centerX: view.center.x)
