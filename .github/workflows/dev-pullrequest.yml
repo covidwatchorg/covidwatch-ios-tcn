@@ -54,8 +54,6 @@ jobs:
           bundle exec fastlane tests
       - name: Install SonarCloud
         run: |
-          export SONAR_SCANNER_VERSION=4.2.0.1873
-          export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-macosx
           curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-macosx.zip
           unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
       - name: Run SonarQube
@@ -63,19 +61,11 @@ jobs:
           PR_BRANCH: github.event.pull_request.head.ref
           SONARCLOUD_LOGIN_KEY: ${{ secrets.SONARCLOUD_LOGIN_KEY }}
         run: |
-          echo "Path Before:"
-          echo $PATH
 
           export SONAR_SCANNER_VERSION=4.2.0.1873
           export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-macosx
           export PATH=$SONAR_SCANNER_HOME/bin:$PATH
           export SONAR_SCANNER_OPTS="-server"
-
-          echo "Path After:"
-          echo $PATH
-
-          echo "which sonar-scanner"
-          which sonar-scanner
 
           sonar-scanner \
           -Dsonar.organization=covid19risk \
