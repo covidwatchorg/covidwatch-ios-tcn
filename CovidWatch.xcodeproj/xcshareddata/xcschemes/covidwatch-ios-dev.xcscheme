@@ -46,17 +46,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "NO"
       codeCoverageEnabled = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;/usr/bin/xcrun simctl uninstall booted edu.stanford.covidwatch.ios&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2DFDC5B724190ABA00B108F8"
-               BuildableName = "CovidWatch iOSTests.xctest"
-               BlueprintName = "CovidWatch iOSTests"
-               ReferencedContainer = "container:CovidWatch.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
@@ -64,6 +63,16 @@
                BlueprintIdentifier = "2DFDC5C224190ABA00B108F8"
                BuildableName = "CovidWatch iOSUITests.xctest"
                BlueprintName = "CovidWatch iOSUITests"
+               ReferencedContainer = "container:CovidWatch.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2DFDC5B724190ABA00B108F8"
+               BuildableName = "CovidWatch iOSTests.xctest"
+               BlueprintName = "CovidWatch iOSTests"
                ReferencedContainer = "container:CovidWatch.xcodeproj">
             </BuildableReference>
          </TestableReference>

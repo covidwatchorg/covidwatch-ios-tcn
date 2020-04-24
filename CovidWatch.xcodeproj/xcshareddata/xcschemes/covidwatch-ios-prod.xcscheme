@@ -50,9 +50,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2DFDC5B724190ABA00B108F8"
-               BuildableName = "CovidWatch iOSTests.xctest"
-               BlueprintName = "CovidWatch iOSTests"
+               BlueprintIdentifier = "2DFDC5C224190ABA00B108F8"
+               BuildableName = "CovidWatch iOSUITests.xctest"
+               BlueprintName = "CovidWatch iOSUITests"
                ReferencedContainer = "container:CovidWatch.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -60,9 +60,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2DFDC5C224190ABA00B108F8"
-               BuildableName = "CovidWatch iOSUITests.xctest"
-               BlueprintName = "CovidWatch iOSUITests"
+               BlueprintIdentifier = "2DFDC5B724190ABA00B108F8"
+               BuildableName = "CovidWatch iOSTests.xctest"
+               BlueprintName = "CovidWatch iOSTests"
                ReferencedContainer = "container:CovidWatch.xcodeproj">
             </BuildableReference>
          </TestableReference>

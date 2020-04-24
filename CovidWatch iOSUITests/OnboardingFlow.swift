@@ -13,11 +13,18 @@ class OnboardingFlow: XCTestCase {
     var app: XCUIApplication!
 
     override func setUp() {
-//        Delete the app if it exists, in order to reset the permissions settings.
-//        (I tried other approaches besides this but none of them worked)
-        Springboard.deleteApp(name: "Covid Watch")
         super.setUp()
         continueAfterFailure = false
+        #if targetEnvironment(simulator)
+            // do nothing
+            // we remove the app from the simulator in the scheme pre-test step with:
+            // /usr/bin/xcrun simctl uninstall booted edu.stanford.covidwatch.ios
+        #else
+            // Delete the app if it exists, in order to reset the permissions settings.
+            // (I tried other approaches besides this but none of them worked)
+            Springboard.deleteApp(name: "Covid Watch") // only way to clear the app on real device
+        #endif
+
         app = XCUIApplication()
         app.launch()
     }
@@ -26,7 +33,7 @@ class OnboardingFlow: XCTestCase {
         super.tearDown()
     }
 
-//    Test for when the user does all the right things in the onboarding flow
+    //    Test for when the user does all the right things in the onboarding flow
     func testOnboardingFlow() {
         let app = XCUIApplication()
 
@@ -34,7 +41,7 @@ class OnboardingFlow: XCTestCase {
         XCTAssertTrue(app.images["Title"].exists)
         XCTAssertTrue(app/*@START_MENU_TOKEN@*/.staticTexts["Description"]/*[[".staticTexts[\"splash-description\"]",".staticTexts[\"Description\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.exists)
         app.buttons["Start"].tap()
-        
+
 //        Bluetooth
 //        swiftlint:disable:next todo
 //        TODO: check for header icon, check that menu dne
@@ -45,13 +52,20 @@ class OnboardingFlow: XCTestCase {
         XCTAssertTrue(mainTextTextView.staticTexts.element(matching: predicate).exists)
         XCTAssertTrue(app.textViews["sub-text"].staticTexts["This is required for the app to work."].exists)
         app/*@START_MENU_TOKEN@*/.staticTexts["button-text"]/*[[".staticTexts[\"Allow Bluetooth\"]",".staticTexts[\"button-text\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        var bluetoothAllowed = false
-        addUIInterruptionMonitor(withDescription: "“Covid Watch” Would Like to Use Bluetooth") { (alert) -> Bool in
-            alert.scrollViews.otherElements.buttons["OK"].tap()
-            bluetoothAllowed = true
-            return true
-        }
-        app.tap() // needed to trigger addUIInterruptionMonitor
+        var bluetoothAllowed = true
+        #if targetEnvironment(simulator)
+            // no bluetooth permissions on simulator
+            // do nothing
+        #else
+            bluetoothAllowed = false
+            addUIInterruptionMonitor(withDescription: "“Covid Watch” Would Like to Use Bluetooth") { (alert) -> Bool in
+                alert.scrollViews.otherElements.buttons["OK"].tap()
+                bluetoothAllowed = true
+                return true
+            }
+            app.tap() // needed to trigger addUIInterruptionMonitor
+        #endif
+
         XCTAssert(bluetoothAllowed)
         
 //        Notifications
