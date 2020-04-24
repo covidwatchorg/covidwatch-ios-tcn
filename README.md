@@ -1,5 +1,5 @@
-![](https://github.com/covid19risk/covidwatch-ios/workflows/Develop%20Branch%20CI/badge.svg)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=covid19risk_covidwatch-android&metric=alert_status)](https://sonarcloud.io/dashboard?id=covid19risk_covidwatch-android)
+![pull_request](https://github.com/covid19risk/covidwatch-ios/workflows/pull_request/badge.svg?branch=dev)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=covid19risk_covidwatch-ios&metric=alert_status)](https://sonarcloud.io/dashboard?id=covid19risk_covidwatch-ios)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # covidwatch-ios
