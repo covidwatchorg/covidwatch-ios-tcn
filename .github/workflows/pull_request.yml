@@ -35,6 +35,6 @@ jobs:
     - name: Run Tests
       run: |
         set -o pipefail
-        xcodebuild build-for-testing -workspace COVIDWatch.xcworkspace -scheme 'covidwatch-ios-dev' CODE_SIGNING_ALLOWED=NO
+        xcodebuild build-for-testing -workspace COVIDWatch.xcworkspace -scheme 'covidwatch-ios-dev' CODE_SIGNING_ALLOWED=NO | xcpretty
         for i in 1 2 3 4 5; do xcodebuild test-without-building -workspace COVIDWatch.xcworkspace -scheme 'covidwatch-ios-dev' -destination 'OS=latest,name=iPhone 11' | xcpretty && break || sleep 15; done
 
