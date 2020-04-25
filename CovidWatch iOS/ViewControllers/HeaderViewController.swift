@@ -14,7 +14,7 @@ protocol HeaderViewControllerDelegate: class {
     func menuWasTapped()
 }
 // Default implementation of the protocol,
-// so only override if you want to hide the menu
+// so only override this if you want to hide the menu
 extension HeaderViewControllerDelegate {
     var shouldShowMenu: Bool {
         true
