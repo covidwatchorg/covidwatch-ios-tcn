@@ -9,9 +9,9 @@
 import UIKit
 
 class MainText: UITextView {
-    weak var parentVC: BaseViewController!
+    weak var parentVC: UIViewController!
     
-    init(_ parentVC: BaseViewController, text: String) {
+    init(_ parentVC: UIViewController, text: String) {
         self.parentVC = parentVC
         super.init(frame: CGRect(), textContainer: nil)
         self.text = text

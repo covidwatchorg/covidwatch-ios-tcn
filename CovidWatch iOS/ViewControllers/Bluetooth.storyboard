@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2aA-lJ-rh9">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Bluetooth-->
+        <scene sceneID="zbh-eL-VTH">
+            <objects>
+                <viewController id="2aA-lJ-rh9" customClass="Bluetooth" customModule="CovidWatch_iOSTests" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yCp-hX-fNw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3H-7w-Umg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="2Us-ij-4TY"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="2DY-jC-4YC" kind="embed" id="n2k-rt-DDt"/>
+                                </connections>
+                            </containerView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="bluetooth-image" translatesAutoresizingMaskIntoConstraints="NO" id="oN5-t6-xIK">
+                                <rect key="frame" x="20" y="127" width="374" height="330"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CF7-QT-FGN" customClass="ALButton" customModule="Covid_Watch">
+                                <rect key="frame" x="20" y="676" width="374" height="58"/>
+                                <color key="backgroundColor" name="ButtonColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="button-text"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="ocg-Th-gSC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                <state key="normal" title="Allow Bluetooth">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnTapped:" destination="2aA-lJ-rh9" eventType="touchUpInside" id="5YH-Lq-8Id"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fX9-zF-oWw">
+                                <rect key="frame" x="20" y="536" width="374" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="sRR-Zs-3FT"/>
+                                </constraints>
+                                <string key="text">We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.</string>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is required for the app to work." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="7gw-wm-JuF">
+                                <rect key="frame" x="20" y="742" width="374" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ZxO-ez-LGI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Privately Connect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hY4-2I-9p1">
+                                <rect key="frame" x="20" y="482" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dtJ-wI-JKW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="36"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gNT-XC-4ge" firstAttribute="trailing" secondItem="CF7-QT-FGN" secondAttribute="trailing" constant="20" id="6WK-pg-RXH"/>
+                            <constraint firstItem="7gw-wm-JuF" firstAttribute="top" secondItem="CF7-QT-FGN" secondAttribute="bottom" constant="8" id="9nb-cQ-Z9P"/>
+                            <constraint firstItem="gNT-XC-4ge" firstAttribute="trailing" secondItem="fX9-zF-oWw" secondAttribute="trailing" constant="20" id="ErF-vh-oqt"/>
+                            <constraint firstItem="hY4-2I-9p1" firstAttribute="top" secondItem="oN5-t6-xIK" secondAttribute="bottom" constant="25" id="FPi-ok-cOB"/>
+                            <constraint firstItem="gNT-XC-4ge" firstAttribute="trailing" secondItem="oN5-t6-xIK" secondAttribute="trailing" constant="20" id="KAb-8C-rfg"/>
+                            <constraint firstItem="gNT-XC-4ge" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="7gw-wm-JuF" secondAttribute="bottom" constant="20" id="Oue-ms-bcu"/>
+                            <constraint firstItem="Q3H-7w-Umg" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" id="Rib-Cn-an6"/>
+                            <constraint firstItem="CF7-QT-FGN" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" constant="20" id="Tj8-ux-9j8"/>
+                            <constraint firstItem="Q3H-7w-Umg" firstAttribute="top" secondItem="gNT-XC-4ge" secondAttribute="top" id="UB8-Qw-WIb"/>
+                            <constraint firstItem="gNT-XC-4ge" firstAttribute="trailing" secondItem="7gw-wm-JuF" secondAttribute="trailing" constant="20" id="ZbK-Av-ojJ"/>
+                            <constraint firstItem="oN5-t6-xIK" firstAttribute="top" secondItem="Q3H-7w-Umg" secondAttribute="bottom" constant="8" id="bUl-7i-DwV"/>
+                            <constraint firstItem="fX9-zF-oWw" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" constant="20" id="f4Q-bM-VBE"/>
+                            <constraint firstItem="hY4-2I-9p1" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" constant="20" id="iNu-2i-tXm"/>
+                            <constraint firstItem="oN5-t6-xIK" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" constant="20" id="mAB-bp-fu4"/>
+                            <constraint firstItem="CF7-QT-FGN" firstAttribute="top" secondItem="fX9-zF-oWw" secondAttribute="bottom" constant="30" id="nPS-cG-ztD"/>
+                            <constraint firstItem="fX9-zF-oWw" firstAttribute="top" secondItem="hY4-2I-9p1" secondAttribute="bottom" constant="10" id="ola-pt-PcS"/>
+                            <constraint firstItem="7gw-wm-JuF" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" constant="20" id="qDe-cg-NaW"/>
+                            <constraint firstItem="gNT-XC-4ge" firstAttribute="trailing" secondItem="hY4-2I-9p1" secondAttribute="trailing" constant="20" id="qxk-H0-hT7"/>
+                            <constraint firstItem="Q3H-7w-Umg" firstAttribute="trailing" secondItem="gNT-XC-4ge" secondAttribute="trailing" id="yM8-em-9e7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gNT-XC-4ge"/>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="CF7-QT-FGN" id="KAy-jf-fBs"/>
+                        <outlet property="largeText" destination="hY4-2I-9p1" id="Esp-Xd-7HS"/>
+                        <outlet property="mainText" destination="fX9-zF-oWw" id="Nqy-cq-0Y5"/>
+                        <segue destination="pua-AE-BBm" kind="show" identifier="BluetoothToNotifications" id="lVW-ia-WQh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BAX-Zo-hX9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100.00000000000001" y="-133.25892857142856"/>
+        </scene>
+        <!--Notifications-->
+        <scene sceneID="4Fg-Ka-CFQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notifications" id="pua-AE-BBm" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hPv-9m-WGk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ed1-Ce-OPA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774" y="-117"/>
+        </scene>
+        <!--HeaderViewController-->
+        <scene sceneID="hRO-bI-K5V">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HeaderViewController" id="2DY-jC-4YC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WhR-he-ABF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733" y="-247"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bluetooth-image" width="316" height="330"/>
+        <namedColor name="ButtonColor">
+            <color red="0.17254901960784313" green="0.34509803921568627" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

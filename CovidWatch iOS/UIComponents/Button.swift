@@ -8,12 +8,20 @@
 
 import UIKit
 
-class Button: UIButton {
-    weak var parentVC: BaseViewController!
+class ALButton: UIButton {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.titleLabel?.accessibilityIdentifier = AccessibilityIdentifier.ButtonText.rawValue
+        self.layer.cornerRadius = 10
+    }
+}
+
+class Button: UIView {
+    weak var parentVC: UIViewController!
     var text = UILabel()
     var subtext: UITextView?
-    
-    init(_ parentVC: BaseViewController, text: String, subtext: String? = nil) {
+
+    init(_ parentVC: UIViewController, text: String, subtext: String? = nil) {
         self.parentVC = parentVC
         super.init(frame: CGRect())
         self.text.text = text
