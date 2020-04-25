@@ -30,52 +30,52 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3H-7w-Umg">
                                 <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="KJR-xm-ayv"/>
+                                    <constraint firstAttribute="height" constant="75" id="2Us-ij-4TY"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="2DY-jC-4YC" kind="embed" id="n2k-rt-DDt"/>
                                 </connections>
                             </containerView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetooth-image" translatesAutoresizingMaskIntoConstraints="NO" id="oN5-t6-xIK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="bluetooth-image" translatesAutoresizingMaskIntoConstraints="NO" id="oN5-t6-xIK">
                                 <rect key="frame" x="20" y="127" width="374" height="330"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CF7-QT-FGN" customClass="ALButton" customModule="Covid_Watch">
-                                <rect key="frame" x="20" y="657" width="374" height="85"/>
+                                <rect key="frame" x="20" y="676" width="374" height="85"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
                                 <accessibility key="accessibilityConfiguration" identifier="button-text"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="tyY-iI-UYv"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                 <state key="normal" title="Allow Bluetooth">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnTapped:" destination="2aA-lJ-rh9" eventType="touchUpInside" id="5YH-Lq-8Id"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fX9-zF-oWw" customClass="MainTextLabel" customModule="Covid_Watch">
-                                <rect key="frame" x="20" y="545" width="374" height="104"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fX9-zF-oWw">
+                                <rect key="frame" x="20" y="536" width="374" height="110"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="104" id="4KC-iU-BtM"/>
+                                    <constraint firstAttribute="height" constant="110" id="sRR-Zs-3FT"/>
                                 </constraints>
                                 <string key="text">We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.</string>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <color key="textColor" name="TextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privately Connect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hY4-2I-9p1" customClass="LargeTextLabel" customModule="Covid_Watch">
-                                <rect key="frame" x="20" y="477" width="374" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="E7e-E5-FNn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="36"/>
-                                <color key="textColor" name="TextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is required for the app to work." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gw-wm-JuF" customClass="SubtextLabel" customModule="Covid_Watch">
-                                <rect key="frame" x="20" y="750" width="374" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is required for the app to work." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="7gw-wm-JuF">
+                                <rect key="frame" x="20" y="769" width="374" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ZxO-ez-LGI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Privately Connect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hY4-2I-9p1">
+                                <rect key="frame" x="20" y="482" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dtJ-wI-JKW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="36"/>
                                 <color key="textColor" name="TextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -85,7 +85,7 @@
                             <constraint firstItem="gNT-XC-4ge" firstAttribute="trailing" secondItem="CF7-QT-FGN" secondAttribute="trailing" constant="20" id="6WK-pg-RXH"/>
                             <constraint firstItem="7gw-wm-JuF" firstAttribute="top" secondItem="CF7-QT-FGN" secondAttribute="bottom" constant="8" id="9nb-cQ-Z9P"/>
                             <constraint firstItem="gNT-XC-4ge" firstAttribute="trailing" secondItem="fX9-zF-oWw" secondAttribute="trailing" constant="20" id="ErF-vh-oqt"/>
-                            <constraint firstItem="hY4-2I-9p1" firstAttribute="top" secondItem="oN5-t6-xIK" secondAttribute="bottom" constant="20" id="FPi-ok-cOB"/>
+                            <constraint firstItem="hY4-2I-9p1" firstAttribute="top" secondItem="oN5-t6-xIK" secondAttribute="bottom" constant="25" id="FPi-ok-cOB"/>
                             <constraint firstItem="gNT-XC-4ge" firstAttribute="trailing" secondItem="oN5-t6-xIK" secondAttribute="trailing" constant="20" id="KAb-8C-rfg"/>
                             <constraint firstItem="gNT-XC-4ge" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="7gw-wm-JuF" secondAttribute="bottom" constant="20" id="Oue-ms-bcu"/>
                             <constraint firstItem="Q3H-7w-Umg" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" id="Rib-Cn-an6"/>
@@ -95,9 +95,10 @@
                             <constraint firstItem="oN5-t6-xIK" firstAttribute="top" secondItem="Q3H-7w-Umg" secondAttribute="bottom" constant="8" id="bUl-7i-DwV"/>
                             <constraint firstItem="fX9-zF-oWw" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" constant="20" id="f4Q-bM-VBE"/>
                             <constraint firstItem="hY4-2I-9p1" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" constant="20" id="iNu-2i-tXm"/>
+                            <constraint firstItem="CF7-QT-FGN" firstAttribute="height" secondItem="yCp-hX-fNw" secondAttribute="height" multiplier="0.0948661" id="jUF-CI-v4a"/>
                             <constraint firstItem="oN5-t6-xIK" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" constant="20" id="mAB-bp-fu4"/>
-                            <constraint firstItem="CF7-QT-FGN" firstAttribute="top" secondItem="fX9-zF-oWw" secondAttribute="bottom" constant="8" id="nPS-cG-ztD"/>
-                            <constraint firstItem="fX9-zF-oWw" firstAttribute="top" secondItem="hY4-2I-9p1" secondAttribute="bottom" constant="8" id="ola-pt-PcS"/>
+                            <constraint firstItem="CF7-QT-FGN" firstAttribute="top" secondItem="fX9-zF-oWw" secondAttribute="bottom" constant="30" id="nPS-cG-ztD"/>
+                            <constraint firstItem="fX9-zF-oWw" firstAttribute="top" secondItem="hY4-2I-9p1" secondAttribute="bottom" constant="10" id="ola-pt-PcS"/>
                             <constraint firstItem="7gw-wm-JuF" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" constant="20" id="qDe-cg-NaW"/>
                             <constraint firstItem="gNT-XC-4ge" firstAttribute="trailing" secondItem="hY4-2I-9p1" secondAttribute="trailing" constant="20" id="qxk-H0-hT7"/>
                             <constraint firstItem="Q3H-7w-Umg" firstAttribute="trailing" secondItem="gNT-XC-4ge" secondAttribute="trailing" id="yM8-em-9e7"/>
@@ -105,6 +106,9 @@
                         <viewLayoutGuide key="safeArea" id="gNT-XC-4ge"/>
                     </view>
                     <connections>
+                        <outlet property="button" destination="CF7-QT-FGN" id="KAy-jf-fBs"/>
+                        <outlet property="largeText" destination="hY4-2I-9p1" id="Esp-Xd-7HS"/>
+                        <outlet property="mainText" destination="fX9-zF-oWw" id="Nqy-cq-0Y5"/>
                         <segue destination="pua-AE-BBm" kind="presentation" identifier="BluetoothToNotifications" animates="NO" modalPresentationStyle="fullScreen" id="lVW-ia-WQh"/>
                     </connections>
                 </viewController>
