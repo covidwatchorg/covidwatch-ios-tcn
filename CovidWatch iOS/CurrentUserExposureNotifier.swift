@@ -3,7 +3,7 @@
 //
 //
 
-import Foundation
+import UIKit
 import CoreData
 import os.log
 import Firebase
