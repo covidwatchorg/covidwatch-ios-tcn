@@ -746,7 +746,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd $PROJECT_DIR # run from project directory\n${PODS_ROOT}/SwiftLint/swiftlint --strict\n";
+			shellScript = "echo \"Running SwiftLint from:\"\npwd\ncd $PROJECT_DIR && pwd\ncd $PROJECT_DIR && ${PODS_ROOT}/SwiftLint/swiftlint --strict\n";
 		};
 		ECE4C21607FA5164F259713A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
