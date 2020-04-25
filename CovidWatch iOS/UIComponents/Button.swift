@@ -8,11 +8,11 @@
 
 import UIKit
 
-class Button: UIView {
+class Button: UIButton {
     weak var parentVC: BaseViewController!
     var text = UILabel()
     var subtext: UITextView?
-
+    
     init(_ parentVC: BaseViewController, text: String, subtext: String? = nil) {
         self.parentVC = parentVC
         super.init(frame: CGRect())
@@ -21,7 +21,7 @@ class Button: UIView {
             self.subtext = UITextView()
         }
         self.subtext?.text = subtext
-
+        
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = (58.0/321.0) * contentMaxWidth
         self.backgroundColor = UIColor.Primary.Bluejay
@@ -47,24 +47,24 @@ class Button: UIView {
         self.text.accessibilityIdentifier = AccessibilityIdentifier.ButtonText.rawValue
         self.subtext?.accessibilityIdentifier = AccessibilityIdentifier.SubText.rawValue
     }
-
-//    Call this after you set where you want to place your button in the parentVC
+    
+    //    Call this after you set where you want to place your button in the parentVC
     func draw(centerX: CGFloat, centerY: CGFloat) {
         self.center.x = centerX
         self.center.y = centerY
         parentVC.view.addSubview(self)
         drawText()
     }
-
+    
     func draw(centerX: CGFloat, originY: CGFloat) {
         self.center.x = centerX
         self.frame.origin.y = originY
         parentVC.view.addSubview(self)
         drawText()
     }
-
+    
     func drawText() {
-//        Call after the button's container has been laid out in parent ViewController
+        //        Call after the button's container has been laid out in parent ViewController
         self.text.sizeToFit()
         self.text.center = self.center
         parentVC.view.addSubview(self.text)
@@ -77,10 +77,10 @@ class Button: UIView {
         }
         self.subtext?.isSelectable = false
     }
-
+    
     func drawBetween(top: CGFloat, bottom: CGFloat, centerX: CGFloat) {
-//        Draw the button so that it and its subtext taken together are
-//        centered between top and bottom
+        //        Draw the button so that it and its subtext taken together are
+        //        centered between top and bottom
         self.draw(centerX: centerX, centerY: (top+bottom)/2)
         if let subtext = self.subtext {
             let adjustment = (subtext.frame.maxY - self.frame.maxY) / 2
@@ -89,9 +89,28 @@ class Button: UIView {
             subtext.center.y -= adjustment
         }
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.text.alpha = 0.5
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        self.touchesEndedOrCancelled()
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        self.touchesEndedOrCancelled()
+    }
+    
+    private func touchesEndedOrCancelled() {
+        self.text.alpha = 1.0
+    }
+    
 }

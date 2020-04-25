@@ -181,7 +181,7 @@ class Home: BaseViewController {
         }
         //        determine image size
         img.frame.size.height = 280.0 * figmaToiOSVerticalScalingFactor
-        img.frame.size.width = (1487.0/1175.0) * img.frame.size.height
+        img.frame.size.width = (1350.0/1175.0) * img.frame.size.height
         if screenHeight <= 667 {
             img.frame.size.width /= 1.2
             img.frame.size.height /= 1.2
@@ -240,10 +240,6 @@ class Home: BaseViewController {
             )
             let testedButtonTop: CGFloat = 668.0 * figmaToiOSVerticalScalingFactor
             testedButton.draw(centerX: view.center.x, originY: testedButtonTop)
-            testedButton.backgroundColor = .clear
-            testedButton.layer.borderWidth = 1
-            testedButton.layer.borderColor = UIColor.Secondary.LightGray.cgColor
-            testedButton.text.textColor = UIColor.Primary.Gray
             spreadButton.drawBetween(top: mainText.frame.maxY,
                                       bottom: testedButtonTop,
                                       centerX: view.center.x)
