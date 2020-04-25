@@ -1,6 +1,6 @@
 name: pull_request
 
-on: pull_request
+on: push
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
