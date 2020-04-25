@@ -18,7 +18,7 @@ class MainText: UITextView {
         var fontSize: CGFloat = 18
         if screenHeight <= 568 {
             fontSize = 14
-        } else if screenHeight <= 667 {
+        } else if screenHeight <= 812 {
             fontSize = 16
         }
         self.font = UIFont(name: "Montserrat", size: fontSize)

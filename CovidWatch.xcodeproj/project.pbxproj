@@ -14,7 +14,7 @@
 		2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
 		2D5D61BA2451F95B009F5AF1 /* CovidWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D61B82451F95A009F5AF1 /* CovidWatch.xcdatamodeld */; };
 		2D6655B4242E605000B462E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D6655B3242E605000B462E0 /* GoogleService-Info.plist */; };
-		2D667D802451AB0C0071C353 /* TCNClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2D667D7F2451AB0C0071C353 /* TCNClient */; };
+		2D667D802451AB0C0071C353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 2D667D7F2451AB0C0071C353 /* SwiftPackageProductDependency */; };
 		2D667D822451AE3E0071C353 /* AppDelegate+TCN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D667D812451AE3D0071C353 /* AppDelegate+TCN.swift */; };
 		2D667D872451AE610071C353 /* KeyStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D667D842451AE610071C353 /* KeyStoreError.swift */; };
 		2D667D882451AE610071C353 /* GenericPasswordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D667D852451AE610071C353 /* GenericPasswordStore.swift */; };
@@ -85,7 +85,6 @@
 		2EFE6304243F990900D00305 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6303243F990900D00305 /* Home.swift */; };
 		2EFE6308243FB54F00D00305 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */; };
 		2EFE630C2440E9EA00D00305 /* InfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE630B2440E9EA00D00305 /* InfoBanner.swift */; };
-		41D4C0CB1E94A11F76A92C4C /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A4B6F15733C6DCEA2D3B84 /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework */; };
 		600678282450FC5D006DBD5D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
 		600678292450FC5D006DBD5D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
 		6006782A2450FC5D006DBD5D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
@@ -108,8 +107,9 @@
 		60EF50F32440FAA4006CDD76 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F22440FAA4006CDD76 /* Notifications.storyboard */; };
 		60EF50F72440FAE0006CDD76 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Home.storyboard */; };
 		60EF50F92440FAF3006CDD76 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F82440FAF3006CDD76 /* Test.storyboard */; };
-		A132EC6A9798E0BD6919591B /* Pods_CovidWatch_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C0A11A172E6B5635D50B7E /* Pods_CovidWatch_iOSTests.framework */; };
-		A27A144749025F5702DEF897 /* Pods_CovidWatch_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9536319CF10BEAB26C74FAD2 /* Pods_CovidWatch_iOS.framework */; };
+		780018A7361507BB6093AB79 /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8917C452E0B41C1EF3DDE63A /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework */; };
+		7A05D2F61BD1CD7FF719C9E7 /* Pods_CovidWatch_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D1F8981870B212596AF55D /* Pods_CovidWatch_iOS.framework */; };
+		A38D9EBD82F1C1A85E30D151 /* Pods_CovidWatch_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B92ABC1F540AED298E0D66 /* Pods_CovidWatch_iOSTests.framework */; };
 		BC6B4CB72448BB08003FB3F9 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */; };
 		BC6B4CBA2448BC50003FB3F9 /* AccessibilityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB92448BC50003FB3F9 /* AccessibilityLabel.swift */; };
 		E1C729FF243DE30900D30118 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C729FE243DE30900D30118 /* Test.swift */; };
@@ -135,9 +135,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		15EA13EF4743F7833F4E84E4 /* Pods-CovidWatch iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS.release.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS.release.xcconfig"; sourceTree = "<group>"; };
-		27A4B6F15733C6DCEA2D3B84 /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B5565D9FFECCCC3FEE46F0C /* Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D14F7BE2452D62B00C02C0D /* CurrentUserExposureNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUserExposureNotifier.swift; sourceTree = "<group>"; };
 		2D30EFC2242268010063C211 /* Array+Chunked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunked.swift"; sourceTree = "<group>"; };
 		2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Shared.swift"; sourceTree = "<group>"; };
@@ -209,10 +206,7 @@
 		2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		2EFE630B2440E9EA00D00305 /* InfoBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBanner.swift; sourceTree = "<group>"; };
 		2EFE68E2244E8F7F003D1E48 /* OnboardingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlow.swift; sourceTree = "<group>"; };
-		3153DFC3C72FA8DA9C29BF39 /* Pods-CovidWatch iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOSTests/Pods-CovidWatch iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		328891014B90A28E0C90E061 /* Pods-COVID-19 RiskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 RiskTests.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 RiskTests/Pods-COVID-19 RiskTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig"; sourceTree = "<group>"; };
-		57CE4FAE20E8C37783B13038 /* Pods-CovidWatch iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOSTests.release.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOSTests/Pods-CovidWatch iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		38C1D7CF1123BCCB3961F9EA /* Pods-CovidWatch iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOSTests.release.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOSTests/Pods-CovidWatch iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		600678272450FC5D006DBD5D /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		60808C3324524291007415FE /* HowItWorks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowItWorks.swift; path = "COVIDWatch iOS/ViewControllers/HowItWorks.swift"; sourceTree = SOURCE_ROOT; };
 		60808C37245242DF007415FE /* HowItWorks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = HowItWorks.storyboard; path = "CovidWatch iOS/HowItWorks.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -225,25 +219,19 @@
 		60EF50F22440FAA4006CDD76 /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		60EF50F62440FAE0006CDD76 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		60EF50F82440FAF3006CDD76 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
-		64576CBB2D573736A801A228 /* Pods-COVIDWatch iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS/Pods-COVIDWatch iOS.release.xcconfig"; sourceTree = "<group>"; };
-		68229525C3FC0E16F5BEA5CD /* Pods-COVID-19 Risk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk.release.xcconfig"; sourceTree = "<group>"; };
-		797D91CDEEC20C267ED17AE4 /* Pods-COVIDWatch iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOSTests.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOSTests/Pods-COVIDWatch iOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		7E3CADDEACD0F3541537B6DD /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS-COVIDWatch iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS-COVIDWatch iOSUITests/Pods-COVIDWatch iOS-COVIDWatch iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		7F293D45E3BC5EBA2B01FADE /* Pods-CovidWatch iOS-CovidWatch iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS-CovidWatch iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
-		9536319CF10BEAB26C74FAD2 /* Pods_CovidWatch_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidWatch_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AE0C66067225E42AE3D3DA1 /* Pods-COVID-19 RiskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 RiskTests.release.xcconfig"; path = "Target Support Files/Pods-COVID-19 RiskTests/Pods-COVID-19 RiskTests.release.xcconfig"; sourceTree = "<group>"; };
-		9B2EC3BF1237512C18D931F1 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk-COVID-19 RiskUITests/Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		A236DDAE6CBC8116CEEE63D5 /* Pods-COVIDWatch iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS.debug.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS/Pods-COVIDWatch iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		A40ADD9EFD1AE21913D43EB7 /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOS-COVIDWatch iOSUITests/Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
-		A5B373FB19305537F2E1D4A1 /* Pods-COVID-19 Risk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVID-19 Risk.debug.xcconfig"; path = "Target Support Files/Pods-COVID-19 Risk/Pods-COVID-19 Risk.debug.xcconfig"; sourceTree = "<group>"; };
+		8917C452E0B41C1EF3DDE63A /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98574A535CCB62985CACF06E /* Pods-CovidWatch iOS-CovidWatch iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS-CovidWatch iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AAEB6B4913E90B327C8F1F7E /* Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B28D19F15F7DF07DA2DFB9EB /* Pods-CovidWatch iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS.release.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS.release.xcconfig"; sourceTree = "<group>"; };
+		B5D1F8981870B212596AF55D /* Pods_CovidWatch_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidWatch_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		BC6B4CB92448BC50003FB3F9 /* AccessibilityLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityLabel.swift; sourceTree = "<group>"; };
-		DBD5C8913EF7FAE876BE4BA7 /* Pods-CovidWatch iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS.debug.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		C87741FDD3F9F0600A6673B8 /* Pods-CovidWatch iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS.debug.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D2B92ABC1F540AED298E0D66 /* Pods_CovidWatch_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidWatch_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C729FE243DE30900D30118 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		E24BC322244545CB00819EF0 /* NotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermission.swift; sourceTree = "<group>"; };
 		E2B451A824443FE900E17888 /* BluetoothPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothPermission.swift; sourceTree = "<group>"; };
-		ECF661F853918EA18D1C729B /* Pods-COVIDWatch iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDWatch iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-COVIDWatch iOSTests/Pods-COVIDWatch iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F6C0A11A172E6B5635D50B7E /* Pods_CovidWatch_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidWatch_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDB7DEFEE5EBB4448ED04D36 /* Pods-CovidWatch iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOSTests/Pods-CovidWatch iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,8 +239,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D667D802451AB0C0071C353 /* TCNClient in Frameworks */,
-				A27A144749025F5702DEF897 /* Pods_CovidWatch_iOS.framework in Frameworks */,
+				2D667D802451AB0C0071C353 /* BuildFile in Frameworks */,
+				7A05D2F61BD1CD7FF719C9E7 /* Pods_CovidWatch_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A132EC6A9798E0BD6919591B /* Pods_CovidWatch_iOSTests.framework in Frameworks */,
+				A38D9EBD82F1C1A85E30D151 /* Pods_CovidWatch_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,13 +256,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41D4C0CB1E94A11F76A92C4C /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework in Frameworks */,
+				780018A7361507BB6093AB79 /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08B5CD643C991D4EFE7E131F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5D1F8981870B212596AF55D /* Pods_CovidWatch_iOS.framework */,
+				8917C452E0B41C1EF3DDE63A /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework */,
+				D2B92ABC1F540AED298E0D66 /* Pods_CovidWatch_iOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2D044469241A229E006B61E4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,7 +349,7 @@
 				2DFDC5C624190ABA00B108F8 /* CovidWatch iOSUITests */,
 				2DFDC5A024190AB700B108F8 /* Products */,
 				5AECD6E91A3FC6D786A4C832 /* Pods */,
-				DADF6E488DD3842604EFF7C1 /* Frameworks */,
+				08B5CD643C991D4EFE7E131F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -469,24 +467,12 @@
 		5AECD6E91A3FC6D786A4C832 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A5B373FB19305537F2E1D4A1 /* Pods-COVID-19 Risk.debug.xcconfig */,
-				68229525C3FC0E16F5BEA5CD /* Pods-COVID-19 Risk.release.xcconfig */,
-				9B2EC3BF1237512C18D931F1 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.debug.xcconfig */,
-				3B7D25614E640EE632352602 /* Pods-COVID-19 Risk-COVID-19 RiskUITests.release.xcconfig */,
-				328891014B90A28E0C90E061 /* Pods-COVID-19 RiskTests.debug.xcconfig */,
-				9AE0C66067225E42AE3D3DA1 /* Pods-COVID-19 RiskTests.release.xcconfig */,
-				A236DDAE6CBC8116CEEE63D5 /* Pods-COVIDWatch iOS.debug.xcconfig */,
-				64576CBB2D573736A801A228 /* Pods-COVIDWatch iOS.release.xcconfig */,
-				7E3CADDEACD0F3541537B6DD /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.debug.xcconfig */,
-				A40ADD9EFD1AE21913D43EB7 /* Pods-COVIDWatch iOS-COVIDWatch iOSUITests.release.xcconfig */,
-				ECF661F853918EA18D1C729B /* Pods-COVIDWatch iOSTests.debug.xcconfig */,
-				797D91CDEEC20C267ED17AE4 /* Pods-COVIDWatch iOSTests.release.xcconfig */,
-				DBD5C8913EF7FAE876BE4BA7 /* Pods-CovidWatch iOS.debug.xcconfig */,
-				15EA13EF4743F7833F4E84E4 /* Pods-CovidWatch iOS.release.xcconfig */,
-				2B5565D9FFECCCC3FEE46F0C /* Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig */,
-				7F293D45E3BC5EBA2B01FADE /* Pods-CovidWatch iOS-CovidWatch iOSUITests.release.xcconfig */,
-				3153DFC3C72FA8DA9C29BF39 /* Pods-CovidWatch iOSTests.debug.xcconfig */,
-				57CE4FAE20E8C37783B13038 /* Pods-CovidWatch iOSTests.release.xcconfig */,
+				C87741FDD3F9F0600A6673B8 /* Pods-CovidWatch iOS.debug.xcconfig */,
+				B28D19F15F7DF07DA2DFB9EB /* Pods-CovidWatch iOS.release.xcconfig */,
+				AAEB6B4913E90B327C8F1F7E /* Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig */,
+				98574A535CCB62985CACF06E /* Pods-CovidWatch iOS-CovidWatch iOSUITests.release.xcconfig */,
+				EDB7DEFEE5EBB4448ED04D36 /* Pods-CovidWatch iOSTests.debug.xcconfig */,
+				38C1D7CF1123BCCB3961F9EA /* Pods-CovidWatch iOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -500,16 +486,6 @@
 			path = StringStorage;
 			sourceTree = "<group>";
 		};
-		DADF6E488DD3842604EFF7C1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9536319CF10BEAB26C74FAD2 /* Pods_CovidWatch_iOS.framework */,
-				27A4B6F15733C6DCEA2D3B84 /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework */,
-				F6C0A11A172E6B5635D50B7E /* Pods_CovidWatch_iOSTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -517,13 +493,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DFDC5CC24190ABA00B108F8 /* Build configuration list for PBXNativeTarget "CovidWatch iOS" */;
 			buildPhases = (
-				FF47CA4630BD6DE9380890D3 /* [CP] Check Pods Manifest.lock */,
+				F6FA55DDA851E1F8C67D2A2B /* [CP] Check Pods Manifest.lock */,
 				2E48145F244FD0370025EA9B /* Environment */,
 				E206411D243EB03A00FB08AE /* SwiftLint */,
 				2DFDC59B24190AB700B108F8 /* Sources */,
 				2DFDC59C24190AB700B108F8 /* Frameworks */,
 				2DFDC59D24190AB700B108F8 /* Resources */,
-				7F1803136CC3C3E485586BD6 /* [CP] Embed Pods Frameworks */,
+				A01DD780D7E7848E9CC73A04 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -531,7 +507,7 @@
 			);
 			name = "CovidWatch iOS";
 			packageProductDependencies = (
-				2D667D7F2451AB0C0071C353 /* TCNClient */,
+				2D667D7F2451AB0C0071C353 /* SwiftPackageProductDependency */,
 			);
 			productName = "COVID-19 Risk";
 			productReference = 2DFDC59F24190AB700B108F8 /* Covid Watch.app */;
@@ -541,7 +517,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DFDC5CF24190ABA00B108F8 /* Build configuration list for PBXNativeTarget "CovidWatch iOSTests" */;
 			buildPhases = (
-				FC6303ED284885D616B54BE3 /* [CP] Check Pods Manifest.lock */,
+				ECE4C21607FA5164F259713A /* [CP] Check Pods Manifest.lock */,
 				2DFDC5B424190ABA00B108F8 /* Sources */,
 				2DFDC5B524190ABA00B108F8 /* Frameworks */,
 				2DFDC5B624190ABA00B108F8 /* Resources */,
@@ -560,11 +536,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DFDC5D224190ABA00B108F8 /* Build configuration list for PBXNativeTarget "CovidWatch iOSUITests" */;
 			buildPhases = (
-				25309401B212C1929A08560C /* [CP] Check Pods Manifest.lock */,
+				ADF06B72932368F4A0571E45 /* [CP] Check Pods Manifest.lock */,
 				2DFDC5BF24190ABA00B108F8 /* Sources */,
 				2DFDC5C024190ABA00B108F8 /* Frameworks */,
 				2DFDC5C124190ABA00B108F8 /* Resources */,
-				2BA397E932D420A7FF011A44 /* [CP] Embed Pods Frameworks */,
+				485222BC2D212C70D9B741C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -609,7 +585,7 @@
 			);
 			mainGroup = 2DFDC59624190AB700B108F8;
 			packageReferences = (
-				2D667D7E2451AB0C0071C353 /* XCRemoteSwiftPackageReference "tcn-client-ios" */,
+				2D667D7E2451AB0C0071C353 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 2DFDC5A024190AB700B108F8 /* Products */;
 			projectDirPath = "";
@@ -695,7 +671,59 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		25309401B212C1929A08560C /* [CP] Check Pods Manifest.lock */ = {
+		2E48145F244FD0370025EA9B /* Environment */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Environment;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# contents of SCHEME_FILE is definied in the scheme > build > pre action\n# SCHEME_FILE path is definied in Target Build Settings User Defined ENV vars\necho \"Running Scheme and IP Sniffer\"\nSCHEME_NAME=`cat ${SCHEME_FILE}`\necho $SCHEME_NAME\necho $INFOPLIST_FILE\n/usr/libexec/PlistBuddy -c \"Set :SchemeName \\\"$SCHEME_NAME\\\"\" \"$INFOPLIST_FILE\"\nif [ \"$SCHEME_NAME\" = \"covidwatch-ios-dev\" ]; then\nLOCAL_IP=$(LANG=C /sbin/ifconfig  | sed -ne $'/127.0.0.1/ ! { s/^[ \\t]*inet[ \\t]\\\\{1,99\\\\}\\\\(addr:\\\\)\\\\{0,1\\\\}\\\\([0-9.]*\\\\)[ \\t\\/].*$/\\\\2/p; }' | head -n 1)\nelse\nLOCAL_IP=\"\"\nfi;\n/usr/libexec/PlistBuddy -c \"Set :LocalIP \\\"$LOCAL_IP\\\"\" \"$INFOPLIST_FILE\"\n";
+		};
+		485222BC2D212C70D9B741C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A01DD780D7E7848E9CC73A04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADF06B72932368F4A0571E45 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -717,58 +745,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2BA397E932D420A7FF011A44 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2E48145F244FD0370025EA9B /* Environment */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Environment;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# contents of SCHEME_FILE is definied in the scheme > build > pre action\n# SCHEME_FILE path is definied in Target Build Settings User Defined ENV vars\necho \"Running Scheme and IP Sniffer\"\nSCHEME_NAME=`cat ${SCHEME_FILE}`\necho $SCHEME_NAME\necho $INFOPLIST_FILE\n/usr/libexec/PlistBuddy -c \"Set :SchemeName \\\"$SCHEME_NAME\\\"\" \"$INFOPLIST_FILE\"\nif [ \"$SCHEME_NAME\" = \"covidwatch-ios-dev\" ]; then\nLOCAL_IP=$(LANG=C /sbin/ifconfig  | sed -ne $'/127.0.0.1/ ! { s/^[ \\t]*inet[ \\t]\\\\{1,99\\\\}\\\\(addr:\\\\)\\\\{0,1\\\\}\\\\([0-9.]*\\\\)[ \\t\\/].*$/\\\\2/p; }' | head -n 1)\nelse\nLOCAL_IP=\"\"\nfi;\n/usr/libexec/PlistBuddy -c \"Set :LocalIP \\\"$LOCAL_IP\\\"\" \"$INFOPLIST_FILE\"\n";
-		};
-		7F1803136CC3C3E485586BD6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E206411D243EB03A00FB08AE /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -787,7 +763,7 @@
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint --strict\n";
 		};
-		FC6303ED284885D616B54BE3 /* [CP] Check Pods Manifest.lock */ = {
+		ECE4C21607FA5164F259713A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -809,7 +785,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FF47CA4630BD6DE9380890D3 /* [CP] Check Pods Manifest.lock */ = {
+		F6FA55DDA851E1F8C67D2A2B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1130,7 +1106,7 @@
 		};
 		2DFDC5CD24190ABA00B108F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBD5C8913EF7FAE876BE4BA7 /* Pods-CovidWatch iOS.debug.xcconfig */;
+			baseConfigurationReference = C87741FDD3F9F0600A6673B8 /* Pods-CovidWatch iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1157,7 +1133,7 @@
 		};
 		2DFDC5CE24190ABA00B108F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15EA13EF4743F7833F4E84E4 /* Pods-CovidWatch iOS.release.xcconfig */;
+			baseConfigurationReference = B28D19F15F7DF07DA2DFB9EB /* Pods-CovidWatch iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1184,7 +1160,7 @@
 		};
 		2DFDC5D024190ABA00B108F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3153DFC3C72FA8DA9C29BF39 /* Pods-CovidWatch iOSTests.debug.xcconfig */;
+			baseConfigurationReference = EDB7DEFEE5EBB4448ED04D36 /* Pods-CovidWatch iOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1208,7 +1184,7 @@
 		};
 		2DFDC5D124190ABA00B108F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57CE4FAE20E8C37783B13038 /* Pods-CovidWatch iOSTests.release.xcconfig */;
+			baseConfigurationReference = 38C1D7CF1123BCCB3961F9EA /* Pods-CovidWatch iOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1232,7 +1208,7 @@
 		};
 		2DFDC5D324190ABA00B108F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B5565D9FFECCCC3FEE46F0C /* Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig */;
+			baseConfigurationReference = AAEB6B4913E90B327C8F1F7E /* Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1255,7 +1231,7 @@
 		};
 		2DFDC5D424190ABA00B108F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F293D45E3BC5EBA2B01FADE /* Pods-CovidWatch iOS-CovidWatch iOSUITests.release.xcconfig */;
+			baseConfigurationReference = 98574A535CCB62985CACF06E /* Pods-CovidWatch iOS-CovidWatch iOSUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1318,7 +1294,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2D667D7E2451AB0C0071C353 /* XCRemoteSwiftPackageReference "tcn-client-ios" */ = {
+		2D667D7E2451AB0C0071C353 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TCNCoalition/tcn-client-ios";
 			requirement = {
@@ -1329,9 +1305,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2D667D7F2451AB0C0071C353 /* TCNClient */ = {
+		2D667D7F2451AB0C0071C353 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2D667D7E2451AB0C0071C353 /* XCRemoteSwiftPackageReference "tcn-client-ios" */;
+			package = 2D667D7E2451AB0C0071C353 /* RemoteSwiftPackageReference */;
 			productName = TCNClient;
 		};
 /* End XCSwiftPackageProductDependency section */

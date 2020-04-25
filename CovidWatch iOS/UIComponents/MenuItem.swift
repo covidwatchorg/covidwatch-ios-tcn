@@ -59,10 +59,7 @@ class MenuItem: UIView {
             linkImg.frame.size.width = linkImg.frame.size.height
             linkImg.center.y = self.center.y
             linkImg.frame.origin.x = self.frame.maxX - linkImg.frame.size.width
-            linkImg.isHidden = true
         }
-        text.isHidden = true
-        self.isHidden = true
         linkImg?.layer.zPosition = 1
         text.layer.zPosition = 1
         self.layer.zPosition = 1
@@ -74,12 +71,10 @@ class MenuItem: UIView {
         }
     }
     
-    func toggleShow() {
-        self.isHidden = !self.isHidden
-        text.isHidden = !text.isHidden
-        if let linkImg = linkImg {
-            linkImg.isHidden = !linkImg.isHidden
-        }
+    func translateXPosition(_ units: CGFloat) {
+        self.frame.origin.x += units
+        self.text.frame.origin.x += units
+        self.linkImg?.frame.origin.x += units
     }
     
     @objc func onClick() {
