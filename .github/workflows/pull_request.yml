@@ -29,3 +29,15 @@ jobs:
       - name: Run Tests
         run: |
           bundle exec fastlane tests
+
+  lint:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          gem install bundler:1.16.6
+          bundle install
+      - name: Run Lint
+        run: |
+          bundle exec fastlane ios lint

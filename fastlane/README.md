@@ -31,6 +31,11 @@ Run UI and Unit Tests
 fastlane ios build
 ```
 Build Only
+### ios lint
+```
+fastlane ios lint
+```
+SwiftLint
 
 ----
 
