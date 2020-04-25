@@ -35,4 +35,4 @@ jobs:
           PR_BRANCH: github.event.pull_request.head.ref
           SONARCLOUD_LOGIN_KEY: ${{ secrets.SONARCLOUD_LOGIN_KEY }}
         run: |
-          bundle exec fastlane run_sonar login: $SONARCLOUD_LOGIN_KEY, branch: $PR_BRANCH, key: $PULL_NUMBER
+          bundle exec fastlane ios run_sonar login: $SONARCLOUD_LOGIN_KEY, branch: $PR_BRANCH, key: $PULL_NUMBER
