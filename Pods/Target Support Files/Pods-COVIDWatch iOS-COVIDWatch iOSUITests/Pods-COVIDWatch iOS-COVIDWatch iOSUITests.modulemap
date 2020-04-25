@@ -1,6 +1,0 @@
-framework module Pods_CovidWatch_iOS_CovidWatch_iOSUITests {
-  umbrella header "Pods-CovidWatch iOS-CovidWatch iOSUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
