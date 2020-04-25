@@ -40,4 +40,8 @@ platform :ios do
     build_app(workspace: "COVIDWatch.xcworkspace", scheme: "covidwatch-ios-dev", skip_codesigning: true, skip_archive: true)
   end
 
+  desc "SwiftLint"
+  lane :lint do
+    swiftlint(executable: 'Pods/SwiftLint/swiftlint', strict: true)
+  end
 end
