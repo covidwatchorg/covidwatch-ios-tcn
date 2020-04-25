@@ -1,5 +1,5 @@
 //
-//  Splash-4.swift
+//  SplashViewController.swift
 //  CovidWatch iOS
 //
 //  Created by Laima Cernius-Ink on 4/4/20.
@@ -8,22 +8,11 @@
 
 import UIKit
 
-class Splash: UIViewController {
+class SplashViewController: UIViewController {
 
     @IBOutlet var mainLogoImg: UIImageView!
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var startButton: UIButton!
-
-    // this happens if bluetooth is changed during onboarding and the user
-    // gets bounced back to the start of onboarding when reloading the app
-    static let onboardingStartedKey = "onboardingStarted"
-    func checkIfStartedOnboarding() -> Bool {
-        // defaults to false
-        return UserDefaults.standard.bool(forKey: Splash.onboardingStartedKey)
-    }
-    func setOnboardingStarted() {
-        UserDefaults.standard.set(true, forKey: Splash.onboardingStartedKey)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +20,9 @@ class Splash: UIViewController {
         // accessibility identifiers
         setupAccessibilityAndLocalization()
         
-        if checkIfStartedOnboarding() {
+        if UserDefaults.standard.get(.onboardingStarted) ?? false {
             DispatchQueue.main.async {
-                self.goToBluetoothNoAnimation()
+                self.goToBluetooth()
             }
         }
     }
@@ -46,10 +35,7 @@ class Splash: UIViewController {
     }
     
     func goToBluetooth() {
-        self.performSegue(withIdentifier: "SplashToBluetooth", sender: self)
+        self.performSegue(withIdentifier: "\(Bluetooth.self)", sender: self)
     }
 
-    func goToBluetoothNoAnimation() {
-        self.performSegue(withIdentifier: "SplashToBluetoothQuick", sender: self)
-    }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F618FE52453B2000091D7D0 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F618FE42453B2000091D7D0 /* UserDefaultsExtension.swift */; };
 		1F9258FA245258E30025C1B0 /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE68E2244E8F7F003D1E48 /* OnboardingFlow.swift */; };
 		1F9258FB245258E60025C1B0 /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48145B244F6E020025EA9B /* Springboard.swift */; };
 		2D14F7BF2452D62B00C02C0D /* CurrentUserExposureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D14F7BE2452D62B00C02C0D /* CurrentUserExposureNotifier.swift */; };
@@ -51,7 +52,7 @@
 		2E1F870A2448FE9800957EBA /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F22440FAA4006CDD76 /* Notifications.storyboard */; };
 		2E1F870B2448FE9800957EBA /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
 		2E1F870C2448FE9800957EBA /* Bluetooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F02440E624006CDD76 /* Bluetooth.storyboard */; };
-		2E1FDBF32439275E000D8D67 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash.swift */; };
+		2E1FDBF32439275E000D8D67 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* SplashViewController.swift */; };
 		2E1FDBF5243929F4000D8D67 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */; };
 		2E1FDC0824393C5A000D8D67 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF624393C53000D8D67 /* Montserrat-ThinItalic.ttf */; };
 		2E1FDC0924393C5A000D8D67 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF724393C53000D8D67 /* Montserrat-ExtraBoldItalic.ttf */; };
@@ -128,6 +129,7 @@
 
 /* Begin PBXFileReference section */
 		15EA13EF4743F7833F4E84E4 /* Pods-CovidWatch iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS.release.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS.release.xcconfig"; sourceTree = "<group>"; };
+		1F618FE42453B2000091D7D0 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		27A4B6F15733C6DCEA2D3B84 /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5565D9FFECCCC3FEE46F0C /* Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D14F7BE2452D62B00C02C0D /* CurrentUserExposureNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUserExposureNotifier.swift; sourceTree = "<group>"; };
@@ -165,7 +167,7 @@
 		2DFDC5C324190ABA00B108F8 /* CovidWatch iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CovidWatch iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFDC5C924190ABA00B108F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E0E86E5243D05260084F8ED /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		2E1FDBF22439275E000D8D67 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
+		2E1FDBF22439275E000D8D67 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
 		2E1FDBF624393C53000D8D67 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
 		2E1FDBF724393C53000D8D67 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -290,7 +292,7 @@
 		2D9D70AD241CCB4B007ABD89 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2E1FDBF22439275E000D8D67 /* Splash.swift */,
+				2E1FDBF22439275E000D8D67 /* SplashViewController.swift */,
 				2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */,
 				2E1FDC1A24394424000D8D67 /* Notifications.swift */,
 				2EFE6303243F990900D00305 /* Home.swift */,
@@ -328,6 +330,7 @@
 				E24BC322244545CB00819EF0 /* NotificationPermission.swift */,
 				E2B451A824443FE900E17888 /* BluetoothPermission.swift */,
 				2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */,
+				1F618FE42453B2000091D7D0 /* UserDefaultsExtension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -830,7 +833,7 @@
 				2D667D932451AF940071C353 /* TemporaryContactNumber+Additions.swift in Sources */,
 				2D667D872451AE610071C353 /* KeyStoreError.swift in Sources */,
 				2DC231E6241B886C00216404 /* Firestore+Constants.swift in Sources */,
-				2E1FDBF32439275E000D8D67 /* Splash.swift in Sources */,
+				2E1FDBF32439275E000D8D67 /* SplashViewController.swift in Sources */,
 				2D667D8D2451AEC90071C353 /* SignedReportsUploader.swift in Sources */,
 				2EBF8731243C09F1003278E6 /* Button.swift in Sources */,
 				2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */,
@@ -856,6 +859,7 @@
 				2DC231EC241BA17B00216404 /* UIViewController+ErrorPresenting.swift in Sources */,
 				2D667D882451AE610071C353 /* GenericPasswordStore.swift in Sources */,
 				2E48145E244FCCDD0025EA9B /* Environment.swift in Sources */,
+				1F618FE52453B2000091D7D0 /* UserDefaultsExtension.swift in Sources */,
 				2DC231EE241BA27800216404 /* AppDelegate+UserNotificationCenter.swift in Sources */,
 				2D667D8B2451AEA20071C353 /* OSLog+Additions.swift in Sources */,
 				2EBF8735243CE60E003278E6 /* Menu.swift in Sources */,

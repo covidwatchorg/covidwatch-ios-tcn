@@ -70,7 +70,7 @@ class Bluetooth: BaseViewController {
                     if UserDefaults.standard.isContactTracingEnabled == false {
                         UserDefaults.standard.isContactTracingEnabled = true
                     }
-                    self?.performSegue(withIdentifier: "BluetoothToNotifications", sender: self)
+                    self?.performSegue(withIdentifier: "\(Notifications.self)", sender: self)
                 case .failure:
                     self?.buttonRecognizer?.isEnabled = true
 
