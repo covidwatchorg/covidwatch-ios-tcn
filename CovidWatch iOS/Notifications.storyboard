@@ -95,7 +95,7 @@
                         <outlet property="button" destination="4b9-6o-kDC" id="Uqm-bQ-oJ8"/>
                         <outlet property="largeText" destination="yan-G5-hVS" id="Us2-BS-eMK"/>
                         <outlet property="mainText" destination="nqJ-eb-64q" id="SK1-S3-iuY"/>
-                        <segue destination="guM-vv-Igu" kind="presentation" identifier="NotificationsToFinish" animates="NO" modalPresentationStyle="fullScreen" id="TMd-7T-b6T"/>
+                        <segue destination="guM-vv-Igu" kind="show" identifier="NotificationsToFinish" id="TMd-7T-b6T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vA-bp-O6q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -108,15 +108,17 @@
                 <viewControllerPlaceholder storyboardName="HeaderViewController" id="7Zi-fn-PC1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9d-rW-jGJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712" y="-29"/>
+            <point key="canvasLocation" x="913" y="-61"/>
         </scene>
         <!--Home-->
         <scene sceneID="RTf-Bk-Zsl">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="guM-vv-Igu" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Home" id="guM-vv-Igu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QY5-kr-Dc9"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ej-dX-Mrx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="754" y="173"/>
+            <point key="canvasLocation" x="769" y="145"/>
         </scene>
     </scenes>
     <resources>

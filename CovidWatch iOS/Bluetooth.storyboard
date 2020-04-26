@@ -109,7 +109,7 @@
                         <outlet property="button" destination="CF7-QT-FGN" id="KAy-jf-fBs"/>
                         <outlet property="largeText" destination="hY4-2I-9p1" id="Esp-Xd-7HS"/>
                         <outlet property="mainText" destination="fX9-zF-oWw" id="Nqy-cq-0Y5"/>
-                        <segue destination="pua-AE-BBm" kind="presentation" identifier="BluetoothToNotifications" animates="NO" modalPresentationStyle="fullScreen" id="lVW-ia-WQh"/>
+                        <segue destination="pua-AE-BBm" kind="show" identifier="BluetoothToNotifications" id="lVW-ia-WQh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAX-Zo-hX9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -119,7 +119,9 @@
         <!--Notifications-->
         <scene sceneID="4Fg-Ka-CFQ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Notifications" id="pua-AE-BBm" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Notifications" id="pua-AE-BBm" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hPv-9m-WGk"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ed1-Ce-OPA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="774" y="-117"/>
