@@ -72,7 +72,7 @@ jobs:
           sonar-scanner \
           -Dsonar.organization=covid19risk \
           -Dsonar.projectKey=covid19risk_covidwatch-ios \
-          -Dsonar.sources=. \
+          -Dsonar.sources="./CovidWatch iOS, ./CovidWatch iOSUITests, ./CovidWatch iOSTests" \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=$SONARCLOUD_LOGIN_KEY \
           -Dsonar.pullrequest.branch=$PR_BRANCH \
