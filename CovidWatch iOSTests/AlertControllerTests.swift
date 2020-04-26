@@ -44,7 +44,7 @@ class AlertControllerTests: XCTestCase {
     }
     
     func testNotificationAlert() throws {
-        let alert = UIAlertController.bluetoothAlert
+        let alert = UIAlertController.notificationAlert
         
         //validate title
         guard let title = alert.title else {
