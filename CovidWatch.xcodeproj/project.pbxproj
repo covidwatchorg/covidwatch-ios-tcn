@@ -1120,7 +1120,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios.CovidWatchiOSTests;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.covidwatch.ios.CovidWatchiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1144,7 +1144,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios.CovidWatchiOSTests;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.covidwatch.ios.CovidWatchiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1167,7 +1167,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios.CovidWatchiOSUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.covidwatch.ios.CovidWatchiOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1190,7 +1190,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.covidwatch.tags.ios.CovidWatchiOSUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.covidwatch.ios.CovidWatchiOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

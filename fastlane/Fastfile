@@ -32,6 +32,8 @@ platform :ios do
     run_tests(workspace: "COVIDWatch.xcworkspace",
               devices: ["iPhone 11"],
               reinstall_app: true,
+              code_coverage: true,
+              derived_data_path: "Build",
               scheme: "covidwatch-ios-test")
   end
 
@@ -40,4 +42,8 @@ platform :ios do
     build_app(workspace: "COVIDWatch.xcworkspace", scheme: "covidwatch-ios-dev", skip_codesigning: true, skip_archive: true)
   end
 
+  desc "SwiftLint"
+  lane :lint do
+    swiftlint(executable: 'Pods/SwiftLint/swiftlint', strict: true)
+  end
 end

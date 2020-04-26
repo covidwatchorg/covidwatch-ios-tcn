@@ -34,6 +34,7 @@ class OnboardingFlow: XCTestCase {
     }
 
     //    Test for when the user does all the right things in the onboarding flow
+    //swiftlint:disable function_body_length
     func testOnboardingFlow() {
         let app = XCUIApplication()
 
@@ -100,7 +101,9 @@ class OnboardingFlow: XCTestCase {
                 bluetoothAllowed = true
                 return true
             }
-            app.tap() // needed to trigger addUIInterruptionMonitor
+            wait {
+                app.tap() // needed to trigger addUIInterruptionMonitor
+            }
         #endif
 
         waitAndCheck { bluetoothAllowed }
@@ -118,8 +121,9 @@ class OnboardingFlow: XCTestCase {
             return true
         }
         app/*@START_MENU_TOKEN@*/.staticTexts["button-text"]/*[[".staticTexts[\"Allow Notifications\"]",".staticTexts[\"button-text\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.tap() // needed to trigger addUIInterruptionMonitor
-
+        wait {
+            app.tap() // needed to trigger addUIInterruptionMonitor
+        }
         waitAndCheck { alertPressed }
     }
 }
@@ -130,6 +134,15 @@ extension XCTestCase {
         let result = XCTWaiter.wait(for: [exp], timeout: timeout)
         if result == XCTWaiter.Result.timedOut {
             XCTAssertTrue(callback())
+        } else {
+            XCTFail("Timout wating \(timeout) for \(description)")
+        }
+    }
+    func wait(_ description: String = "", _ timeout: Double = 0.5, callback: () -> Void) {
+        let exp = self.expectation(description: description)
+        let result = XCTWaiter.wait(for: [exp], timeout: timeout)
+        if result == XCTWaiter.Result.timedOut {
+            callback()
         } else {
             XCTFail("Timout wating \(timeout) for \(description)")
         }
