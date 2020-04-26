@@ -80,7 +80,9 @@ jobs:
           -Dsonar.pullrequest.branch=$PR_BRANCH \
           -Dsonar.pullrequest.base=dev \
           -Dsonar.pullrequest.key=$PULL_NUMBER \
+          -Dsonar.coverageReportPaths=sonarqube-generic-coverage.xml \
           -Dsonar.c.file.suffixes=- \
           -Dsonar.cpp.file.suffixes=- \
-          -Dsonar.objc.file.suffixes=- \
-          -Dsonar.coverageReportPaths=sonarqube-generic-coverage.xml
+          -Dsonar.objc.file.suffixes=-
+          
+          
