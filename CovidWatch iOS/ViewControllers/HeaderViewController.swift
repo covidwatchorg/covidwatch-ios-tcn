@@ -24,7 +24,7 @@ extension HeaderViewControllerDelegate {
 class HeaderViewController: UIViewController {
     weak var delegate: HeaderViewControllerDelegate?
     @IBOutlet weak var btnMenu: UIButton!
-    @IBOutlet weak var imgLogo: UIImageView!
+    @IBOutlet weak var btnLogo: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,5 +33,12 @@ class HeaderViewController: UIViewController {
     
     @IBAction func btnMenuTapped(_ sender: Any) {
         self.delegate?.menuWasTapped()
+    }
+    
+    @IBAction func btnLogoTapped(_ sender: Any) {
+        #if DEBUG
+        UserDefaults.standard.isFirstTimeUser = true
+        self.navigationController?.popToRootViewController(animated: true)
+        #endif
     }
 }
