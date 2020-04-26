@@ -18,11 +18,19 @@ class HowItWorks: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var setupButton: UIButton!
     @IBOutlet var setupButtonHeight: NSLayoutConstraint!
+    @IBOutlet var setupButtonWidth: NSLayoutConstraint!
+    @IBOutlet var howItWorksWidth: NSLayoutConstraint!
+    @IBOutlet var titleWidth: NSLayoutConstraint!
+    @IBOutlet var descriptionWidth: NSLayoutConstraint!
 
     override func updateViewConstraints() {
         if let setupButtonHeight = self.setupButtonHeight {
             setupButtonHeight.constant = (58.0/321.0) * contentMaxWidth
+            setupButtonWidth.constant = contentMaxWidth
         }
+        howItWorksWidth.constant = contentMaxWidth
+        titleWidth.constant = contentMaxWidth
+        descriptionWidth.constant = contentMaxWidth
         super.updateViewConstraints()
     }
     override func viewDidLoad() {
