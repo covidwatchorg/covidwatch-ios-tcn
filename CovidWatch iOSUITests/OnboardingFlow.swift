@@ -33,32 +33,19 @@ class OnboardingFlow: XCTestCase {
         super.tearDown()
     }
 
-    //    Test for when the user does all the right things in the onboarding flow
+    // Test for when the user does all the right things in the onboarding flow
     func testOnboardingFlow() {
-        let app = XCUIApplication()
-
-//        Splash
+        splash()
+        howItWorks()
+        bluetooth()
+        notifications()
+        home()
+    }
+    
+    func splash() {
         XCTAssertTrue(app.images["Title"].exists)
         XCTAssertTrue(app/*@START_MENU_TOKEN@*/.staticTexts["Description"]/*[[".staticTexts[\"splash-description\"]",".staticTexts[\"Description\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.exists)
         app.buttons["Start"].tap()
-
-//        How it Works
-        howItWorks()
-
-        app.buttons["Setup"].tap()
-
-//        Bluetooth and Notifications
-        bluetoothAndNotifications()
-
-//        Home
-//        swiftlint:disable:next todo
-//        TODO: check for header icon, check that menu now does exist
-        let contentTextViewsQuery = app.textViews.matching(identifier: "content")
-        XCTAssertTrue(contentTextViewsQuery.staticTexts["You're all set!"].exists)
-        XCTAssertTrue(contentTextViewsQuery.staticTexts["Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."].exists)
-        let subTextTextViewsQuery = app.textViews.matching(identifier: "sub-text")
-        XCTAssertTrue(subTextTextViewsQuery.staticTexts["It works best when everyone uses it."].exists)
-        XCTAssertTrue(subTextTextViewsQuery.staticTexts["Share your result anonymously to help keep your community stay safe."].exists)
     }
 
     func howItWorks() {
@@ -76,15 +63,14 @@ class OnboardingFlow: XCTestCase {
 
         XCTAssertTrue(app.staticTexts["large-text"].exists)
         XCTAssertTrue(app.staticTexts["main-text"].exists)
+        app.buttons["Setup"].tap()
     }
 
-    //swiftlint:disable function_body_length
-    func bluetoothAndNotifications() {
-//        Bluetooth
+    func bluetooth() {
         XCTAssertTrue(app.images["Logo"].exists)
         XCTAssertFalse(app.buttons["menu"].exists)
         XCTAssertTrue(app.staticTexts["Privately Connect"].exists)
-        var predicate = NSPredicate(format: "label LIKE %@", "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
+        let predicate = NSPredicate(format: "label LIKE %@", "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
         XCTAssertTrue(app.staticTexts.element(matching: predicate).exists)
         XCTAssertTrue(app.staticTexts["This is required for the app to work."].exists)
         app/*@START_MENU_TOKEN@*/.staticTexts["Allow Bluetooth"]/*[[".staticTexts[\"Allow Bluetooth\"]",".staticTexts[\"button-text\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.tap()
@@ -104,12 +90,13 @@ class OnboardingFlow: XCTestCase {
         #endif
 
         waitAndCheck { bluetoothAllowed }
-
-//        Notifications
+    }
+    
+    func notifications() {
         XCTAssertTrue(app.images["Logo"].exists)
         XCTAssertFalse(app.buttons["menu"].exists)
         XCTAssertTrue(app.staticTexts["Receive Alerts"].exists)
-        predicate = NSPredicate(format: "label LIKE %@", "Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19.")
+        let predicate = NSPredicate(format: "label LIKE %@", "Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19.")
         XCTAssertTrue(app.staticTexts.element(matching: predicate).exists)
         var alertPressed = false
         addUIInterruptionMonitor(withDescription: "“Covid Watch” Would Like to Send You Notifications") { (alert) -> Bool in
@@ -122,8 +109,9 @@ class OnboardingFlow: XCTestCase {
             app.tap() // needed to trigger addUIInterruptionMonitor
         }
         waitAndCheck { alertPressed }
-
-//        Home
+    }
+    
+    func home() {
         XCTAssertTrue(app.images["Logo"].exists)
         XCTAssertTrue(app.buttons["menu"].exists)
         let contentTextViewsQuery = app.textViews.matching(identifier: "content")
