@@ -38,7 +38,6 @@ class HowItWorks: UIViewController {
         // accessibility identifiers
         setupAccessibilityAndLocalization()
 
-        UserDefaults.standard.set(true, forKey: Splash.onboardingStartedKey)
         // since screen 4 does not have pages
         if let page1 = self.page1,
             let page2 = self.page2,
@@ -49,7 +48,9 @@ class HowItWorks: UIViewController {
             page3.layer.cornerRadius = 10
             page4.layer.cornerRadius = 10
         }
+        // user has reached last screen
         if let setupButton = self.setupButton {
+            UserDefaults.standard.set(true, forKey: Splash.onboardingStartedKey)
             setupButton.layer.cornerRadius = 10
             var buttonFontSize: CGFloat = 18
             if screenHeight <= 568 {
