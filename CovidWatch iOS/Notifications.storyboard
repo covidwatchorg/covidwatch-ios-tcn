@@ -1,30 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uwZ-cE-CFT">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uwZ-cE-CFT">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Notifications-->
         <scene sceneID="WwF-pM-la6">
             <objects>
-                <viewController id="uwZ-cE-CFT" customClass="Notifications" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uwZ-cE-CFT" customClass="Notifications" customModule="CovidWatch_iOSTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jeb-fd-FpA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-2F-UCU">
+                                <rect key="frame" x="0.0" y="-168" width="226" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="1MQ-Jj-4Id"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="7Zi-fn-PC1" kind="embed" id="xa2-AQ-sdG"/>
+                                </connections>
+                            </containerView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="phone-alerts" translatesAutoresizingMaskIntoConstraints="NO" id="pHD-lC-Lin">
+                                <rect key="frame" x="20" y="83" width="280" height="192"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Allow Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yan-G5-hVS">
+                                <rect key="frame" x="20" y="300" width="280" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="zf2-w2-5Cb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="36"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b9-6o-kDC">
+                                <rect key="frame" x="20" y="494" width="280" height="54"/>
+                                <color key="backgroundColor" name="ButtonColor"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                <state key="normal" title="Allow Notifications">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnTapped:" destination="uwZ-cE-CFT" eventType="touchUpInside" id="PAW-rb-PmJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqJ-eb-64q">
+                                <rect key="frame" x="20" y="354" width="280" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="g5d-45-2jv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                <color key="textColor" name="TextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yan-G5-hVS" firstAttribute="leading" secondItem="Vdm-oP-MqB" secondAttribute="leading" constant="20" id="4kT-xr-Lf4"/>
+                            <constraint firstItem="yan-G5-hVS" firstAttribute="top" secondItem="pHD-lC-Lin" secondAttribute="bottom" constant="25" id="77n-0A-3Op"/>
+                            <constraint firstItem="Vdm-oP-MqB" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4b9-6o-kDC" secondAttribute="bottom" constant="20" id="HfK-DV-UD6"/>
+                            <constraint firstItem="nqJ-eb-64q" firstAttribute="top" secondItem="yan-G5-hVS" secondAttribute="bottom" constant="10" id="IKo-Dd-jHj"/>
+                            <constraint firstItem="Vdm-oP-MqB" firstAttribute="trailing" secondItem="yan-G5-hVS" secondAttribute="trailing" constant="20" id="LHV-0i-11V"/>
+                            <constraint firstItem="4b9-6o-kDC" firstAttribute="height" secondItem="jeb-fd-FpA" secondAttribute="height" multiplier="0.0948661" id="PE7-J5-o5Z"/>
+                            <constraint firstItem="Vdm-oP-MqB" firstAttribute="trailing" secondItem="pHD-lC-Lin" secondAttribute="trailing" constant="20" id="Sqr-ns-UvW"/>
+                            <constraint firstItem="2Fg-2F-UCU" firstAttribute="top" secondItem="Vdm-oP-MqB" secondAttribute="top" id="UEr-bJ-taM"/>
+                            <constraint firstItem="2Fg-2F-UCU" firstAttribute="leading" secondItem="Vdm-oP-MqB" secondAttribute="leading" id="VhU-IQ-Hvo"/>
+                            <constraint firstItem="Vdm-oP-MqB" firstAttribute="trailing" secondItem="nqJ-eb-64q" secondAttribute="trailing" constant="20" id="YYR-AD-NXw"/>
+                            <constraint firstItem="pHD-lC-Lin" firstAttribute="top" secondItem="2Fg-2F-UCU" secondAttribute="bottom" constant="8" id="YjH-0A-wDr"/>
+                            <constraint firstItem="nqJ-eb-64q" firstAttribute="leading" secondItem="Vdm-oP-MqB" secondAttribute="leading" constant="20" id="cch-5e-sFd"/>
+                            <constraint firstItem="2Fg-2F-UCU" firstAttribute="trailing" secondItem="Vdm-oP-MqB" secondAttribute="trailing" id="cgH-xn-bFB"/>
+                            <constraint firstItem="Vdm-oP-MqB" firstAttribute="trailing" secondItem="4b9-6o-kDC" secondAttribute="trailing" constant="20" id="iJm-X1-hJG"/>
+                            <constraint firstItem="pHD-lC-Lin" firstAttribute="leading" secondItem="Vdm-oP-MqB" secondAttribute="leading" constant="20" id="knj-TR-oH3"/>
+                            <constraint firstItem="4b9-6o-kDC" firstAttribute="top" secondItem="nqJ-eb-64q" secondAttribute="bottom" constant="30" id="wd1-La-FOC"/>
+                            <constraint firstItem="4b9-6o-kDC" firstAttribute="leading" secondItem="Vdm-oP-MqB" secondAttribute="leading" constant="20" id="xIq-wy-nQt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Vdm-oP-MqB"/>
                     </view>
                     <connections>
+                        <outlet property="button" destination="4b9-6o-kDC" id="Uqm-bQ-oJ8"/>
+                        <outlet property="largeText" destination="yan-G5-hVS" id="Us2-BS-eMK"/>
+                        <outlet property="mainText" destination="nqJ-eb-64q" id="SK1-S3-iuY"/>
                         <segue destination="guM-vv-Igu" kind="presentation" identifier="NotificationsToFinish" animates="NO" modalPresentationStyle="fullScreen" id="TMd-7T-b6T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vA-bp-O6q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129" y="119"/>
+            <point key="canvasLocation" x="128.98550724637681" y="118.52678571428571"/>
+        </scene>
+        <!--HeaderViewController-->
+        <scene sceneID="Cel-hh-kTr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HeaderViewController" id="7Zi-fn-PC1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W9d-rW-jGJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="712" y="-29"/>
         </scene>
         <!--Home-->
         <scene sceneID="RTf-Bk-Zsl">
@@ -35,4 +119,13 @@
             <point key="canvasLocation" x="754" y="173"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="phone-alerts" width="326" height="324"/>
+        <namedColor name="ButtonColor">
+            <color red="0.17254901960784313" green="0.34509803921568627" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

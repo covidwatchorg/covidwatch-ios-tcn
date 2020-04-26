@@ -12,14 +12,14 @@ class Bluetooth: UIViewController {
     
     // MARK: - Properties
     
-    var bluetoothPermission: BluetoothPermission?
-    var isCheckingBluetoothPermissions = false
+    private var bluetoothPermission: BluetoothPermission?
+    private var isCheckingBluetoothPermissions = false
     
     // MARK: - IBOutlets
     
-    @IBOutlet var largeText: UILabel!
-    @IBOutlet var mainText: UILabel!
-    @IBOutlet var button: UIButton!
+    @IBOutlet private var largeText: UILabel!
+    @IBOutlet private var mainText: UILabel!
+    @IBOutlet private var button: UIButton!
     
     // MARK: - IBActions
     
@@ -29,17 +29,17 @@ class Bluetooth: UIViewController {
     
     // MARK: - UIViewController methods
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let header = segue.destination as? HeaderViewController {
-            header.delegate = self
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAccessibilityAndLocalization()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let header = segue.destination as? HeaderViewController {
+            header.delegate = self
+        }
+    }
+
     // MARK: - Custom
     
     private func setupAccessibilityAndLocalization() {
@@ -49,7 +49,12 @@ class Bluetooth: UIViewController {
         button.accessibilityLabel = AccessibilityLabel.allowButton
     }
     
-    func nextScreen() {
+    private func nextScreen() {
+        guard !self.isCheckingBluetoothPermissions else {
+            print("Already Checking Bluetooth Permissions.")
+            return
+        }
+        
         self.isCheckingBluetoothPermissions = true
         self.bluetoothPermission = BluetoothPermission { [weak self] (result) in
             self?.isCheckingBluetoothPermissions = false
