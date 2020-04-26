@@ -44,7 +44,7 @@ jobs:
           bundle exec fastlane tests
       - name: Convert Logs
         run: |
-          bundle exec fastlane ios process_test_coverage
+          Scripts/xcov-to-sonarqube-generic.sh build/Logs/Test/Run-covidwatch-ios-* > coverage.xml
       - name: Install SonarCloud
         run: |
           export SONAR_SCANNER_VERSION=4.2.0.1873

@@ -47,8 +47,4 @@ platform :ios do
     swiftlint(executable: 'Pods/SwiftLint/swiftlint', strict: true)
   end
 
-  desc "Process Test Coverage Results"
-  lane :process_test_coverage do
-    sh("./Scripts/xcov-to-sonarqube-generic.sh build/Logs/Test/Run-covidwatch-ios-* > coverage.xml")
-  end
 end
