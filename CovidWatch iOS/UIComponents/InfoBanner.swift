@@ -9,13 +9,13 @@
 import UIKit
 
 class InfoBanner: UIView {
-    weak var parentVC: BaseViewController!
+    weak var parentVC: UIViewController!
     var text = UITextView()
     var isInteractive: Bool = false
     let exclamationCircle = UIImageView(image: UIImage(named: "exclamation-circle"))
     let buttonArrow = UIImageView(image: UIImage(named: "button-arrow"))
     private var _onClick: () -> Void = {return}
-    init(_ parentVC: BaseViewController, text: String, onClick: @escaping () -> Void) {
+    init(_ parentVC: UIViewController, text: String, onClick: @escaping () -> Void) {
         self.parentVC = parentVC
         self._onClick = onClick
         super.init(frame: CGRect())

@@ -9,8 +9,8 @@
 import UIKit
 
 class LargeText: UITextView {
-    weak var parentVC: BaseViewController!
-    init(_ parentVC: BaseViewController, text: String) {
+    weak var parentVC: UIViewController!
+    init(_ parentVC: UIViewController, text: String) {
         self.parentVC = parentVC
         super.init(frame: CGRect(), textContainer: nil)
         self.text = text

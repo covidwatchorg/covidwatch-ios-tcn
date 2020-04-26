@@ -8,7 +8,8 @@
 
 import UIKit
 
-class Home: BaseViewController {
+class Home: UIViewController {
+    @IBOutlet weak var header: UIView!
     var img = UIImageView(image: UIImage(named: "family"))
     var largeText: LargeText!
     var mainText: MainText!
@@ -64,10 +65,15 @@ class Home: BaseViewController {
         self.checkNotificationPersmission()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let header = segue.destination as? HeaderViewController {
+            header.delegate = self
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         drawScreen()
-        super.drawMenuOnTop()
     }
     
     @objc func goToTest() {
@@ -263,4 +269,11 @@ class Home: BaseViewController {
         
     }
     
+}
+
+// MARK: - Protocol HeaderViewControllerDelegate
+extension Home: HeaderViewControllerDelegate {
+    func menuWasTapped() {
+        print("Not Implemented")
+    }
 }

@@ -9,11 +9,11 @@
 import UIKit
 
 class Button: UIView {
-    weak var parentVC: BaseViewController!
+    weak var parentVC: UIViewController!
     var text = UILabel()
     var subtext: UITextView?
 
-    init(_ parentVC: BaseViewController, text: String, subtext: String? = nil) {
+    init(_ parentVC: UIViewController, text: String, subtext: String? = nil) {
         self.parentVC = parentVC
         super.init(frame: CGRect())
         self.text.text = text

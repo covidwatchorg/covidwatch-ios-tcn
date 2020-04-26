@@ -40,9 +40,12 @@
                                 <rect key="frame" x="20" y="127" width="374" height="330"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CF7-QT-FGN" customClass="ALButton" customModule="Covid_Watch">
-                                <rect key="frame" x="20" y="676" width="374" height="85"/>
+                                <rect key="frame" x="20" y="676" width="374" height="58"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
                                 <accessibility key="accessibilityConfiguration" identifier="button-text"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="ocg-Th-gSC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                 <state key="normal" title="Allow Bluetooth">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,7 +65,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is required for the app to work." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="7gw-wm-JuF">
-                                <rect key="frame" x="20" y="769" width="374" height="21"/>
+                                <rect key="frame" x="20" y="742" width="374" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ZxO-ez-LGI"/>
                                 </constraints>
@@ -95,7 +98,6 @@
                             <constraint firstItem="oN5-t6-xIK" firstAttribute="top" secondItem="Q3H-7w-Umg" secondAttribute="bottom" constant="8" id="bUl-7i-DwV"/>
                             <constraint firstItem="fX9-zF-oWw" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" constant="20" id="f4Q-bM-VBE"/>
                             <constraint firstItem="hY4-2I-9p1" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" constant="20" id="iNu-2i-tXm"/>
-                            <constraint firstItem="CF7-QT-FGN" firstAttribute="height" secondItem="yCp-hX-fNw" secondAttribute="height" multiplier="0.0948661" id="jUF-CI-v4a"/>
                             <constraint firstItem="oN5-t6-xIK" firstAttribute="leading" secondItem="gNT-XC-4ge" secondAttribute="leading" constant="20" id="mAB-bp-fu4"/>
                             <constraint firstItem="CF7-QT-FGN" firstAttribute="top" secondItem="fX9-zF-oWw" secondAttribute="bottom" constant="30" id="nPS-cG-ztD"/>
                             <constraint firstItem="fX9-zF-oWw" firstAttribute="top" secondItem="hY4-2I-9p1" secondAttribute="bottom" constant="10" id="ola-pt-PcS"/>

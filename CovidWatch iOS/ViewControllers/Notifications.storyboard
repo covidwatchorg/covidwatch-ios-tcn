@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uwZ-cE-CFT">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -24,11 +24,11 @@
             <objects>
                 <viewController id="uwZ-cE-CFT" customClass="Notifications" customModule="CovidWatch_iOSTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jeb-fd-FpA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-2F-UCU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="1MQ-Jj-4Id"/>
                                 </constraints>
@@ -37,10 +37,10 @@
                                 </connections>
                             </containerView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="phone-alerts" translatesAutoresizingMaskIntoConstraints="NO" id="pHD-lC-Lin">
-                                <rect key="frame" x="20" y="83" width="280" height="192"/>
+                                <rect key="frame" x="20" y="127" width="374" height="324"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Allow Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yan-G5-hVS">
-                                <rect key="frame" x="20" y="300" width="280" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Receive Alerts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yan-G5-hVS">
+                                <rect key="frame" x="20" y="476" width="374" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="zf2-w2-5Cb"/>
                                 </constraints>
@@ -49,8 +49,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b9-6o-kDC" customClass="ALButton" customModule="Covid_Watch">
-                                <rect key="frame" x="20" y="494" width="280" height="54"/>
+                                <rect key="frame" x="20" y="670" width="374" height="58"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="DZJ-mr-FBI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                 <state key="normal" title="Allow Notifications">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,7 +63,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqJ-eb-64q">
-                                <rect key="frame" x="20" y="354" width="280" height="110"/>
+                                <rect key="frame" x="20" y="530" width="374" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="g5d-45-2jv"/>
                                 </constraints>
@@ -76,7 +79,6 @@
                             <constraint firstItem="Vdm-oP-MqB" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4b9-6o-kDC" secondAttribute="bottom" constant="20" id="HfK-DV-UD6"/>
                             <constraint firstItem="nqJ-eb-64q" firstAttribute="top" secondItem="yan-G5-hVS" secondAttribute="bottom" constant="10" id="IKo-Dd-jHj"/>
                             <constraint firstItem="Vdm-oP-MqB" firstAttribute="trailing" secondItem="yan-G5-hVS" secondAttribute="trailing" constant="20" id="LHV-0i-11V"/>
-                            <constraint firstItem="4b9-6o-kDC" firstAttribute="height" secondItem="jeb-fd-FpA" secondAttribute="height" multiplier="0.0948661" id="PE7-J5-o5Z"/>
                             <constraint firstItem="Vdm-oP-MqB" firstAttribute="trailing" secondItem="pHD-lC-Lin" secondAttribute="trailing" constant="20" id="Sqr-ns-UvW"/>
                             <constraint firstItem="2Fg-2F-UCU" firstAttribute="top" secondItem="Vdm-oP-MqB" secondAttribute="top" id="UEr-bJ-taM"/>
                             <constraint firstItem="2Fg-2F-UCU" firstAttribute="leading" secondItem="Vdm-oP-MqB" secondAttribute="leading" id="VhU-IQ-Hvo"/>
