@@ -72,7 +72,7 @@ jobs:
           sonar-scanner \
           -Dsonar.organization=covid19risk \
           -Dsonar.projectKey=covid19risk_covidwatch-ios \
-          -Dsonar.sources=. \
+          -Dsonar.sources="CovidWatch iOS" \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=$SONARCLOUD_LOGIN_KEY \
           -Dsonar.pullrequest.branch=$PR_BRANCH \
@@ -81,4 +81,6 @@ jobs:
           -Dsonar.c.file.suffixes=- \
           -Dsonar.cpp.file.suffixes=- \
           -Dsonar.objc.file.suffixes=- \
-          -Dsonar.flex.cobertura.reportPaths=./coverage/cobertura.xml
+          -Dsonar.coverageReportPaths=coverage.xml
+
+

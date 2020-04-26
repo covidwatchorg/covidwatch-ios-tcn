@@ -49,10 +49,6 @@ platform :ios do
 
   desc "Process Test Coverage Results"
   lane :process_test_coverage do
-    slather(proj: "CovidWatch.xcodeproj",
-            scheme: "covidwatch-ios-test",
-            cobertura_xml: true,
-            output_directory: "./coverage",
-            build_directory: "./build")
+    sh("./Scripts/xcov-to-sonarqube-generic.sh build/Logs/Test/Run-covidwatch-ios-* > coverage.xml")
   end
 end
