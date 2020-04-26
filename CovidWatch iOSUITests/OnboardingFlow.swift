@@ -3,7 +3,7 @@
 //  CovidWatch iOSUITests
 //
 //  Created by Isaiah Becker-Mayer on 4/20/20.
-//  
+//
 //
 // swiftlint:disable line_length
 
@@ -34,7 +34,6 @@ class OnboardingFlow: XCTestCase {
     }
 
     //    Test for when the user does all the right things in the onboarding flow
-    //swiftlint:disable function_body_length
     func testOnboardingFlow() {
         let app = XCUIApplication()
 
@@ -43,6 +42,44 @@ class OnboardingFlow: XCTestCase {
         XCTAssertTrue(app/*@START_MENU_TOKEN@*/.staticTexts["Description"]/*[[".staticTexts[\"splash-description\"]",".staticTexts[\"Description\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.exists)
         app.buttons["Start"].tap()
 
+//        How it Works
+        howItWorks()
+
+        app.buttons["Setup"].tap()
+
+//        Bluetooth and Notifications
+        bluetoothAndNotifications()
+
+//        Home
+//        swiftlint:disable:next todo
+//        TODO: check for header icon, check that menu now does exist
+        let contentTextViewsQuery = app.textViews.matching(identifier: "content")
+        XCTAssertTrue(contentTextViewsQuery.staticTexts["You're all set!"].exists)
+        XCTAssertTrue(contentTextViewsQuery.staticTexts["Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."].exists)
+        let subTextTextViewsQuery = app.textViews.matching(identifier: "sub-text")
+        XCTAssertTrue(subTextTextViewsQuery.staticTexts["It works best when everyone uses it."].exists)
+        XCTAssertTrue(subTextTextViewsQuery.staticTexts["Share your result anonymously to help keep your community stay safe."].exists)
+    }
+
+    func howItWorks() {
+        XCTAssertTrue(app.staticTexts["large-text"].exists)
+        XCTAssertTrue(app.staticTexts["main-text"].exists)
+        app.swipeLeft()
+
+        XCTAssertTrue(app.staticTexts["large-text"].exists)
+        XCTAssertTrue(app.staticTexts["main-text"].exists)
+        app.swipeLeft()
+
+        XCTAssertTrue(app.staticTexts["large-text"].exists)
+        XCTAssertTrue(app.staticTexts["main-text"].exists)
+        app.swipeLeft()
+
+        XCTAssertTrue(app.staticTexts["large-text"].exists)
+        XCTAssertTrue(app.staticTexts["main-text"].exists)
+    }
+
+    //swiftlint:disable function_body_length
+    func bluetoothAndNotifications() {
 //        Bluetooth
         XCTAssertTrue(app.images["Logo"].exists)
         XCTAssertFalse(app.buttons["menu"].exists)
@@ -50,7 +87,7 @@ class OnboardingFlow: XCTestCase {
         var predicate = NSPredicate(format: "label LIKE %@", "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
         XCTAssertTrue(app.staticTexts.element(matching: predicate).exists)
         XCTAssertTrue(app.staticTexts["This is required for the app to work."].exists)
-        app/*@START_MENU_TOKEN@*/.staticTexts["button-text"]/*[[".staticTexts[\"Allow Bluetooth\"]",".staticTexts[\"button-text\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.staticTexts["Allow Bluetooth"]/*[[".staticTexts[\"Allow Bluetooth\"]",".staticTexts[\"button-text\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.tap()
         var bluetoothAllowed = true
         #if targetEnvironment(simulator)
             // no bluetooth permissions on simulator, do nothing
@@ -67,7 +104,7 @@ class OnboardingFlow: XCTestCase {
         #endif
 
         waitAndCheck { bluetoothAllowed }
-        
+
 //        Notifications
         XCTAssertTrue(app.images["Logo"].exists)
         XCTAssertFalse(app.buttons["menu"].exists)
@@ -80,7 +117,7 @@ class OnboardingFlow: XCTestCase {
             alertPressed = true
             return true
         }
-        app/*@START_MENU_TOKEN@*/.staticTexts["button-text"]/*[[".staticTexts[\"Allow Notifications\"]",".staticTexts[\"button-text\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.staticTexts["Allow Notifications"]/*[[".staticTexts[\"Allow Notifications\"]",".staticTexts[\"button-text\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.tap()
         wait {
             app.tap() // needed to trigger addUIInterruptionMonitor
         }
@@ -96,7 +133,6 @@ class OnboardingFlow: XCTestCase {
         XCTAssertTrue(subTextTextViewsQuery.staticTexts["It works best when everyone uses it."].exists)
         XCTAssertTrue(subTextTextViewsQuery.staticTexts["Share your result anonymously to help keep your community stay safe."].exists)
     }
-
 }
 
 extension XCTestCase {
