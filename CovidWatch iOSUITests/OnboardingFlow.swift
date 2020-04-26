@@ -44,8 +44,7 @@ class OnboardingFlow: XCTestCase {
         app.buttons["Start"].tap()
 
 //        Bluetooth
-//        swiftlint:disable:next todo
-//        TODO: check for header icon
+        XCTAssertTrue(app.images["Logo"].exists)
         XCTAssertFalse(app.buttons["menu"].exists)
         XCTAssertTrue(app.staticTexts["Privately Connect"].exists)
         var predicate = NSPredicate(format: "label LIKE %@", "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
@@ -70,8 +69,7 @@ class OnboardingFlow: XCTestCase {
         waitAndCheck { bluetoothAllowed }
         
 //        Notifications
-//        swiftlint:disable:next todo
-//        TODO: check for header icon
+        XCTAssertTrue(app.images["Logo"].exists)
         XCTAssertFalse(app.buttons["menu"].exists)
         XCTAssertTrue(app.staticTexts["Receive Alerts"].exists)
         predicate = NSPredicate(format: "label LIKE %@", "Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19.")
@@ -89,8 +87,7 @@ class OnboardingFlow: XCTestCase {
         waitAndCheck { alertPressed }
 
 //        Home
-//        swiftlint:disable:next todo
-//        TODO: check for header icon
+        XCTAssertTrue(app.images["Logo"].exists)
         XCTAssertTrue(app.buttons["menu"].exists)
         let contentTextViewsQuery = app.textViews.matching(identifier: "content")
         XCTAssertTrue(contentTextViewsQuery.staticTexts["You're all set!"].exists)
