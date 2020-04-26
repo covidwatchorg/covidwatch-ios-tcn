@@ -52,7 +52,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Hxs-Le-QwN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="e28-Hy-JQr"/>
+                                    <segue destination="Hxs-Le-QwN" kind="show" id="e28-Hy-JQr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -116,7 +116,9 @@
         <!--HowItWorks-->
         <scene sceneID="vKt-UW-FQk">
             <objects>
-                <viewControllerPlaceholder storyboardName="HowItWorks" id="Hxs-Le-QwN" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="HowItWorks" id="Hxs-Le-QwN" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8tT-Iu-bwb"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqe-yF-eFB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-922" y="-775"/>

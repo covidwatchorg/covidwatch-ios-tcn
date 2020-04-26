@@ -8,22 +8,11 @@
 
 import UIKit
 
-@IBDesignable
 class ALButton: UIButton {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.titleLabel?.accessibilityIdentifier = AccessibilityIdentifier.ButtonText.rawValue
-    }
-    
-    // allows you to set corner radius and view it in storyboards
-    @IBInspectable
-    var cornerRadius: CGFloat {
-      get {
-        return layer.cornerRadius
-      }
-      set {
-        layer.cornerRadius = newValue
-      }
+        self.layer.cornerRadius = 10
     }
 }
 

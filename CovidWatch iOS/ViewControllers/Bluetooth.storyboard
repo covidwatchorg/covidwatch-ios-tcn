@@ -22,7 +22,7 @@
         <!--Bluetooth-->
         <scene sceneID="zbh-eL-VTH">
             <objects>
-                <viewController id="2aA-lJ-rh9" customClass="Bluetooth" customModule="CovidWatch_iOSTests" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2aA-lJ-rh9" customClass="Bluetooth" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yCp-hX-fNw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

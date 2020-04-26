@@ -22,7 +22,7 @@
         <!--Notifications-->
         <scene sceneID="WwF-pM-la6">
             <objects>
-                <viewController id="uwZ-cE-CFT" customClass="Notifications" customModule="CovidWatch_iOSTests" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uwZ-cE-CFT" customClass="Notifications" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jeb-fd-FpA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
