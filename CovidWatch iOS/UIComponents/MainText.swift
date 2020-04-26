@@ -8,42 +8,6 @@
 
 import UIKit
 
-class LargeTextLabel: UILabel {
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.font = UIFont(name: "Montserrat-SemiBold", size: 36)
-        self.accessibilityIdentifier = AccessibilityIdentifier.Content.rawValue
-        self.applyCommonStyles()
-    }
-}
-
-class MainTextLabel: UILabel {
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.font = UIFont(name: "Montserrat", size: 18)
-        self.accessibilityIdentifier = AccessibilityIdentifier.Content.rawValue
-        self.applyCommonStyles()
-    }
-}
-
-class SubtextLabel: UILabel {
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.font = UIFont(name: "Montserrat", size: 14)
-        self.accessibilityIdentifier = AccessibilityIdentifier.SubText.rawValue
-        self.applyCommonStyles()
-    }
-}
-
-extension UILabel {
-    func applyCommonStyles() {
-        self.adjustsFontSizeToFitWidth = true
-        self.minimumScaleFactor = 0.5
-        self.textColor = UIColor.Primary.Gray
-        self.backgroundColor = .clear
-    }
-}
-
 class ALButton: UIButton {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
