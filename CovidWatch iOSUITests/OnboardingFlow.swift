@@ -45,18 +45,16 @@ class OnboardingFlow: XCTestCase {
 
 //        Bluetooth
 //        swiftlint:disable:next todo
-//        TODO: check for header icon, check that menu dne
-        let largeTextTextView = app.textViews["large-text"]
-        XCTAssertTrue(largeTextTextView.staticTexts["Privately Connect"].exists)
-        let mainTextTextView = app.textViews["main-text"]
+//        TODO: check for header icon
+        XCTAssertFalse(app.buttons["menu"].exists)
+        XCTAssertTrue(app.staticTexts["Privately Connect"].exists)
         var predicate = NSPredicate(format: "label LIKE %@", "We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.")
-        XCTAssertTrue(mainTextTextView.staticTexts.element(matching: predicate).exists)
-        XCTAssertTrue(app.textViews["sub-text"].staticTexts["This is required for the app to work."].exists)
+        XCTAssertTrue(app.staticTexts.element(matching: predicate).exists)
+        XCTAssertTrue(app.staticTexts["This is required for the app to work."].exists)
         app/*@START_MENU_TOKEN@*/.staticTexts["button-text"]/*[[".staticTexts[\"Allow Bluetooth\"]",".staticTexts[\"button-text\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         var bluetoothAllowed = true
         #if targetEnvironment(simulator)
-            // no bluetooth permissions on simulator
-            // do nothing
+            // no bluetooth permissions on simulator, do nothing
         #else
             bluetoothAllowed = false
             addUIInterruptionMonitor(withDescription: "“Covid Watch” Would Like to Use Bluetooth") { (alert) -> Bool in
@@ -73,10 +71,11 @@ class OnboardingFlow: XCTestCase {
         
 //        Notifications
 //        swiftlint:disable:next todo
-//        TODO: check for header icon, check that menu dne
-        XCTAssertTrue(largeTextTextView.staticTexts["Recieve Alerts"].exists)
+//        TODO: check for header icon
+        XCTAssertFalse(app.buttons["menu"].exists)
+        XCTAssertTrue(app.staticTexts["Receive Alerts"].exists)
         predicate = NSPredicate(format: "label LIKE %@", "Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19.")
-        XCTAssertTrue(mainTextTextView.staticTexts.element(matching: predicate).exists)
+        XCTAssertTrue(app.staticTexts.element(matching: predicate).exists)
         var alertPressed = false
         addUIInterruptionMonitor(withDescription: "“Covid Watch” Would Like to Send You Notifications") { (alert) -> Bool in
             alert.scrollViews.otherElements.buttons["Allow"].tap()
@@ -91,7 +90,8 @@ class OnboardingFlow: XCTestCase {
 
 //        Home
 //        swiftlint:disable:next todo
-//        TODO: check for header icon, check that menu now does exist
+//        TODO: check for header icon
+        XCTAssertTrue(app.buttons["menu"].exists)
         let contentTextViewsQuery = app.textViews.matching(identifier: "content")
         XCTAssertTrue(contentTextViewsQuery.staticTexts["You're all set!"].exists)
         XCTAssertTrue(contentTextViewsQuery.staticTexts["Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."].exists)

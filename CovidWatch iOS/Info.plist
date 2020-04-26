@@ -30,7 +30,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>LocalIP</key>
-	<string>10.0.0.33</string>
+	<string>192.168.86.23</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>This will allow "Covid Watch" to find and connect to Bluetooth accessories. The app may also use Bluetooth to know when you're nearby.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>

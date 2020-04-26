@@ -12,6 +12,7 @@
 		1F94B1652454A8AE00807C0A /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94B1642454A8AE00807C0A /* HeaderViewController.swift */; };
 		1F94B1672454A8C600807C0A /* HeaderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F94B1662454A8C600807C0A /* HeaderViewController.storyboard */; };
 		1F94B1692454EC2100807C0A /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94B1682454EC2100807C0A /* UIAlertControllerExtension.swift */; };
+		1F94B16C2455995800807C0A /* HeaderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F94B1662454A8C600807C0A /* HeaderViewController.storyboard */; };
 		2D14F7BF2452D62B00C02C0D /* CurrentUserExposureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D14F7BE2452D62B00C02C0D /* CurrentUserExposureNotifier.swift */; };
 		2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30EFC2242268010063C211 /* Array+Chunked.swift */; };
 		2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
@@ -48,12 +49,6 @@
 		2E1F87022448FE8C00957EBA /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F22440FAA4006CDD76 /* Notifications.storyboard */; };
 		2E1F87032448FE8C00957EBA /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
 		2E1F87042448FE8C00957EBA /* Bluetooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F02440E624006CDD76 /* Bluetooth.storyboard */; };
-		2E1F87072448FE9800957EBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A44B4F2444046A00A8154B /* Main.storyboard */; };
-		2E1F87082448FE9800957EBA /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F62440FAE0006CDD76 /* Home.storyboard */; };
-		2E1F87092448FE9800957EBA /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F82440FAF3006CDD76 /* Test.storyboard */; };
-		2E1F870A2448FE9800957EBA /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F22440FAA4006CDD76 /* Notifications.storyboard */; };
-		2E1F870B2448FE9800957EBA /* Confirm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BD14FE244685620009D7E0 /* Confirm.storyboard */; };
-		2E1F870C2448FE9800957EBA /* Bluetooth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EF50F02440E624006CDD76 /* Bluetooth.storyboard */; };
 		2E1FDBF32439275E000D8D67 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash.swift */; };
 		2E1FDBF5243929F4000D8D67 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */; };
 		2E1FDC0824393C5A000D8D67 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF624393C53000D8D67 /* Montserrat-ThinItalic.ttf */; };
@@ -91,10 +86,8 @@
 		41D4C0CB1E94A11F76A92C4C /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A4B6F15733C6DCEA2D3B84 /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework */; };
 		600678282450FC5D006DBD5D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
 		600678292450FC5D006DBD5D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
-		6006782A2450FC5D006DBD5D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
 		60867C922450F70C0028AEE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60867C902450F70C0028AEE3 /* LaunchScreen.storyboard */; };
 		60867C932450F70C0028AEE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60867C902450F70C0028AEE3 /* LaunchScreen.storyboard */; };
-		60867C942450F70C0028AEE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60867C902450F70C0028AEE3 /* LaunchScreen.storyboard */; };
 		60A44B4E244402A500A8154B /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A44B4D244402A500A8154B /* Entry.swift */; };
 		60A44B502444046A00A8154B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A44B4F2444046A00A8154B /* Main.storyboard */; };
 		60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
@@ -665,6 +658,7 @@
 				60867C932450F70C0028AEE3 /* LaunchScreen.storyboard in Resources */,
 				2E1F87002448FE8C00957EBA /* Home.storyboard in Resources */,
 				2E1F87012448FE8C00957EBA /* Test.storyboard in Resources */,
+				1F94B16C2455995800807C0A /* HeaderViewController.storyboard in Resources */,
 				600678292450FC5D006DBD5D /* Splash.storyboard in Resources */,
 				2E1F87022448FE8C00957EBA /* Notifications.storyboard in Resources */,
 				2E1F87032448FE8C00957EBA /* Confirm.storyboard in Resources */,
@@ -676,14 +670,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E1F87072448FE9800957EBA /* Main.storyboard in Resources */,
-				60867C942450F70C0028AEE3 /* LaunchScreen.storyboard in Resources */,
-				2E1F87082448FE9800957EBA /* Home.storyboard in Resources */,
-				2E1F87092448FE9800957EBA /* Test.storyboard in Resources */,
-				6006782A2450FC5D006DBD5D /* Splash.storyboard in Resources */,
-				2E1F870A2448FE9800957EBA /* Notifications.storyboard in Resources */,
-				2E1F870B2448FE9800957EBA /* Confirm.storyboard in Resources */,
-				2E1F870C2448FE9800957EBA /* Bluetooth.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
