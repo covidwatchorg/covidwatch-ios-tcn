@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="width" constant="40" id="jqQ-E9-WLI"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOW IT WORKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBX-3o-NtL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="HOW IT WORKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBX-3o-NtL">
                                 <rect key="frame" x="25.5" y="124" width="363" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="363" id="hLb-cf-PFa"/>
@@ -32,7 +32,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure Connection" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWg-Qq-hg2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Secure Connection" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWg-Qq-hg2">
                                 <rect key="frame" x="25.5" y="145" width="363" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="363" id="4Yt-g9-5db"/>
@@ -201,7 +201,7 @@
                                     <constraint firstAttribute="height" constant="40" id="v80-oO-wvB"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOW IT WORKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZY-IH-v2I">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="HOW IT WORKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZY-IH-v2I">
                                 <rect key="frame" x="25.5" y="124" width="363" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="363" id="Iif-Fx-eGN"/>
@@ -210,7 +210,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diagnosis Reports" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJH-UP-YTV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Diagnosis Reports" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJH-UP-YTV">
                                 <rect key="frame" x="25.5" y="145" width="363" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="363" id="31V-LG-ntS"/>
@@ -386,7 +386,7 @@
                                     <constraint firstAttribute="width" constant="40" id="eLS-Cd-gwh"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOW IT WORKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9S-on-K5g">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="HOW IT WORKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9S-on-K5g">
                                 <rect key="frame" x="25.5" y="124" width="363" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="363" id="xZj-Ie-G9O"/>
@@ -395,7 +395,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Alerts" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQs-pg-Q0x">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Contact Alerts" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQs-pg-Q0x">
                                 <rect key="frame" x="25.5" y="145" width="363" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="363" id="eIK-qh-TGK"/>
@@ -568,7 +568,7 @@
                                     <constraint firstAttribute="height" constant="40" id="cBQ-2z-6Ib"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOW IT WORKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mrq-GG-XKG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="HOW IT WORKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mrq-GG-XKG">
                                 <rect key="frame" x="25.5" y="124" width="363" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="363" id="hDQ-hK-vac"/>
@@ -577,7 +577,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Safer Community" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awb-H8-NNF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Safer Community" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awb-H8-NNF">
                                 <rect key="frame" x="25.5" y="145" width="363" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="363" id="4r8-EO-yti"/>
@@ -670,9 +670,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="niy-eA-MWk"/>
-        <segue reference="Ep2-18-6Uu"/>
-        <segue reference="76m-a0-AWy"/>
-        <segue reference="cpC-Zm-23Y"/>
+        <segue reference="O9f-n5-66E"/>
+        <segue reference="Vou-YW-Bme"/>
+        <segue reference="VYw-Gz-BXR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="how-it-works-1" width="375" height="314"/>
