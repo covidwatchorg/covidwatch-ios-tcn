@@ -1,4 +1,4 @@
-app_identifier("org.covidwatch.tags.ios") # The bundle identifier of your app
+app_identifier("edu.stanford.covidwatch.ios") # The bundle identifier of your app
 apple_id 'jeffctown@gmail.com'
 itc_team_id '273123'
 # For more information about the Appfile, see:
