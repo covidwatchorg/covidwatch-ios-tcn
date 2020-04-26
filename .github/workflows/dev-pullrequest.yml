@@ -54,9 +54,7 @@ jobs:
           bundle exec fastlane tests
       - name: Convert Logs
         run: |
-          curl -sSLo ./cococo https://github.com/mysugr/cococo/releases/download/v0.3.0/cococo
-          chmod +x ./cococo
-          ./cococo Build/Logs/Test/*.xcresult/ > sonarqube-generic-coverage.xml
+          bundle exec fastlane ios process_test_coverage
       - name: Install SonarCloud
         run: |
           export SONAR_SCANNER_VERSION=4.2.0.1873
@@ -83,4 +81,4 @@ jobs:
           -Dsonar.c.file.suffixes=- \
           -Dsonar.cpp.file.suffixes=- \
           -Dsonar.objc.file.suffixes=- \
-          -Dsonar.coverageReportPaths=sonarqube-generic-coverage.xml
+          -Dsonar.flex.cobertura.reportPaths=./coverage/cobertura.xml

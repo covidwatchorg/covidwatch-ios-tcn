@@ -36,6 +36,11 @@ Build Only
 fastlane ios lint
 ```
 SwiftLint
+### ios process_test_coverage
+```
+fastlane ios process_test_coverage
+```
+Process Test Coverage Results
 
 ----
 

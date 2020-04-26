@@ -46,4 +46,13 @@ platform :ios do
   lane :lint do
     swiftlint(executable: 'Pods/SwiftLint/swiftlint', strict: true)
   end
+
+  desc "Process Test Coverage Results"
+  lane :process_test_coverage do
+    slather(proj: "CovidWatch.xcodeproj",
+            scheme: "covidwatch-ios-test",
+            cobertura_xml: true,
+            output_directory: "./coverage",
+            build_directory: "./build")
+  end
 end
