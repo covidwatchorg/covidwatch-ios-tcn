@@ -34,7 +34,6 @@ class OnboardingFlow: XCTestCase {
     }
 
     //    Test for when the user does all the right things in the onboarding flow
-    //swiftlint:disable function_body_length
     func testOnboardingFlow() {
         let app = XCUIApplication()
 
@@ -43,6 +42,43 @@ class OnboardingFlow: XCTestCase {
         XCTAssertTrue(app/*@START_MENU_TOKEN@*/.staticTexts["Description"]/*[[".staticTexts[\"splash-description\"]",".staticTexts[\"Description\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.exists)
         app.buttons["Start"].tap()
 
+//        How it Works
+        howItWorks()
+
+        app.buttons["Setup"].tap()
+
+//        Bluetooth and Notifications
+        bluetoothAndNotifications()
+
+//        Home
+//        swiftlint:disable:next todo
+//        TODO: check for header icon, check that menu now does exist
+        let contentTextViewsQuery = app.textViews.matching(identifier: "content")
+        XCTAssertTrue(contentTextViewsQuery.staticTexts["You're all set!"].exists)
+        XCTAssertTrue(contentTextViewsQuery.staticTexts["Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."].exists)
+        let subTextTextViewsQuery = app.textViews.matching(identifier: "sub-text")
+        XCTAssertTrue(subTextTextViewsQuery.staticTexts["It works best when everyone uses it."].exists)
+        XCTAssertTrue(subTextTextViewsQuery.staticTexts["Share your result anonymously to help keep your community stay safe."].exists)
+    }
+
+    func howItWorks() {
+        XCTAssertTrue(app.staticTexts["large-text"].exists)
+        XCTAssertTrue(app.staticTexts["main-text"].exists)
+        app.swipeLeft()
+
+        XCTAssertTrue(app.staticTexts["large-text"].exists)
+        XCTAssertTrue(app.staticTexts["main-text"].exists)
+        app.swipeLeft()
+
+        XCTAssertTrue(app.staticTexts["large-text"].exists)
+        XCTAssertTrue(app.staticTexts["main-text"].exists)
+        app.swipeLeft()
+
+        XCTAssertTrue(app.staticTexts["large-text"].exists)
+        XCTAssertTrue(app.staticTexts["main-text"].exists)
+    }
+    
+    func bluetoothAndNotifications() {
 //        Bluetooth
 //        swiftlint:disable:next todo
 //        TODO: check for header icon, check that menu dne
@@ -88,18 +124,7 @@ class OnboardingFlow: XCTestCase {
             app.tap() // needed to trigger addUIInterruptionMonitor
         }
         waitAndCheck { alertPressed }
-
-//        Home
-//        swiftlint:disable:next todo
-//        TODO: check for header icon, check that menu now does exist
-        let contentTextViewsQuery = app.textViews.matching(identifier: "content")
-        XCTAssertTrue(contentTextViewsQuery.staticTexts["You're all set!"].exists)
-        XCTAssertTrue(contentTextViewsQuery.staticTexts["Thank you for helping protect your communities. You will be notified of potential contact with COVID-19."].exists)
-        let subTextTextViewsQuery = app.textViews.matching(identifier: "sub-text")
-        XCTAssertTrue(subTextTextViewsQuery.staticTexts["It works best when everyone uses it."].exists)
-        XCTAssertTrue(subTextTextViewsQuery.staticTexts["Share your result anonymously to help keep your community stay safe."].exists)
     }
-
 }
 
 extension XCTestCase {

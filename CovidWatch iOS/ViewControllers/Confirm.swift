@@ -23,7 +23,6 @@ class Confirm: UIViewController {
     @IBOutlet var boxWidth: NSLayoutConstraint!
     @IBOutlet var testTopSpace: NSLayoutConstraint!
     @IBOutlet var slideTopSpace: NSLayoutConstraint!
-    @IBOutlet var titleWidth: NSLayoutConstraint!
 
     public var testedDate: Date = Date()
     var ogSlideButtonPosition: CGPoint = CGPoint.zero
@@ -111,7 +110,6 @@ extension Confirm {
         cancelTopSpace.constant = (15.0/321.0) * contentMaxWidth
         detailTopSpace.constant = (5.0/321.0) * contentMaxWidth
         boxWidth.constant = contentMaxWidth
-        titleWidth.constant = contentMaxWidth
 
         if let slideView = self.slideView {
             slideView.addConstraint(getButtonHeight(view: slideView))
