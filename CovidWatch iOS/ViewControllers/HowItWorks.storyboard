@@ -11,7 +11,7 @@
         <!--Screen 1-->
         <scene sceneID="Jxb-GG-YQv">
             <objects>
-                <viewController id="7C4-bd-Y0y" userLabel="Screen 1" customClass="HowItWorks" customModule="CovidWatch_iOSTests" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7C4-bd-Y0y" userLabel="Screen 1" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bUS-jC-Maw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,7 +189,7 @@
         <!--Screen 2-->
         <scene sceneID="0o5-eR-gcO">
             <objects>
-                <viewController id="3Kp-hc-jfI" userLabel="Screen 2" customClass="HowItWorks" customModule="CovidWatch_iOSTests" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Kp-hc-jfI" userLabel="Screen 2" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PK0-GX-Mfq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -374,7 +374,7 @@
         <!--Screen 3-->
         <scene sceneID="U1t-dD-X42">
             <objects>
-                <viewController id="UjY-uS-GAc" userLabel="Screen 3" customClass="HowItWorks" customModule="CovidWatch_iOSTests" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UjY-uS-GAc" userLabel="Screen 3" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x4X-Ar-dgF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -532,12 +532,12 @@
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="left" id="Ac2-5t-AbZ">
                     <connections>
-                        <segue destination="OVU-ks-FdW" kind="presentation" identifier="page3to4" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="mGe-Qk-EEz"/>
+                        <segue destination="vzG-Mt-LWc" kind="presentation" identifier="page3to4" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="mGe-Qk-EEz"/>
                     </connections>
                 </swipeGestureRecognizer>
                 <tapGestureRecognizer id="GH7-kk-rxA">
                     <connections>
-                        <segue destination="OVU-ks-FdW" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="niy-eA-MWk"/>
+                        <segue destination="vzG-Mt-LWc" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="niy-eA-MWk"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="5mR-GI-wjg">
@@ -556,7 +556,7 @@
         <!--Screen 4-->
         <scene sceneID="gwO-kq-Nw6">
             <objects>
-                <viewController id="OVU-ks-FdW" userLabel="Screen 4" customClass="HowItWorks" customModule="CovidWatch_iOSTests" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OVU-ks-FdW" userLabel="Screen 4" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v4Q-Gs-ZZ6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -610,7 +610,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="05l-yP-HLx" kind="presentation" modalPresentationStyle="fullScreen" id="Uom-fg-tn0"/>
+                                    <segue destination="05l-yP-HLx" kind="show" id="Uom-fg-tn0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -638,6 +638,7 @@
                             <outletCollection property="gestureRecognizers" destination="npv-Fh-IK6" appends="YES" id="Wvv-24-D3Q"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="BAg-RC-ejw"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="Uge-qR-ORx" id="DYd-Pc-598"/>
                         <outlet property="descriptionWidth" destination="PIC-eZ-HA8" id="ONH-I1-Dcs"/>
@@ -657,20 +658,41 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1332" y="102"/>
+            <point key="canvasLocation" x="2242.0289855072465" y="101.78571428571428"/>
         </scene>
         <!--Bluetooth-->
         <scene sceneID="yMa-iv-UCN">
             <objects>
-                <viewControllerPlaceholder storyboardName="Bluetooth" id="05l-yP-HLx" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Bluetooth" id="05l-yP-HLx" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aI0-Hh-C7Q"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xE-ax-Y3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2003" y="136"/>
+            <point key="canvasLocation" x="2913.04347826087" y="101.78571428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qId-uW-Dpf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="vzG-Mt-LWc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xVi-Xx-Gma">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OVU-ks-FdW" kind="relationship" relationship="rootViewController" id="qaq-vp-ACb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDi-12-Qnb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1331.8840579710145" y="101.78571428571428"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="qaq-vp-ACb"/>
         <segue reference="niy-eA-MWk"/>
-        <segue reference="O9f-n5-66E"/>
+        <segue reference="Ep2-18-6Uu"/>
         <segue reference="Vou-YW-Bme"/>
         <segue reference="VYw-Gz-BXR"/>
     </inferredMetricsTieBreakers>
