@@ -34,7 +34,6 @@ class OnboardingFlow: XCTestCase {
     }
 
     //    Test for when the user does all the right things in the onboarding flow
-    //swiftlint:disable function_body_length
     func testOnboardingFlow() {
         let app = XCUIApplication()
 
