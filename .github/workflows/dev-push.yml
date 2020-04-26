@@ -66,7 +66,7 @@ jobs:
           -Dsonar.sources=. \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=$SONARCLOUD_LOGIN_KEY \
-          -Dsonar.branch.name=dev
+          -Dsonar.branch.name=dev \
           -Dsonar.c.file.suffixes=- \
           -Dsonar.cpp.file.suffixes=- \
           -Dsonar.objc.file.suffixes=- \
