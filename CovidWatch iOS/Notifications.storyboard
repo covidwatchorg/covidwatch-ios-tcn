@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-2F-UCU">
-                                <rect key="frame" x="0.0" y="-168" width="226" height="75"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="1MQ-Jj-4Id"/>
                                 </constraints>
@@ -48,7 +48,7 @@
                                 <color key="textColor" name="TextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b9-6o-kDC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b9-6o-kDC" customClass="ALButton" customModule="Covid_Watch">
                                 <rect key="frame" x="20" y="494" width="280" height="54"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
