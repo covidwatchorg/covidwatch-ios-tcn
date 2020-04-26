@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F550F462455C9D1005A337A /* HeaderViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F550F452455C9D1005A337A /* HeaderViewControllerTests.swift */; };
 		1F9258FA245258E30025C1B0 /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE68E2244E8F7F003D1E48 /* OnboardingFlow.swift */; };
 		1F9258FB245258E60025C1B0 /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48145B244F6E020025EA9B /* Springboard.swift */; };
 		1F94B1652454A8AE00807C0A /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94B1642454A8AE00807C0A /* HeaderViewController.swift */; };
 		1F94B1672454A8C600807C0A /* HeaderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F94B1662454A8C600807C0A /* HeaderViewController.storyboard */; };
 		1F94B1692454EC2100807C0A /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94B1682454EC2100807C0A /* UIAlertControllerExtension.swift */; };
 		1F94B16C2455995800807C0A /* HeaderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F94B1662454A8C600807C0A /* HeaderViewController.storyboard */; };
+		1FB66DB22455C5AE0029E801 /* AlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB66DB12455C5AE0029E801 /* AlertControllerTests.swift */; };
 		2D14F7BF2452D62B00C02C0D /* CurrentUserExposureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D14F7BE2452D62B00C02C0D /* CurrentUserExposureNotifier.swift */; };
 		2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30EFC2242268010063C211 /* Array+Chunked.swift */; };
 		2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
@@ -124,9 +126,11 @@
 
 /* Begin PBXFileReference section */
 		15EA13EF4743F7833F4E84E4 /* Pods-CovidWatch iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS.release.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS/Pods-CovidWatch iOS.release.xcconfig"; sourceTree = "<group>"; };
+		1F550F452455C9D1005A337A /* HeaderViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewControllerTests.swift; sourceTree = "<group>"; };
 		1F94B1642454A8AE00807C0A /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		1F94B1662454A8C600807C0A /* HeaderViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HeaderViewController.storyboard; sourceTree = "<group>"; };
 		1F94B1682454EC2100807C0A /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		1FB66DB12455C5AE0029E801 /* AlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerTests.swift; sourceTree = "<group>"; };
 		27A4B6F15733C6DCEA2D3B84 /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5565D9FFECCCC3FEE46F0C /* Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D14F7BE2452D62B00C02C0D /* CurrentUserExposureNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUserExposureNotifier.swift; sourceTree = "<group>"; };
@@ -403,6 +407,8 @@
 			children = (
 				2DFDC5BC24190ABA00B108F8 /* CovidWatch_iOSTests.swift */,
 				2DFDC5BE24190ABA00B108F8 /* Info.plist */,
+				1FB66DB12455C5AE0029E801 /* AlertControllerTests.swift */,
+				1F550F452455C9D1005A337A /* HeaderViewControllerTests.swift */,
 			);
 			path = "CovidWatch iOSTests";
 			sourceTree = "<group>";
@@ -876,7 +882,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB66DB22455C5AE0029E801 /* AlertControllerTests.swift in Sources */,
 				2DFDC5BD24190ABA00B108F8 /* CovidWatch_iOSTests.swift in Sources */,
+				1F550F462455C9D1005A337A /* HeaderViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
