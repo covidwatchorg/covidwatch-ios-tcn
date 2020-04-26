@@ -58,6 +58,11 @@
                                 <state key="normal" title="Allow Notifications">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="btnTapped:" destination="uwZ-cE-CFT" eventType="touchUpInside" id="PAW-rb-PmJ"/>
                                 </connections>
