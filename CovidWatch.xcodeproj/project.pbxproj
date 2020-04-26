@@ -14,7 +14,7 @@
 		2D5C5411241CB6FF00DB2520 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
 		2D5D61BA2451F95B009F5AF1 /* CovidWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D61B82451F95A009F5AF1 /* CovidWatch.xcdatamodeld */; };
 		2D6655B4242E605000B462E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D6655B3242E605000B462E0 /* GoogleService-Info.plist */; };
-		2D667D802451AB0C0071C353 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 2D667D7F2451AB0C0071C353 /* SwiftPackageProductDependency */; };
+		2D667D802451AB0C0071C353 /* TCNClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2D667D7F2451AB0C0071C353 /* TCNClient */; };
 		2D667D822451AE3E0071C353 /* AppDelegate+TCN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D667D812451AE3D0071C353 /* AppDelegate+TCN.swift */; };
 		2D667D872451AE610071C353 /* KeyStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D667D842451AE610071C353 /* KeyStoreError.swift */; };
 		2D667D882451AE610071C353 /* GenericPasswordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D667D852451AE610071C353 /* GenericPasswordStore.swift */; };
@@ -85,11 +85,8 @@
 		2EFE6304243F990900D00305 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6303243F990900D00305 /* Home.swift */; };
 		2EFE6308243FB54F00D00305 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */; };
 		2EFE630C2440E9EA00D00305 /* InfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE630B2440E9EA00D00305 /* InfoBanner.swift */; };
-		600678282450FC5D006DBD5D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
 		600678292450FC5D006DBD5D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
 		6006782A2450FC5D006DBD5D /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
-		6013AE2C244A740400F02CCF /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
-		6013AE2D244A740400F02CCF /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
 		60808C3424524291007415FE /* HowItWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60808C3324524291007415FE /* HowItWorks.swift */; };
 		60808C3524524294007415FE /* HowItWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60808C3324524291007415FE /* HowItWorks.swift */; };
 		60808C3624524295007415FE /* HowItWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60808C3324524291007415FE /* HowItWorks.swift */; };
@@ -99,6 +96,19 @@
 		60867C922450F70C0028AEE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60867C902450F70C0028AEE3 /* LaunchScreen.storyboard */; };
 		60867C932450F70C0028AEE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60867C902450F70C0028AEE3 /* LaunchScreen.storyboard */; };
 		60867C942450F70C0028AEE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60867C902450F70C0028AEE3 /* LaunchScreen.storyboard */; };
+		60A2485C2454E1630083CBD2 /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
+		60A2485D2454E1640083CBD2 /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
+		60A2485E2454E17F0083CBD2 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */; };
+		60A2485F2454E1800083CBD2 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE6307243FB54F00D00305 /* UIResponderExtension.swift */; };
+		60A248602454E1B00083CBD2 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash.swift */; };
+		60A248612454E1B10083CBD2 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDBF22439275E000D8D67 /* Splash.swift */; };
+		60A248622454E1C00083CBD2 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF61C382436F82D003046A4 /* UIColorExtension.swift */; };
+		60A248632454E1C00083CBD2 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF61C382436F82D003046A4 /* UIColorExtension.swift */; };
+		60A248642454E1DE0083CBD2 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */; };
+		60A248652454E1DF0083CBD2 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */; };
+		60A248662454E1E20083CBD2 /* AccessibilityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB92448BC50003FB3F9 /* AccessibilityLabel.swift */; };
+		60A248672454E1E30083CBD2 /* AccessibilityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB92448BC50003FB3F9 /* AccessibilityLabel.swift */; };
+		60A248682454E4680083CBD2 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600678272450FC5D006DBD5D /* Splash.storyboard */; };
 		60A44B4E244402A500A8154B /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A44B4D244402A500A8154B /* Entry.swift */; };
 		60A44B502444046A00A8154B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A44B4F2444046A00A8154B /* Main.storyboard */; };
 		60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
@@ -239,7 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D667D802451AB0C0071C353 /* BuildFile in Frameworks */,
+				2D667D802451AB0C0071C353 /* TCNClient in Frameworks */,
 				7A05D2F61BD1CD7FF719C9E7 /* Pods_CovidWatch_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,7 +517,7 @@
 			);
 			name = "CovidWatch iOS";
 			packageProductDependencies = (
-				2D667D7F2451AB0C0071C353 /* SwiftPackageProductDependency */,
+				2D667D7F2451AB0C0071C353 /* TCNClient */,
 			);
 			productName = "COVID-19 Risk";
 			productReference = 2DFDC59F24190AB700B108F8 /* Covid Watch.app */;
@@ -585,7 +595,7 @@
 			);
 			mainGroup = 2DFDC59624190AB700B108F8;
 			packageReferences = (
-				2D667D7E2451AB0C0071C353 /* RemoteSwiftPackageReference */,
+				2D667D7E2451AB0C0071C353 /* XCRemoteSwiftPackageReference "tcn-client-ios" */,
 			);
 			productRefGroup = 2DFDC5A024190AB700B108F8 /* Products */;
 			projectDirPath = "";
@@ -603,6 +613,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60A248682454E4680083CBD2 /* Splash.storyboard in Resources */,
 				2E1FDC0D24393C5A000D8D67 /* Montserrat-Regular.ttf in Resources */,
 				2E1FDC0E24393C5A000D8D67 /* Montserrat-Thin.ttf in Resources */,
 				2E1FDC0C24393C5A000D8D67 /* Montserrat-MediumItalic.ttf in Resources */,
@@ -611,7 +622,6 @@
 				2E1FDC1224393C5A000D8D67 /* Montserrat-BlackItalic.ttf in Resources */,
 				2E1FDC1024393C5A000D8D67 /* Montserrat-BoldItalic.ttf in Resources */,
 				2E1FDC1724393C5A000D8D67 /* Montserrat-Light.ttf in Resources */,
-				600678282450FC5D006DBD5D /* Splash.storyboard in Resources */,
 				2E1FDC1524393C5A000D8D67 /* Montserrat-Medium.ttf in Resources */,
 				2E1FDC0924393C5A000D8D67 /* Montserrat-ExtraBoldItalic.ttf in Resources */,
 				2E1FDC0824393C5A000D8D67 /* Montserrat-ThinItalic.ttf in Resources */,
@@ -871,44 +881,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DFDC5BD24190ABA00B108F8 /* CovidWatch_iOSTests.swift in Sources */,
-				BC9AE5492448DEB70050DE1E /* AccessibilityIdentifier.swift in Sources */,
-				BC9AE54A2448DEB70050DE1E /* AccessibilityLabel.swift in Sources */,
-				BC9AE54B2448DEB70050DE1E /* AppDelegate.swift in Sources */,
-				BC9AE54C2448DEB70050DE1E /* AppDelegate+BackgroundFetch.swift in Sources */,
-				BC9AE54D2448DEB70050DE1E /* AppDelegate+BackgroundTasks.swift in Sources */,
+				60A248622454E1C00083CBD2 /* UIColorExtension.swift in Sources */,
+				60A248662454E1E20083CBD2 /* AccessibilityLabel.swift in Sources */,
 				60808C3524524294007415FE /* HowItWorks.swift in Sources */,
-				BC9AE54E2448DEB70050DE1E /* AppDelegate+UserNotificationCenter.swift in Sources */,
-				BC9AE54F2448DEB70050DE1E /* (null) in Sources */,
-				BC9AE5502448DEB70050DE1E /* Firestore+Constants.swift in Sources */,
-				BC9AE5512448DEB70050DE1E /* FirestoreOperations.swift in Sources */,
-				BC9AE5542448DEB70050DE1E /* QuerySnapshotProcessingOperation.swift in Sources */,
-				BC9AE5592448DEB70050DE1E /* BluetoothPermission.swift in Sources */,
-				BC9AE55A2448DEB70050DE1E /* UIWindow+ViewControllerUtility.swift in Sources */,
-				60C7A942244A4DDA0033A13D /* IsWithinXDaysOfToday.swift in Sources */,
-				BC9AE55B2448DEB70050DE1E /* UIViewController+ErrorPresenting.swift in Sources */,
-				6013AE2D244A740400F02CCF /* UserDefaults+Shared.swift in Sources */,
-				BC9AE55C2448DEB70050DE1E /* Array+Chunked.swift in Sources */,
-				BC9AE55D2448DEB70050DE1E /* UIColorExtension.swift in Sources */,
-				BC9AE55E2448DEB70050DE1E /* UIViewExtension.swift in Sources */,
-				BC9AE55F2448DEB70050DE1E /* UIResponderExtension.swift in Sources */,
-				BC9AE5602448DEB70050DE1E /* NotificationPermission.swift in Sources */,
-				BC9AE5612448DEB70050DE1E /* Splash.swift in Sources */,
-				BC9AE5622448DEB70050DE1E /* Bluetooth.swift in Sources */,
-				BC9AE5632448DEB70050DE1E /* Notifications.swift in Sources */,
-				BC9AE5642448DEB70050DE1E /* Home.swift in Sources */,
-				BC9AE5652448DEB70050DE1E /* Entry.swift in Sources */,
-				60BD14FC2446854F0009D7E0 /* Confirm.swift in Sources */,
-				BC9AE5662448DEB70050DE1E /* Test.swift in Sources */,
-				BC9AE5672448DEB70050DE1E /* BaseViewController.swift in Sources */,
-				BC9AE5682448DEB70050DE1E /* Header.swift in Sources */,
-				BC9AE5692448DEB70050DE1E /* LargeText.swift in Sources */,
-				BC9AE56A2448DEB70050DE1E /* MainText.swift in Sources */,
-				BC9AE56B2448DEB70050DE1E /* Button.swift in Sources */,
-				BC9AE56C2448DEB70050DE1E /* Menu.swift in Sources */,
-				BC9AE56D2448DEB70050DE1E /* MenuItem.swift in Sources */,
-				BC9AE56E2448DEB70050DE1E /* InfoBanner.swift in Sources */,
-				BC9AE5702448DEB70050DE1E /* CoreData+Additions.swift in Sources */,
-				BC9AE5712448DEB70050DE1E /* PersistentContainer.swift in Sources */,
+				60A248642454E1DE0083CBD2 /* AccessibilityIdentifier.swift in Sources */,
+				60A2485C2454E1630083CBD2 /* IsWithinXDaysOfToday.swift in Sources */,
+				60A248602454E1B00083CBD2 /* Splash.swift in Sources */,
+				60A2485E2454E17F0083CBD2 /* UIResponderExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,47 +895,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC9AE5722448DEBF0050DE1E /* AccessibilityIdentifier.swift in Sources */,
-				BC9AE5732448DEBF0050DE1E /* AccessibilityLabel.swift in Sources */,
-				BC9AE5742448DEBF0050DE1E /* AppDelegate.swift in Sources */,
-				BC9AE5752448DEBF0050DE1E /* AppDelegate+BackgroundFetch.swift in Sources */,
-				BC9AE5762448DEBF0050DE1E /* AppDelegate+BackgroundTasks.swift in Sources */,
-				BC9AE5772448DEBF0050DE1E /* AppDelegate+UserNotificationCenter.swift in Sources */,
-				BC9AE5782448DEBF0050DE1E /* (null) in Sources */,
-				BC9AE5792448DEBF0050DE1E /* Firestore+Constants.swift in Sources */,
-				BC9AE57A2448DEBF0050DE1E /* FirestoreOperations.swift in Sources */,
-				BC9AE57D2448DEBF0050DE1E /* QuerySnapshotProcessingOperation.swift in Sources */,
-				BC9AE5822448DEBF0050DE1E /* BluetoothPermission.swift in Sources */,
-				BC9AE5832448DEBF0050DE1E /* UIWindow+ViewControllerUtility.swift in Sources */,
-				BC9AE5842448DEBF0050DE1E /* UIViewController+ErrorPresenting.swift in Sources */,
-				BC9AE5852448DEBF0050DE1E /* Array+Chunked.swift in Sources */,
-				BC9AE5862448DEBF0050DE1E /* UIColorExtension.swift in Sources */,
-				BC9AE5872448DEBF0050DE1E /* UIViewExtension.swift in Sources */,
-				BC9AE5882448DEBF0050DE1E /* UIResponderExtension.swift in Sources */,
-				BC9AE5892448DEBF0050DE1E /* NotificationPermission.swift in Sources */,
-				BC9AE58A2448DEBF0050DE1E /* Splash.swift in Sources */,
-				BC9AE58B2448DEBF0050DE1E /* Bluetooth.swift in Sources */,
-				BC9AE58C2448DEBF0050DE1E /* Notifications.swift in Sources */,
-				BC9AE58D2448DEBF0050DE1E /* Home.swift in Sources */,
-				BC9AE58E2448DEBF0050DE1E /* Entry.swift in Sources */,
-				BC9AE58F2448DEBF0050DE1E /* Confirm.swift in Sources */,
-				BC9AE5902448DEBF0050DE1E /* Test.swift in Sources */,
-				BC9AE5912448DEBF0050DE1E /* BaseViewController.swift in Sources */,
-				BC9AE5922448DEC00050DE1E /* Header.swift in Sources */,
-				BC9AE5932448DEC00050DE1E /* LargeText.swift in Sources */,
+				60A248612454E1B10083CBD2 /* Splash.swift in Sources */,
+				60A2485D2454E1640083CBD2 /* IsWithinXDaysOfToday.swift in Sources */,
 				60808C3624524295007415FE /* HowItWorks.swift in Sources */,
-				60C7A943244A4DDB0033A13D /* IsWithinXDaysOfToday.swift in Sources */,
-				BC9AE5942448DEC00050DE1E /* MainText.swift in Sources */,
-				6013AE2C244A740400F02CCF /* UserDefaults+Shared.swift in Sources */,
-				BC9AE5952448DEC00050DE1E /* Button.swift in Sources */,
-				2EFE68E3244E8F7F003D1E48 /* OnboardingFlow.swift in Sources */,
-				BC9AE5962448DEC00050DE1E /* Menu.swift in Sources */,
-				2E48145C244F6E020025EA9B /* Springboard.swift in Sources */,
-				BC9AE5972448DEC00050DE1E /* MenuItem.swift in Sources */,
-				BC9AE5982448DEC00050DE1E /* InfoBanner.swift in Sources */,
-				BC9AE59A2448DEC00050DE1E /* CoreData+Additions.swift in Sources */,
-				BC9AE59B2448DEC00050DE1E /* PersistentContainer.swift in Sources */,
+				60A248632454E1C00083CBD2 /* UIColorExtension.swift in Sources */,
+				60A248652454E1DF0083CBD2 /* AccessibilityIdentifier.swift in Sources */,
 				1F9258FA245258E30025C1B0 /* OnboardingFlow.swift in Sources */,
+				60A248672454E1E30083CBD2 /* AccessibilityLabel.swift in Sources */,
+				60A2485F2454E1800083CBD2 /* UIResponderExtension.swift in Sources */,
 				1F9258FB245258E60025C1B0 /* Springboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1294,7 +1240,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2D667D7E2451AB0C0071C353 /* RemoteSwiftPackageReference */ = {
+		2D667D7E2451AB0C0071C353 /* XCRemoteSwiftPackageReference "tcn-client-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TCNCoalition/tcn-client-ios";
 			requirement = {
@@ -1305,9 +1251,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2D667D7F2451AB0C0071C353 /* SwiftPackageProductDependency */ = {
+		2D667D7F2451AB0C0071C353 /* TCNClient */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2D667D7E2451AB0C0071C353 /* RemoteSwiftPackageReference */;
+			package = 2D667D7E2451AB0C0071C353 /* XCRemoteSwiftPackageReference "tcn-client-ios" */;
 			productName = TCNClient;
 		};
 /* End XCSwiftPackageProductDependency section */

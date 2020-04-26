@@ -27,6 +27,9 @@ class HowItWorks: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        // accessibility identifiers
+        setupAccessibilityAndLocalization()
+
         UserDefaults.standard.set(true, forKey: Splash.onboardingStartedKey)
         // since screen 4 does not have pages
         if let page1 = self.page1,
@@ -67,5 +70,10 @@ class HowItWorks: UIViewController {
         titleLabel.textColor = UIColor.Primary.Gray
         descriptionLabel.font = UIFont(name: "Montserrat", size: fontSize)
         descriptionLabel.textColor = UIColor.Primary.Gray
+    }
+
+    func setupAccessibilityAndLocalization() {
+        titleLabel.accessibilityIdentifier = AccessibilityIdentifier.LargeText.rawValue
+        descriptionLabel.accessibilityIdentifier = AccessibilityIdentifier.MainText.rawValue
     }
 }
