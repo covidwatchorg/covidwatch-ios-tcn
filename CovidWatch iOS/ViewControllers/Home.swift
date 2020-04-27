@@ -16,6 +16,7 @@ class Home: UIViewController {
     var spreadButton: Button!
     var testedButton: Button!
     var infoBanner: InfoBanner!
+    var menu: Menu!
     var testLastSubmittedDateObserver: NSKeyValueObservation?
     var mostRecentExposureDateObserver: NSKeyValueObservation?
     var isUserSickObserver: NSKeyValueObservation?
@@ -34,6 +35,7 @@ class Home: UIViewController {
         //swiftlint:disable:next line_length
         self.mainText = MainText(self, text: "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19.")
         self.largeText = LargeText(self, text: "You're all set!")
+        self.menu = Menu(self)
         
         testLastSubmittedDateObserver = globalState.observe(
             \.testLastSubmittedDate,
@@ -260,6 +262,8 @@ class Home: UIViewController {
                                       bottom: screenHeight - self.view.safeAreaInsets.bottom,
                                       centerX: view.center.x)
         }
+//        Draw the menu last, so it's registered as "above" all other components in the layout hierarchy
+        self.menu.draw()
         
         globalState.isFirstTimeUser = false
         
@@ -270,6 +274,6 @@ class Home: UIViewController {
 // MARK: - Protocol HeaderViewControllerDelegate
 extension Home: HeaderViewControllerDelegate {
     func menuWasTapped() {
-        print("Not Implemented")
+        self.menu.toggleMenu()
     }
 }

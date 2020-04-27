@@ -75,8 +75,6 @@
 		2E1FDC1B24394425000D8D67 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDC1A24394424000D8D67 /* Notifications.swift */; };
 		2E48145E244FCCDD0025EA9B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48145D244FCCDD0025EA9B /* Environment.swift */; };
 		2E80CAE72446B87700F5272E /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
-		2EBF8725243BC275003278E6 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8724243BC275003278E6 /* Header.swift */; };
-		2EBF8727243BC7F8003278E6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8726243BC7F8003278E6 /* BaseViewController.swift */; };
 		2EBF8729243BCFA1003278E6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */; };
 		2EBF872B243BEAFA003278E6 /* LargeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF872A243BEAFA003278E6 /* LargeText.swift */; };
 		2EBF872F243BF41E003278E6 /* MainText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF872E243BF41E003278E6 /* MainText.swift */; };
@@ -190,8 +188,6 @@
 		2E48145B244F6E020025EA9B /* Springboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Springboard.swift; sourceTree = "<group>"; };
 		2E48145D244FCCDD0025EA9B /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsWithinXDaysOfToday.swift; sourceTree = "<group>"; };
-		2EBF8724243BC275003278E6 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
-		2EBF8726243BC7F8003278E6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		2EBF872A243BEAFA003278E6 /* LargeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeText.swift; sourceTree = "<group>"; };
 		2EBF872E243BF41E003278E6 /* MainText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainText.swift; sourceTree = "<group>"; };
@@ -282,7 +278,6 @@
 		2D9D70AD241CCB4B007ABD89 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2EBF8726243BC7F8003278E6 /* BaseViewController.swift */,
 				1F459644245615A500EC9ACE /* Bluetooth.storyboard */,
 				2E1FDBF4243929F4000D8D67 /* Bluetooth.swift */,
 				1F459642245615A500EC9ACE /* Confirm.storyboard */,
@@ -441,7 +436,6 @@
 		2EF61C352436733A003046A4 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				2EBF8724243BC275003278E6 /* Header.swift */,
 				2EBF872A243BEAFA003278E6 /* LargeText.swift */,
 				2EBF872E243BF41E003278E6 /* MainText.swift */,
 				2EBF8730243C09F1003278E6 /* Button.swift */,
@@ -824,11 +818,9 @@
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
 				60A44B4E244402A500A8154B /* Entry.swift in Sources */,
 				2EF61C392436F82D003046A4 /* UIColorExtension.swift in Sources */,
-				2EBF8725243BC275003278E6 /* Header.swift in Sources */,
 				2D667D8F2451AED20071C353 /* SignedReportsDownloadOperation.swift in Sources */,
 				2D667D912451AF870071C353 /* SignedReport+TCN.swift in Sources */,
 				E2B451A924443FE900E17888 /* BluetoothPermission.swift in Sources */,
-				2EBF8727243BC7F8003278E6 /* BaseViewController.swift in Sources */,
 				2EFE630C2440E9EA00D00305 /* InfoBanner.swift in Sources */,
 				1F94B1652454A8AE00807C0A /* HeaderViewController.swift in Sources */,
 				2DDEBF5E241A3468005BE9A8 /* PersistentContainer.swift in Sources */,
