@@ -32,6 +32,7 @@ class Bluetooth: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAccessibilityAndLocalization()
+        UserDefaults.standard.checkIfStartedOnboarding = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -50,7 +50,6 @@ class HowItWorks: UIViewController {
         }
         // user has reached last screen
         if let setupButton = self.setupButton {
-            UserDefaults.standard.set(true, forKey: Splash.onboardingStartedKey)
             setupButton.layer.cornerRadius = 10
             var buttonFontSize: CGFloat = 18
             if screenHeight <= 568 {
