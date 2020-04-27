@@ -97,7 +97,15 @@ extension UserDefaults {
             setValue(newValue, forKey: Key.isFirstTimeUser)
         }
     }
-
+    
+    // this happens if bluetooth is changed during onboarding and the user
+    // gets bounced back to the start of onboarding when reloading the app
+    private static let onboardingStartedKey = "onboardingStarted"
+    public var checkIfStartedOnboarding: Bool {
+        get { bool(forKey: Self.onboardingStartedKey) }
+        set { set(newValue, forKey: Self.onboardingStartedKey)}
+    }
+    
     @objc dynamic public var testLastSubmittedDate: Date? {
         get {
             return object(forKey: Key.testLastSubmittedDate) as? Date
