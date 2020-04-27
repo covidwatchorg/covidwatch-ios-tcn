@@ -21,6 +21,7 @@
 		1F94B1652454A8AE00807C0A /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94B1642454A8AE00807C0A /* HeaderViewController.swift */; };
 		1F94B1672454A8C600807C0A /* HeaderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F94B1662454A8C600807C0A /* HeaderViewController.storyboard */; };
 		1F94B1692454EC2100807C0A /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94B1682454EC2100807C0A /* UIAlertControllerExtension.swift */; };
+		1F9F271724567C43000DFABB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F271524567C43000DFABB /* LaunchScreen.storyboard */; };
 		1FB66DB22455C5AE0029E801 /* AlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB66DB12455C5AE0029E801 /* AlertControllerTests.swift */; };
 		2D14F7BF2452D62B00C02C0D /* CurrentUserExposureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D14F7BE2452D62B00C02C0D /* CurrentUserExposureNotifier.swift */; };
 		2D30EFC3242268040063C211 /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30EFC2242268010063C211 /* Array+Chunked.swift */; };
@@ -126,6 +127,7 @@
 		1F94B1642454A8AE00807C0A /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		1F94B1662454A8C600807C0A /* HeaderViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HeaderViewController.storyboard; sourceTree = "<group>"; };
 		1F94B1682454EC2100807C0A /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		1F9F271624567C43000DFABB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FB66DB12455C5AE0029E801 /* AlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerTests.swift; sourceTree = "<group>"; };
 		27A4B6F15733C6DCEA2D3B84 /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5565D9FFECCCC3FEE46F0C /* Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-CovidWatch iOS-CovidWatch iOSUITests/Pods-CovidWatch iOS-CovidWatch iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				2EFE6303243F990900D00305 /* Home.swift */,
 				1F45964F2456165A00EC9ACE /* HowItWorks.storyboard */,
 				60808C3324524291007415FE /* HowItWorks.swift */,
+				1F9F271524567C43000DFABB /* LaunchScreen.storyboard */,
 				1F459646245615A500EC9ACE /* Main.storyboard */,
 				1F459647245615A500EC9ACE /* Notifications.storyboard */,
 				2E1FDC1A24394424000D8D67 /* Notifications.swift */,
@@ -624,6 +627,7 @@
 				2E1FDC0924393C5A000D8D67 /* Montserrat-ExtraBoldItalic.ttf in Resources */,
 				2E1FDC0824393C5A000D8D67 /* Montserrat-ThinItalic.ttf in Resources */,
 				2E1FDC1324393C5A000D8D67 /* Montserrat-LightItalic.ttf in Resources */,
+				1F9F271724567C43000DFABB /* LaunchScreen.storyboard in Resources */,
 				2E1FDC1924393C5A000D8D67 /* Montserrat-ExtraBold.ttf in Resources */,
 				2D6655B4242E605000B462E0 /* GoogleService-Info.plist in Resources */,
 				2E1FDC1424393C5A000D8D67 /* Montserrat-Black.ttf in Resources */,
@@ -885,6 +889,17 @@
 			targetProxy = 2DFDC5C424190ABA00B108F8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1F9F271524567C43000DFABB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F9F271624567C43000DFABB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2DFDC5CA24190ABA00B108F8 /* Debug */ = {
