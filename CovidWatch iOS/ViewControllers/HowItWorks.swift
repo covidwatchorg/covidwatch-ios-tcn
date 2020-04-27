@@ -59,6 +59,11 @@ class HowItWorks: UIViewController {
                 buttonFontSize = 16
             }
             setupButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: buttonFontSize)
+            if !UserDefaults.shared.isFirstTimeUser {
+                setupButton.setTitle("Done", for: .normal)
+//                setupButton.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(goHome)))
+            }
+
         }
 
         var titleFontSize: CGFloat = 36
@@ -84,5 +89,9 @@ class HowItWorks: UIViewController {
     func setupAccessibilityAndLocalization() {
         titleLabel.accessibilityIdentifier = AccessibilityIdentifier.LargeText.rawValue
         descriptionLabel.accessibilityIdentifier = AccessibilityIdentifier.MainText.rawValue
+    }
+    
+    @objc private func goHome() {
+        self.performSegue(withIdentifier: "HowItWorksToHome", sender: self)
     }
 }

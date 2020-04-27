@@ -19,11 +19,20 @@
                     </view>
                     <connections>
                         <segue destination="uEX-Wy-C9R" kind="presentation" identifier="test" modalPresentationStyle="automatic" modalTransitionStyle="coverVertical" id="djO-Tl-6Iy"/>
+                        <segue destination="Cmd-5S-SUc" kind="presentation" identifier="HomeToHowItWorks" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="8hC-Kk-7on"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1h-VM-ymf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117" y="74"/>
+        </scene>
+        <!--HowItWorks-->
+        <scene sceneID="pAT-6T-NKv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HowItWorks" id="Cmd-5S-SUc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kRO-af-jQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="21"/>
         </scene>
         <!--Test-->
         <scene sceneID="vGV-Hr-6Sh">

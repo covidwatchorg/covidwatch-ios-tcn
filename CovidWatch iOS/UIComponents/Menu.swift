@@ -213,8 +213,10 @@ class Menu: UIView {
                         parentVC.performSegue(withIdentifier: "test", sender: parentVC)
                     }
                 }),
-                MenuItem(parentVC, text: "How does this work?", addLinkImg: true, onClick: {
-                    print("Clicked How does this work?") // Dummy function for now
+                MenuItem(parentVC, text: "How does this work?", addLinkImg: false, onClick: {
+                    if let parentVC = self.parentVC {
+                        parentVC.performSegue(withIdentifier: "HomeToHowItWorks", sender: parentVC)
+                    }
                 }),
                 MenuItem(parentVC, text: "Covid Watch Website", addLinkImg: true, onClick: {
                     if let url = URL(string: "https://www.covid-watch.org/") {
