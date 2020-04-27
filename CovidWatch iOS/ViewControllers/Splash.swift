@@ -13,10 +13,11 @@ class Splash: UIViewController {
     @IBOutlet var mainLogoImg: UIImageView!
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var startButton: UIButton!
-
+    @IBOutlet weak var btnHeight: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        startButton.update(height: btnHeight)
         // accessibility identifiers
         setupAccessibilityAndLocalization()
         

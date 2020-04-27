@@ -19,6 +19,7 @@ class Notifications: UIViewController {
     @IBOutlet private var largeText: UILabel!
     @IBOutlet private var mainText: UILabel!
     @IBOutlet private var button: UIButton!
+    @IBOutlet weak var btnHeight: NSLayoutConstraint!
     
     // MARK: - IBActions
     
@@ -33,6 +34,7 @@ class Notifications: UIViewController {
         NotificationCenter.default.addObserver(
             self, selector: #selector(nextScreenIfNotificationsEnabled),
             name: UIApplication.willEnterForegroundNotification, object: nil)
+        button.update(height: btnHeight)
         self.setupAccessibilityAndLocalization()
     }
     

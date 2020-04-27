@@ -31,16 +31,16 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help your community stay safe, anonymously." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csG-s4-Jdl">
-                                <rect key="frame" x="20" y="666" width="374" height="54"/>
+                                <rect key="frame" x="20" y="679" width="374" height="54"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBx-Na-snW">
-                                <rect key="frame" x="20" y="756" width="374" height="58"/>
+                                <rect key="frame" x="20" y="769" width="374" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="58" id="jwr-QZ-2U3"/>
+                                    <constraint firstAttribute="height" constant="45" id="jwr-QZ-2U3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="24"/>
                                 <state key="normal" title="How it Works">
@@ -75,6 +75,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7uc-EC-B24"/>
                     <connections>
+                        <outlet property="btnHeight" destination="jwr-QZ-2U3" id="mYe-Rk-7Cn"/>
                         <outlet property="descriptionText" destination="csG-s4-Jdl" id="F2p-bC-cdn"/>
                         <outlet property="mainLogoImg" destination="btT-ps-Ijn" id="riG-pd-Pw5"/>
                         <outlet property="startButton" destination="kBx-Na-snW" id="kyG-YS-FE6"/>

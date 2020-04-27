@@ -56,7 +56,15 @@ extension UIResponder {
     }
     var buttonHeight: CGFloat {
         get {
-            return 58.0 * figmaToiOSVerticalScalingFactor
+            (58.0/321.0) * contentMaxWidth
         }
     }
+}
+
+extension UIButton {
+    
+    func update(height constraint: NSLayoutConstraint) {
+        constraint.constant = buttonHeight
+    }
+    
 }
