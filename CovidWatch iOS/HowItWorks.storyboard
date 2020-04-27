@@ -610,7 +610,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="05l-yP-HLx" kind="presentation" modalPresentationStyle="fullScreen" id="Uom-fg-tn0"/>
+                                    <action selector="setupButtonPressed:" destination="OVU-ks-FdW" eventType="touchUpInside" id="IWi-dk-5wc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -649,6 +649,7 @@
                         <outlet property="titleLabel" destination="awb-H8-NNF" id="h4J-ok-6TH"/>
                         <outlet property="titleWidth" destination="4r8-EO-yti" id="Rhw-8p-d1S"/>
                         <segue destination="pB3-tl-s11" kind="presentation" identifier="HowItWorksToHome" modalPresentationStyle="fullScreen" id="p9V-Tf-OBv"/>
+                        <segue destination="05l-yP-HLx" kind="presentation" identifier="HowItWorksToBluetooth" modalPresentationStyle="fullScreen" id="FMt-HX-HpP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Djf-7d-tew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

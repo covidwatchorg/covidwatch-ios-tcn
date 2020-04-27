@@ -17,6 +17,9 @@ class HowItWorks: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var setupButton: UIButton!
+    @IBAction func setupButtonPressed(_ sender: UIButton) {
+        nextScreen()
+    }
     @IBOutlet var setupButtonHeight: NSLayoutConstraint!
     @IBOutlet var setupButtonWidth: NSLayoutConstraint!
     @IBOutlet var howItWorksWidth: NSLayoutConstraint!
@@ -61,7 +64,6 @@ class HowItWorks: UIViewController {
             setupButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: buttonFontSize)
             if !UserDefaults.shared.isFirstTimeUser {
                 setupButton.setTitle("Done", for: .normal)
-//                setupButton.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(goHome)))
             }
 
         }
@@ -91,7 +93,11 @@ class HowItWorks: UIViewController {
         descriptionLabel.accessibilityIdentifier = AccessibilityIdentifier.MainText.rawValue
     }
     
-    @objc private func goHome() {
-        self.performSegue(withIdentifier: "HowItWorksToHome", sender: self)
+    private func nextScreen() {
+        if UserDefaults.shared.isFirstTimeUser {
+            self.performSegue(withIdentifier: "HowItWorksToBluetooth", sender: self)
+        } else {
+            self.performSegue(withIdentifier: "HowItWorksToHome", sender: self)
+        }
     }
 }
