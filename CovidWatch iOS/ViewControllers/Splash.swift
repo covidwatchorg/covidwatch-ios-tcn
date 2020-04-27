@@ -13,10 +13,16 @@ class Splash: UIViewController {
     @IBOutlet var mainLogoImg: UIImageView!
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var startButton: UIButton!
+    
+    static let animationDuration = 1.0
+    static let animationSlowdown = 1.5
+    static let delayBetweenAnimations = 0.2
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // prepare for animation
+        self.startButton.alpha = 0.0
+        self.descriptionText.alpha = 0.0
         // accessibility identifiers
         setupAccessibilityAndLocalization()
         
@@ -25,6 +31,25 @@ class Splash: UIViewController {
                 self.goToBluetoothNoAnimation()
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // animate bottom elements in
+        UIView.animate(withDuration: Self.animationDuration, animations: {
+            self.descriptionText.alpha = 1.0
+        }, completion: { _ in
+            if UserDefaults.standard.isFirstTimeUser {
+                UIView.animate(withDuration: Self.animationDuration * Self.animationSlowdown,
+                               delay: Self.delayBetweenAnimations,
+                               animations: {
+                    self.startButton.alpha = 1.0
+                })
+            } else {
+                // fast track to Home if you've done all this
+                self.performSegue(withIdentifier: "\(Home.self)", sender: self)
+            }
+        })
     }
     
     private func setupAccessibilityAndLocalization() {
