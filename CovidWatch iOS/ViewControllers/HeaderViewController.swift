@@ -29,21 +29,9 @@ class HeaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.btnMenu.isHidden = !(self.delegate?.shouldShowMenu ?? true)
-        #if DEBUG
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(btnLogoTapped(_:)))
-        self.img.addGestureRecognizer(tapGesture)
-        self.img.isUserInteractionEnabled = true
-        #endif
     }
     
     @IBAction func btnMenuTapped(_ sender: Any) {
         self.delegate?.menuWasTapped()
-    }
-    
-    @objc func btnLogoTapped(_ sender: Any) {
-        #if DEBUG
-        UserDefaults.standard.isFirstTimeUser = true
-        self.navigationController?.popToRootViewController(animated: true)
-        #endif
     }
 }
