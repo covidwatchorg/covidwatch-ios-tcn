@@ -41,8 +41,7 @@ extension UIResponder {
     }
     var contentMaxWidth: CGFloat {
         get {
-            // 321 is the contentMaxWidth in Figma (px)
-            return 321.0 * figmaToiOSHorizontalScalingFactor
+            return screenWidth - 40
         }
     }
     var mainLogoWidth: CGFloat {
