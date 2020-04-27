@@ -51,32 +51,13 @@ class HowItWorks: UIViewController {
         // user has reached last screen
         if let setupButton = self.setupButton {
             setupButton.layer.cornerRadius = 10
-            var buttonFontSize: CGFloat = 18
-            if screenHeight <= 568 {
-                buttonFontSize = 14
-            } else if screenHeight <= 667 {
-                buttonFontSize = 16
-            }
-            setupButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: buttonFontSize)
-        }
-
-        var titleFontSize: CGFloat = 36
-        if screenHeight <= 568 {
-            titleFontSize = 28
-        } else if screenHeight <= 667 {
-            titleFontSize = 32
-        }
-        var fontSize: CGFloat = 18
-        if screenHeight <= 568 {
-            fontSize = 14
-        } else if screenHeight <= 667 {
-            fontSize = 16
+            setupButton.titleLabel?.font = Font.button.font(viewHeight: contentMaxWidth)
         }
         howItWorksLabel.font = UIFont(name: "Montserrat", size: 14)
         howItWorksLabel.textColor = UIColor.Primary.Gray
-        titleLabel.font = UIFont(name: "Montserrat-SemiBold", size: titleFontSize)
+        titleLabel.font = Font.large.font(viewHeight: contentMaxWidth)
         titleLabel.textColor = UIColor.Primary.Gray
-        descriptionLabel.font = UIFont(name: "Montserrat", size: fontSize)
+        descriptionLabel.font = Font.main.font(viewHeight: contentMaxWidth)
         descriptionLabel.textColor = UIColor.Primary.Gray
     }
 
