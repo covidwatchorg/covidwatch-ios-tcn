@@ -76,6 +76,10 @@
 		2E1FDC1924393C5A000D8D67 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */; };
 		2E1FDC1B24394425000D8D67 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDC1A24394424000D8D67 /* Notifications.swift */; };
 		2E48145E244FCCDD0025EA9B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48145D244FCCDD0025EA9B /* Environment.swift */; };
+		2E6D3D0D24576AB3000F0398 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
+		2E6D3D0E24576ABE000F0398 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5C5410241CB6FE00DB2520 /* UserDefaults+Shared.swift */; };
+		2E6D3D1024576B0A000F0398 /* TCNClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2E6D3D0F24576B0A000F0398 /* TCNClient */; };
+		2E6D3D1224576B1A000F0398 /* TCNClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2E6D3D1124576B1A000F0398 /* TCNClient */; };
 		2E80CAE72446B87700F5272E /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
 		2EBF8729243BCFA1003278E6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */; };
 		2EBF872B243BEAFA003278E6 /* LargeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF872A243BEAFA003278E6 /* LargeText.swift */; };
@@ -243,7 +247,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A132EC6A9798E0BD6919591B /* Pods_CovidWatch_iOSTests.framework in Frameworks */,
+				2E6D3D1024576B0A000F0398 /* TCNClient in Frameworks */,
+				A38D9EBD82F1C1A85E30D151 /* Pods_CovidWatch_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +256,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6D3D1224576B1A000F0398 /* TCNClient in Frameworks */,
+				780018A7361507BB6093AB79 /* Pods_CovidWatch_iOS_CovidWatch_iOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +545,9 @@
 				2DFDC5BA24190ABA00B108F8 /* PBXTargetDependency */,
 			);
 			name = "CovidWatch iOSTests";
+			packageProductDependencies = (
+				2E6D3D0F24576B0A000F0398 /* TCNClient */,
+			);
 			productName = "COVID-19 RiskTests";
 			productReference = 2DFDC5B824190ABA00B108F8 /* CovidWatch iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -558,6 +568,9 @@
 				2DFDC5C524190ABA00B108F8 /* PBXTargetDependency */,
 			);
 			name = "CovidWatch iOSUITests";
+			packageProductDependencies = (
+				2E6D3D1124576B1A000F0398 /* TCNClient */,
+			);
 			productName = "COVID-19 RiskUITests";
 			productReference = 2DFDC5C324190ABA00B108F8 /* CovidWatch iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -866,6 +879,7 @@
 			files = (
 				1F8B8BDD24561E380066EE54 /* HeaderViewControllerTests.swift in Sources */,
 				1FB66DB22455C5AE0029E801 /* AlertControllerTests.swift in Sources */,
+				2E6D3D0D24576AB3000F0398 /* UserDefaults+Shared.swift in Sources */,
 				2DFDC5BD24190ABA00B108F8 /* CovidWatch_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1224,6 +1238,16 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		2D667D7F2451AB0C0071C353 /* TCNClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D667D7E2451AB0C0071C353 /* XCRemoteSwiftPackageReference "tcn-client-ios" */;
+			productName = TCNClient;
+		};
+		2E6D3D0F24576B0A000F0398 /* TCNClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D667D7E2451AB0C0071C353 /* XCRemoteSwiftPackageReference "tcn-client-ios" */;
+			productName = TCNClient;
+		};
+		2E6D3D1124576B1A000F0398 /* TCNClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2D667D7E2451AB0C0071C353 /* XCRemoteSwiftPackageReference "tcn-client-ios" */;
 			productName = TCNClient;
