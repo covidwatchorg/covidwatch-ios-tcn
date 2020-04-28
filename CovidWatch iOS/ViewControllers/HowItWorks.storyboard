@@ -11,7 +11,7 @@
         <!--Screen 1-->
         <scene sceneID="Jxb-GG-YQv">
             <objects>
-                <viewController id="7C4-bd-Y0y" userLabel="Screen 1" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowItWorks1" id="7C4-bd-Y0y" userLabel="Screen 1" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bUS-jC-Maw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,26 +167,10 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEq-cd-4h7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="u0a-4B-Ptx">
-                    <connections>
-                        <segue destination="3Kp-hc-jfI" kind="presentation" identifier="page1to2" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="7zN-dc-dHt"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <tapGestureRecognizer id="iEP-6q-3oX">
-                    <connections>
-                        <segue destination="3Kp-hc-jfI" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="HBd-iC-dHS"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="su1-Zb-YNG">
-                    <connections>
-                        <segue destination="3Kp-hc-jfI" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Vou-YW-Bme"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="nMt-AV-nAG">
-                    <connections>
-                        <segue destination="3Kp-hc-jfI" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8sm-A0-vc8"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="u0a-4B-Ptx"/>
+                <tapGestureRecognizer id="iEP-6q-3oX"/>
+                <tapGestureRecognizer id="su1-Zb-YNG"/>
+                <tapGestureRecognizer id="nMt-AV-nAG"/>
             </objects>
             <point key="canvasLocation" x="-1542.0289855072465" y="101.78571428571428"/>
         </scene>
@@ -201,7 +185,7 @@
         <!--Screen 2-->
         <scene sceneID="0o5-eR-gcO">
             <objects>
-                <viewController id="3Kp-hc-jfI" userLabel="Screen 2" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowItWorks2" id="3Kp-hc-jfI" userLabel="Screen 2" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PK0-GX-Mfq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -359,38 +343,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gn-RX-pJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="C26-0m-8Qp">
-                    <connections>
-                        <segue destination="UjY-uS-GAc" kind="presentation" identifier="page2to3" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Cmd-kV-ETC"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="sNo-GU-xj9">
-                    <connections>
-                        <segue destination="7C4-bd-Y0y" kind="presentation" identifier="page2to1" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="zKO-Av-GdD"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <tapGestureRecognizer id="VOr-hm-Pun">
-                    <connections>
-                        <segue destination="7C4-bd-Y0y" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="VYw-Gz-BXR"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="2bA-Lx-32l">
-                    <connections>
-                        <segue destination="UjY-uS-GAc" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="O9f-n5-66E"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="BJk-Yj-eVj">
-                    <connections>
-                        <segue destination="UjY-uS-GAc" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="ylN-PZ-5Xe"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="C26-0m-8Qp"/>
+                <swipeGestureRecognizer direction="right" id="sNo-GU-xj9"/>
+                <tapGestureRecognizer id="VOr-hm-Pun"/>
+                <tapGestureRecognizer id="2bA-Lx-32l"/>
+                <tapGestureRecognizer id="BJk-Yj-eVj"/>
             </objects>
             <point key="canvasLocation" x="-571.01449275362324" y="101.78571428571428"/>
         </scene>
         <!--Screen 3-->
         <scene sceneID="U1t-dD-X42">
             <objects>
-                <viewController id="UjY-uS-GAc" userLabel="Screen 3" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowItWorks3" id="UjY-uS-GAc" userLabel="Screen 3" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x4X-Ar-dgF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -544,38 +508,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0FA-SW-0i2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="Cv2-f6-dcG">
-                    <connections>
-                        <segue destination="3Kp-hc-jfI" kind="presentation" identifier="page3to2" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="zwB-PW-f88"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="left" id="Ac2-5t-AbZ">
-                    <connections>
-                        <segue destination="vzG-Mt-LWc" kind="presentation" identifier="page3to4" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="mGe-Qk-EEz"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <tapGestureRecognizer id="GH7-kk-rxA">
-                    <connections>
-                        <segue destination="vzG-Mt-LWc" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="niy-eA-MWk"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="5mR-GI-wjg">
-                    <connections>
-                        <segue destination="3Kp-hc-jfI" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="76m-a0-AWy"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="FlX-EW-1p0">
-                    <connections>
-                        <segue destination="7C4-bd-Y0y" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="cpC-Zm-23Y"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="Cv2-f6-dcG"/>
+                <swipeGestureRecognizer direction="left" id="Ac2-5t-AbZ"/>
+                <tapGestureRecognizer id="GH7-kk-rxA"/>
+                <tapGestureRecognizer id="5mR-GI-wjg"/>
+                <tapGestureRecognizer id="FlX-EW-1p0"/>
             </objects>
             <point key="canvasLocation" x="334.78260869565219" y="101.78571428571428"/>
         </scene>
         <!--Screen 4-->
         <scene sceneID="gwO-kq-Nw6">
             <objects>
-                <viewController id="OVU-ks-FdW" userLabel="Screen 4" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowItWorks4" id="OVU-ks-FdW" userLabel="Screen 4" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v4Q-Gs-ZZ6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -671,62 +615,16 @@
                         <outlet property="setupButtonWidth" destination="ckX-oj-ud6" id="WIy-am-ENT"/>
                         <outlet property="titleLabel" destination="awb-H8-NNF" id="h4J-ok-6TH"/>
                         <outlet property="titleWidth" destination="4r8-EO-yti" id="Rhw-8p-d1S"/>
-                        <segue destination="pB3-tl-s11" kind="presentation" identifier="HowItWorksToHome" modalPresentationStyle="fullScreen" id="p9V-Tf-OBv"/>
-                        <segue destination="05l-yP-HLx" kind="show" identifier="HowItWorksToBluetooth" id="FMt-HX-HpP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Djf-7d-tew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="npv-Fh-IK6">
-                    <connections>
-                        <segue destination="UjY-uS-GAc" kind="presentation" identifier="page4to3" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Ep2-18-6Uu"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="npv-Fh-IK6"/>
             </objects>
-            <point key="canvasLocation" x="2242.0289855072465" y="101.78571428571428"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="opS-Ag-elP">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="pB3-tl-s11" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LHl-qX-BMS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2056" y="80"/>
-        </scene>
-        <!--Bluetooth-->
-        <scene sceneID="yMa-iv-UCN">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Bluetooth" id="05l-yP-HLx" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="aI0-Hh-C7Q"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2xE-ax-Y3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2913.04347826087" y="101.78571428571428"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qId-uW-Dpf">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="vzG-Mt-LWc" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xVi-Xx-Gma">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="OVU-ks-FdW" kind="relationship" relationship="rootViewController" id="qaq-vp-ACb"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aDi-12-Qnb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1331.8840579710145" y="101.78571428571428"/>
+            <point key="canvasLocation" x="1229" y="102"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mGe-Qk-EEz"/>
-        <segue reference="O9f-n5-66E"/>
-        <segue reference="HBd-iC-dHS"/>
         <segue reference="FYl-Oh-N4m"/>
-        <segue reference="VYw-Gz-BXR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="how-it-works-1" width="375" height="314"/>

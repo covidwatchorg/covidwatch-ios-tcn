@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol HowItWorksDelegate: class {
+    func btnTapped()
+}
+
 class HowItWorks: UIViewController {
     @IBOutlet weak var page1: UIView!
     @IBOutlet weak var page2: UIView!
@@ -18,13 +22,15 @@ class HowItWorks: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var setupButton: UIButton!
     @IBAction func setupButtonPressed(_ sender: UIButton) {
-        nextScreen()
+        self.delegate?.btnTapped()
     }
     @IBOutlet var setupButtonHeight: NSLayoutConstraint!
     @IBOutlet var setupButtonWidth: NSLayoutConstraint!
     @IBOutlet var howItWorksWidth: NSLayoutConstraint!
     @IBOutlet var titleWidth: NSLayoutConstraint!
     @IBOutlet var descriptionWidth: NSLayoutConstraint!
+    static var numPages = 4
+    weak var delegate: HowItWorksDelegate?
 
     override func updateViewConstraints() {
         if let setupButtonHeight = self.setupButtonHeight {

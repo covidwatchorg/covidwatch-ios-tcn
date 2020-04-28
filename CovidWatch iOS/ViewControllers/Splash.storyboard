@@ -114,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="-2660" y="-790.64039408866995"/>
         </scene>
-        <!--HowItWorks-->
+        <!--PageViewController-->
         <scene sceneID="vKt-UW-FQk">
             <objects>
-                <viewControllerPlaceholder storyboardName="HowItWorks" id="Hxs-Le-QwN" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="PageViewController" id="Hxs-Le-QwN" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="8tT-Iu-bwb"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqe-yF-eFB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

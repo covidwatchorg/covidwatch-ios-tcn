@@ -215,7 +215,10 @@ class Menu: UIView {
                 }),
                 MenuItem(parentVC, text: "How does this work?", addLinkImg: false, onClick: {
                     if let parentVC = self.parentVC {
-                        parentVC.performSegue(withIdentifier: "HomeToHowItWorks", sender: parentVC)
+                        
+                        let pageView = PageViewController()
+                        parentVC.present(pageView, animated: true, completion: nil)
+//                        parentVC.performSegue(withIdentifier: "HomeToHowItWorks", sender: parentVC)
                     }
                 }),
                 MenuItem(parentVC, text: "Covid Watch Website", addLinkImg: true, onClick: {
