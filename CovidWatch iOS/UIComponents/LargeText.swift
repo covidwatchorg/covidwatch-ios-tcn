@@ -22,7 +22,7 @@ class LargeText: UITextView {
         self.parentVC = parentVC
         super.init(frame: CGRect(), textContainer: nil)
         self.text = text
-        self.font = Font.large.font(viewHeight: contentMaxWidth)
+        self.font = Font.large.font(viewHeight: screenHeight)
         self.textColor = UIColor.Primary.Gray
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = self.contentSize.height

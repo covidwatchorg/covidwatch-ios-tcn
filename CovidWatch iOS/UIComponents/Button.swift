@@ -12,7 +12,7 @@ class ALButton: UIButton {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.titleLabel?.accessibilityIdentifier = AccessibilityIdentifier.ButtonText.rawValue
-        self.titleLabel?.font = Font.button.font(viewHeight: contentMaxWidth)
+        self.titleLabel?.font = Font.button.font(viewHeight: screenHeight)
         self.layer.cornerRadius = 10
     }
 }
@@ -43,10 +43,10 @@ class Button: UIView {
         self.frame.size.height = (58.0/321.0) * contentMaxWidth
         self.backgroundColor = UIColor.Primary.Bluejay
         self.layer.cornerRadius = 10
-        self.text.font = Font.button.font(viewHeight: contentMaxWidth)
+        self.text.font = Font.button.font(viewHeight: screenHeight)
         self.text.textColor = UIColor.Primary.White
         self.text.backgroundColor = .clear
-        self.subtext?.font = Font.subtext.font(viewHeight: contentMaxWidth)
+        self.subtext?.font = Font.subtext.font(viewHeight: screenHeight)
         self.subtext?.textColor = UIColor.Primary.Gray
         self.subtext?.backgroundColor = .clear
         self.subtext?.textAlignment = .center

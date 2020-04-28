@@ -28,16 +28,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3H-7w-Umg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="2Us-ij-4TY"/>
+                                    <constraint firstAttribute="height" constant="57" id="2Us-ij-4TY"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="2DY-jC-4YC" kind="embed" id="n2k-rt-DDt"/>
                                 </connections>
                             </containerView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="bluetooth-image" translatesAutoresizingMaskIntoConstraints="NO" id="oN5-t6-xIK">
-                                <rect key="frame" x="20" y="83" width="280" height="172"/>
+                                <rect key="frame" x="20" y="65" width="280" height="190"/>
                             </imageView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CF7-QT-FGN" customClass="ALButton" customModule="Covid_Watch">
                                 <rect key="frame" x="20" y="474" width="280" height="45"/>

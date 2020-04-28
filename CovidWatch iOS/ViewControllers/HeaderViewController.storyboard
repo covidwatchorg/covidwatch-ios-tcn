@@ -12,31 +12,31 @@
             <objects>
                 <viewController id="eLX-4M-et2" customClass="HeaderViewController" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2NM-Xy-eHq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-cw-color" translatesAutoresizingMaskIntoConstraints="NO" id="0fe-oU-8dn">
-                                <rect key="frame" x="20" y="27" width="35" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Logo">
-                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
-                                    <bool key="isElement" value="YES"/>
-                                </accessibility>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACF-Up-8iS">
-                                <rect key="frame" x="356" y="21" width="38" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                <rect key="frame" x="356" y="21" width="38" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" identifier="menu" label="Menu"/>
                                 <state key="normal" image="menu-icon"/>
                                 <connections>
                                     <action selector="btnMenuTapped:" destination="eLX-4M-et2" eventType="touchUpInside" id="8Cc-Da-Ysp"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-cw-color" translatesAutoresizingMaskIntoConstraints="NO" id="0fe-oU-8dn">
+                                <rect key="frame" x="20" y="21" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Logo">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="j9l-a7-7LJ"/>
                     </view>
-                    <size key="freeformSize" width="414" height="88"/>
+                    <size key="freeformSize" width="414" height="72"/>
                     <connections>
                         <outlet property="btnMenu" destination="ACF-Up-8iS" id="8HI-N7-S4V"/>
                         <outlet property="img" destination="0fe-oU-8dn" id="THu-AD-tJU"/>

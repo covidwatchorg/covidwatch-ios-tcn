@@ -51,18 +51,30 @@ class HowItWorks: UIViewController {
         // user has reached last screen
         if let setupButton = self.setupButton {
             setupButton.layer.cornerRadius = 10
-            setupButton.titleLabel?.font = Font.button.font(viewHeight: contentMaxWidth)
+            setupButton.titleLabel?.font = Font.button.font(viewHeight: screenHeight)
         }
         howItWorksLabel.font = UIFont(name: "Montserrat", size: 14)
         howItWorksLabel.textColor = UIColor.Primary.Gray
-        titleLabel.font = Font.large.font(viewHeight: contentMaxWidth)
+        titleLabel.font = Font.large.font(viewHeight: screenHeight)
         titleLabel.textColor = UIColor.Primary.Gray
-        descriptionLabel.font = Font.main.font(viewHeight: contentMaxWidth)
+        descriptionLabel.font = Font.main.font(viewHeight: screenHeight)
         descriptionLabel.textColor = UIColor.Primary.Gray
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let headerViewController = segue.destination as? HeaderViewController {
+            headerViewController.delegate = self
+        }
     }
 
     func setupAccessibilityAndLocalization() {
         titleLabel.accessibilityIdentifier = AccessibilityIdentifier.LargeText.rawValue
         descriptionLabel.accessibilityIdentifier = AccessibilityIdentifier.MainText.rawValue
     }
+}
+
+// MARK: - Protocol HeaderViewControllerDelegate
+extension HowItWorks: HeaderViewControllerDelegate {
+    func menuWasTapped() {}
+    var shouldShowMenu: Bool { false }
 }

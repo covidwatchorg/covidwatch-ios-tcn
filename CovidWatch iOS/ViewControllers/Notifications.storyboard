@@ -28,16 +28,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-2F-UCU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="1MQ-Jj-4Id"/>
+                                    <constraint firstAttribute="height" constant="57" id="1MQ-Jj-4Id"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="7Zi-fn-PC1" kind="embed" id="xa2-AQ-sdG"/>
                                 </connections>
                             </containerView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="phone-alerts" translatesAutoresizingMaskIntoConstraints="NO" id="pHD-lC-Lin">
-                                <rect key="frame" x="20" y="83" width="280" height="201"/>
+                                <rect key="frame" x="20" y="65" width="280" height="219"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Receive Alerts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yan-G5-hVS">
                                 <rect key="frame" x="20" y="309" width="280" height="44"/>
