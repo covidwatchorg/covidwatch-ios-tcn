@@ -10,6 +10,7 @@ import UIKit
 
 protocol HowItWorksDelegate: class {
     func btnTapped()
+    func indexWasRequested(index: Int)
 }
 
 class HowItWorks: UIViewController {
@@ -31,6 +32,17 @@ class HowItWorks: UIViewController {
     @IBOutlet var descriptionWidth: NSLayoutConstraint!
     static var numPages = 4
     weak var delegate: HowItWorksDelegate?
+    
+    static func createAll(delegate: HowItWorksDelegate) -> [UIViewController] {
+        let storyboard = UIStoryboard(name: "\(HowItWorks.self)", bundle: nil)
+        return (1...Self.numPages).compactMap { index in
+            let identifier = "\(HowItWorks.self)\(index)"
+            let howItWorks = storyboard.instantiateViewController(identifier: identifier) as? HowItWorks
+            howItWorks?.delegate = delegate
+            howItWorks?.view.tag = index
+            return howItWorks
+        }
+    }
 
     override func updateViewConstraints() {
         if let setupButtonHeight = self.setupButtonHeight {
@@ -42,6 +54,14 @@ class HowItWorks: UIViewController {
         descriptionWidth.constant = contentMaxWidth
         super.updateViewConstraints()
     }
+    
+    func addTapGesture(view: UIView) {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pageTapped(gesture:)))
+        tapGesture.numberOfTapsRequired = 1
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tapGesture)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // accessibility identifiers
@@ -56,6 +76,10 @@ class HowItWorks: UIViewController {
             page2.layer.cornerRadius = 10
             page3.layer.cornerRadius = 10
             page4.layer.cornerRadius = 10
+            addTapGesture(view: page1)
+            addTapGesture(view: page2)
+            addTapGesture(view: page3)
+            addTapGesture(view: page4)
         }
         // user has reached last screen
         if let setupButton = self.setupButton {
@@ -89,6 +113,18 @@ class HowItWorks: UIViewController {
             self.performSegue(withIdentifier: "HowItWorksToBluetooth", sender: self)
         } else {
             self.performSegue(withIdentifier: "HowItWorksToHome", sender: self)
+        }
+    }
+    
+    @objc func pageTapped(gesture: UITapGestureRecognizer) {
+        if gesture.view == self.page1 {
+            self.delegate?.indexWasRequested(index: 0)
+        } else if gesture.view == self.page2 {
+            self.delegate?.indexWasRequested(index: 1)
+        } else if gesture.view == self.page3 {
+            self.delegate?.indexWasRequested(index: 2)
+        } else if gesture.view == self.page4 {
+            self.delegate?.indexWasRequested(index: 3)
         }
     }
 }
