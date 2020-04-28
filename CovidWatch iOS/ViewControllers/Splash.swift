@@ -41,7 +41,7 @@ class Splash: UIViewController {
         UIView.animate(withDuration: Self.animationDuration, animations: {
             self.descriptionText.alpha = 1.0
         }, completion: { _ in
-            // now that descrpition text is visible,
+            // now that description text is visible,
             // decide if we animate the button in or go to Home
             if UserDefaults.standard.isFirstTimeUser {
                 UIView.animate(withDuration: Self.animationDuration * Self.animationSlowdown,
