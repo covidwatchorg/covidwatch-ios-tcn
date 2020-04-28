@@ -53,8 +53,8 @@ open class CurrentUserExposureNotifier: NSObject, NSFetchedResultsControllerDele
     }
     
     private func notifyCurrentUserOfExposureIfNeeded() {
-        if let tcn = fetchedResultsController.fetchedObjects?.first {
-            UserDefaults.shared.mostRecentExposureDate = tcn.foundDate
+        if let tcn = fetchedResultsController.fetchedObjects?.first {            
+            UserDefaults.shared.setValue(tcn.foundDate, forKey: UserDefaults.Key.mostRecentExposureDate)
         }
         if UIApplication.shared.applicationState == .background {
             (UIApplication.shared.delegate as? AppDelegate)?.showCurrentUserExposedUserNotification()

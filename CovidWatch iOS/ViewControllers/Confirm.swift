@@ -89,8 +89,8 @@ class Confirm: UIViewController {
     }
 
     func onConfirm() {
-        UserDefaults.shared.isUserSick = true
-        UserDefaults.shared.testLastSubmittedDate = Date()
+        UserDefaults.shared.setValue(true, forKey: UserDefaults.Key.isUserSick)
+        UserDefaults.shared.setValue(Date(), forKey: UserDefaults.Key.testLastSubmittedDate)        
         closePage()
     }
     @IBAction func onCancelPressed(_ sender: Any) {
