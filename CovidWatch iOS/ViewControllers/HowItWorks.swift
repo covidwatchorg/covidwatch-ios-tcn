@@ -89,6 +89,6 @@ class HowItWorks: UIViewController {
 
 // MARK: - Protocol HeaderViewControllerDelegate
 extension HowItWorks: HeaderViewControllerDelegate {
-    func menuWasTapped() {}
+    func menuWasTapped() { print("not implemented") }
     var shouldShowMenu: Bool { false }
 }

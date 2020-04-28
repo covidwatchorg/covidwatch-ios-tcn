@@ -297,6 +297,6 @@ extension Test {
 
 // MARK: - Protocol HeaderViewControllerDelegate
 extension Test: HeaderViewControllerDelegate {
-    func menuWasTapped() {}
+    func menuWasTapped() { print("not implemented") }
     var shouldShowMenu: Bool { false }
 }
