@@ -21,6 +21,7 @@ class Splash: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        startButton.update(height: btnHeight)
         // prepare for animation
         self.startButton.alpha = 0.0
         self.descriptionText.alpha = 0.0
@@ -40,6 +41,8 @@ class Splash: UIViewController {
         UIView.animate(withDuration: Self.animationDuration, animations: {
             self.descriptionText.alpha = 1.0
         }, completion: { _ in
+            // now that descrpition text is visible,
+            // decide if we animate the button in or go to Home
             if UserDefaults.standard.isFirstTimeUser {
                 UIView.animate(withDuration: Self.animationDuration * Self.animationSlowdown,
                                delay: Self.delayBetweenAnimations,
@@ -47,7 +50,7 @@ class Splash: UIViewController {
                     self.startButton.alpha = 1.0
                 })
             } else {
-                // fast track to Home if you've done all this
+                // fast track to Home if you've done all this already
                 self.performSegue(withIdentifier: "\(Home.self)", sender: self)
             }
         })
