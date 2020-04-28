@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7C4-bd-Y0y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7C4-bd-Y0y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -610,7 +610,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="05l-yP-HLx" kind="presentation" modalPresentationStyle="fullScreen" id="Uom-fg-tn0"/>
+                                    <action selector="setupButtonPressed:" destination="OVU-ks-FdW" eventType="touchUpInside" id="IWi-dk-5wc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -648,6 +648,8 @@
                         <outlet property="setupButtonWidth" destination="ckX-oj-ud6" id="WIy-am-ENT"/>
                         <outlet property="titleLabel" destination="awb-H8-NNF" id="h4J-ok-6TH"/>
                         <outlet property="titleWidth" destination="4r8-EO-yti" id="Rhw-8p-d1S"/>
+                        <segue destination="pB3-tl-s11" kind="presentation" identifier="HowItWorksToHome" modalPresentationStyle="fullScreen" id="p9V-Tf-OBv"/>
+                        <segue destination="05l-yP-HLx" kind="presentation" identifier="HowItWorksToBluetooth" modalPresentationStyle="fullScreen" id="FMt-HX-HpP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Djf-7d-tew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -659,6 +661,14 @@
             </objects>
             <point key="canvasLocation" x="1332" y="102"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="opS-Ag-elP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="pB3-tl-s11" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHl-qX-BMS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2056" y="80"/>
+        </scene>
         <!--Bluetooth-->
         <scene sceneID="yMa-iv-UCN">
             <objects>
@@ -668,12 +678,6 @@
             <point key="canvasLocation" x="2003" y="136"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="niy-eA-MWk"/>
-        <segue reference="O9f-n5-66E"/>
-        <segue reference="Vou-YW-Bme"/>
-        <segue reference="VYw-Gz-BXR"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="how-it-works-1" width="375" height="314"/>
         <image name="how-it-works-2" width="375" height="316"/>
@@ -684,4 +688,10 @@
             <color red="0.17254901960784313" green="0.34509803921568627" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="niy-eA-MWk"/>
+        <segue reference="Ep2-18-6Uu"/>
+        <segue reference="Vou-YW-Bme"/>
+        <segue reference="VYw-Gz-BXR"/>
+    </inferredMetricsTieBreakers>
 </document>
