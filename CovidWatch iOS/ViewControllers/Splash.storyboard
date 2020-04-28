@@ -80,11 +80,22 @@
                         <outlet property="mainLogoImg" destination="btT-ps-Ijn" id="riG-pd-Pw5"/>
                         <outlet property="startButton" destination="kBx-Na-snW" id="kyG-YS-FE6"/>
                         <segue destination="5SZ-V2-tjU" kind="show" identifier="SplashToBluetoothQuick" animates="NO" id="ejU-kS-iIw"/>
+                        <segue destination="ZRA-Y1-blF" kind="show" identifier="Home" id="1M6-1s-q4t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgw-X2-MXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1796" y="-791"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="ep3-X6-LTc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="ZRA-Y1-blF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Ips-oM-06B"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yTR-nj-gDQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-942" y="-859"/>
         </scene>
         <!--Bluetooth-->
         <scene sceneID="8tf-by-WAm">
