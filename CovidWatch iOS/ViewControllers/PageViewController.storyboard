@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mww-kd-j3y">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+    </dependencies>
+    <scenes>
+        <!--Page View Controller-->
+        <scene sceneID="6Wx-uZ-Scn">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="mww-kd-j3y" customClass="PageViewController" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="NvN-lO-pmD" kind="show" identifier="Bluetooth" id="2lH-th-Pqg"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nyD-9e-ycC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="55" y="68"/>
+        </scene>
+        <!--Bluetooth-->
+        <scene sceneID="C9d-7i-XM8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Bluetooth" id="NvN-lO-pmD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8zA-NF-mmL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPO-u7-yvn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="804" y="68"/>
+        </scene>
+    </scenes>
+</document>

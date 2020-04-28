@@ -11,7 +11,7 @@
         <!--Screen 1-->
         <scene sceneID="Jxb-GG-YQv">
             <objects>
-                <viewController id="7C4-bd-Y0y" userLabel="Screen 1" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowItWorks1" id="7C4-bd-Y0y" userLabel="Screen 1" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bUS-jC-Maw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,9 +71,6 @@
                                             <constraint firstAttribute="height" constant="20" id="kE4-Gd-St9"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="Wab-bb-aSs"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="iEP-6q-3oX" appends="YES" id="GDX-4X-riy"/>
-                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CzQ-s0-DOr" userLabel="page3">
                                         <rect key="frame" x="64" y="0.0" width="20" height="20"/>
@@ -84,9 +81,6 @@
                                             <constraint firstAttribute="height" constant="20" id="GgR-9a-uJc"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="YwP-xS-cLe"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="su1-Zb-YNG" appends="YES" id="qIf-xG-EEM"/>
-                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VD2-DG-VEV" userLabel="page4">
                                         <rect key="frame" x="96" y="0.0" width="20" height="20"/>
@@ -96,9 +90,6 @@
                                             <constraint firstAttribute="height" constant="20" id="BFg-Gv-Kse"/>
                                             <constraint firstAttribute="width" constant="20" id="FXc-Rw-uYX"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="nMt-AV-nAG" appends="YES" id="TfL-21-Eoi"/>
-                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -149,9 +140,6 @@
                             <constraint firstItem="XxC-wA-Vli" firstAttribute="top" secondItem="kSD-Ky-nLK" secondAttribute="bottom" constant="20" id="wGR-n1-Piq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="coQ-C6-DQ0"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="u0a-4B-Ptx" appends="YES" id="nUc-SB-8c0"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="kSD-Ky-nLK" id="lWJ-fQ-AUX"/>
@@ -167,26 +155,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEq-cd-4h7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="u0a-4B-Ptx">
-                    <connections>
-                        <segue destination="3Kp-hc-jfI" kind="presentation" identifier="page1to2" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="7zN-dc-dHt"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <tapGestureRecognizer id="iEP-6q-3oX">
-                    <connections>
-                        <segue destination="3Kp-hc-jfI" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="HBd-iC-dHS"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="su1-Zb-YNG">
-                    <connections>
-                        <segue destination="3Kp-hc-jfI" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Vou-YW-Bme"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="nMt-AV-nAG">
-                    <connections>
-                        <segue destination="3Kp-hc-jfI" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8sm-A0-vc8"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1542.0289855072465" y="101.78571428571428"/>
         </scene>
@@ -201,7 +169,7 @@
         <!--Screen 2-->
         <scene sceneID="0o5-eR-gcO">
             <objects>
-                <viewController id="3Kp-hc-jfI" userLabel="Screen 2" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowItWorks2" id="3Kp-hc-jfI" userLabel="Screen 2" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PK0-GX-Mfq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,9 +214,6 @@
                                             <constraint firstAttribute="width" constant="20" id="6UP-00-tZ6"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="7vB-t8-wgn"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="VOr-hm-Pun" appends="YES" id="8Yd-sH-3Mk"/>
-                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9o9-Hp-Zfy" userLabel="page2">
                                         <rect key="frame" x="32" y="0.0" width="20" height="20"/>
@@ -268,9 +233,6 @@
                                             <constraint firstAttribute="width" constant="20" id="f3Y-xW-zXK"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="p2j-cE-1ub"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="2bA-Lx-32l" appends="YES" id="P6x-iO-afP"/>
-                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d94-JU-DeO" userLabel="page4">
                                         <rect key="frame" x="96" y="0.0" width="20" height="20"/>
@@ -280,9 +242,6 @@
                                             <constraint firstAttribute="width" constant="20" id="nHl-8p-UrS"/>
                                             <constraint firstAttribute="height" constant="20" id="nT2-0m-Idt"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="BJk-Yj-eVj" appends="YES" id="QWt-bM-TKt"/>
-                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -339,10 +298,6 @@
                             <constraint firstItem="YR8-D8-XqA" firstAttribute="centerX" secondItem="PK0-GX-Mfq" secondAttribute="centerX" id="xXT-SU-lui"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Keb-Uh-DUt"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="C26-0m-8Qp" appends="YES" id="GsY-bj-ZP8"/>
-                            <outletCollection property="gestureRecognizers" destination="sNo-GU-xj9" appends="YES" id="3dg-3o-fcl"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="jvE-mh-I87"/>
                     <connections>
@@ -359,38 +314,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gn-RX-pJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="C26-0m-8Qp">
-                    <connections>
-                        <segue destination="UjY-uS-GAc" kind="presentation" identifier="page2to3" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Cmd-kV-ETC"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="sNo-GU-xj9">
-                    <connections>
-                        <segue destination="7C4-bd-Y0y" kind="presentation" identifier="page2to1" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="zKO-Av-GdD"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <tapGestureRecognizer id="VOr-hm-Pun">
-                    <connections>
-                        <segue destination="7C4-bd-Y0y" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="VYw-Gz-BXR"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="2bA-Lx-32l">
-                    <connections>
-                        <segue destination="UjY-uS-GAc" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="O9f-n5-66E"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="BJk-Yj-eVj">
-                    <connections>
-                        <segue destination="UjY-uS-GAc" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="ylN-PZ-5Xe"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-571.01449275362324" y="101.78571428571428"/>
         </scene>
         <!--Screen 3-->
         <scene sceneID="U1t-dD-X42">
             <objects>
-                <viewController id="UjY-uS-GAc" userLabel="Screen 3" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowItWorks3" id="UjY-uS-GAc" userLabel="Screen 3" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x4X-Ar-dgF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -428,9 +358,6 @@
                                             <constraint firstAttribute="height" constant="20" id="vtN-jZ-BkZ"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="qZK-UX-hh4"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="FlX-EW-1p0" appends="YES" id="J1n-oy-eLY"/>
-                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8YR-2H-Nbr" userLabel="page2">
                                         <rect key="frame" x="32" y="0.0" width="20" height="20"/>
@@ -441,9 +368,6 @@
                                             <constraint firstAttribute="height" constant="20" id="wxx-LH-9ot"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="YI8-5b-nZl"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="5mR-GI-wjg" appends="YES" id="Zxx-Wv-vY1"/>
-                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="peq-GI-9er" userLabel="page3">
                                         <rect key="frame" x="64" y="0.0" width="20" height="20"/>
@@ -462,9 +386,6 @@
                                             <constraint firstAttribute="height" constant="20" id="Nw4-FF-1CW"/>
                                             <constraint firstAttribute="width" constant="20" id="TeP-U3-Qb7"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="GH7-kk-rxA" appends="YES" id="Qde-Nh-0hF"/>
-                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -525,10 +446,6 @@
                             <constraint firstItem="ytJ-1p-TA7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9ng-wY-CTx" secondAttribute="bottom" constant="8" id="zEJ-dg-vrK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CTt-T0-TTC"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="Cv2-f6-dcG" appends="YES" id="YCp-2C-Otd"/>
-                            <outletCollection property="gestureRecognizers" destination="Ac2-5t-AbZ" appends="YES" id="hh0-Wf-wrf"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="ytJ-1p-TA7" id="aOs-O3-Dvn"/>
@@ -544,38 +461,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0FA-SW-0i2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="Cv2-f6-dcG">
-                    <connections>
-                        <segue destination="3Kp-hc-jfI" kind="presentation" identifier="page3to2" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="zwB-PW-f88"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="left" id="Ac2-5t-AbZ">
-                    <connections>
-                        <segue destination="vzG-Mt-LWc" kind="presentation" identifier="page3to4" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="mGe-Qk-EEz"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <tapGestureRecognizer id="GH7-kk-rxA">
-                    <connections>
-                        <segue destination="vzG-Mt-LWc" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="niy-eA-MWk"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="5mR-GI-wjg">
-                    <connections>
-                        <segue destination="3Kp-hc-jfI" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="76m-a0-AWy"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="FlX-EW-1p0">
-                    <connections>
-                        <segue destination="7C4-bd-Y0y" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="cpC-Zm-23Y"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="334.78260869565219" y="101.78571428571428"/>
         </scene>
         <!--Screen 4-->
         <scene sceneID="gwO-kq-Nw6">
             <objects>
-                <viewController id="OVU-ks-FdW" userLabel="Screen 4" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowItWorks4" id="OVU-ks-FdW" userLabel="Screen 4" customClass="HowItWorks" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v4Q-Gs-ZZ6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -656,9 +548,6 @@
                             <constraint firstItem="ByJ-HV-zWX" firstAttribute="top" secondItem="Uge-qR-ORx" secondAttribute="bottom" constant="20" id="uLI-pU-c5D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Akj-iE-OdT"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="npv-Fh-IK6" appends="YES" id="Wvv-24-D3Q"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="BAg-RC-ejw"/>
                     <connections>
@@ -671,62 +560,15 @@
                         <outlet property="setupButtonWidth" destination="ckX-oj-ud6" id="WIy-am-ENT"/>
                         <outlet property="titleLabel" destination="awb-H8-NNF" id="h4J-ok-6TH"/>
                         <outlet property="titleWidth" destination="4r8-EO-yti" id="Rhw-8p-d1S"/>
-                        <segue destination="pB3-tl-s11" kind="presentation" identifier="HowItWorksToHome" modalPresentationStyle="fullScreen" id="p9V-Tf-OBv"/>
-                        <segue destination="05l-yP-HLx" kind="show" identifier="HowItWorksToBluetooth" id="FMt-HX-HpP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Djf-7d-tew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="npv-Fh-IK6">
-                    <connections>
-                        <segue destination="UjY-uS-GAc" kind="presentation" identifier="page4to3" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Ep2-18-6Uu"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2242.0289855072465" y="101.78571428571428"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="opS-Ag-elP">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="pB3-tl-s11" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LHl-qX-BMS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2056" y="80"/>
-        </scene>
-        <!--Bluetooth-->
-        <scene sceneID="yMa-iv-UCN">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Bluetooth" id="05l-yP-HLx" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="aI0-Hh-C7Q"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2xE-ax-Y3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2913.04347826087" y="101.78571428571428"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qId-uW-Dpf">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="vzG-Mt-LWc" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xVi-Xx-Gma">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="OVU-ks-FdW" kind="relationship" relationship="rootViewController" id="qaq-vp-ACb"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aDi-12-Qnb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1331.8840579710145" y="101.78571428571428"/>
+            <point key="canvasLocation" x="1229" y="102"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mGe-Qk-EEz"/>
-        <segue reference="O9f-n5-66E"/>
-        <segue reference="HBd-iC-dHS"/>
-        <segue reference="FYl-Oh-N4m"/>
-        <segue reference="VYw-Gz-BXR"/>
+        <segue reference="jZ5-zA-LmW"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="how-it-works-1" width="375" height="314"/>
