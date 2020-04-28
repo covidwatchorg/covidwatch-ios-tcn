@@ -28,7 +28,7 @@ class Splash: UIViewController {
         // accessibility identifiers
         setupAccessibilityAndLocalization()
 
-        if UserDefaults.standard.checkIfStartedOnboarding {
+        if UserDefaults.standard.checkIfStartedOnboarding && UserDefaults.standard.isFirstTimeUser {
             DispatchQueue.main.async {
                 self.goToBluetoothNoAnimation()
             }
