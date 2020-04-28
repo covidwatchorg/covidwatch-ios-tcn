@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pcd-hq-wYJ">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,27 +21,13 @@
         <!--Test-->
         <scene sceneID="hrP-eP-8Op">
             <objects>
-                <viewController id="Pcd-hq-wYJ" customClass="Test" customModule="Tags_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Pcd-hq-wYJ" customClass="Test" customModule="Covid_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b76-ro-RNe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-cw-color" translatesAutoresizingMaskIntoConstraints="NO" id="cfd-1X-7JK">
-                                <rect key="frame" x="20" y="64" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="1Ic-Dp-Rjq"/>
-                                    <constraint firstAttribute="height" constant="40" id="Lt9-PO-wlI"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="x-icon" translatesAutoresizingMaskIntoConstraints="NO" id="vFp-7c-ud3">
-                                <rect key="frame" x="331" y="74" width="24" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="RBH-6X-gLm"/>
-                                    <constraint firstAttribute="height" constant="24" id="pcw-Zt-Wck"/>
-                                </constraints>
-                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbY-oQ-Hvz">
-                                <rect key="frame" x="0.0" y="134" width="375" height="644"/>
+                                <rect key="frame" x="0.0" y="121" width="375" height="657"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Fo-id-yVG" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
@@ -303,18 +288,35 @@
                                     <constraint firstAttribute="trailing" secondItem="FjT-Sy-Did" secondAttribute="trailing" id="eIG-B2-6v8"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQ2-N3-XuC">
+                                <rect key="frame" x="0.0" y="44" width="375" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="hPM-P8-81F"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="dSm-rN-94c" kind="embed" id="Kvq-ji-ggn"/>
+                                </connections>
+                            </containerView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="x-icon" translatesAutoresizingMaskIntoConstraints="NO" id="vFp-7c-ud3">
+                                <rect key="frame" x="331" y="60" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="RBH-6X-gLm"/>
+                                    <constraint firstAttribute="height" constant="24" id="pcw-Zt-Wck"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="XQ2-N3-XuC" firstAttribute="trailing" secondItem="dzg-TA-xp2" secondAttribute="trailing" id="044-2a-VKC"/>
                             <constraint firstItem="cbY-oQ-Hvz" firstAttribute="leading" secondItem="dzg-TA-xp2" secondAttribute="leading" id="0hh-Ql-CBY"/>
-                            <constraint firstItem="vFp-7c-ud3" firstAttribute="top" secondItem="dzg-TA-xp2" secondAttribute="top" constant="30" id="0ld-qC-yfq"/>
-                            <constraint firstItem="cfd-1X-7JK" firstAttribute="leading" secondItem="dzg-TA-xp2" secondAttribute="leading" constant="20" id="3ip-Zf-81y"/>
                             <constraint firstItem="dzg-TA-xp2" firstAttribute="bottom" secondItem="01c-Rd-hlQ" secondAttribute="bottom" id="6rX-Pc-Qpe"/>
-                            <constraint firstItem="cfd-1X-7JK" firstAttribute="top" secondItem="dzg-TA-xp2" secondAttribute="top" constant="20" id="Cwt-gR-tuL"/>
+                            <constraint firstItem="cbY-oQ-Hvz" firstAttribute="top" secondItem="XQ2-N3-XuC" secondAttribute="bottom" constant="20" id="9Pp-9i-SfF"/>
                             <constraint firstItem="01c-Rd-hlQ" firstAttribute="trailing" secondItem="dzg-TA-xp2" secondAttribute="trailing" id="EN2-Hp-Khy"/>
+                            <constraint firstItem="XQ2-N3-XuC" firstAttribute="top" secondItem="dzg-TA-xp2" secondAttribute="top" id="F9Z-Lw-bGI"/>
+                            <constraint firstItem="vFp-7c-ud3" firstAttribute="top" secondItem="dzg-TA-xp2" secondAttribute="top" constant="16" id="Sv7-jz-Rzz"/>
+                            <constraint firstItem="XQ2-N3-XuC" firstAttribute="leading" secondItem="dzg-TA-xp2" secondAttribute="leading" id="Uf0-Kg-Uvs"/>
                             <constraint firstItem="dzg-TA-xp2" firstAttribute="bottom" secondItem="cbY-oQ-Hvz" secondAttribute="bottom" id="dkL-wG-hsL"/>
                             <constraint firstItem="01c-Rd-hlQ" firstAttribute="leading" secondItem="dzg-TA-xp2" secondAttribute="leading" id="gqZ-nX-zri"/>
-                            <constraint firstItem="cbY-oQ-Hvz" firstAttribute="top" secondItem="cfd-1X-7JK" secondAttribute="bottom" constant="30" id="hpC-rh-r1B"/>
                             <constraint firstItem="dzg-TA-xp2" firstAttribute="trailing" secondItem="vFp-7c-ud3" secondAttribute="trailing" constant="20" id="kpU-8L-Ct6"/>
                             <constraint firstItem="cbY-oQ-Hvz" firstAttribute="trailing" secondItem="dzg-TA-xp2" secondAttribute="trailing" id="zFn-6y-8Ft"/>
                         </constraints>
@@ -352,7 +354,7 @@
                         <outlet property="scrollViewBottom" destination="dkL-wG-hsL" id="6wB-Hg-nuu"/>
                         <outlet property="showOnNegativeView" destination="uRK-Ag-ZRW" id="FHb-Ws-zja"/>
                         <outlet property="showOnPositiveView" destination="YY3-NH-PMz" id="gJU-0S-skQ"/>
-                        <outlet property="titleTopSpace" destination="hpC-rh-r1B" id="yko-Rq-PfZ"/>
+                        <outlet property="titleTopSpace" destination="9Pp-9i-SfF" id="Q2W-Y6-A8D"/>
                         <outlet property="titleWidth" destination="N2n-pY-Tiw" id="UYQ-Tk-xvu"/>
                         <segue destination="jwJ-fK-v8e" kind="presentation" identifier="confirmTest" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="jNo-oj-FAp"/>
                         <segue destination="1bH-ks-gge" kind="presentation" identifier="testToHome" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="j8C-A6-hgC"/>
@@ -360,7 +362,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BfP-XJ-r3R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="182.60869565217394" y="108.48214285714285"/>
+            <point key="canvasLocation" x="181.59999999999999" y="107.88177339901478"/>
+        </scene>
+        <!--HeaderViewController-->
+        <scene sceneID="T9M-oO-eRe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HeaderViewController" id="dSm-rN-94c" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GFm-4Q-5YD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="935" y="-358"/>
         </scene>
         <!--Confirm-->
         <scene sceneID="jsa-Yh-v41">
@@ -380,8 +390,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark" width="23.333333969116211" height="23.333333969116211"/>
-        <image name="logo-cw-color" width="141" height="140"/>
-        <image name="x-icon" width="24" height="24"/>
+        <image name="checkmark" width="24" height="24"/>
+        <image name="x-icon" width="23" height="23"/>
     </resources>
 </document>

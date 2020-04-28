@@ -16,6 +16,7 @@
 		1F45964E245615A600EC9ACE /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F459647245615A500EC9ACE /* Notifications.storyboard */; };
 		1F4596502456165A00EC9ACE /* HowItWorks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F45964F2456165A00EC9ACE /* HowItWorks.storyboard */; };
 		1F8B8BDD24561E380066EE54 /* HeaderViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F550F452455C9D1005A337A /* HeaderViewControllerTests.swift */; };
+		1F91E6BE2457A21E006EA8F1 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F91E6BD2457A21E006EA8F1 /* Font.swift */; };
 		1F9258FA245258E30025C1B0 /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE68E2244E8F7F003D1E48 /* OnboardingFlow.swift */; };
 		1F9258FB245258E60025C1B0 /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48145B244F6E020025EA9B /* Springboard.swift */; };
 		1F94B1652454A8AE00807C0A /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94B1642454A8AE00807C0A /* HeaderViewController.swift */; };
@@ -75,6 +76,8 @@
 		2E1FDC1924393C5A000D8D67 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E1FDC0724393C5A000D8D67 /* Montserrat-ExtraBold.ttf */; };
 		2E1FDC1B24394425000D8D67 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FDC1A24394424000D8D67 /* Notifications.swift */; };
 		2E48145E244FCCDD0025EA9B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48145D244FCCDD0025EA9B /* Environment.swift */; };
+		2E6D3D1024576B0A000F0398 /* TCNClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2E6D3D0F24576B0A000F0398 /* TCNClient */; };
+		2E6D3D1224576B1A000F0398 /* TCNClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2E6D3D1124576B1A000F0398 /* TCNClient */; };
 		2E80CAE72446B87700F5272E /* IsWithinXDaysOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80CAE62446B87700F5272E /* IsWithinXDaysOfToday.swift */; };
 		2EBF8729243BCFA1003278E6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF8728243BCFA1003278E6 /* UIViewExtension.swift */; };
 		2EBF872B243BEAFA003278E6 /* LargeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF872A243BEAFA003278E6 /* LargeText.swift */; };
@@ -87,7 +90,6 @@
 		2EFE630C2440E9EA00D00305 /* InfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE630B2440E9EA00D00305 /* InfoBanner.swift */; };
 		60808C3424524291007415FE /* HowItWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60808C3324524291007415FE /* HowItWorks.swift */; };
 		60BD14FB2446854F0009D7E0 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD14FA2446854F0009D7E0 /* Confirm.swift */; };
-		A132EC6A9798E0BD6919591B /* Pods_CovidWatch_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C0A11A172E6B5635D50B7E /* Pods_CovidWatch_iOSTests.framework */; };
 		BC6B4CB72448BB08003FB3F9 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB62448BB08003FB3F9 /* AccessibilityIdentifier.swift */; };
 		BC6B4CBA2448BC50003FB3F9 /* AccessibilityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B4CB92448BC50003FB3F9 /* AccessibilityLabel.swift */; };
 		E1C729FF243DE30900D30118 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C729FE243DE30900D30118 /* Test.swift */; };
@@ -123,6 +125,7 @@
 		1F459647245615A500EC9ACE /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		1F45964F2456165A00EC9ACE /* HowItWorks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HowItWorks.storyboard; sourceTree = "<group>"; };
 		1F550F452455C9D1005A337A /* HeaderViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewControllerTests.swift; sourceTree = "<group>"; };
+		1F91E6BD2457A21E006EA8F1 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		1F94B1642454A8AE00807C0A /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		1F94B1662454A8C600807C0A /* HeaderViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HeaderViewController.storyboard; sourceTree = "<group>"; };
 		1F94B1682454EC2100807C0A /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
@@ -239,7 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A132EC6A9798E0BD6919591B /* Pods_CovidWatch_iOSTests.framework in Frameworks */,
+				2E6D3D1024576B0A000F0398 /* TCNClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +250,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6D3D1224576B1A000F0398 /* TCNClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				2E48145D244FCCDD0025EA9B /* Environment.swift */,
+				1F91E6BD2457A21E006EA8F1 /* Font.swift */,
 				2DDEBF5F241A369A005BE9A8 /* UIWindow+ViewControllerUtility.swift */,
 				2DC231EB241BA17B00216404 /* UIViewController+ErrorPresenting.swift */,
 				2D30EFC2242268010063C211 /* Array+Chunked.swift */,
@@ -532,6 +537,9 @@
 				2DFDC5BA24190ABA00B108F8 /* PBXTargetDependency */,
 			);
 			name = "CovidWatch iOSTests";
+			packageProductDependencies = (
+				2E6D3D0F24576B0A000F0398 /* TCNClient */,
+			);
 			productName = "COVID-19 RiskTests";
 			productReference = 2DFDC5B824190ABA00B108F8 /* CovidWatch iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -552,6 +560,9 @@
 				2DFDC5C524190ABA00B108F8 /* PBXTargetDependency */,
 			);
 			name = "CovidWatch iOSUITests";
+			packageProductDependencies = (
+				2E6D3D1124576B1A000F0398 /* TCNClient */,
+			);
 			productName = "COVID-19 RiskUITests";
 			productReference = 2DFDC5C324190ABA00B108F8 /* CovidWatch iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -818,6 +829,7 @@
 				2E0E86E6243D05260084F8ED /* MenuItem.swift in Sources */,
 				2DC6439C2431FE2F008F5E4C /* QuerySnapshotProcessingOperation.swift in Sources */,
 				2EF61C392436F82D003046A4 /* UIColorExtension.swift in Sources */,
+				1F91E6BE2457A21E006EA8F1 /* Font.swift in Sources */,
 				2D667D8F2451AED20071C353 /* SignedReportsDownloadOperation.swift in Sources */,
 				2D667D912451AF870071C353 /* SignedReport+TCN.swift in Sources */,
 				E2B451A924443FE900E17888 /* BluetoothPermission.swift in Sources */,
@@ -1216,6 +1228,16 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		2D667D7F2451AB0C0071C353 /* TCNClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D667D7E2451AB0C0071C353 /* XCRemoteSwiftPackageReference "tcn-client-ios" */;
+			productName = TCNClient;
+		};
+		2E6D3D0F24576B0A000F0398 /* TCNClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D667D7E2451AB0C0071C353 /* XCRemoteSwiftPackageReference "tcn-client-ios" */;
+			productName = TCNClient;
+		};
+		2E6D3D1124576B1A000F0398 /* TCNClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2D667D7E2451AB0C0071C353 /* XCRemoteSwiftPackageReference "tcn-client-ios" */;
 			productName = TCNClient;

@@ -20,6 +20,7 @@ class Bluetooth: UIViewController {
     @IBOutlet private var largeText: UILabel!
     @IBOutlet private var mainText: UILabel!
     @IBOutlet private var button: UIButton!
+    @IBOutlet weak var btnHeight: NSLayoutConstraint!
     
     // MARK: - IBActions
     
@@ -32,6 +33,7 @@ class Bluetooth: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAccessibilityAndLocalization()
+        button.update(height: btnHeight)
         UserDefaults.standard.checkIfStartedOnboarding = true
     }
     

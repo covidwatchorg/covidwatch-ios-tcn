@@ -3,7 +3,7 @@
 //  CovidWatch iOS
 //
 //  Created by Laima Cernius-Ink on 4/4/20.
-//  
+//
 //
 
 import UIKit
@@ -13,7 +13,8 @@ class Splash: UIViewController {
     @IBOutlet var mainLogoImg: UIImageView!
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var startButton: UIButton!
-    
+    @IBOutlet weak var btnHeight: NSLayoutConstraint!
+
     static let animationDuration = 1.0
     static let animationSlowdown = 1.5
     static let delayBetweenAnimations = 0.2
@@ -25,14 +26,14 @@ class Splash: UIViewController {
         self.descriptionText.alpha = 0.0
         // accessibility identifiers
         setupAccessibilityAndLocalization()
-        
+
         if UserDefaults.standard.checkIfStartedOnboarding {
             DispatchQueue.main.async {
                 self.goToBluetoothNoAnimation()
             }
         }
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // animate bottom elements in
@@ -51,7 +52,7 @@ class Splash: UIViewController {
             }
         })
     }
-    
+
     private func setupAccessibilityAndLocalization() {
         mainLogoImg.accessibilityIdentifier = AccessibilityIdentifier.TitleLogo.rawValue
         descriptionText.accessibilityIdentifier = AccessibilityIdentifier.DescriptionText.rawValue

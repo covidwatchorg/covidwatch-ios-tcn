@@ -25,14 +25,8 @@ class InfoBanner: UIView {
         self.backgroundColor = UIColor.Secondary.Tangerine
         
         self.text = UITextView()
-        var fontSize: CGFloat = 18
-        if screenHeight <= 568 {
-            fontSize = 14
-        } else if screenHeight <= 667 {
-            fontSize = 16
-        }
         self.text.text = text
-        self.text.font = UIFont(name: "Montserrat-Bold", size: fontSize)
+        self.text.font = Font.button.font(viewHeight: screenHeight)
         self.text.textColor = .white
         self.text.isEditable = false
         self.text.isSelectable = false

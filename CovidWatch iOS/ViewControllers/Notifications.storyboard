@@ -28,19 +28,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-2F-UCU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="1MQ-Jj-4Id"/>
+                                    <constraint firstAttribute="height" constant="57" id="1MQ-Jj-4Id"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="7Zi-fn-PC1" kind="embed" id="xa2-AQ-sdG"/>
                                 </connections>
                             </containerView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="phone-alerts" translatesAutoresizingMaskIntoConstraints="NO" id="pHD-lC-Lin">
-                                <rect key="frame" x="20" y="83" width="280" height="205.5"/>
+                                <rect key="frame" x="20" y="65" width="280" height="219"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Receive Alerts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yan-G5-hVS">
-                                <rect key="frame" x="20" y="313.5" width="280" height="44"/>
+                                <rect key="frame" x="20" y="309" width="280" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="zf2-w2-5Cb"/>
                                 </constraints>
@@ -49,8 +49,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b9-6o-kDC" customClass="ALButton" customModule="Covid_Watch">
-                                <rect key="frame" x="20" y="507.5" width="280" height="40.5"/>
+                                <rect key="frame" x="20" y="503" width="280" height="45"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="cSM-7U-80K"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                 <state key="normal" title="Allow Notifications">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,7 +68,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Enable notifications to receive anonymized alerts when you have come into contact with a confirmed case of COVID-19." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqJ-eb-64q">
-                                <rect key="frame" x="20" y="367.5" width="280" height="110"/>
+                                <rect key="frame" x="20" y="363" width="280" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="g5d-45-2jv"/>
                                 </constraints>
@@ -82,7 +85,6 @@
                             <constraint firstItem="nqJ-eb-64q" firstAttribute="top" secondItem="yan-G5-hVS" secondAttribute="bottom" constant="10" id="IKo-Dd-jHj"/>
                             <constraint firstItem="Vdm-oP-MqB" firstAttribute="trailing" secondItem="yan-G5-hVS" secondAttribute="trailing" constant="20" id="LHV-0i-11V"/>
                             <constraint firstItem="Vdm-oP-MqB" firstAttribute="trailing" secondItem="pHD-lC-Lin" secondAttribute="trailing" constant="20" id="Sqr-ns-UvW"/>
-                            <constraint firstItem="4b9-6o-kDC" firstAttribute="height" secondItem="jeb-fd-FpA" secondAttribute="height" multiplier="58/812" id="U9K-Rc-IIo"/>
                             <constraint firstItem="2Fg-2F-UCU" firstAttribute="top" secondItem="Vdm-oP-MqB" secondAttribute="top" id="UEr-bJ-taM"/>
                             <constraint firstItem="2Fg-2F-UCU" firstAttribute="leading" secondItem="Vdm-oP-MqB" secondAttribute="leading" id="VhU-IQ-Hvo"/>
                             <constraint firstItem="Vdm-oP-MqB" firstAttribute="trailing" secondItem="nqJ-eb-64q" secondAttribute="trailing" constant="20" id="YYR-AD-NXw"/>
@@ -97,6 +99,7 @@
                         <viewLayoutGuide key="safeArea" id="Vdm-oP-MqB"/>
                     </view>
                     <connections>
+                        <outlet property="btnHeight" destination="cSM-7U-80K" id="3Od-2Q-e7g"/>
                         <outlet property="button" destination="4b9-6o-kDC" id="Uqm-bQ-oJ8"/>
                         <outlet property="largeText" destination="yan-G5-hVS" id="Us2-BS-eMK"/>
                         <outlet property="mainText" destination="nqJ-eb-64q" id="SK1-S3-iuY"/>
