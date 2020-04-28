@@ -36,6 +36,7 @@
                     <connections>
                         <outlet property="header" destination="tj1-GK-9mG" id="4do-NB-ycs"/>
                         <segue destination="uEX-Wy-C9R" kind="presentation" identifier="test" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="djO-Tl-6Iy"/>
+                        <segue destination="Cmd-5S-SUc" kind="presentation" identifier="HomeToHowItWorks" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="8hC-Kk-7on"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1h-VM-ymf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -49,6 +50,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U1Q-mg-gfz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="796" y="9"/>
+        </scene>
+        <!--HowItWorks-->
+        <scene sceneID="pAT-6T-NKv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HowItWorks" id="Cmd-5S-SUc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kRO-af-jQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="21"/>
         </scene>
         <!--Test-->
         <scene sceneID="vGV-Hr-6Sh">
