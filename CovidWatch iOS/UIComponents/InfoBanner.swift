@@ -9,13 +9,13 @@
 import UIKit
 
 class InfoBanner: UIView {
-    weak var parentVC: BaseViewController!
+    weak var parentVC: UIViewController!
     var text = UITextView()
     var isInteractive: Bool = false
     let exclamationCircle = UIImageView(image: UIImage(named: "exclamation-circle"))
     let buttonArrow = UIImageView(image: UIImage(named: "button-arrow"))
     private var _onClick: () -> Void = {return}
-    init(_ parentVC: BaseViewController, text: String, onClick: @escaping () -> Void) {
+    init(_ parentVC: UIViewController, text: String, onClick: @escaping () -> Void) {
         self.parentVC = parentVC
         self._onClick = onClick
         super.init(frame: CGRect())
@@ -25,14 +25,8 @@ class InfoBanner: UIView {
         self.backgroundColor = UIColor.Secondary.Tangerine
         
         self.text = UITextView()
-        var fontSize: CGFloat = 18
-        if screenHeight <= 568 {
-            fontSize = 14
-        } else if screenHeight <= 667 {
-            fontSize = 16
-        }
         self.text.text = text
-        self.text.font = UIFont(name: "Montserrat-Bold", size: fontSize)
+        self.text.font = Font.button.font(viewHeight: screenHeight)
         self.text.textColor = .white
         self.text.isEditable = false
         self.text.isSelectable = false

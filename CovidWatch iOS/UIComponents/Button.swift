@@ -8,12 +8,30 @@
 
 import UIKit
 
-class Button: UIButton {
-    weak var parentVC: BaseViewController!
+class ALButton: UIButton {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.titleLabel?.accessibilityIdentifier = AccessibilityIdentifier.ButtonText.rawValue
+        self.titleLabel?.font = Font.button.font(viewHeight: screenHeight)
+        self.layer.cornerRadius = 10
+    }
+}
+
+class ALSubText: UILabel {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.font = Font.subtext.font(viewHeight: screenHeight)
+        self.accessibilityIdentifier = AccessibilityIdentifier.SubText.rawValue
+        self.numberOfLines = 0
+    }
+}
+
+class Button: UIView {
+    weak var parentVC: UIViewController!
     var text = UILabel()
     var subtext: UITextView?
-    
-    init(_ parentVC: BaseViewController, text: String, subtext: String? = nil) {
+
+    init(_ parentVC: UIViewController, text: String, subtext: String? = nil) {
         self.parentVC = parentVC
         super.init(frame: CGRect())
         self.text.text = text
@@ -21,24 +39,14 @@ class Button: UIButton {
             self.subtext = UITextView()
         }
         self.subtext?.text = subtext
-        
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = (58.0/321.0) * contentMaxWidth
         self.backgroundColor = UIColor.Primary.Bluejay
         self.layer.cornerRadius = 10
-        var buttonFontSize: CGFloat = 18
-        var subtextFontSize: CGFloat = 14
-        if screenHeight <= 568 {
-            subtextFontSize = 10
-            buttonFontSize = 14
-        } else if screenHeight <= 667 {
-            subtextFontSize = 12
-            buttonFontSize = 16
-        }
-        self.text.font = UIFont(name: "Montserrat-Bold", size: buttonFontSize)
+        self.text.font = Font.button.font(viewHeight: screenHeight)
         self.text.textColor = UIColor.Primary.White
         self.text.backgroundColor = .clear
-        self.subtext?.font = UIFont(name: "Montserrat", size: subtextFontSize)
+        self.subtext?.font = Font.subtext.font(viewHeight: screenHeight)
         self.subtext?.textColor = UIColor.Primary.Gray
         self.subtext?.backgroundColor = .clear
         self.subtext?.textAlignment = .center

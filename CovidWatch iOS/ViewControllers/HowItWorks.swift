@@ -53,46 +53,31 @@ class HowItWorks: UIViewController {
         }
         // user has reached last screen
         if let setupButton = self.setupButton {
-            UserDefaults.standard.set(true, forKey: Splash.onboardingStartedKey)
             setupButton.layer.cornerRadius = 10
-            var buttonFontSize: CGFloat = 18
-            if screenHeight <= 568 {
-                buttonFontSize = 14
-            } else if screenHeight <= 667 {
-                buttonFontSize = 16
-            }
-            setupButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: buttonFontSize)
+            setupButton.titleLabel?.font = Font.button.font(viewHeight: screenHeight)
             if !UserDefaults.shared.isFirstTimeUser {
                 setupButton.setTitle("Done", for: .normal)
             }
-
-        }
-
-        var titleFontSize: CGFloat = 36
-        if screenHeight <= 568 {
-            titleFontSize = 28
-        } else if screenHeight <= 667 {
-            titleFontSize = 32
-        }
-        var fontSize: CGFloat = 18
-        if screenHeight <= 568 {
-            fontSize = 14
-        } else if screenHeight <= 667 {
-            fontSize = 16
         }
         howItWorksLabel.font = UIFont(name: "Montserrat", size: 14)
         howItWorksLabel.textColor = UIColor.Primary.Gray
-        titleLabel.font = UIFont(name: "Montserrat-SemiBold", size: titleFontSize)
+        titleLabel.font = Font.large.font(viewHeight: screenHeight)
         titleLabel.textColor = UIColor.Primary.Gray
-        descriptionLabel.font = UIFont(name: "Montserrat", size: fontSize)
+        descriptionLabel.font = Font.main.font(viewHeight: screenHeight)
         descriptionLabel.textColor = UIColor.Primary.Gray
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let headerViewController = segue.destination as? HeaderViewController {
+            headerViewController.delegate = self
+        }
     }
 
     func setupAccessibilityAndLocalization() {
         titleLabel.accessibilityIdentifier = AccessibilityIdentifier.LargeText.rawValue
         descriptionLabel.accessibilityIdentifier = AccessibilityIdentifier.MainText.rawValue
     }
-    
+
     private func nextScreen() {
         if UserDefaults.shared.isFirstTimeUser {
             self.performSegue(withIdentifier: "HowItWorksToBluetooth", sender: self)
@@ -100,4 +85,10 @@ class HowItWorks: UIViewController {
             self.performSegue(withIdentifier: "HowItWorksToHome", sender: self)
         }
     }
+}
+
+// MARK: - Protocol HeaderViewControllerDelegate
+extension HowItWorks: HeaderViewControllerDelegate {
+    func menuWasTapped() { print("not implemented") }
+    var shouldShowMenu: Bool { false }
 }

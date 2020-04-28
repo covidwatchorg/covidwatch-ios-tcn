@@ -8,13 +8,15 @@
 
 import UIKit
 
-class Home: BaseViewController {
+class Home: UIViewController {
+    @IBOutlet weak var header: UIView!
     var img = UIImageView(image: UIImage(named: "family"))
     var largeText: LargeText!
     var mainText: MainText!
     var spreadButton: Button!
     var testedButton: Button!
     var infoBanner: InfoBanner!
+    var menu: Menu!
     var testLastSubmittedDateObserver: NSKeyValueObservation?
     var mostRecentExposureDateObserver: NSKeyValueObservation?
     var isUserSickObserver: NSKeyValueObservation?
@@ -33,6 +35,7 @@ class Home: BaseViewController {
         //swiftlint:disable:next line_length
         self.mainText = MainText(self, text: "Thank you for helping protect your communities. You will be notified of potential contact with COVID-19.")
         self.largeText = LargeText(self, text: "You're all set!")
+        self.menu = Menu(self)
         
         testLastSubmittedDateObserver = globalState.observe(
             \.testLastSubmittedDate,
@@ -64,10 +67,15 @@ class Home: BaseViewController {
         self.checkNotificationPersmission()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let header = segue.destination as? HeaderViewController {
+            header.delegate = self
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         drawScreen()
-        super.drawMenuOnTop()
     }
     
     @objc func goToTest() {
@@ -254,9 +262,18 @@ class Home: BaseViewController {
                                       bottom: screenHeight - self.view.safeAreaInsets.bottom,
                                       centerX: view.center.x)
         }
+//        Draw the menu last, so it's registered as "above" all other components in the layout hierarchy
+        self.menu.draw()
         
         globalState.isFirstTimeUser = false
         
     }
     
+}
+
+// MARK: - Protocol HeaderViewControllerDelegate
+extension Home: HeaderViewControllerDelegate {
+    func menuWasTapped() {
+        self.menu.toggleMenu()
+    }
 }

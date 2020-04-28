@@ -9,7 +9,7 @@
 import UIKit
 
 class Menu: UIView {
-    weak var parentVC: BaseViewController!
+    weak var parentVC: UIViewController!
     var xIcon = UIImageView(image: UIImage(named: "x-icon"))
     var menuItems: [MenuItem] = []
     var bottomWaterMark = UIImageView(image: UIImage(named: "collab-with-stanford"))
@@ -160,7 +160,7 @@ class Menu: UIView {
     }
     
     // swiftlint:disable:next function_body_length
-    init(_ parentVC: BaseViewController) {
+    init(_ parentVC: UIViewController) {
         self.parentVC = parentVC
         super.init(frame: CGRect())
         if getAppScheme() == .test {

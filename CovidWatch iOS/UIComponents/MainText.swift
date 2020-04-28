@@ -8,20 +8,23 @@
 
 import UIKit
 
+class ALMainText: UILabel {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.font = Font.main.font(viewHeight: screenHeight)
+        self.accessibilityIdentifier = AccessibilityIdentifier.Content.rawValue
+        self.numberOfLines = 0
+    }
+}
+
 class MainText: UITextView {
-    weak var parentVC: BaseViewController!
+    weak var parentVC: UIViewController!
     
-    init(_ parentVC: BaseViewController, text: String) {
+    init(_ parentVC: UIViewController, text: String) {
         self.parentVC = parentVC
         super.init(frame: CGRect(), textContainer: nil)
         self.text = text
-        var fontSize: CGFloat = 18
-        if screenHeight <= 568 {
-            fontSize = 14
-        } else if screenHeight <= 812 {
-            fontSize = 16
-        }
-        self.font = UIFont(name: "Montserrat", size: fontSize)
+        self.font = Font.main.font(viewHeight: screenHeight)
         self.textColor = UIColor.Primary.Gray
         self.frame.size.width = contentMaxWidth
         self.frame.size.height = self.contentSize.height

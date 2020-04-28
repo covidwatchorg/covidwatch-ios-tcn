@@ -203,6 +203,8 @@ class Test: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
                     }
                 }
             }
+        } else if let headerViewController = segue.destination as? HeaderViewController {
+            headerViewController.delegate = self
         }
     }
     
@@ -241,7 +243,7 @@ extension Test {
         reportButton.addConstraint(getButtonHeight(view: reportButton))
 
         titleWidth.constant = contentMaxWidth
-        titleTopSpace.constant = (30.0/321.0) * contentMaxWidth
+        titleTopSpace.constant = (20.0/321.0) * contentMaxWidth
         detailsTopSpace.constant = (30.0/321.0) * contentMaxWidth
         
         negativeTopSpace.constant = (15.0/321.0) * contentMaxWidth
@@ -291,4 +293,10 @@ extension Test {
             constant: contentMaxWidth
         )
     }
+}
+
+// MARK: - Protocol HeaderViewControllerDelegate
+extension Test: HeaderViewControllerDelegate {
+    func menuWasTapped() { print("not implemented") }
+    var shouldShowMenu: Bool { false }
 }

@@ -13,25 +13,15 @@ class Splash: UIViewController {
     @IBOutlet var mainLogoImg: UIImageView!
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var startButton: UIButton!
-
-    // this happens if bluetooth is changed during onboarding and the user
-    // gets bounced back to the start of onboarding when reloading the app
-    static let onboardingStartedKey = "onboardingStarted"
-    func checkIfStartedOnboarding() -> Bool {
-        // defaults to false
-        return UserDefaults.standard.bool(forKey: Splash.onboardingStartedKey)
-    }
-    func setOnboardingStarted() {
-        UserDefaults.standard.set(true, forKey: Splash.onboardingStartedKey)
-    }
-
+    @IBOutlet weak var btnHeight: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        startButton.update(height: btnHeight)
         // accessibility identifiers
         setupAccessibilityAndLocalization()
         
-        if checkIfStartedOnboarding() {
+        if UserDefaults.standard.checkIfStartedOnboarding {
             DispatchQueue.main.async {
                 self.goToBluetoothNoAnimation()
             }

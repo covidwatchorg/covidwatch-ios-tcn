@@ -46,4 +46,5 @@ platform :ios do
   lane :lint do
     swiftlint(executable: 'Pods/SwiftLint/swiftlint', strict: true)
   end
+
 end

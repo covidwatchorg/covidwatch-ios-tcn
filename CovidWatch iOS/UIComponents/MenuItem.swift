@@ -9,7 +9,7 @@
 import UIKit
 
 class MenuItem: UIView {
-    weak var parentVC: BaseViewController!
+    weak var parentVC: UIViewController!
     let text = UILabel()
     var linkImg: UIImageView?
     private var _onClick: () -> Void = {return}
@@ -81,7 +81,7 @@ class MenuItem: UIView {
         self._onClick()
     }
     
-    init(_ parentVC: BaseViewController,
+    init(_ parentVC: UIViewController,
          text: String,
          addLinkImg: Bool = false,
          onClick: @escaping () -> Void) {

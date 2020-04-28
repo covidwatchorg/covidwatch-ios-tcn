@@ -44,9 +44,7 @@ jobs:
           bundle exec fastlane tests
       - name: Convert Logs
         run: |
-          curl -sSLo ./cococo https://github.com/mysugr/cococo/releases/download/v0.3.0/cococo
-          chmod +x ./cococo
-          ./cococo Build/Logs/Test/*.xcresult/ > sonarqube-generic-coverage.xml
+          Scripts/xcov-to-sonarqube-generic.sh build/Logs/Test/Run-covidwatch-ios-* > coverage.xml
       - name: Install SonarCloud
         run: |
           export SONAR_SCANNER_VERSION=4.2.0.1873
@@ -63,12 +61,12 @@ jobs:
           sonar-scanner \
           -Dsonar.organization=covid19risk \
           -Dsonar.projectKey=covid19risk_covidwatch-ios \
-          -Dsonar.sources=. \
+          -Dsonar.sources="CovidWatch iOS" \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=$SONARCLOUD_LOGIN_KEY \
           -Dsonar.branch.name=dev \
           -Dsonar.c.file.suffixes=- \
           -Dsonar.cpp.file.suffixes=- \
           -Dsonar.objc.file.suffixes=- \
-          -Dsonar.coverageReportPaths=sonarqube-generic-coverage.xml
+          -Dsonar.coverageReportPaths=coverage.xml
           
