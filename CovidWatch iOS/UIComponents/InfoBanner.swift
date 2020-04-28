@@ -26,7 +26,7 @@ class InfoBanner: UIView {
         
         self.text = UITextView()
         self.text.text = text
-        self.text.font = Font.main.font(viewHeight: screenHeight)
+        self.text.font = Font.button.font(viewHeight: screenHeight)
         self.text.textColor = .white
         self.text.isEditable = false
         self.text.isSelectable = false
